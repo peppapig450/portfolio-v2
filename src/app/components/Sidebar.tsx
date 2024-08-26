@@ -22,9 +22,61 @@ import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import NextLink from "next/link";
+import useActiveSection from "@/hooks/useActiveSection";
+
+interface ListItemLinkButtonProps {
+  href: string;
+  icon: React.ReactElement<IconProps>;
+  text: string;
+}
 
 const Sidebar: React.FC = () => {
+  const activeSection = useActiveSection();
   const theme = useTheme();
+
+  const ListItemLinkButton: React.FC<ListItemLinkButtonProps> = ({
+    href,
+    icon,
+    text,
+  }) => (
+    <ListItemButton
+      LinkComponent={NextLink}
+      href={href}
+      selected={activeSection === href.slice(1)}
+      sx={{
+        justifyContent: "space-between",
+        pl: 3,
+        pr: 2,
+        "&.Mui-selected": {
+          backgroundColor: theme.palette.action.selected,
+          "&:hover": {
+            backgroundColor: theme.palette.action.hover,
+          },
+        },
+      }}
+    >
+      <ListItemIcon
+        sx={{
+          color:
+            activeSection === href.slice(1)
+              ? theme.palette.secondary.main
+              : theme.palette.secondary.light,
+          minWidth: "auto",
+          mr: 2,
+          ml: -0.5,
+        }}
+      >
+        {icon}
+      </ListItemIcon>
+      <ListItemText
+        primary={text}
+        primaryTypographyProps={{
+          color: theme.palette.primary.contrastText,
+          fontWeight: activeSection === href.slice(1) ? "bold" : "normal",
+        }}
+      />
+    </ListItemButton>
+  );
 
   return (
     <Drawer
