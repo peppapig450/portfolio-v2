@@ -22,7 +22,12 @@ import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import NextLink from "next/link";
-import useActiveSection from "@/hooks/useActiveSection";
+
+interface NavItem {
+  text: string;
+  icon: React.ReactElement<IconProps>;
+  path: string;
+}
 
 interface ListItemLinkButtonProps {
   href: string;
@@ -31,52 +36,63 @@ interface ListItemLinkButtonProps {
 }
 
 const Sidebar: React.FC = () => {
-  const activeSection = useActiveSection();
   const theme = useTheme();
+
+  const navItems: NavItem[] = [
+    { text: "Intro", icon: <HomeIcon />, path: "#top" },
+    { text: "Portfolio", icon: <WorkIcon />, path: "#portfolio" },
+    { text: "About Me", icon: <PersonIcon />, path: "#about" },
+    { text: "Contact", icon: <EmailIcon />, path: "#contact" },
+  ];
 
   const ListItemLinkButton: React.FC<ListItemLinkButtonProps> = ({
     href,
     icon,
     text,
-  }) => (
-    <ListItemButton
-      LinkComponent={NextLink}
-      href={href}
-      selected={activeSection === href.slice(1)}
-      sx={{
-        justifyContent: "space-between",
-        pl: 3,
-        pr: 2,
-        "&.Mui-selected": {
-          backgroundColor: theme.palette.action.selected,
-          "&:hover": {
-            backgroundColor: theme.palette.action.hover,
-          },
-        },
-      }}
-    >
-      <ListItemIcon
-        sx={{
-          color:
-            activeSection === href.slice(1)
-              ? theme.palette.secondary.main
-              : theme.palette.secondary.light,
-          minWidth: "auto",
-          mr: 2,
-          ml: -0.5,
-        }}
+  }) => {
+    return (
+      <Link
+        href={href}
+        key={text}
+        component={NextLink}
+        passHref
+        underline="none"
       >
-        {icon}
-      </ListItemIcon>
-      <ListItemText
-        primary={text}
-        primaryTypographyProps={{
-          color: theme.palette.primary.contrastText,
-          fontWeight: activeSection === href.slice(1) ? "bold" : "normal",
-        }}
-      />
-    </ListItemButton>
-  );
+        <ListItemButton
+          sx={{
+            justifyContent: "space-between",
+            pl: 3,
+            pr: 2,
+            "&.Mui-selected": {
+              backgroundColor: theme.palette.action.selected,
+              "&:hover": {
+                backgroundColor: theme.palette.action.hover,
+              },
+            },
+          }}
+        >
+          <ListItemIcon
+            sx={{
+              color: theme.palette.secondary.light,
+              minWidth: "auto",
+              mr: 2,
+              ml: -0.5,
+            }}
+          >
+            {icon}
+          </ListItemIcon>
+          <ListItemText
+            primary={text}
+            primaryTypographyProps={{
+              color: theme.palette.primary.contrastText,
+              fontWeight: "bold",
+              textAlign: "right",
+            }}
+          />
+        </ListItemButton>
+      </Link>
+    );
+  };
 
   return (
     <Drawer
@@ -138,96 +154,14 @@ const Sidebar: React.FC = () => {
 
         {/* Navigation Links */}
         <List sx={{ flexGrow: 1, width: "100%" }}>
-          <ListItemButton
-            LinkComponent={NextLink}
-            href="#top"
-            sx={{ justifyContent: "space-between", pl: 3, pr: 2 }}
-          >
-            <ListItemIcon
-              sx={{
-                color: theme.palette.secondary.light,
-                minWidth: "auto",
-                mr: 2,
-              }}
-            >
-              <HomeIcon />
-            </ListItemIcon>
-            <ListItemText
-              primary="Intro"
-              primaryTypographyProps={{
-                textAlign: "right",
-                color: theme.palette.primary.contrastText,
-              }}
+          {navItems.map(({ text, icon, path }) => (
+            <ListItemLinkButton
+              key={text}
+              href={path}
+              icon={icon}
+              text={text}
             />
-          </ListItemButton>
-          <ListItemButton
-            LinkComponent={NextLink}
-            href="#portfolio"
-            sx={{ justifyContent: "space-between", pl: 3, pr: 2 }}
-          >
-            <ListItemIcon
-              sx={{
-                color: theme.palette.secondary.light,
-                minWidth: "auto",
-                mr: 2,
-              }}
-            >
-              <WorkIcon />
-            </ListItemIcon>
-            <ListItemText
-              primary="Portfolio"
-              primaryTypographyProps={{
-                textAlign: "right",
-                color: theme.palette.primary.contrastText,
-              }}
-            />
-          </ListItemButton>
-
-          <ListItemButton
-            LinkComponent={NextLink}
-            href="#about"
-            sx={{ justifyContent: "space-between", pl: 3, pr: 2 }}
-          >
-            <ListItemIcon
-              sx={{
-                color: theme.palette.secondary.light,
-                minWidth: "auto",
-                mr: 2,
-              }}
-            >
-              <PersonIcon />
-            </ListItemIcon>
-            <ListItemText
-              primary="About Me"
-              primaryTypographyProps={{
-                textAlign: "right",
-                color: theme.palette.primary.contrastText,
-              }}
-            />
-          </ListItemButton>
-
-          <ListItemButton
-            LinkComponent={NextLink}
-            href="#contact"
-            sx={{ justifyContent: "space-between", pl: 3, pr: 2 }}
-          >
-            <ListItemIcon
-              sx={{
-                color: theme.palette.secondary.light,
-                minWidth: "auto",
-                mr: 2,
-              }}
-            >
-              <EmailIcon />
-            </ListItemIcon>
-            <ListItemText
-              primary="Contact"
-              primaryTypographyProps={{
-                textAlign: "right",
-                color: theme.palette.primary.contrastText,
-              }}
-            />
-          </ListItemButton>
+          ))}
         </List>
       </Box>
 
