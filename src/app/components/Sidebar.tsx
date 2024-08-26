@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Drawer,
+  Stack,
   Link,
   List,
   ListItemIcon,
@@ -14,14 +15,18 @@ import {
   useTheme,
   IconProps,
   ListItemButton,
+  Fab,
 } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
-import WorkIcon from "@mui/icons-material/Work";
+import AppsIcon from "@mui/icons-material/Apps";
 import PersonIcon from "@mui/icons-material/Person";
+import ContactMailIcon from "@mui/icons-material/ContactMail";
 import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import MenuIcon from "@mui/icons-material/Menu";
 import NextLink from "next/link";
+import useIsMobile from "@/hooks/useIsMobile";
 
 interface NavItem {
   text: string;
@@ -37,12 +42,14 @@ interface ListItemLinkButtonProps {
 
 const Sidebar: React.FC = () => {
   const theme = useTheme();
+  const isMobile = useIsMobile();
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const navItems: NavItem[] = [
     { text: "Intro", icon: <HomeIcon />, path: "#top" },
-    { text: "Portfolio", icon: <WorkIcon />, path: "#portfolio" },
+    { text: "Portfolio", icon: <AppsIcon />, path: "#portfolio" },
     { text: "About Me", icon: <PersonIcon />, path: "#about" },
-    { text: "Contact", icon: <EmailIcon />, path: "#contact" },
+    { text: "Contact", icon: <ContactMailIcon />, path: "#contact" },
   ];
 
   const ListItemLinkButton: React.FC<ListItemLinkButtonProps> = ({
@@ -64,16 +71,32 @@ const Sidebar: React.FC = () => {
             pl: 3,
             pr: 2,
             "&.Mui-selected": {
-              backgroundColor: theme.palette.action.selected,
+              backgroundColor: theme.palette.action.focus,
+              "& .MuiListItemIcon-root": {
+                color: theme.palette.secondary.main,
+              },
+              "&. MuiListItemText-primary": {
+                color: theme.palette.primary.contrastText,
+                fontWeight: "bold",
+              },
               "&:hover": {
                 backgroundColor: theme.palette.action.hover,
+              },
+            },
+            "&:hover": {
+              "& .MuiListItemIcon-root": {
+                color: theme.palette.secondary.main,
+              },
+              "& .MuiListItemText-primary": {
+                color: theme.palette.primary.contrastText,
+                fontWeight: "bold",
               },
             },
           }}
         >
           <ListItemIcon
             sx={{
-              color: theme.palette.secondary.light,
+              color: theme.palette.primary.light,
               minWidth: "auto",
               mr: 2,
               ml: -0.5,
@@ -84,8 +107,7 @@ const Sidebar: React.FC = () => {
           <ListItemText
             primary={text}
             primaryTypographyProps={{
-              color: theme.palette.primary.contrastText,
-              fontWeight: "bold",
+              color: theme.palette.primary.light,
               textAlign: "right",
             }}
           />
@@ -94,118 +116,137 @@ const Sidebar: React.FC = () => {
     );
   };
 
-  return (
-    <Drawer
-      variant="permanent"
-      sx={{
-        width: theme.spacing(37.5),
-        flexShrink: 0,
-        "& .MuiDrawer-paper": {
-          width: theme.spacing(37.5),
-          boxSizing: "border-box",
-          bgcolor: theme.palette.primary.main,
-          color: theme.palette.primary.contrastText,
-        },
-      }}
-    >
-      <Box
-        display="flex"
-        flexDirection="column"
-        justifyContent="space-between"
-        height="100vh"
-      >
-        <Box>
-          {/* Top Section: Avatar, Name, and Title */}
-          <Box
-            display="flex"
-            alignItems="center"
-            justifyContent="space-between"
-            py={4}
-            px={2}
-            sx={{ bgcolor: theme.palette.primary.dark }}
-          >
-            <Avatar
-              alt="Nick Brady"
-              src="/images/avatar.jpg"
-              sx={{ width: 60, height: 60 }}
-            />
-            <Box sx={{ textAlign: "right" }}>
-              <Typography
-                variant="h6"
-                component="div"
-                sx={{
-                  fontWeight: "bold",
-                  color: theme.palette.primary.contrastText,
-                }}
-              >
-                Nick Brady
-              </Typography>
-              <Typography
-                variant="body2"
-                color={theme.palette.primary.contrastText}
-              >
-                Software Developer
-              </Typography>
-            </Box>
-          </Box>
+  const toggleDrawer = () => {
+    setIsOpen(!isOpen);
+  };
 
-          <Divider sx={{ bgcolor: theme.palette.divider }} />
+  const drawerContent = (
+    <Box
+      display="flex"
+      flexDirection="column"
+      justifyContent="space-between"
+      height="100vh"
+    >
+      <Box>
+        {/* Top Section: Avatar, Name, and Title */}
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+          py={4}
+          px={2}
+          sx={{ bgcolor: theme.palette.primary.dark }}
+        >
+          <Avatar
+            alt="Nick Brady"
+            src="/images/avatar.jpg"
+            sx={{ width: 60, height: 60 }}
+          />
+          <Box sx={{ textAlign: "right" }}>
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{
+                fontWeight: "bold",
+                color: theme.palette.primary.contrastText,
+              }}
+            >
+              Nick Brady
+            </Typography>
+            <Typography variant="body2" color={theme.palette.primary.light}>
+              Software Developer
+            </Typography>
+          </Box>
         </Box>
 
-        {/* Navigation Links */}
-        <List sx={{ flexGrow: 1, width: "100%" }}>
-          {navItems.map(({ text, icon, path }) => (
-            <ListItemLinkButton
-              key={text}
-              href={path}
-              icon={icon}
-              text={text}
-            />
-          ))}
-        </List>
+        <Divider sx={{ bgcolor: theme.palette.divider }} />
       </Box>
+
+      {/* Navigation Links */}
+      <List sx={{ flexGrow: 1, width: "100%" }}>
+        {navItems.map(({ text, icon, path }) => (
+          <ListItemLinkButton key={text} href={path} icon={icon} text={text} />
+        ))}
+      </List>
 
       {/* Bottom Section: Social Links */}
       <Box>
         <Divider sx={{ bgcolor: theme.palette.divider }} />
-        <Grid container justifyContent="center" spacing={2} p={2}>
-          <Grid item>
+        <Box display="flex" justifyContent="center" sx={{ p: 1 }}>
+          <Stack direction="row" spacing={1}>
             <Link
               href="https://github.com/peppapig450"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               component={NextLink}
               passHref
             >
               <IconButton
                 color="inherit"
                 size="large"
-                sx={{ color: theme.palette.secondary.main }}
+                sx={{ color: theme.palette.primary.light }}
               >
                 <GitHubIcon />
               </IconButton>
             </Link>
-          </Grid>
-          <Grid item>
+
             <Link
               href="https://www.linkedin.com/in/nick-brady-5715752b3"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               component={NextLink}
               passHref
             >
               <IconButton
                 color="inherit"
                 size="large"
-                sx={{ color: theme.palette.secondary.main }}
+                sx={{ color: theme.palette.primary.light }}
               >
                 <LinkedInIcon />
               </IconButton>
             </Link>
-          </Grid>
-        </Grid>
+          </Stack>
+        </Box>
       </Box>
-    </Drawer>
+    </Box>
+  );
+
+  return (
+    <>
+      <Drawer
+        variant={isMobile ? "temporary" : "permanent"}
+        open={isMobile ? isOpen : true}
+        onClose={toggleDrawer}
+        sx={{
+          width: theme.spacing(37.5),
+          flexShrink: 0,
+          "& .MuiDrawer-paper": {
+            width: theme.spacing(37.5),
+            boxSizing: "border-box",
+            bgcolor: theme.palette.primary.dark,
+            color: theme.palette.primary.contrastText,
+          },
+        }}
+      >
+        {drawerContent}
+      </Drawer>
+
+      {isMobile && (
+        <Fab
+          color="primary"
+          aria-label="toggle sidebar"
+          onClick={toggleDrawer}
+          sx={{
+            position: "fixed",
+            top: theme.spacing(2),
+            left: theme.spacing(2),
+            zIndex: theme.zIndex.drawer + 1,
+          }}
+        >
+          <MenuIcon />
+        </Fab>
+      )}
+    </>
   );
 };
 
