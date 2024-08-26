@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Drawer,
+  Link,
   List,
   ListItem,
   ListItemIcon,
@@ -14,6 +15,7 @@ import {
   Box,
   Divider,
   useTheme,
+  ListItemButton,
 } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import WorkIcon from "@mui/icons-material/Work";
@@ -60,18 +62,42 @@ const Sidebar: React.FC = () => {
               src="/images/avatar.jpg"
               sx={{ width: 80, height: 80, mb: 2 }}
             />
-            <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', color: theme.palette.primary.contrastText }}>
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{
+                fontWeight: "bold",
+                color: theme.palette.primary.contrastText,
+              }}
+            >
               Nick Brady
             </Typography>
-            <Typography variant="body2" color={theme.palette.primary.contrastText}>
+            <Typography
+              variant="body2"
+              color={theme.palette.primary.contrastText}
+            >
               Software Developer
             </Typography>
           </Box>
 
-          <Divider sx={{bgcolor: theme.palette.divider }} />
+          <Divider sx={{ bgcolor: theme.palette.divider }} />
         </Box>
 
-        {/* Navigation Linls */}
+        {/* Navigation Links */}
+        <List>
+          <ListItemButton LinkComponent={NextLink} href="#top">
+            <ListItemText
+              primary="Intro"
+              primaryTypographyProps={{
+                textAlign: "right",
+                color: theme.palette.primary.contrastText,
+              }}
+            />
+            <ListItemIcon sx={{ color: theme.palette.secondary.light }}>
+              <HomeIcon />
+            </ListItemIcon>
+          </ListItemButton>
+        </List>
       </Box>
     </Drawer>
   );
