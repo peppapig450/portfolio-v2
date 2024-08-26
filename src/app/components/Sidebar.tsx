@@ -41,28 +41,35 @@ const Sidebar: React.FC = () => {
       }}
     >
       <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "space-between",
-          textAlign: "right",
-          p: theme.spacing(2),
-          height: "100%",
-        }}
+        display="flex"
+        flexDirection="column"
+        justifyContent="space-between"
+        height="100vh"
       >
-        {/* Avatar and Name Section */}
-        <Avatar
-          alt="Nick Brady"
-          src="/public/images/avatar.jpg"
-          sx={{ width: 80, height: 80, mb: 2 }}
-        />
-        <Typography variant="h5" sx={{ fontWeight: "bold", mb: 1 }}>
-          Nick Brady
-        </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-          Software Developer
-        </Typography>
+        <Box>
+          {/* Top Section: Avatar, Name, and Title */}
+          <Box
+            display="flex"
+            alignItems="center"
+            flexDirection="column"
+            py={4}
+            sx={{ bgcolor: theme.palette.primary.dark }}
+          >
+            <Avatar
+              alt="Nick Brady"
+              src="/images/avatar.jpg"
+              sx={{ width: 80, height: 80, mb: 2 }}
+            />
+            <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', color: theme.palette.primary.contrastText }}>
+              Nick Brady
+            </Typography>
+            <Typography variant="body2" color={theme.palette.primary.contrastText}>
+              Software Developer
+            </Typography>
+          </Box>
+
+          <Divider sx={{bgcolor: theme.palette.divider }} />
+        </Box>
 
         {/* Navigation Linls */}
       </Box>
