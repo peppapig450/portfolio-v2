@@ -43,7 +43,7 @@ interface ListItemLinkButtonProps {
   text: string;
 }
 
-const Sidebar: React.FC = () => {
+const FullSidebar: React.FC = () => {
   const theme = useTheme();
   const isMobile = useIsMobile();
   const [isOpen, setIsOpen] = useState<boolean>(false);
