@@ -4,8 +4,6 @@ import { ThemeProvider, CssBaseline } from "@mui/material";
 import { Analytics } from "@vercel/analytics/react";
 import mainTheme from "@/styles/theme";
 
-import Layout from "./components/Layout";
-
 export const metadata: Metadata = {
   title: "Nick Brady",
   description: "Software Developer Portfolio",
@@ -22,10 +20,8 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <ThemeProvider theme={mainTheme}>
             <CssBaseline />
-            <Layout>
-              {children}
-              <Analytics />
-            </Layout>
+            {children}
+            <Analytics />
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
