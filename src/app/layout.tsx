@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { ThemeProvider, CssBaseline } from "@mui/material";
+import { Analytics } from "@vercel/analytics/react";
 import mainTheme from "@/styles/theme";
-// import theme, header and footer
+
+import Layout from "./components/Layout";
 
 export const metadata: Metadata = {
   title: "Nick Brady",
@@ -20,7 +22,10 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <ThemeProvider theme={mainTheme}>
             <CssBaseline />
-            {children}
+            <Layout>
+              {children}
+              <Analytics />
+            </Layout>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
