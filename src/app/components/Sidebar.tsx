@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import NextLink from "next/link";
+
 import {
   Drawer,
   Stack,
@@ -9,7 +11,8 @@ import {
   Typography,
   Avatar,
   IconButton,
-  Grid,
+  Popover,
+  Button,
   Box,
   Divider,
   useTheme,
@@ -25,7 +28,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import MenuIcon from "@mui/icons-material/Menu";
-import NextLink from "next/link";
+
 import useIsMobile from "@/hooks/useIsMobile";
 
 interface NavItem {
@@ -44,6 +47,13 @@ const Sidebar: React.FC = () => {
   const theme = useTheme();
   const isMobile = useIsMobile();
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+
+  const togglePopover = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+
+  const open = Boolean(anchorEl);
 
   const navItems: NavItem[] = [
     { text: "Intro", icon: <HomeIcon />, path: "#top" },
@@ -205,8 +215,50 @@ const Sidebar: React.FC = () => {
                 <LinkedInIcon />
               </IconButton>
             </Link>
+            <IconButton
+              color="inherit"
+              size="large"
+              onClick={togglePopover}
+              sx={{ color: theme.palette.primary.light }}
+            >
+              <EmailIcon />
+            </IconButton>
           </Stack>
         </Box>
+        <Popover
+          open={open}
+          anchorEl={anchorEl}
+          onClose={togglePopover}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "center",
+          }}
+          transformOrigin={{
+            vertical: "bottom",
+            horizontal: "center",
+          }}
+        >
+          <Box sx={{ p: 1 }}>
+            <Button
+              href="mailto:nbgenius1@gmail.com"
+              variant="contained"
+              color="primary"
+              startIcon={<EmailIcon />}
+              sx={{ mb: 1, width: "100%" }}
+            >
+              Gmail
+            </Button>
+            <Button
+              href="mailto:normalcitizen24@proton.me"
+              variant="contained"
+              color="primary"
+              startIcon={<EmailIcon />}
+              sx={{ mb: 1, width: "100%" }}
+            >
+              Proton Mail
+            </Button>
+          </Box>
+        </Popover>
       </Box>
     </Box>
   );
