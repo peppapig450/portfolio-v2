@@ -288,6 +288,7 @@ const Sidebar: React.FC = () => {
           color="primary"
           aria-label="toggle sidebar"
           onClick={toggleDrawer}
+          disabled={isOpen}
           sx={{
             position: "fixed",
             top: theme.spacing(2),
