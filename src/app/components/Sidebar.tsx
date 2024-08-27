@@ -164,7 +164,7 @@ const Sidebar: React.FC = () => {
               Nick Brady
             </Typography>
             <Typography variant="body2" color={theme.palette.primary.light}>
-              Software Developer
+              Software Engineer
             </Typography>
           </Box>
         </Box>
