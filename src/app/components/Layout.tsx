@@ -11,19 +11,23 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const theme = useTheme();
 
   return (
-    <Container maxWidth="lg" sx={{ display: "flex" }}>
-      <NavBar />
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          minHeight: "100vh",
-          overflowY: "auto",
-        }}
-      >
-        {children}
+    <>
+      <Box sx={{ py: theme.spacing(4) }}>
+        <NavBar />
       </Box>
-    </Container>
+      <Container maxWidth="lg" sx={{ display: "flex" }}>
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            minHeight: "100vh",
+            overflowY: "auto",
+          }}
+        >
+          {children}
+        </Box>
+      </Container>
+    </>
   );
 };
 

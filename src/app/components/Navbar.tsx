@@ -30,8 +30,6 @@ const StyledAppBar = styled(AppBar)<AppBarProps>(({ theme }) => ({
   background: "transparent",
   boxShadow: "none",
   transition: "all 0.5s ease",
-  top: 0,
-  padding: "15px 0",
 }));
 
 const NavLinkButton = styled(Button)<ButtonBaseProps>(({ theme }) => ({
@@ -91,7 +89,7 @@ const NavBar: React.FC<NavBarProps> = () => {
   ];
 
   const renderNavLinks = () => (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ display: { xs: "none", md: "flex" } }}>
       {navItems.map((item) => (
         <Link
           href={item.path}
@@ -128,7 +126,7 @@ const NavBar: React.FC<NavBarProps> = () => {
         <ListItemButton
           onClick={handleDrawerToggle}
           selected={pathname === href}
-          aria-label=""
+          aria-label={ariaLabel}
         >
           <ListItemText primary={text} />
         </ListItemButton>
@@ -157,9 +155,13 @@ const NavBar: React.FC<NavBarProps> = () => {
     </Drawer>
   );
 
+  // TODO: make the logo bigger and look into avatar
   return (
     <Box sx={{ display: "flex", flexDirection: "row" }}>
-      <StyledAppBar position="static">
+      <StyledAppBar
+        position="static"
+        sx={{ py: theme.spacing(1), px: theme.spacing(2) }}
+      >
         <Toolbar>
           <Link href="/" component={NextLink} underline="none" passHref>
             <LogoWrapper>
@@ -172,6 +174,8 @@ const NavBar: React.FC<NavBarProps> = () => {
               />
             </LogoWrapper>
           </Link>
+          <Box sx={{ flexGrow: 1 }} />
+          {renderNavLinks()}
         </Toolbar>
       </StyledAppBar>
     </Box>
