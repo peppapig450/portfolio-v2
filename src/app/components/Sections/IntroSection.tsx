@@ -147,10 +147,9 @@ const IntroPageContent: React.FC<{}> = ({}) => {
   return (
     <Box
       sx={{
-        minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "left",
+        justifyContent: "flex-start",
         alignItems: "left",
         textAlign: "left",
         pt: theme.spacing(10),
