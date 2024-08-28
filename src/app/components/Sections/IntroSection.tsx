@@ -3,9 +3,9 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { Box, Typography, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
-import { keyframes } from "@emotion/react";
+import { keyframes } from "@mui/material/styles";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
-import { getTransition } from "../utils/transitions";
+import { getTransitions } from "../utils/transitions";
 
 const noiseAnim2 = keyframes`
       0% {
@@ -150,21 +150,22 @@ const IntroPageContent: React.FC<{}> = ({}) => {
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        textAlign: "center",
+        justifyContent: "left",
+        alignItems: "left",
+        textAlign: "left",
+        pt: theme.spacing(10),
       }}
     >
-      <motion.div {...getTransition(0.1)}>
-        <Box
-          sx={{
-            position: "relative",
-            display: "inline-block",
-            overflow: "hidden",
-            fontSize: "2rem",
-            color: theme.palette.primary.main,
-          }}
-        >
+      <Box
+        sx={{
+          position: "relative",
+          display: "inline-block",
+          overflow: "hidden",
+
+          color: theme.palette.primary.main,
+        }}
+      >
+        <motion.div {...getTransitions(0.1)}>
           <Typography
             variant="h2"
             component="h1"
@@ -172,10 +173,9 @@ const IntroPageContent: React.FC<{}> = ({}) => {
             color={theme.palette.primary.main}
             sx={{
               position: "relative",
-              zIndex: 1, // Ensure text is above pseudo-elements
               display: "inline-block",
-              "&::before": {
-                content: '""',
+              "&:before": {
+                content: '"I\'m Nick Brady"',
                 position: "absolute",
                 top: 0,
                 left: 2,
@@ -183,10 +183,9 @@ const IntroPageContent: React.FC<{}> = ({}) => {
                 width: "100%",
                 textShadow: `-1px 0 ${theme.palette.primary.contrastText}`,
                 animation: `${noiseAnim2} 15s infinite linear alternate-reverse`,
-                zIndex: -1, // Place it behind the text
               },
-              "&::after": {
-                content: '""',
+              "&:after": {
+                content: '"I\'m Nick Brady"',
                 position: "absolute",
                 top: 0,
                 left: -2,
@@ -194,14 +193,13 @@ const IntroPageContent: React.FC<{}> = ({}) => {
                 width: "100%",
                 textShadow: `3px 0 ${theme.palette.secondary.main}`,
                 animation: `${noiseAnim} 2s infinite linear alternate-reverse`,
-                zIndex: -2, // Place it behind the text
               },
             }}
           >
             I&apos;m Nick Brady
           </Typography>
-        </Box>
-      </motion.div>
+        </motion.div>
+      </Box>
     </Box>
   );
 };
