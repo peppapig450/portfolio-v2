@@ -167,7 +167,7 @@ const IntroPageContent: React.FC<{}> = ({}) => {
       >
         <motion.div {...getTransitions(0.1)}>
           <Typography
-            variant="h2"
+            variant="h3"
             component="h1"
             gutterBottom
             color={theme.palette.primary.main}
