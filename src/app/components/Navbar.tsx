@@ -35,6 +35,7 @@ const StyledAppBar = styled(AppBar)<AppBarProps>(({ theme }) => ({
 const NavLinkButton = styled(Button)<ButtonBaseProps>(({ theme }) => ({
   color: theme.palette.text.primary,
   marginLeft: theme.spacing(2),
+  textTransform: "none",
   "&:hover": {
     BorderBottom: `1px solid ${theme.palette.primary.main}`,
   },
