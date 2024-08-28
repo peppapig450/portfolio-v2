@@ -85,7 +85,7 @@ const FullSidebar: React.FC = () => {
               "& .MuiListItemIcon-root": {
                 color: theme.palette.secondary.main,
               },
-              "&. MuiListItemText-primary": {
+              "& .MuiListItemText-primary": {
                 color: theme.palette.primary.contrastText,
                 fontWeight: "bold",
               },
@@ -303,4 +303,4 @@ const FullSidebar: React.FC = () => {
   );
 };
 
-export default Sidebar;
+export default FullSidebar;

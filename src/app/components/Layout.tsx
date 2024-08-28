@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, useTheme } from "@mui/material";
-import Sidebar from "./FullSidebar";
+import Sidebar from "./Sidebar";
 
 interface LayoutProps {
   children: React.ReactNode;
