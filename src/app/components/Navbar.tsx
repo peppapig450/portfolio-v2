@@ -129,14 +129,7 @@ const NavBar: React.FC<NavBarProps> = () => {
           selected={pathname === href}
           aria-label={ariaLabel}
         >
-          <ListItemText
-            primary={text}
-            primaryTypographyProps={{
-              variant: "h4",
-              align: "center",
-              my: 4,
-            }}
-          />
+          <ListItemText primary={text} />
         </ListItemButton>
       </Link>
     );
@@ -179,7 +172,7 @@ const NavBar: React.FC<NavBarProps> = () => {
                 src="/logo.svg"
                 alt="Logo"
                 fill={true}
-                objectFit="cover"
+                style={{ objectFit: "cover" }}
                 priority
               />
             </LogoWrapper>
