@@ -14,7 +14,6 @@ import {
   Link,
   ListItemButton,
   ListItemText,
-  useMediaQuery,
   useTheme,
   ButtonBaseProps,
 } from "@mui/material";
@@ -24,6 +23,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import useIsMobile from "@/hooks/useIsMobile";
 import { BorderBottom } from "@mui/icons-material";
 
 const StyledAppBar = styled(AppBar)<AppBarProps>(({ theme }) => ({
@@ -36,8 +36,22 @@ const NavLinkButton = styled(Button)<ButtonBaseProps>(({ theme }) => ({
   color: theme.palette.text.primary,
   marginLeft: theme.spacing(2),
   textTransform: "none",
-  "&:hover": {
-    BorderBottom: `1px solid ${theme.palette.primary.main}`,
+  position: "relative",
+  overflow: "hidden",
+  "&::before": {
+    content: '""',
+    position: "absolute",
+    zIndex: -1,
+    left: "51%",
+    right: "51%",
+    bottom: "1.5px",
+    background: theme.palette.primary.main,
+    height: "1px",
+    transition: "left 0.3s ease-out, right 0.3s ease-out",
+  },
+  "&:hover::before, &:focus::before, &:active::before": {
+    left: 0,
+    right: 0,
   },
 }));
 
@@ -69,7 +83,7 @@ const NavBar: React.FC<NavBarProps> = () => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
   const pathname = usePathname();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useIsMobile()
 
   const handleDrawerToggle = () => {
     setDrawerOpen((prevState) => !prevState);
@@ -90,7 +104,7 @@ const NavBar: React.FC<NavBarProps> = () => {
   ];
 
   const renderNavLinks = () => (
-    <Box sx={{ display: { md: "none", lg: "flex" } }}>
+    <Box sx={{ display: { sm: "none", md: "block" } }}>
       {navItems.map((item) => (
         <Link
           href={item.path}
@@ -162,10 +176,9 @@ const NavBar: React.FC<NavBarProps> = () => {
       sx={{ display: "flex", flexDirection: "row", px: theme.spacing(1.875) }}
     >
       <StyledAppBar
-        position="static"
-        sx={{ py: theme.spacing(1), px: theme.spacing(2) }}
+        position="static"  sx={{ py: theme.spacing(1), px: theme.spacing(2) }}
       >
-        <Toolbar>
+        <Toolbar sx={{ mr: theme.spacing(5) }}>
           <Link href="/" component={NextLink} underline="none" passHref>
             <LogoWrapper sx={{ ml: theme.spacing(4) }}>
               <Image
@@ -181,9 +194,10 @@ const NavBar: React.FC<NavBarProps> = () => {
           {isMobile ? (
             <IconButton
               edge="start"
-              color="inherit"
+              color="primary"
               aria-label="menu"
               onClick={handleDrawerToggle}
+
             >
               <MenuIcon />
             </IconButton>
