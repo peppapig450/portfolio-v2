@@ -170,7 +170,7 @@ const NavBar: React.FC<NavBarProps> = () => {
           <ListItemText
             primary={text}
             primaryTypographyProps={{
-              variant: "h4",
+              variant: "h6",
               sx: { textAlign: "center" },
             }}
           />
