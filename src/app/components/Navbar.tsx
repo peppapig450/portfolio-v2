@@ -190,7 +190,6 @@ const NavBar: React.FC<NavBarProps> = () => {
               color="inherit"
               aria-label="menu"
               onClick={handleDrawerToggle}
-              sx
             >
               <MenuIcon />
             </IconButton>
