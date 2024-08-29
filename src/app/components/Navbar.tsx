@@ -43,7 +43,7 @@ const NavLinkButton = styled(Button)<ButtonBaseProps>(({ theme }) => ({
 const LogoWrapper = styled(Box)({
   flexGrow: 1,
   position: "relative",
-  width: "40px",
+  width: "58px",
   height: "65px",
   "&:hover": {
     cursor: "pointer",
@@ -71,7 +71,7 @@ const NavBar: React.FC<NavBarProps> = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const handleDrawerToggle = () => {
-    setDrawerOpen(!drawerOpen);
+    setDrawerOpen((prevState) => !prevState);
   };
 
   const navItems: NavItem[] = [
@@ -89,7 +89,7 @@ const NavBar: React.FC<NavBarProps> = () => {
   ];
 
   const renderNavLinks = () => (
-    <Box sx={{ display: { xs: "none", md: "flex" } }}>
+    <Box sx={{ display: { md: "none", lg: "flex" } }}>
       {navItems.map((item) => (
         <Link
           href={item.path}
@@ -128,7 +128,14 @@ const NavBar: React.FC<NavBarProps> = () => {
           selected={pathname === href}
           aria-label={ariaLabel}
         >
-          <ListItemText primary={text} />
+          <ListItemText
+            primary={text}
+            primaryTypographyProps={{
+              variant: "h4",
+              align: "center",
+              sx: { my: 2 },
+            }}
+          />
         </ListItemButton>
       </Link>
     );
@@ -138,7 +145,7 @@ const NavBar: React.FC<NavBarProps> = () => {
     <Drawer anchor="right" open={drawerOpen} onClose={handleDrawerToggle}>
       <IconButton
         onClick={handleDrawerToggle}
-        sx={{ justifyContent: "flex=-end", p: 1 }}
+        sx={{ justifyContent: "flex-end", p: 1 }}
       >
         <CloseIcon />
       </IconButton>
@@ -157,25 +164,39 @@ const NavBar: React.FC<NavBarProps> = () => {
 
   // TODO: make the logo bigger and look into avatar
   return (
-    <Box sx={{ display: "flex", flexDirection: "row" }}>
+    <Box
+      sx={{ display: "flex", flexDirection: "row", px: theme.spacing(1.875) }}
+    >
       <StyledAppBar
         position="static"
         sx={{ py: theme.spacing(1), px: theme.spacing(2) }}
       >
         <Toolbar>
           <Link href="/" component={NextLink} underline="none" passHref>
-            <LogoWrapper>
+            <LogoWrapper sx={{ ml: theme.spacing(4) }}>
               <Image
                 src="/logo.svg"
                 alt="Logo"
                 fill={true}
-                objectFit="contain"
+                objectFit="cover"
                 priority
               />
             </LogoWrapper>
           </Link>
           <Box sx={{ flexGrow: 1 }} />
-          {renderNavLinks()}
+          {isMobile ? (
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              onClick={handleDrawerToggle}
+              sx
+            >
+              <MenuIcon />
+            </IconButton>
+          ) : (
+            renderNavLinks()
+          )}
         </Toolbar>
       </StyledAppBar>
     </Box>
