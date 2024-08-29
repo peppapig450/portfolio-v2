@@ -83,7 +83,7 @@ const NavBar: React.FC<NavBarProps> = () => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
   const pathname = usePathname();
   const theme = useTheme();
-  const isMobile = useIsMobile()
+  const isMobile = useIsMobile();
 
   const handleDrawerToggle = () => {
     setDrawerOpen((prevState) => !prevState);
@@ -142,22 +142,70 @@ const NavBar: React.FC<NavBarProps> = () => {
           onClick={handleDrawerToggle}
           selected={pathname === href}
           aria-label={ariaLabel}
+          sx={{
+            display: "block",
+            textAlign: "center",
+            width: "fit-content",
+            margin: { xs: "3rem auto", md: "0" },
+            position: "relative",
+            justifyContent: "center",
+            overflow: "hidden",
+            "&:before": {
+              content: '""',
+              position: "absolute",
+              zIndex: -1,
+              left: "51%",
+              right: "51%",
+              bottom: "1.5px",
+              backgroundColor: theme.palette.primary.main,
+              height: "1px",
+              transition: "left 0.3s ease-out, right 0.3s ease-out",
+            },
+            "&:hover:before, &:focus:before, &:active:before": {
+              left: 0,
+              right: 0,
+            },
+          }}
         >
-          <ListItemText primary={text} />
+          <ListItemText
+            primary={text}
+            primaryTypographyProps={{
+              variant: "h4",
+              sx: { textAlign: "center" },
+            }}
+          />
         </ListItemButton>
       </Link>
     );
   };
 
   const drawer = (
-    <Drawer anchor="right" open={drawerOpen} onClose={handleDrawerToggle}>
-      <IconButton
-        onClick={handleDrawerToggle}
-        sx={{ justifyContent: "flex-end", p: 1 }}
+    <Box
+      sx={{
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        position: "relative",
+      }}
+    >
+      <Box
+        sx={{
+          position: "absolute",
+          top: theme.spacing(2),
+          right: theme.spacing(2),
+        }}
       >
-        <CloseIcon />
-      </IconButton>
-      <List>
+        <IconButton
+          onClick={handleDrawerToggle}
+          aria-label="Close menu"
+          sx={{ p: 1, zIndex: 9999 }}
+        >
+          <CloseIcon fontSize="large" />
+        </IconButton>
+      </Box>
+
+      <List sx={{ flexGrow: 1, textAlign: "center", width: "100%" }}>
         {navItems.map(({ path, label, ariaLabel }) => (
           <ListItemLinkButton
             key={path}
@@ -167,16 +215,17 @@ const NavBar: React.FC<NavBarProps> = () => {
           />
         ))}
       </List>
-    </Drawer>
+    </Box>
   );
 
-  // TODO: make the logo bigger and look into avatar
   return (
     <Box
       sx={{ display: "flex", flexDirection: "row", px: theme.spacing(1.875) }}
     >
       <StyledAppBar
-        position="static"  sx={{ py: theme.spacing(1), px: theme.spacing(2) }}
+        position="static"
+        component="nav"
+        sx={{ py: theme.spacing(1), px: theme.spacing(2) }}
       >
         <Toolbar sx={{ mr: theme.spacing(5) }}>
           <Link href="/" component={NextLink} underline="none" passHref>
@@ -197,7 +246,6 @@ const NavBar: React.FC<NavBarProps> = () => {
               color="primary"
               aria-label="menu"
               onClick={handleDrawerToggle}
-
             >
               <MenuIcon />
             </IconButton>
@@ -206,6 +254,26 @@ const NavBar: React.FC<NavBarProps> = () => {
           )}
         </Toolbar>
       </StyledAppBar>
+      <nav>
+        <Drawer
+          variant="temporary"
+          open={drawerOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true,
+          }}
+          PaperProps={{
+            sx: { width: "100vw", height: "100vh" },
+          }}
+          sx={{
+            sm: "block",
+            md: "none",
+            "& .MuiDrawer-paper": { boxSizing: "border-box" },
+          }}
+        >
+          {drawer}
+        </Drawer>
+      </nav>
     </Box>
   );
 };
