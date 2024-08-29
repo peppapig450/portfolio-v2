@@ -133,7 +133,7 @@ const NavBar: React.FC<NavBarProps> = () => {
             primaryTypographyProps={{
               variant: "h4",
               align: "center",
-              sx: { my: 2 },
+              my: 4,
             }}
           />
         </ListItemButton>
