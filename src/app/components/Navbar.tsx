@@ -244,7 +244,7 @@ const NavBar: React.FC<NavBarProps> = () => {
             <IconButton
               edge="start"
               color="primary"
-              aria-label="menu"
+              aria-label="open menu"
               onClick={handleDrawerToggle}
             >
               <MenuIcon />
