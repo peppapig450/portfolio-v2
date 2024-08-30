@@ -135,13 +135,19 @@ export const noiseAnim = keyframes`
 `;
 
 export const arrowBounce = keyframes`
+      from {
+        transform: translateX(1rem);
+      }
+      to {
+        transform: translateX(2rem);
+      }
+`;
+
+export const underlineAnimation = keyframes`
   0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(5px);
+    transform: scaleX(0);
   }
   100% {
-    transform: translateX(0);
+    transform: scaleX(1);
   }
 `;
