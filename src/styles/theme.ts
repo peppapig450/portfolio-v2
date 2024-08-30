@@ -1,6 +1,6 @@
 "use client";
 import { createTheme } from "@mui/material";
-import { Labrada, Cardo } from "next/font/google";
+import { Labrada, Lora } from "next/font/google";
 
 const labrada = Labrada({
   subsets: ["latin"],
@@ -8,7 +8,7 @@ const labrada = Labrada({
   display: "swap",
 });
 
-const cardo = Cardo({
+const lora = Lora({
   subsets: ["latin"],
   weight: ["400"],
   display: "swap",
@@ -24,7 +24,7 @@ const mainTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: cardo.style.fontFamily,
+    fontFamily: lora.style.fontFamily,
     h1: { fontFamily: labrada.style.fontFamily },
     h2: { fontFamily: labrada.style.fontFamily },
     h3: { fontFamily: labrada.style.fontFamily },
