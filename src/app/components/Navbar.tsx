@@ -16,6 +16,7 @@ import {
   ListItemText,
   useTheme,
   ButtonBaseProps,
+  ToolbarProps,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import NextLink from "next/link";
@@ -64,6 +65,26 @@ const LogoWrapper = styled(Box)({
     cursor: "pointer",
   },
 });
+
+const StyledToolbar = styled(Toolbar)<ToolbarProps>(({ theme }) => ({
+  paddingLeft: theme.spacing(1.875),
+  paddingRight: theme.spacing(1.875),
+  marginLeft: "auto",
+  marginRight: "auto",
+  display: "flex",
+  width: "100%",
+  alignItems: "center",
+  justifyContent: "space-between",
+  [theme.breakpoints.up("sm")]: {
+    maxWidth: "720px",
+  },
+  [theme.breakpoints.up("md")]: {
+    maxWidth: "960px",
+  },
+  [theme.breakpoints.up("lg")]: {
+    maxWidth: "1140px",
+  },
+}));
 
 interface NavBarProps {}
 
@@ -219,17 +240,24 @@ const NavBar: React.FC<NavBarProps> = () => {
   );
 
   return (
-    <Box
-      sx={{ display: "flex", flexDirection: "row", px: theme.spacing(1.875) }}
-    >
+    <Box>
       <StyledAppBar
         position="static"
         component="nav"
-        sx={{ py: theme.spacing(1), px: theme.spacing(2) }}
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          position: "relative",
+          alignItems: "center",
+          justifyContent: "flex-start",
+          py: theme.spacing(1),
+          px: theme.spacing(2),
+          containerType: "inline-size",
+        }}
       >
-        <Toolbar sx={{ mr: theme.spacing(5) }}>
+        <StyledToolbar disableGutters={true}>
           <Link href="/" component={NextLink} underline="none" passHref>
-            <LogoWrapper sx={{ ml: theme.spacing(4) }}>
+            <LogoWrapper sx={{ display: "block" }}>
               <Image
                 src="/logo.svg"
                 alt="Logo"
@@ -252,7 +280,7 @@ const NavBar: React.FC<NavBarProps> = () => {
           ) : (
             renderNavLinks()
           )}
-        </Toolbar>
+        </StyledToolbar>
       </StyledAppBar>
       <nav>
         <Drawer
