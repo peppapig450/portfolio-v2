@@ -3,8 +3,8 @@ import NextLink from "next/link";
 import { Box, Typography, Link, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 import { noiseAnim, noiseAnim2 } from "@/styles/keyframes";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import { getTransitions } from "../utils/transitions";
+import FooterLink from "../FooterLink";
 
 const IntroPageContent: React.FC<{}> = ({}) => {
   const theme = useTheme();
@@ -36,6 +36,7 @@ const IntroPageContent: React.FC<{}> = ({}) => {
             gutterBottom
             color={theme.palette.primary.main}
             sx={{
+              letterSpacing: "9.9px",
               position: "relative",
               display: "inline-block",
               "&:before": {
@@ -65,7 +66,7 @@ const IntroPageContent: React.FC<{}> = ({}) => {
         </motion.div>
       </Box>
       <motion.div {...getTransitions(0.2)}>
-        <Box sx={{ px: theme.spacing(3) }}>
+        <Box>
           <Typography
             variant="body1"
             component="p"
@@ -122,6 +123,9 @@ const IntroPageContent: React.FC<{}> = ({}) => {
             </Link>
           </Typography>
         </Box>
+      </motion.div>
+      <motion.div {...getTransitions(0.7)}>
+        <FooterLink goto="/about">See More About Me</FooterLink>
       </motion.div>
     </Box>
   );
