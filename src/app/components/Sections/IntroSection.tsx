@@ -6,6 +6,7 @@ import { noiseAnim, noiseAnim2 } from "@/styles/keyframes";
 import { getTransitions } from "../utils/transitions";
 import FooterLink from "../FooterLink";
 
+// TODO: Refactor this into resusable components and stylized components
 const IntroPageContent: React.FC<{}> = ({}) => {
   const theme = useTheme();
 
@@ -65,16 +66,18 @@ const IntroPageContent: React.FC<{}> = ({}) => {
           </Typography>
         </motion.div>
       </Box>
-      <motion.div {...getTransitions(0.2)}>
-        <Box>
+      <Box sx={{ maxWidth: "83.3333%" }}>
+        <motion.div {...getTransitions(0.2)}>
           <Typography
             variant="body1"
             component="p"
             sx={{ mt: theme.spacing(2) }}
           >
-            Your friendly neighborhood versatile full-stack developer, AI
-            engineer, and Python enthusiast. I spend my days and free time
-            painting computer screens with{" "}
+            Welcome! I&apos;m a versatile full-stack developer and AI engineer,
+            blending creativity with technical expertise. From sleek frontends
+            to robust backends, I craft high-performance applications across the
+            full tech stack. My diverse toolkit spans Java, Python, React, and
+            more, allowing me to tackle any
             <Link
               href="/projects"
               component={NextLink}
@@ -85,21 +88,17 @@ const IntroPageContent: React.FC<{}> = ({}) => {
             >
               PROJECTS
             </Link>{" "}
-            and lines of code, turning binary into beautiful, performant
-            applications.
+            with innovative solutions.
           </Typography>
+        </motion.div>
+        <motion.div {...getTransitions(0.3)}>
           {/* TODO: maybe add my photography stuff */}
           <Typography
             variant="body1"
             component="p"
-            sx={{ mt: theme.spacing(1) }}
+            sx={{ mt: theme.spacing(3) }}
           >
-            I pride myself in versatility, able to build a wide variety of
-            applications using a wide variety of tools. Whether it be
-            minimilism, raw usability, Material design, I got it covered
-            building performant frontends and backends. I also enjoy building
-            GUI and command line applications using Java and Python. When
-            I&apos;m not coding, you can catch me reading{" "}
+            Off-screen, I&apos;m either exploring tech insights through{" "}
             <Link
               href="/"
               component={NextLink}
@@ -109,8 +108,19 @@ const IntroPageContent: React.FC<{}> = ({}) => {
               sx={{ fontWeight: "bold", color: theme.palette.primary.main }}
             >
               ARTICLES
+            </Link>{" "}
+            or finding inspiration through{" "}
+            <Link
+              href="/photography"
+              component={NextLink}
+              underline="none"
+              passHref
+              aria-label="Check out my photography."
+              sx={{ fontWeight: "bold", color: theme.palette.primary.main }}
+            >
+              PHOTOGRAPHY
             </Link>
-            . Anywho you can{" "}
+            . Ready to bring a unique perspective to your next project?{" "}
             <Link
               href="/contact"
               component={NextLink}
@@ -120,10 +130,11 @@ const IntroPageContent: React.FC<{}> = ({}) => {
               sx={{ fontWeight: "bold", color: theme.palette.primary.main }}
             >
               CONTACT ME
-            </Link>
+            </Link>{" "}
+            and let&apos;s create something extraordinary.
           </Typography>
-        </Box>
-      </motion.div>
+        </motion.div>
+      </Box>
       <motion.div {...getTransitions(0.7)}>
         <FooterLink goto="/about">See More About Me</FooterLink>
       </motion.div>
