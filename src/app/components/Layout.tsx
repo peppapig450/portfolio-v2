@@ -12,21 +12,30 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <>
-      <Box sx={{ py: theme.spacing(4) }}>
+      <Box component="header" sx={{ py: theme.spacing(5) }}>
         <NavBar />
       </Box>
-      <Container maxWidth="lg" sx={{ display: "flex" }}>
-        <Box
-          component="main"
+      <Box component="section" sx={{ width: "100%" }}>
+        <Container
           sx={{
-            flexGrow: 1,
-            minHeight: "100vh",
-            overflowY: "auto",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            [theme.breakpoints.up("sm")]: {
+              maxWidth: "720px",
+            },
+            [theme.breakpoints.up("md")]: {
+              maxWidth: "960px",
+            },
+            [theme.breakpoints.up("lg")]: {
+              maxWidth: "1140px",
+            },
           }}
         >
           {children}
-        </Box>
-      </Container>
+        </Container>
+      </Box>
     </>
   );
 };

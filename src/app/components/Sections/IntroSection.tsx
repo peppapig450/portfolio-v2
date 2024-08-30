@@ -12,13 +12,14 @@ const IntroPageContent: React.FC<{}> = ({}) => {
 
   return (
     <Box
+      component="article"
       sx={{
-        display: "flex",
-        flexDirection: "column",
         justifyContent: "flex-start",
         alignItems: "left",
         textAlign: "left",
-        pt: theme.spacing(10),
+        flexBasis: "83.3333%",
+        maxWidth: "83.3333%",
+        mt: theme.spacing(7),
       }}
     >
       <Box
@@ -34,24 +35,24 @@ const IntroPageContent: React.FC<{}> = ({}) => {
           <Typography
             variant="h3"
             component="h1"
-            gutterBottom
-            color={theme.palette.primary.main}
+            color={theme.palette.text.primary}
             sx={{
               letterSpacing: "9.9px",
               position: "relative",
+              mb: theme.spacing(0.75),
               display: "inline-block",
               "&:before": {
-                content: '"I\'m Nick Brady"',
+                content: '"I\'M NICK BRADY"',
                 position: "absolute",
                 top: 0,
                 left: 2,
                 height: "100%",
                 width: "100%",
-                textShadow: `-1px 0 ${theme.palette.primary.contrastText}`,
+                textShadow: `-1px 0 ${theme.palette.text.primary}`,
                 animation: `${noiseAnim2} 15s infinite linear alternate-reverse`,
               },
               "&:after": {
-                content: '"I\'m Nick Brady"',
+                content: '"I\'M NICK BRADY"',
                 position: "absolute",
                 top: 0,
                 left: -2,
@@ -62,31 +63,37 @@ const IntroPageContent: React.FC<{}> = ({}) => {
               },
             }}
           >
-            I&apos;m Nick Brady
+            I&apos;M NICK BRADY
           </Typography>
         </motion.div>
       </Box>
-      <Box sx={{ maxWidth: "83.3333%" }}>
+      <Box>
         <motion.div {...getTransitions(0.2)}>
           <Typography
             variant="body1"
             component="p"
-            sx={{ mt: theme.spacing(2) }}
+            align="justify"
+            sx={{ lineHeight: "2.3" }}
           >
             Welcome! I&apos;m a versatile full-stack developer and AI engineer,
             blending creativity with technical expertise. From sleek frontends
             to robust backends, I craft high-performance applications across the
             full tech stack. My diverse toolkit spans Java, Python, React, and
-            more, allowing me to tackle any
+            more, allowing me to tackle any{" "}
             <Link
               href="/projects"
               component={NextLink}
               underline="none"
               passHref
               aria-label="Go to Projects page"
-              sx={{ fontWeight: "bold", color: theme.palette.primary.main }}
+              sx={{
+                fontWeight: "bold",
+                border: "medium",
+                textTransform: "uppercase",
+                color: theme.palette.primary.main,
+              }}
             >
-              PROJECTS
+              project
             </Link>{" "}
             with innovative solutions.
           </Typography>
@@ -96,7 +103,7 @@ const IntroPageContent: React.FC<{}> = ({}) => {
           <Typography
             variant="body1"
             component="p"
-            sx={{ mt: theme.spacing(3) }}
+            sx={{ mt: theme.spacing(1), lineHeight: "2.3" }}
           >
             Off-screen, I&apos;m either exploring tech insights through{" "}
             <Link
@@ -105,9 +112,14 @@ const IntroPageContent: React.FC<{}> = ({}) => {
               underline="none"
               passHref
               aria-label="Check out articles I read."
-              sx={{ fontWeight: "bold", color: theme.palette.primary.main }}
+              sx={{
+                fontWeight: "bold",
+                border: "medium",
+                textTransform: "uppercase",
+                color: theme.palette.primary.main,
+              }}
             >
-              ARTICLES
+              articles
             </Link>{" "}
             or finding inspiration through{" "}
             <Link
@@ -116,9 +128,14 @@ const IntroPageContent: React.FC<{}> = ({}) => {
               underline="none"
               passHref
               aria-label="Check out my photography."
-              sx={{ fontWeight: "bold", color: theme.palette.primary.main }}
+              sx={{
+                fontWeight: "bold",
+                border: "medium",
+                textTransform: "uppercase",
+                color: theme.palette.primary.main,
+              }}
             >
-              PHOTOGRAPHY
+              photography
             </Link>
             . Ready to bring a unique perspective to your next project?{" "}
             <Link
@@ -127,9 +144,14 @@ const IntroPageContent: React.FC<{}> = ({}) => {
               underline="none"
               passHref
               aria-label="Go to Contact Page"
-              sx={{ fontWeight: "bold", color: theme.palette.primary.main }}
+              sx={{
+                fontWeight: "bold",
+                border: "medium",
+                textTransform: "uppercase",
+                color: theme.palette.primary.main,
+              }}
             >
-              CONTACT ME
+              contact me
             </Link>{" "}
             and let&apos;s create something extraordinary.
           </Typography>
