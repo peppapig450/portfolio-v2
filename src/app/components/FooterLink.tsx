@@ -6,6 +6,7 @@ import {
   Link,
   TypographyProps,
   IconButton,
+  IconProps,
   useTheme,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
