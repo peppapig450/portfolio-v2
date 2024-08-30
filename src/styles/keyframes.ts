@@ -133,3 +133,15 @@ export const noiseAnim = keyframes`
       }
     }
 `;
+
+export const arrowBounce = keyframes`
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+`;
