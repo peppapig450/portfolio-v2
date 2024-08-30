@@ -10,7 +10,7 @@ const labrada = Labrada({
 
 const lora = Lora({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "600", "700"],
   display: "swap",
 });
 
