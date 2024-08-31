@@ -49,7 +49,7 @@ const FooterLink: React.FC<IFooterLink> = ({ children, goto = "/" }) => {
   const theme = useTheme();
 
   return (
-    <Box component="footer" sx={{ mt: 4 }}>
+    <Box component="footer" sx={{ my: 4 }}>
       <Link href={goto} underline="none" component={NextLink} passHref>
         <Box sx={{ display: "inline-flex", alignItems: "center" }}>
           <AnimatedTypography
