@@ -1,5 +1,5 @@
 "use client";
-import { createTheme } from "@mui/material";
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 import { Labrada, Lora } from "next/font/google";
 
 const labrada = Labrada({
@@ -14,24 +14,26 @@ const lora = Lora({
   display: "swap",
 });
 
-const mainTheme = createTheme({
-  palette: {
-    primary: {
-      main: "#154d77",
+const mainTheme = responsiveFontSizes(
+  createTheme({
+    palette: {
+      primary: {
+        main: "#154d77",
+      },
+      secondary: {
+        main: "#f50057",
+      },
     },
-    secondary: {
-      main: "#f50057",
+    typography: {
+      fontFamily: lora.style.fontFamily,
+      h1: { fontFamily: labrada.style.fontFamily },
+      h2: { fontFamily: labrada.style.fontFamily },
+      h3: { fontFamily: labrada.style.fontFamily },
+      h4: { fontFamily: labrada.style.fontFamily },
+      h5: { fontFamily: labrada.style.fontFamily },
+      h6: { fontFamily: labrada.style.fontFamily },
     },
-  },
-  typography: {
-    fontFamily: lora.style.fontFamily,
-    h1: { fontFamily: labrada.style.fontFamily },
-    h2: { fontFamily: labrada.style.fontFamily },
-    h3: { fontFamily: labrada.style.fontFamily },
-    h4: { fontFamily: labrada.style.fontFamily },
-    h5: { fontFamily: labrada.style.fontFamily },
-    h6: { fontFamily: labrada.style.fontFamily },
-  },
-});
+  })
+);
 
 export default mainTheme;
