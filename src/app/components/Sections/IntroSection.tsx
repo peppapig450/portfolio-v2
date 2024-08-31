@@ -2,8 +2,8 @@ import React from "react";
 import NextLink from "next/link";
 import { Box, Typography, Link, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
-import { noiseAnim, noiseAnim2 } from "@/styles/keyframes";
 import { getTransitions } from "../utils/transitions";
+import AnimatedTitle from "../LandingPage/AnimatedTitle";
 import FooterLink from "../FooterLink";
 
 // TODO: Refactor this into resusable components and stylized components
@@ -22,51 +22,10 @@ const IntroPageContent: React.FC<{}> = ({}) => {
         mt: theme.spacing(7),
       }}
     >
-      <Box
-        sx={{
-          position: "relative",
-          display: "inline-block",
-          overflow: "hidden",
+      <motion.div {...getTransitions(0.1)}>
+        <AnimatedTitle />
+      </motion.div>
 
-          color: theme.palette.primary.main,
-        }}
-      >
-        <motion.div {...getTransitions(0.1)}>
-          <Typography
-            variant="h3"
-            component="h1"
-            color={theme.palette.text.primary}
-            sx={{
-              letterSpacing: "9.9px",
-              position: "relative",
-              mb: theme.spacing(0.75),
-              display: "inline-block",
-              "&:before": {
-                content: '"I\'M NICK BRADY"',
-                position: "absolute",
-                top: 0,
-                left: 2,
-                height: "100%",
-                width: "100%",
-                textShadow: `-1px 0 ${theme.palette.text.primary}`,
-                animation: `${noiseAnim2} 15s infinite linear alternate-reverse`,
-              },
-              "&:after": {
-                content: '"I\'M NICK BRADY"',
-                position: "absolute",
-                top: 0,
-                left: -2,
-                height: "100%",
-                width: "100%",
-                textShadow: `3px 0 ${theme.palette.secondary.main}`,
-                animation: `${noiseAnim} 2s infinite linear alternate-reverse`,
-              },
-            }}
-          >
-            I&apos;M NICK BRADY
-          </Typography>
-        </motion.div>
-      </Box>
       <Box>
         <motion.div {...getTransitions(0.2)}>
           <Typography
@@ -99,7 +58,6 @@ const IntroPageContent: React.FC<{}> = ({}) => {
           </Typography>
         </motion.div>
         <motion.div {...getTransitions(0.3)}>
-          {/* TODO: maybe add my photography stuff */}
           <Typography
             variant="body1"
             component="p"
