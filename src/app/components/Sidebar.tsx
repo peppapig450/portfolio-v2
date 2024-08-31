@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useScrollTrigger } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
-import FullSidebar from "./FullSidebar";
 import CompactSidebar from "./CompactSidebar";
 
 const Sidebar: React.FC = () => {
@@ -30,9 +29,7 @@ const Sidebar: React.FC = () => {
           animate={{ x: 0 }}
           exit={{ x: "-100%" }}
           transition={{ duration: 0.5 }}
-        >
-          <FullSidebar />
-        </motion.div>
+        ></motion.div>
       ) : (
         <motion.div
           key="compact"
