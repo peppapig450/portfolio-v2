@@ -1,14 +1,1 @@
-# Ignore everything by default
-*
-
-# Allow JavaScript and TypeScript files
-!*.js
-!*.jsx
-!*.ts
-!*.tsx
-
-# Allow JavaScript and TypeScript files in all subdirectories
-!**/*.js
-!**/*.jsx
-!**/*.ts
-!**/*.tsx
+*.json
