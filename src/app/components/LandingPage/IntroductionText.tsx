@@ -9,6 +9,7 @@ import { getTransitions } from "../utils/transitions";
 const IntroductionText: React.FC = () => {
   const theme = useTheme();
 
+  // TODO: make the link font black, underline and turn blue when hovered
   return (
     <>
       <motion.div {...getTransitions(0.2)}>
