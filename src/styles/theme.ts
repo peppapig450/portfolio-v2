@@ -33,7 +33,7 @@ const mainTheme = responsiveFontSizes(
       h5: { fontFamily: labrada.style.fontFamily },
       h6: { fontFamily: labrada.style.fontFamily },
     },
-  })
+  }),
 );
 
 export default mainTheme;
