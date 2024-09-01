@@ -13,7 +13,11 @@ const CustomLink: React.FC<CustomLinkProps> = ({
   children,
   ...props
 }) => {
-  return <Link component={NextLink} href={href} passHref {...props}></Link>;
+  return (
+    <Link component={NextLink} href={href} passHref {...props}>
+      {children}
+    </Link>
+  );
 };
 
 export default CustomLink;
