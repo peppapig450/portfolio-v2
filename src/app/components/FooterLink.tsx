@@ -89,7 +89,7 @@ const FooterLink: React.FC<IFooterLink> = ({ children, goto = "/" }) => {
   ];
 
   return (
-    <Box>
+    <>
       <Box component="footer" sx={{ mt: 4 }}>
         <Link href={goto} underline="none" component={NextLink} passHref>
           <Box sx={{ display: "inline-flex", alignItems: "center" }}>
@@ -117,7 +117,8 @@ const FooterLink: React.FC<IFooterLink> = ({ children, goto = "/" }) => {
       </Box>
       <Box
         sx={{
-          p: theme.spacing(2, 0),
+          mr: -3,
+
           [theme.breakpoints.down("md")]: {
             position: "fixed",
             backdropFilter: "blur(6px) saturate(2.5)",
@@ -170,7 +171,7 @@ const FooterLink: React.FC<IFooterLink> = ({ children, goto = "/" }) => {
           </CustomLink>
         ))}
       </Box>
-    </Box>
+    </>
   );
 };
 
