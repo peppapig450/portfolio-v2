@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Box, useTheme, Container } from "@mui/material";
 import Sidebar from "./Sidebar";
