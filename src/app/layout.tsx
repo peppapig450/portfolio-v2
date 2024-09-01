@@ -56,6 +56,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+  metadataBase: new URL("https://dev.nickbrady.dev"),
   alternates: {
     canonical: "https://dev.nickbrady.dev",
   },
