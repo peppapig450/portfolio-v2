@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "Home | Nick Brady",
+    title: "Nick Brady&#x27;s Portfolio",
     url: "https://dev.nickbrady.dev",
     siteName: "Nick Brady&#x27;s Portfolio",
     description:
