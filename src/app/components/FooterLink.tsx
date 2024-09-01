@@ -18,7 +18,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import CustomLink from "./LandingPage/CustomLink";
+import CustomLink from "./CustomLink";
 
 interface IFooterLink {
   children: string | React.ReactNode;

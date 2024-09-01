@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import CustomLink from "./CustomLink";
+import CustomLink from "../CustomLink";
 import { motion } from "framer-motion";
 
 import { getTransitions } from "../utils/transitions";
