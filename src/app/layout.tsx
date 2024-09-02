@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     default: "Nick Brady&#x27;s Portfolio",
   },
   description:
-    "Hi, I&#x27;m Nick Brady, Full-stack developer, software engineer, and problem-solver proficient in React, Typescript, Java, AI applications, Python, and more.",
+    "Hi, I&#x27;m Nick Brady, full-stack developer, software engineer, and problem-solver proficient in React, Typescript, Java, AI applications, Python, and more.",
   generator: "Next.js",
   applicationName: "Nick Brady&#x27;s portfolio",
   referrer: "origin-when-cross-origin",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     url: "https://dev.nickbrady.dev",
     siteName: "Nick Brady&#x27;s Portfolio",
     description:
-      "Hi, I&#x27;m Nick Brady, Full-stack developer, software engineer, and problem-solver proficient in React, Typescript, Java, AI applications, Python, and more.",
+      "Hi, I&#x27;m Nick Brady, full-stack developer, software engineer, and problem-solver proficient in React, Typescript, Java, AI applications, Python, and more.",
     locale: "en_US",
     type: "website",
   },
