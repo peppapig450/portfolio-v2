@@ -151,3 +151,12 @@ export const underlineAnimation = keyframes`
     transform: scaleX(1);
   }
 `;
+
+export const subtleBounce = keyframes`
+  0%, 100% { 
+    transform: tranlateY(0);
+  }
+  50% {
+    transfomr: translateY(-10px);
+  }
+`;
