@@ -7,7 +7,7 @@ import mainTheme from "@/styles/theme";
 export const metadata: Metadata = {
   title: {
     template: "%s | Nick Brady",
-    default: "Nick Brady&#x27;s Portfolio",
+    default: "Nick Brady's Portfolio",
   },
   description:
     "Hi, I&#x27;m Nick Brady, full-stack developer, software engineer, and problem-solver proficient in React, Typescript, Java, AI applications, Python, and more.",
