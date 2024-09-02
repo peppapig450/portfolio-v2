@@ -4,7 +4,7 @@ import { useTheme } from "@mui/material/styles";
 import CustomLink from "../CustomLink";
 import { motion } from "framer-motion";
 
-import { getTransitions } from "../utils/transitions";
+import { getTransitions } from "@/utils/transitions";
 
 const IntroductionText: React.FC = () => {
   const theme = useTheme();
