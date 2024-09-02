@@ -5,7 +5,6 @@ import {
   AppBar,
   AppBarProps,
   Toolbar,
-  Typography,
   Button,
   Box,
   IconButton,
@@ -25,7 +24,6 @@ import Image from "next/image";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import useIsMobile from "@/hooks/useIsMobile";
-import { BorderBottom } from "@mui/icons-material";
 
 const StyledAppBar = styled(AppBar)<AppBarProps>(({ theme }) => ({
   background: "transparent",
@@ -126,23 +124,25 @@ const NavBar: React.FC<NavBarProps> = () => {
 
   const renderNavLinks = () => (
     <Box sx={{ display: { sm: "none", md: "block" } }}>
-      {navItems.map((item) => (
-        <Link
-          href={item.path}
-          key={item.path}
-          component={NextLink}
-          passHref
-          underline="hover"
-        >
-          <NavLinkButton
-            variant="text"
-            color="inherit"
-            aria-label={item.ariaLabel}
+      {navItems
+        .filter((item) => item.path !== pathname)
+        .map((item) => (
+          <Link
+            href={item.path}
+            key={item.path}
+            component={NextLink}
+            passHref
+            underline="hover"
           >
-            {item.label}
-          </NavLinkButton>
-        </Link>
-      ))}
+            <NavLinkButton
+              variant="text"
+              color="inherit"
+              aria-label={item.ariaLabel}
+            >
+              {item.label}
+            </NavLinkButton>
+          </Link>
+        ))}
     </Box>
   );
 
