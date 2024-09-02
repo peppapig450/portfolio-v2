@@ -5,6 +5,7 @@ interface BaseItem {
   title: string;
   description: string;
   link: string;
+  ariaLabel: string;
 }
 
 // Extend BaseItem with the initial Timeline item stuff
