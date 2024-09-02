@@ -8,7 +8,7 @@ import PhotoCameraBackIcon from "@mui/icons-material/PhotoCameraBack";
 import CopyrightIcon from "@mui/icons-material/Copyright";
 
 // Define the base timeline data interface with common properties
-interface TimelineItem {
+export interface TimelineItemType {
   title: string;
   subtitle?: string;
   icon?: ReactNode;
@@ -20,9 +20,9 @@ interface TimelineItem {
 
 // Define the context data type that combines all items
 type AboutContextType = {
-  aboutMeData: TimelineItem[];
-  myPlaylistData: TimelineItem[];
-  myPhotographyData: TimelineItem[];
+  aboutMeData: TimelineItemType[];
+  myPlaylistData: TimelineItemType[];
+  myPhotographyData: TimelineItemType[];
 };
 
 const AboutContext = createContext<AboutContextType | undefined>(undefined);
