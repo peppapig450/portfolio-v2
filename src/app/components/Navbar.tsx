@@ -241,7 +241,7 @@ const NavBar: React.FC<NavBarProps> = () => {
   );
 
   return (
-    <Box>
+    <Box component="header" sx={{ py: theme.spacing(5) }}>
       <StyledAppBar
         position="static"
         component="nav"
