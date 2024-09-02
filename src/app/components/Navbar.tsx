@@ -133,12 +133,10 @@ const NavBar: React.FC<NavBarProps> = () => {
             component={NextLink}
             passHref
             underline="hover"
+            aria-label={item.ariaLabel}
+            aria-current={pathname === item.path ? "page" : undefined}
           >
-            <NavLinkButton
-              variant="text"
-              color="inherit"
-              aria-label={item.ariaLabel}
-            >
+            <NavLinkButton variant="text" color="inherit">
               {item.label}
             </NavLinkButton>
           </Link>
@@ -163,6 +161,7 @@ const NavBar: React.FC<NavBarProps> = () => {
           onClick={handleDrawerToggle}
           selected={pathname === href}
           aria-label={ariaLabel}
+          aria-current={pathname === href ? "page" : undefined}
           sx={{
             display: "block",
             textAlign: "center",
@@ -227,14 +226,16 @@ const NavBar: React.FC<NavBarProps> = () => {
       </Box>
 
       <List sx={{ flexGrow: 1, textAlign: "center", width: "100%" }}>
-        {navItems.map(({ path, label, ariaLabel }) => (
-          <ListItemLinkButton
-            key={path}
-            href={path}
-            text={label}
-            ariaLabel={ariaLabel}
-          />
-        ))}
+        {navItems
+          .filter((item) => item.path !== pathname)
+          .map(({ path, label, ariaLabel }) => (
+            <ListItemLinkButton
+              key={path}
+              href={path}
+              text={label}
+              ariaLabel={ariaLabel}
+            />
+          ))}
       </List>
     </Box>
   );
@@ -255,13 +256,13 @@ const NavBar: React.FC<NavBarProps> = () => {
           containerType: "inline-size",
         }}
       >
-        <StyledToolbar disableGutters={true}>
+        <StyledToolbar disableGutters>
           <Link href="/" component={NextLink} underline="none" passHref>
             <LogoWrapper sx={{ display: "block" }}>
               <Image
                 src="/logo.svg"
-                alt="Logo"
-                fill={true}
+                alt="Nick Brady's logo"
+                fill
                 style={{ objectFit: "cover" }}
                 priority
               />
