@@ -17,7 +17,7 @@ const IntroductionText: React.FC = () => {
           variant="body1"
           component="p"
           align="justify"
-          sx={{ lineHeight: "2.3" }}
+          sx={{ lineHeight: { sm: "1.5", md: "2.3" } }}
         >
           Welcome I&apos;m a versatile full-stack developer and AI engineer,
           blending creativity with technical expertise. From sleek frontends to
@@ -44,7 +44,7 @@ const IntroductionText: React.FC = () => {
         <Typography
           variant="body1"
           component="p"
-          sx={{ mt: theme.spacing(1), lineHeight: "2.3" }}
+          sx={{ mt: theme.spacing(1), lineHeight: { sm: "1.5", md: "2.3" } }}
         >
           Off-screen, I&apos;m either exploring tech insights through{" "}
           <CustomLink
