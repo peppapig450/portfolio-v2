@@ -145,6 +145,7 @@ const FooterLink: React.FC<IFooterLink> = ({ children, goto = "/" }) => {
             aria-label={`Go to Nick Brady\'s ${social.label} Page`}
             title={`${social.label} Page`}
             sx={{
+              mr: 0,
               transition: "all 1s ease",
               cursor: "pointer",
               p: theme.spacing(0, 1.5),
