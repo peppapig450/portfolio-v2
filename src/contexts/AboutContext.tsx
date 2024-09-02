@@ -25,7 +25,9 @@ type AboutContextType = {
   myPhotographyData: TimelineItemType[];
 };
 
-const AboutContext = createContext<AboutContextType | undefined>(undefined);
+export const AboutContext = createContext<AboutContextType | undefined>(
+  undefined
+);
 
 export const useAboutContext = () => {
   const context = useContext(AboutContext);
@@ -35,9 +37,11 @@ export const useAboutContext = () => {
   return context;
 };
 
-export const AboutProvider: React.FC<{ children: ReactNode }> = ({
+export default function AboutProvider({
   children,
-}) => {
+}: {
+  children: React.ReactNode;
+}) {
   const aboutData: AboutContextType = {
     aboutMeData: [
       {
@@ -131,4 +135,4 @@ export const AboutProvider: React.FC<{ children: ReactNode }> = ({
   return (
     <AboutContext.Provider value={aboutData}>{children}</AboutContext.Provider>
   );
-};
+}
