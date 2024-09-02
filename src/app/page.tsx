@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Layout from "./components/Layout";
+import { SectionWrapper } from "./components/Layout";
+import NavBar from "./components/Navbar";
 import IntroPageContent from "./components/Sections/IntroSection";
 
 export const metadata: Metadata = {
@@ -11,8 +12,11 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <Layout>
-      <IntroPageContent />
-    </Layout>
+    <>
+      <NavBar />
+      <SectionWrapper>
+        <IntroPageContent />
+      </SectionWrapper>
+    </>
   );
 }
