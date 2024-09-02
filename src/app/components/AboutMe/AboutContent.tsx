@@ -6,7 +6,7 @@ import { useAboutContext } from "@/contexts/AboutContext";
 import { TimelineSection } from "./TimelineSection";
 import FooterLink from "../FooterLink";
 import { motion } from "framer-motion";
-import { getTransitions } from "../utils/transitions";
+import { getTransitions } from "@/utils/transitions";
 import { SectionWrapper } from "../Layout";
 
 const AboutContent = () => {
