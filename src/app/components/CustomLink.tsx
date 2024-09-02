@@ -1,7 +1,6 @@
 import React from "react";
 import NextLink from "next/link";
 import { Link, LinkProps } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
 
 interface CustomLinkProps extends Omit<LinkProps, "component"> {
   href: string;
