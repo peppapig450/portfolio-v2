@@ -23,10 +23,10 @@ const AboutContent = () => {
         <Grid container alignItems="center" justifyContent="center">
           <Grid size={{ xs: 12, md: 10 }}>
             <Typography
-              variant="h1"
+              variant="h2"
               component="h1"
               gutterBottom
-              sx={{ pl: theme.spacing(2) }}
+              sx={{ fontWeight: "bold", pl: theme.spacing(2) }}
             >
               About Me.
             </Typography>
