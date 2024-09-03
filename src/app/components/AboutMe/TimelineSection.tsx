@@ -28,7 +28,10 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({
   return (
     <Box component="article">
       {title && (
-        <Typography variant="h4" gutterBottom>
+        <Typography
+          variant="h4"
+          sx={{ pl: theme.spacing(2), mb: theme.spacing(1) }}
+        >
           {title}
         </Typography>
       )}
@@ -57,8 +60,9 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={item.ariaLabel}
+                  underline="none"
                 >
-                  <Typography variant="h6" component="a">
+                  <Typography variant="h6" component="a" color="textPrimary">
                     {item.title}
                   </Typography>
                   {item.subtitle && (
@@ -73,6 +77,7 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={item.ariaLabel}
+                  underline="none"
                   sx={{
                     [theme.breakpoints.down("sm")]: {
                       float: "none !important",
@@ -83,7 +88,16 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({
                     float: "right",
                   }}
                 >
-                  <Typography variant="h6">{item.linkText}</Typography>
+                  <Typography
+                    variant="h6"
+                    component="a"
+                    color="textPrimary"
+                    sx={{
+                      textDecoration: "underline",
+                    }}
+                  >
+                    {item.linkText}
+                  </Typography>
                 </CustomLink>
               </Box>
 
