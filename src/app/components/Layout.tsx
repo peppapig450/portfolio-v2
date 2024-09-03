@@ -41,6 +41,16 @@ export const _SectionWrapper: React.FC<PropsWithChildren<PageWrapperProps>> = ({
   );
 };
 
+interface SectionWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
+  // Additional props can be added here if needed
+}
+
+export const SectionWrapper: React.FC<
+  PropsWithChildren<SectionWrapperProps>
+> = ({ children }) => {
+  return <div>{children}</div>;
+};
+
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const theme = useTheme();
 
