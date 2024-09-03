@@ -90,7 +90,15 @@ const FooterLink: React.FC<IFooterLink> = ({ children, goto = "/" }) => {
 
   return (
     <>
-      <Box component="footer" sx={{ mt: 4 }}>
+      <Box
+        component="footer"
+        sx={{
+          mt: 4,
+          [theme.breakpoints.down("md")]: {
+            paddingBottom: 4,
+          },
+        }}
+      >
         <Link href={goto} underline="none" component={NextLink} passHref>
           <Box sx={{ display: "inline-flex", alignItems: "center" }}>
             <AnimatedTypography
@@ -148,7 +156,7 @@ const FooterLink: React.FC<IFooterLink> = ({ children, goto = "/" }) => {
               mr: 0,
               transition: "all 1s ease",
               cursor: "pointer",
-              p: theme.spacing(0, 1.5),
+              p: theme.spacing(1, 1.5),
               "&:first-of-type": {
                 pl: 0,
               },
