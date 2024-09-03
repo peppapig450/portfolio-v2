@@ -12,7 +12,6 @@ const IntroPageContent: React.FC<{}> = ({}) => {
 
   return (
     <Box
-      component="article"
       sx={{
         justifyContent: "flex-start",
         alignItems: "left",
@@ -22,13 +21,15 @@ const IntroPageContent: React.FC<{}> = ({}) => {
         mt: theme.spacing(7),
       }}
     >
-      <motion.div {...getTransitions(0.1)}>
-        <AnimatedTitle />
-      </motion.div>
+      <article>
+        <motion.div {...getTransitions(0.1)}>
+          <AnimatedTitle />
+        </motion.div>
 
-      <Box>
-        <IntroductionText />
-      </Box>
+        <Box>
+          <IntroductionText />
+        </Box>
+      </article>
 
       <motion.div {...getTransitions(0.7)}>
         <FooterLink goto="/about">See More About Me</FooterLink>
