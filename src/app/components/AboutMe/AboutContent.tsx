@@ -14,10 +14,20 @@ const AboutContent = () => {
 
   return (
     <>
-      <Container sx={{ mb: 5, px: theme.spacing(1.875), mx: "auto" }}>
+      <Container
+        component="section"
+        id="main-content"
+        aria-label="You are now in my professional background section."
+        sx={{ mb: 5, px: theme.spacing(1.785), mx: "auto" }}
+      >
         <Grid container alignItems="center" justifyContent="center">
           <Grid size={{ xs: 12, md: 10 }}>
-            <Typography variant="h1" component="h1" gutterBottom>
+            <Typography
+              variant="h1"
+              component="h1"
+              gutterBottom
+              sx={{ pl: theme.spacing(2) }}
+            >
               About Me.
             </Typography>
             <TimelineSection items={aboutMeData} />
@@ -25,7 +35,12 @@ const AboutContent = () => {
         </Grid>
       </Container>
 
-      <Container sx={{ mb: 5, px: theme.spacing(1.875), mx: "auto" }}>
+      <Container
+        component="section"
+        id="main-content"
+        aria-label="You are now in my musical  section."
+        sx={{ mb: 5, px: theme.spacing(1.875), mx: "auto" }}
+      >
         <Grid container alignItems="center" justifyContent="center">
           <Grid size={{ xs: 12, md: 10 }}>
             <TimelineSection title="My Playlists." items={myPlaylistData} />
@@ -33,7 +48,12 @@ const AboutContent = () => {
         </Grid>
       </Container>
 
-      <Container sx={{ mb: 5, px: theme.spacing(1.875), mx: "auto" }}>
+      <Container
+        component="section"
+        id="main-content"
+        aria-label="You are now in my Photography section."
+        sx={{ mb: 5, px: theme.spacing(1.875), mx: "auto" }}
+      >
         <Grid container alignItems="center" justifyContent="center">
           <Grid size={{ xs: 12, md: 10 }}>
             <TimelineSection
