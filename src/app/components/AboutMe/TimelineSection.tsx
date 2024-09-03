@@ -5,6 +5,7 @@ import {
   TimelineSeparator,
   TimelineConnector,
   TimelineContent,
+  timelineItemClasses,
   TimelineDot,
   TimelineOppositeContent,
 } from "@mui/lab";
@@ -25,23 +26,20 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({
   const theme = useTheme();
 
   return (
-    <Box
-      component="article"
-      sx={{
-        justifyContent: "flex-start",
-        alignItems: "left",
-        textAlign: "left",
-        flexBasis: "83.3333%",
-        maxWidth: "83.3333%",
-        mt: theme.spacing(7),
-      }}
-    >
+    <Box component="article">
       {title && (
         <Typography variant="h4" gutterBottom>
           {title}
         </Typography>
       )}
-      <Timeline>
+      <Timeline
+        sx={{
+          [`& .${timelineItemClasses.root}:before`]: {
+            flex: 0,
+            padding: 0,
+          },
+        }}
+      >
         {items.map((item, index) => (
           <TimelineItem key={index}>
             <TimelineSeparator>
@@ -49,35 +47,46 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({
               {index !== items.length - 1 && <TimelineConnector />}
             </TimelineSeparator>
             <TimelineContent>
-              <CustomLink
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={item.ariaLabel}
+              <Box
+                display="flex"
+                justifyContent="space-between"
+                alignItems="center"
               >
-                <Typography variant="h6">{item.title}</Typography>
-                {item.subtitle && (
-                  <Typography variant="caption" color="textSecondary">
-                    {item.subtitle}
+                <CustomLink
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={item.ariaLabel}
+                >
+                  <Typography variant="h6" component="a">
+                    {item.title}
                   </Typography>
-                )}
-              </CustomLink>
-              <CustomLink
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={item.ariaLabel}
-                style={{ float: "right" }}
-                sx={{
-                  [theme.breakpoints.down("sm")]: {
-                    float: "none !important",
-                  },
-                }}
-              >
-                <Typography variant="body2" sx={{ display: "inline-block" }}>
-                  {item.linkText}
-                </Typography>
-              </CustomLink>
+                  {item.subtitle && (
+                    <Typography variant="caption" color="textSecondary">
+                      {" "}
+                      {item.subtitle}
+                    </Typography>
+                  )}
+                </CustomLink>
+                <CustomLink
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={item.ariaLabel}
+                  sx={{
+                    [theme.breakpoints.down("sm")]: {
+                      float: "none !important",
+                    },
+                    [theme.breakpoints.up("md")]: {
+                      float: "right !important",
+                    },
+                    float: "right",
+                  }}
+                >
+                  <Typography variant="h6">{item.linkText}</Typography>
+                </CustomLink>
+              </Box>
+
               <Typography>{item.description}</Typography>
             </TimelineContent>
           </TimelineItem>
