@@ -128,7 +128,7 @@ export default function AboutProvider({
     ],
     myPhotographyData: [
       {
-        title: "Nick's Photography Collection",
+        title: "Photography Collection",
         icon: <PhotoCameraBackIcon />,
         link: "/photography",
         description:
