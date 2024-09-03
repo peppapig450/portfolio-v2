@@ -50,7 +50,9 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({
             sx={{ display: "flex", minHeight: "100px" }}
           >
             <TimelineSeparator>
-              <TimelineDot color="primary">{item.icon}</TimelineDot>
+              <TimelineDot color="primary" variant="outlined">
+                {item.icon}
+              </TimelineDot>
               {index !== items.length - 1 && (
                 <TimelineConnector sx={{ flexGrow: 1 }} />
               )}
