@@ -10,7 +10,7 @@ interface PageWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   // Additional props can be added here if needed
 }
 
-export const SectionWrapper: React.FC<PropsWithChildren<PageWrapperProps>> = ({
+export const _SectionWrapper: React.FC<PropsWithChildren<PageWrapperProps>> = ({
   children,
   ...rest
 }) => {
