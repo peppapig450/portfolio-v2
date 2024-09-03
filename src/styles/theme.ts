@@ -1,10 +1,10 @@
 "use client";
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
-import { Labrada, Lora } from "next/font/google";
+import { Quattrocento, Lora } from "next/font/google";
 
-const labrada = Labrada({
+const quattrocento = Quattrocento({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "700"],
   display: "swap",
 });
 
@@ -26,14 +26,14 @@ const mainTheme = responsiveFontSizes(
     },
     typography: {
       fontFamily: lora.style.fontFamily,
-      h1: { fontFamily: labrada.style.fontFamily },
-      h2: { fontFamily: labrada.style.fontFamily },
-      h3: { fontFamily: labrada.style.fontFamily },
-      h4: { fontFamily: labrada.style.fontFamily },
-      h5: { fontFamily: labrada.style.fontFamily },
-      h6: { fontFamily: labrada.style.fontFamily },
+      h1: { fontFamily: quattrocento.style.fontFamily },
+      h2: { fontFamily: quattrocento.style.fontFamily },
+      h3: { fontFamily: quattrocento.style.fontFamily },
+      h4: { fontFamily: quattrocento.style.fontFamily },
+      h5: { fontFamily: quattrocento.style.fontFamily },
+      h6: { fontFamily: quattrocento.style.fontFamily },
     },
-  }),
+  })
 );
 
 export default mainTheme;
