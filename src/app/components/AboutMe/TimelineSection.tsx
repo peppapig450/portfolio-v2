@@ -25,6 +25,7 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({
 }) => {
   const theme = useTheme();
 
+  // TODO: add underline highlight to the item title's
   return (
     <Box component="article">
       {title && (
@@ -44,16 +45,29 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({
         }}
       >
         {items.map((item, index) => (
-          <TimelineItem key={index}>
+          <TimelineItem
+            key={index}
+            sx={{ display: "flex", minHeight: "100px" }}
+          >
             <TimelineSeparator>
               <TimelineDot color="primary">{item.icon}</TimelineDot>
-              {index !== items.length - 1 && <TimelineConnector />}
+              {index !== items.length - 1 && (
+                <TimelineConnector sx={{ flexGrow: 1 }} />
+              )}
             </TimelineSeparator>
             <TimelineContent>
               <Box
                 display="flex"
                 justifyContent="space-between"
-                alignItems="center"
+                alignItems="left"
+                sx={{
+                  [theme.breakpoints.down("md")]: {
+                    flexDirection: "column",
+                  },
+                  [theme.breakpoints.up("sm")]: {
+                    flexDirection: "row",
+                  },
+                }}
               >
                 <CustomLink
                   href={item.link}
@@ -62,15 +76,19 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({
                   aria-label={item.ariaLabel}
                   underline="none"
                 >
-                  <Typography variant="h6" component="a" color="textPrimary">
+                  <Typography
+                    variant="h6"
+                    color="textPrimary"
+                    fontWeight="bold"
+                  >
                     {item.title}
+                    {item.subtitle && (
+                      <Typography variant="caption" color="textSecondary">
+                        {" "}
+                        {item.subtitle}
+                      </Typography>
+                    )}
                   </Typography>
-                  {item.subtitle && (
-                    <Typography variant="caption" color="textSecondary">
-                      {" "}
-                      {item.subtitle}
-                    </Typography>
-                  )}
                 </CustomLink>
                 <CustomLink
                   href={item.link}
@@ -78,20 +96,11 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({
                   rel="noopener noreferrer"
                   aria-label={item.ariaLabel}
                   underline="none"
-                  sx={{
-                    [theme.breakpoints.down("sm")]: {
-                      float: "none !important",
-                    },
-                    [theme.breakpoints.up("md")]: {
-                      float: "right !important",
-                    },
-                    float: "right",
-                  }}
                 >
                   <Typography
-                    variant="h6"
-                    component="a"
+                    variant="body1"
                     color="textPrimary"
+                    fontWeight="bold"
                     sx={{
                       textDecoration: "underline",
                     }}
@@ -101,7 +110,9 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({
                 </CustomLink>
               </Box>
 
-              <Typography>{item.description}</Typography>
+              <Typography sx={{ mt: "0.6rem", mb: theme.spacing(2) }}>
+                {item.description}
+              </Typography>
             </TimelineContent>
           </TimelineItem>
         ))}
