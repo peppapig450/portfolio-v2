@@ -12,6 +12,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import Image from "next/image";
 import { subtleBounce } from "@/styles/keyframes";
+import { labrada } from "@/styles/additionalFonts";
 import CustomLink from "./components/CustomLink";
 
 export default function NotFound(): React.JSX.Element {
@@ -43,7 +44,12 @@ export default function NotFound(): React.JSX.Element {
       <Typography
         variant="h1"
         component="h1"
-        sx={{ fontSize: "4rem", fontWeight: "bold", mb: 2 }}
+        sx={{
+          fontSize: "4rem",
+          fontFamily: labrada.style.fontFamily,
+          fontWeight: "bold",
+          mb: 2,
+        }}
       >
         404
       </Typography>
