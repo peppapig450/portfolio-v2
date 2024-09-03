@@ -2,6 +2,7 @@
 import React, { useCallback, useEffect } from "react";
 import {
   Drawer,
+  DrawerProps,
   IconButton,
   Typography,
   Box,
@@ -40,7 +41,11 @@ const defaultProps: ISideBarModal = {
   size: "md",
 };
 
-const StyledDrawer = styled(Drawer)(({ theme }) => ({
+interface StyledDrawerProps extends DrawerProps {
+  size: "sm" | "lg" | "md";
+}
+
+const StyledDrawer = styled(Drawer)<StyledDrawerProps>(({ theme, size }) => ({
   "& .MuiDrawer-paper": {
     width: ({ size }: { size: ISideBarModal["size"] }) => {
       switch (size) {
@@ -71,3 +76,40 @@ const TechnologyChip = styled(Chip)(({ theme }) => ({
   margin: theme.spacing(0.5),
   backgroundColor: theme.palette.background.default,
 }));
+
+const SideBarModel: React.FC<ISideBarModal> = ({
+  show,
+  closeShow,
+  size = "md",
+  data,
+}) => {
+  const handleKeyPress = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        closeShow();
+      }
+    },
+    [closeShow]
+  );
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyPress);
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [handleKeyPress]);
+
+  if (!data) return null; // TODO: make sure this is safe
+
+  return (
+    <StyledDrawer
+      anchor="right"
+      open={show}
+      onClose={closeShow}
+      size={size}
+      data-testid="sidebarmodal"
+    >
+      <StyledCard></StyledCard>
+    </StyledDrawer>
+  );
+};
