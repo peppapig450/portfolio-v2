@@ -1,37 +1,58 @@
 "use client";
 import React from "react";
-import { Container, Box, Typography } from "@mui/material";
-import { styled, useTheme } from "@mui/material/styles";
+import { Container, Typography, Grid2 as Grid } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import { useAboutContext } from "@/contexts/AboutContext";
 import { TimelineSection } from "./TimelineSection";
 import FooterLink from "../FooterLink";
 import { motion } from "framer-motion";
 import { getTransitions } from "@/utils/transitions";
-import { SectionWrapper } from "../Layout";
 
 const AboutContent = () => {
+  const theme = useTheme();
   const { aboutMeData, myPlaylistData, myPhotographyData } = useAboutContext();
 
   return (
-    <Box>
-      <SectionWrapper>
-        <Box sx={{ px: 0 }}>
-          <Typography variant="h1" component="h1" gutterBottom>
-            About Me.
-          </Typography>
-        </Box>
-        <TimelineSection items={aboutMeData} />
-      </SectionWrapper>
-      <SectionWrapper>
-        <TimelineSection title="My Playlists." items={myPlaylistData} />
-      </SectionWrapper>
-      <SectionWrapper>
-        <TimelineSection title="My Photography." items={myPhotographyData} />
-      </SectionWrapper>
-      <motion.div {...getTransitions(0.7)}>
-        <FooterLink goto="/projects">Lets Continue To Projects</FooterLink>
-      </motion.div>
-    </Box>
+    <>
+      <Container sx={{ mb: 5, px: theme.spacing(1.875), mx: "auto" }}>
+        <Grid container alignItems="center" justifyContent="center">
+          <Grid size={{ xs: 12, md: 10 }}>
+            <Typography variant="h1" component="h1" gutterBottom>
+              About Me.
+            </Typography>
+            <TimelineSection items={aboutMeData} />
+          </Grid>
+        </Grid>
+      </Container>
+
+      <Container sx={{ mb: 5, px: theme.spacing(1.875), mx: "auto" }}>
+        <Grid container alignItems="center" justifyContent="center">
+          <Grid size={{ xs: 12, md: 10 }}>
+            <TimelineSection title="My Playlists." items={myPlaylistData} />
+          </Grid>
+        </Grid>
+      </Container>
+
+      <Container sx={{ mb: 5, px: theme.spacing(1.875), mx: "auto" }}>
+        <Grid container alignItems="center" justifyContent="center">
+          <Grid size={{ xs: 12, md: 10 }}>
+            <TimelineSection
+              title="My Photography."
+              items={myPhotographyData}
+            />
+          </Grid>
+        </Grid>
+        <Grid container alignItems="center" justifyContent="center">
+          <Grid size={{ xs: 12, md: 10 }}>
+            <motion.div {...getTransitions(0.7)}>
+              <FooterLink goto="/projects">
+                Lets Continue To Projects
+              </FooterLink>
+            </motion.div>
+          </Grid>
+        </Grid>
+      </Container>
+    </>
   );
 };
 
