@@ -95,7 +95,7 @@ const FooterLink: React.FC<IFooterLink> = ({ children, goto = "/" }) => {
         sx={{
           mt: 4,
           [theme.breakpoints.down("md")]: {
-            paddingBottom: 4,
+            paddingBottom: 5,
           },
         }}
       >
