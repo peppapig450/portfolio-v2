@@ -12,56 +12,65 @@ const AboutContent = () => {
   const theme = useTheme();
   const { aboutMeData, myPlaylistData, myPhotographyData } = useAboutContext();
 
+  // TODO: Spaced container at the top level? or use stylize?
   return (
     <>
-      <Container
-        component="section"
-        id="main-content"
-        aria-label="You are now in my professional background section."
-        sx={{ mb: 5, px: theme.spacing(1.785), mx: "auto" }}
-      >
-        <Grid container alignItems="center" justifyContent="center">
-          <Grid size={{ xs: 12, md: 10 }}>
-            <Typography
-              variant="h2"
-              component="h1"
-              gutterBottom
-              sx={{ fontWeight: "bold", pl: theme.spacing(2) }}
-            >
-              About Me.
-            </Typography>
-            <TimelineSection items={aboutMeData} />
+      <motion.div {...getTransitions(0.2)}>
+        <Container
+          component="section"
+          id="main-content"
+          aria-label="You are now in my professional background section."
+          sx={{ mb: 5, px: theme.spacing(1.785), mx: "auto" }}
+        >
+          <Grid container alignItems="center" justifyContent="center">
+            <Grid size={{ xs: 12, md: 10 }}>
+              <Typography
+                variant="h2"
+                component="h1"
+                gutterBottom
+                sx={{ fontWeight: "bold", pl: theme.spacing(2) }}
+              >
+                About Me.
+              </Typography>
+              <TimelineSection items={aboutMeData} />
+            </Grid>
           </Grid>
-        </Grid>
-      </Container>
+        </Container>
+      </motion.div>
 
-      <Container
-        component="section"
-        id="main-content"
-        aria-label="You are now in my musical  section."
-        sx={{ mb: 5, px: theme.spacing(1.875), mx: "auto" }}
-      >
-        <Grid container alignItems="center" justifyContent="center">
-          <Grid size={{ xs: 12, md: 10 }}>
-            <TimelineSection title="My Playlists." items={myPlaylistData} />
+      <motion.div {...getTransitions(0.4)}>
+        <Container
+          component="section"
+          id="main-content"
+          aria-label="You are now in my musical  section."
+          sx={{ mb: 5, px: theme.spacing(1.875), mx: "auto" }}
+        >
+          <Grid container alignItems="center" justifyContent="center">
+            <Grid size={{ xs: 12, md: 10 }}>
+              <TimelineSection title="My Playlists." items={myPlaylistData} />
+            </Grid>
           </Grid>
-        </Grid>
-      </Container>
+        </Container>
+      </motion.div>
 
-      <Container
-        component="section"
-        id="main-content"
-        aria-label="You are now in my Photography section."
-        sx={{ mb: 5, px: theme.spacing(1.875), mx: "auto" }}
-      >
-        <Grid container alignItems="center" justifyContent="center">
-          <Grid size={{ xs: 12, md: 10 }}>
-            <TimelineSection
-              title="My Photography."
-              items={myPhotographyData}
-            />
+      <motion.div {...getTransitions(0.6)}>
+        <Container
+          component="section"
+          id="main-content"
+          aria-label="You are now in my Photography section."
+        >
+          <Grid container alignItems="center" justifyContent="center">
+            <Grid size={{ xs: 12, md: 10 }}>
+              <TimelineSection
+                title="My Photography."
+                items={myPhotographyData}
+              />
+            </Grid>
           </Grid>
-        </Grid>
+        </Container>
+      </motion.div>
+
+      <Container sx={{ mb: 5, px: theme.spacing(1.875), mx: "auto" }}>
         <Grid container alignItems="center" justifyContent="center">
           <Grid size={{ xs: 12, md: 10 }}>
             <motion.div {...getTransitions(0.7)}>
