@@ -4,6 +4,7 @@ import React, { createContext, useContext, ReactNode } from "react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import PublicIcon from "@mui/icons-material/Public";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 import PhotoCameraBackIcon from "@mui/icons-material/PhotoCameraBack";
 import CopyrightIcon from "@mui/icons-material/Copyright";
 
@@ -67,6 +68,7 @@ export default function AboutProvider({
       {
         title: "Nick's Rap Music",
         subtitle: "Spotify",
+        icon: <LibraryMusicIcon />,
         link: "https://open.spotify.com/playlist/3OqzKPWQf82uvHPsMLvjEU?si=fb34a08c4eef40f0",
         linkText: "View Playlist",
         description:
@@ -76,6 +78,7 @@ export default function AboutProvider({
       {
         title: "Oldhead Music",
         subtitle: "Spotify",
+        icon: <LibraryMusicIcon />,
         link: "https://open.spotify.com/playlist/3nbY7LejIN8bxZU3K2JOcv?si=e0a1d7eba2bc4e3e",
         linkText: "View Playlist",
         description:
@@ -85,6 +88,7 @@ export default function AboutProvider({
       {
         title: "Destress",
         subtitle: "Spotify",
+        icon: <LibraryMusicIcon />,
         link: "https://open.spotify.com/playlist/0x7GTLuKs6DpJJjFrxVspv?si=53b60cfb5cad41fc",
         linkText: "View Playlist",
         description:
@@ -94,6 +98,7 @@ export default function AboutProvider({
       {
         title: "New York Drill",
         subtitle: "Spotify",
+        icon: <LibraryMusicIcon />,
         link: "https://open.spotify.com/playlist/01tNtba1lN6P8dBHNp6DKr?si=d74b45d062c140e5",
         linkText: "View Playlist",
         description:
@@ -103,6 +108,7 @@ export default function AboutProvider({
       {
         title: "Other stuff",
         subtitle: "Spotify",
+        icon: <LibraryMusicIcon />,
         link: "https://open.spotify.com/playlist/3l7GfvyPWMo5SgZBAnVuzy?si=00653f2c97c74aed",
         linkText: "View Playlist",
         description:
@@ -112,6 +118,7 @@ export default function AboutProvider({
       {
         title: "Classical Bangers",
         subtitle: "Spotify",
+        icon: <LibraryMusicIcon />,
         link: "https://open.spotify.com/playlist/27Zm1P410dPfedsdoO9fqm?si=cec1a68e64704404",
         linkText: "View Playlist",
         description:
