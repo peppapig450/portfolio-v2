@@ -1,6 +1,6 @@
 "use client";
 import React, { PropsWithChildren } from "react";
-import { Box, useTheme, Container } from "@mui/material";
+import { Box, useTheme, Grid2 as Grid, Container } from "@mui/material";
 import NavBar from "./Navbar";
 
 interface LayoutProps {
@@ -47,11 +47,19 @@ interface SectionWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const SectionWrapper: React.FC<
   PropsWithChildren<SectionWrapperProps>
-> = ({ children }) => {
-  return <div>{children}</div>;
+> = ({ children, ...rest }) => {
+  const theme = useTheme();
+
+  return (
+    <Container component="section" {...rest}>
+      <Grid container alignItems="center" justifyContent="center">
+        <Grid size={{ xs: 12, md: 10 }}>{children}</Grid>
+      </Grid>
+    </Container>
+  );
 };
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const theme = useTheme();
 
   return (
@@ -59,9 +67,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Box component="header" sx={{ py: theme.spacing(5) }}>
         <NavBar />
       </Box>
-      <_SectionWrapper>{children}</_SectionWrapper>
+      <SectionWrapper>{children}</SectionWrapper>
     </>
   );
 };
-
-export default Layout;
