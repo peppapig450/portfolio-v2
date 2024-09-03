@@ -49,7 +49,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Box component="header" sx={{ py: theme.spacing(5) }}>
         <NavBar />
       </Box>
-      <SectionWrapper>{children}</SectionWrapper>
+      <_SectionWrapper>{children}</_SectionWrapper>
     </>
   );
 };
