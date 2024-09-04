@@ -14,7 +14,8 @@ interface Project {
   description: string;
   about: string;
   link: string;
-  imageName: string;
+  imageUrl: string;
+  imageAlt: string;
   github?: string;
   type: ProjectType[];
   technologies: string[];
@@ -42,7 +43,9 @@ export const ProvidersProvider: React.FC<{ children: ReactNode }> = ({
       about:
         "ProfPick is a revolutionary tool designed to streamline the class selection process. Powered by advanced AI algorithms, we analyze vast amounts of data from Rate My Professor to provide accurate and relevant professor recommendations tailored to your specific needs. With ProfPick, you can effortlessly discover the best professors for your courses and make informed decisions about your academic journey. Easily upload your own professor reviews to contribute to the community and help other students.",
       link: "https://rate-my-professor-lac.vercel.app/",
-      imageName: "profpick_demo.avif",
+      imageUrl: "profpick_demo.avif",
+      imageAlt:
+        "Animated demo showcasing ProfPick's AI-powered professor recommendations",
       github: "https://github.com/HeadstarterVenomBytes/Rate-My-Professor",
       type: [ProjectType.Project, ProjectType.OpenSource, ProjectType.Others],
       technologies: [
