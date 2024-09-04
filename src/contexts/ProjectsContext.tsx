@@ -1,6 +1,7 @@
 "use client";
 import React, { createContext, useContext, ReactNode } from "react";
 
+// Define types
 enum ProjectType {
   Project = "project",
   OpenSource = "open-source",
@@ -24,10 +25,12 @@ interface ProjectsContextType {
   getProjectsByType: (type: ProjectType) => Project[];
 }
 
+// Create the context
 const ProjectsContext = createContext<ProjectsContextType | undefined>(
   undefined
 );
 
+// Create the provider component
 export const ProvidersProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
@@ -51,7 +54,9 @@ export const ProvidersProvider: React.FC<{ children: ReactNode }> = ({
         "Cheerio",
       ],
     },
+    // ... (other projects)
   ];
+
   const getProjectsByType = (type: ProjectType): Project[] => {
     return projects_data.filter((project) => project.type.includes(type));
   };
@@ -68,6 +73,7 @@ export const ProvidersProvider: React.FC<{ children: ReactNode }> = ({
   );
 };
 
+// Custom hook to use the projects context
 export const useProjectsContext = (): ProjectsContextType => {
   const context = useContext(ProjectsContext);
   if (context === undefined) {
