@@ -76,7 +76,7 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={item.ariaLabel}
-                  underline="none"
+                  underline="hover"
                 >
                   <Typography
                     variant="h6"
