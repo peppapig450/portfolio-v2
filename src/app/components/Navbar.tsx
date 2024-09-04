@@ -118,7 +118,7 @@ const NavBar: React.FC<NavBarProps> = () => {
     {
       label: "Contact",
       path: "/contact",
-      ariaLabel: "Navigate to the Conctacts Page",
+      ariaLabel: "Navigate to the Contacts Page",
     },
   ];
 
