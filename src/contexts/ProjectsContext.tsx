@@ -37,15 +37,20 @@ export const ProvidersProvider: React.FC<{ children: ReactNode }> = ({
   const projects_data: Project[] = [
     {
       title: "ProfPick",
-      description: "Using AI to make sure you get the best professor.",
-      about: "",
+      description:
+        "Get the perfect professor for your needs with ProfPick's AI-powered recommendations.",
+      about:
+        "ProfPick uses data scraped from ratemyprofesor.com to enable AI powered recommendations based on what the user expects. It also allows users to upload their own links to be scraped and added to the database.",
       link: "https://rate-my-professor-lac.vercel.app/",
       imageUrl: "",
       github: "https://github.com/HeadstarterVenomBytes/Rate-My-Professor",
       type: [ProjectType.Project, ProjectType.OpenSource, ProjectType.Others],
       technologies: [
         "Python",
-        "React / Next.js",
+        "Google Cloud",
+        "Docker",
+        "React",
+        "Next.js",
         "TypeScript",
         "OpenAI",
         "Pinecone",
