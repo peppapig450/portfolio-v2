@@ -6,24 +6,23 @@ import {
   IconButton,
   Typography,
   Box,
-  Card,
-  CardContent,
-  CardMedia,
-  CardActions,
   Chip,
   Button,
   Link,
   styled,
 } from "@mui/material";
+import Image from "next/image";
 import CloseIcon from "@mui/icons-material/Close";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LanguageIcon from "@mui/icons-material/Language";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import CustomLink from "../CustomLink";
 
 interface ISideBarModal {
   show: boolean;
   closeShow: () => void;
   size?: "sm" | "lg" | "md";
+  overlayColor?: string;
   data?: {
     title: string;
     description?: string;
@@ -39,42 +38,26 @@ const defaultProps: ISideBarModal = {
   show: false,
   closeShow: () => {},
   size: "md",
+  overlayColor: "rgba(0, 0, 0, 0.8)",
 };
 
-interface StyledDrawerProps extends DrawerProps {
-  size: "sm" | "lg" | "md";
-}
-
-const StyledDrawer = styled(Drawer)<StyledDrawerProps>(({ theme, size }) => ({
-  "& .MuiDrawer-paper": {
-    width: ({ size }: { size: ISideBarModal["size"] }) => {
-      switch (size) {
-        case "sm":
-          return "21.8em";
-        case "lg":
-          return "34em";
-        case "md":
-        default:
-          return "29em";
-      }
-    },
-    [theme.breakpoints.down("sm")]: {
-      width: "100% !important",
-    },
-    padding: theme.spacing(2),
-    overflow: "auto",
-  },
-}));
-
-const StyledCard = styled(Card)(({ theme }) => ({
-  height: "100%",
-  display: "flex",
-  flexDirection: "column",
-}));
+const ImageContainer = styled(Box)({
+  position: "relative",
+  overflow: "hidden",
+  borderRadius: 11,
+});
 
 const TechnologyChip = styled(Chip)(({ theme }) => ({
   margin: theme.spacing(0.5),
   backgroundColor: theme.palette.background.default,
+}));
+
+const OpenProjectButton = styled(Button)(({ theme }) => ({
+  position: "sticky",
+  bottom: 0,
+  width: "100%",
+  marginTop: theme.spacing(2),
+  padding: theme.spacing(2),
 }));
 
 const SideBarModel: React.FC<ISideBarModal> = ({
@@ -101,15 +84,61 @@ const SideBarModel: React.FC<ISideBarModal> = ({
 
   if (!data) return null; // TODO: make sure this is safe
 
+  const drawerWidth = size === "sm" ? 350 : size === "lg" ? 600 : 500;
+
   return (
-    <StyledDrawer
+    <Drawer
       anchor="right"
       open={show}
       onClose={closeShow}
-      size={size}
-      data-testid="sidebarmodal"
+      PaperProps={{
+        style: {
+          width: drawerWidth,
+          padding: "1.5rem",
+        },
+      }}
     >
-      <StyledCard></StyledCard>
-    </StyledDrawer>
+      <Box sx={{ position: "relative", height: "100%" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            mb: 2,
+            pb: 1,
+            borderBottom: 1,
+            borderColor: "divider",
+          }}
+        >
+          <IconButton
+            onClick={closeShow}
+            size="small"
+            aria-label="Close the SideBar project info modal"
+          >
+            <CloseIcon />
+          </IconButton>
+          <CustomLink
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              closeShow();
+            }}
+            underline="hover"
+          >
+            <Typography variant="body1" fontWeight="bold">
+              Back To Projects.
+            </Typography>
+          </CustomLink>
+        </Box>
+
+        <Box sx={{ mb: 4 }}>
+          <Typography variant="h4" fontWeight="bold" gutterBottom>
+            {data.title}
+          </Typography>
+          <Typography variant="body1" component="p" color="textSecondary">
+            {data.description}
+          </Typography>
+        </Box>
+      </Box>
+    </Drawer>
   );
 };
