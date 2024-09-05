@@ -160,9 +160,10 @@ const SideBarModel: React.FC<ISideBarModal> = ({
           variant="body1"
           component="p"
           color="textSecondary"
+          id="product-modal-description"
           sx={{ mb: theme.spacing(2) }}
         >
-          {data?.about}
+          {data?.description}
         </Typography>
 
         <Typography
