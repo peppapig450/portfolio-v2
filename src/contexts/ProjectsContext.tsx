@@ -9,7 +9,7 @@ enum ProjectType {
   Others = "others",
 }
 
-interface Project {
+export interface Project {
   title: string;
   description: string;
   about: string;
