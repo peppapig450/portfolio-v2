@@ -98,13 +98,15 @@ const MasonryItem: React.FC<MasonryItemProps> = ({ item }) => {
         <StyledCard onClick={handleCardClick}>
           <Box
             component="div"
-            sx={{ height: 0, pt: "75%", position: "relative" }}
+            height={height}
+            sx={{ pt: "75%", position: "relative" }}
           >
             <Image
               src={item.imageUrl}
               alt={item.imageAlt}
               fill
-              style={{ objectFit: "cover" }}
+              quality={80}
+              style={{ objectFit: "scale-down" }}
             />
           </Box>
           <ContentSlate className="content-slate">
