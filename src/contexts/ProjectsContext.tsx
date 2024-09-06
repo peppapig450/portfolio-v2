@@ -2,7 +2,7 @@
 import React, { createContext, useContext, ReactNode } from "react";
 
 // Define types
-enum ProjectType {
+export enum ProjectType {
   Project = "project",
   OpenSource = "open-source",
   Tools = "tools",
@@ -32,7 +32,7 @@ const ProjectsContext = createContext<ProjectsContextType | undefined>(
 );
 
 // Create the provider component
-export const ProvidersProvider: React.FC<{ children: ReactNode }> = ({
+export const ProjectsProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const projects_data: Project[] = [
