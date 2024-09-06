@@ -133,3 +133,5 @@ const MasonryItem: React.FC<MasonryItemProps> = ({ item }) => {
     </>
   );
 };
+
+export default MasonryItem;
