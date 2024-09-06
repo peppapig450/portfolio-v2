@@ -59,7 +59,10 @@ const MasonryItem: React.FC<MasonryItemProps> = ({ item }) => {
   return (
     <>
       <StyledCard onClick={handleCardClick}>
-        <></>
+        <Box
+          position="relative"
+          height={Math.floor(Math.random() * (454 - 310 + 1)) + 310}
+        ></Box>
       </StyledCard>
     </>
   );
