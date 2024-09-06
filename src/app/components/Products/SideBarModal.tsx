@@ -48,7 +48,7 @@ const OpenProjectButton = styled(Button)(({ theme }) => ({
 }));
 
 // TODO: add animations for fading in from the left
-const SideBarModel: React.FC<ISideBarModal> = ({
+const SideBarModal: React.FC<ISideBarModal> = ({
   show = false,
   closeShow = () => {},
   size = "md",
@@ -248,4 +248,4 @@ const SideBarModel: React.FC<ISideBarModal> = ({
   );
 };
 
-export default SideBarModel;
+export default SideBarModal;
