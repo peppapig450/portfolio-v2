@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Box, Tab, Tabs } from "@mui/material";
-import { TabPanel, TabContext } from "@mui/lab";
+import { Box, Tab } from "@mui/material";
+import { TabPanel, TabContext, TabList } from "@mui/lab";
 import { styled } from "@mui/material/styles";
 
 const StyledTab = styled(Tab)(({ theme }) => ({
@@ -29,15 +29,13 @@ const CustomTabs: React.FC<CustomTabProps> = ({ items }) => {
   };
 
   return (
-    <Box sx={{ width: "100%", typography: "body1" }}>
+    <Box sx={{ width: "100%", typography: "body1", margin: "auto" }}>
       <TabContext value={value}>
         <Box borderColor="divider" borderBottom="1">
-          <Tabs
-            value={value}
+          <TabList
             onChange={handleChange}
-            aria-label="project tabs"
-            variant="scrollable"
-            scrollButtons="auto"
+            aria-label="Project navigation tabs"
+            centered
           >
             {items.map((item, index) => (
               <StyledTab
@@ -46,7 +44,7 @@ const CustomTabs: React.FC<CustomTabProps> = ({ items }) => {
                 value={index.toString()}
               />
             ))}
-          </Tabs>
+          </TabList>
         </Box>
         {items.map((item, index) => (
           <TabPanel key={index} value={index.toString()}>
