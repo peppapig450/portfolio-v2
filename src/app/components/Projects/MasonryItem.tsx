@@ -35,14 +35,14 @@ const StyledCard = styled(Card)(({ theme }) => ({
     },
   },
   "&::after": {
-    content: '"',
+    content: '""',
     position: "absolute",
     top: 0,
     right: 0,
     bottom: 0,
     left: 0,
     background:
-      "linear-gradient(180deg, rgba(0, 0, 0, 0.1) 10%, rgba(0, 0, 0, 0.78) 80%)",
+      "linear-gradient(180deg, rgba(0, 0, 0, 0.1) 10%, rgba(0, 0, 0, 0.78) 80%",
     opacity: 0.3,
     transition: "opacity 300ms ease-in-out",
   },
@@ -106,7 +106,7 @@ const MasonryItem: React.FC<MasonryItemProps> = ({ item }) => {
               alt={item.imageAlt}
               fill
               quality={80}
-              style={{ objectFit: "scale-down" }}
+              style={{ objectFit: "cover" }}
             />
           </Box>
           <ContentSlate className="content-slate">
