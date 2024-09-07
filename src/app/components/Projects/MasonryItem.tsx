@@ -4,18 +4,19 @@ import { usePathname } from "next/navigation";
 import {
   Box,
   Card,
-  CardContent,
   CardMedia,
+  CardContent,
   Chip,
   Typography,
   styled,
   useTheme,
 } from "@mui/material";
-import { Masonry } from "@mui/lab";
+import CustomCardMedia from "./CustomCardMedia";
 import { Project } from "@/contexts/ProjectsContext";
 import Image from "next/image";
 import { arrayRandomItem } from "nicks-web-helpers";
 import SideBarModal from "./SideBarModal";
+import imgixURLBuilder from "@/utils/imageUrlBuilder";
 
 interface MasonryItemProps {
   item?: Project;
@@ -96,17 +97,13 @@ const MasonryItem: React.FC<MasonryItemProps> = ({ item }) => {
     <>
       {item && (
         <StyledCard onClick={handleCardClick}>
-          <Box
-            component="div"
-            sx={{ height: 0, pt: "75%", position: "relative" }}
-          >
-            <Image
-              src={item.imageUrl}
-              alt={item.imageAlt}
-              fill
-              style={{ objectFit: "cover" }}
-            />
-          </Box>
+          <CardMedia
+            src={imgixURLBuilder(item.imageUrl)}
+            component="video"
+            autoPlay
+            muted
+            loop
+          />
           <ContentSlate className="content-slate">
             <Typography variant="h5" component="h3" gutterBottom>
               {item.title}

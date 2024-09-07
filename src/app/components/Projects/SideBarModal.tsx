@@ -16,6 +16,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LanguageIcon from "@mui/icons-material/Language";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import CustomLink from "../CustomLink";
+import imgixURLBuilder from "@/utils/imageUrlBuilder";
 import { Project } from "@/contexts/ProjectsContext";
 
 interface ISideBarModal {
@@ -26,7 +27,7 @@ interface ISideBarModal {
   data?: Project;
 }
 
-const ImageContainer = styled(Box)({
+const MediaContainer = styled(Box)({
   position: "relative",
   width: "100%",
   height: "300px",
@@ -145,9 +146,9 @@ const SideBarModal: React.FC<ISideBarModal> = ({
         >
           {data?.about}
         </Typography>
-        <ImageContainer>
-          <Image src={data?.imageUrl} alt={data?.imageAlt} fill quality={80} />
-        </ImageContainer>
+        <MediaContainer>
+          <video src={imgixURLBuilder(data?.imageUrl)} autoPlay muted loop />
+        </MediaContainer>
 
         <Typography
           variant="h6"
