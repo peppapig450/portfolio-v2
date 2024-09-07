@@ -35,7 +35,7 @@ const StyledCard = styled(Card)(({ theme }) => ({
     },
   },
   "&::after": {
-    content: '"',
+    content: '""',
     position: "absolute",
     top: 0,
     right: 0,
