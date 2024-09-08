@@ -4,6 +4,11 @@ import { TabPanel, TabContext, TabList } from "@mui/lab";
 import { styled } from "@mui/material/styles";
 
 const StyledTab = styled(Tab)(({ theme }) => ({
+  backgroundColor: "transparent",
+  transition: "all 0.3s ease",
+  borderRadius: "5px",
+  overflow: "visible",
+  textTransform: "capitalize",
   "&.Mui-selected": {
     fontWeight: 900,
     color: theme.palette.common.white,
@@ -36,6 +41,9 @@ const CustomTabs: React.FC<CustomTabProps> = ({ items }) => {
             onChange={handleChange}
             aria-label="Project navigation tabs"
             centered
+            sx={{
+              padding: "10px",
+            }}
           >
             {items.map((item, index) => (
               <StyledTab
