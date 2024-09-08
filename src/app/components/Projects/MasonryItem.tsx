@@ -66,6 +66,7 @@ const ContentSlate = styled(CardContent)(({ theme }) => ({
   margin: "0 0 1.5em",
   padding: "1.4rem 2rem",
   color: theme.palette.common.white,
+  width: "100%",
   opacity: 0,
   transform: "translateY(100%)",
   transition: "opacity 300ms ease-in-out, transform 300ms ease-in-out",
@@ -97,13 +98,24 @@ const MasonryItem: React.FC<MasonryItemProps> = ({ item }) => {
   return (
     <>
       {item && (
-        <StyledCard onClick={handleCardClick}>
+        <StyledCard
+          onClick={handleCardClick}
+          sx={{ height: height, width: "100%" }}
+        >
           <CardMedia
             src={imgixURLBuilder(item.imageUrl)}
             component="video"
             autoPlay
             muted
             loop
+            sx={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
           />
           <ContentSlate className="content-slate">
             <Typography
