@@ -77,7 +77,12 @@ const ProjectsContent = () => {
                 variant="h2"
                 component="h1"
                 gutterBottom
-                sx={{ fontWeight: "bold", pl: theme.spacing(2) }}
+                sx={{
+                  fontWeight: "bold",
+                  pl: theme.spacing(2),
+                  mt: theme.spacing(8),
+                  mb: theme.spacing(3),
+                }}
               >
                 Projects.
               </Typography>
@@ -90,7 +95,7 @@ const ProjectsContent = () => {
       </Container>
       <Container sx={{ mb: 5, px: theme.spacing(1.875), mx: "auto" }}>
         <Grid container alignItems="center" justifyContent="center">
-          <Grid size={{ xs: 12, md: 10 }}>
+          <Grid size={{ xs: 12, md: 10 }} sx={{ pl: theme.spacing(2.5) }}>
             <motion.div {...getTransitions(0.6)}>
               <FooterLink goto="/resume">
                 Let&apos;s Go To My Resume.
