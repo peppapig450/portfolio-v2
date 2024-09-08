@@ -63,7 +63,8 @@ const ContentSlate = styled(CardContent)(({ theme }) => ({
   bottom: 0,
   left: 0,
   right: 0,
-  padding: theme.spacing(2),
+  margin: "0 0 1.5em",
+  padding: "1.4rem 2rem",
   color: theme.palette.common.white,
   opacity: 0,
   transform: "translateY(100%)",
@@ -105,10 +106,17 @@ const MasonryItem: React.FC<MasonryItemProps> = ({ item }) => {
             loop
           />
           <ContentSlate className="content-slate">
-            <Typography variant="h5" component="h3" gutterBottom>
+            <Typography
+              variant="h5"
+              component="h3"
+              gutterBottom
+              sx={{ fontWeight: "800", mb: theme.spacing(1) }}
+            >
               {item.title}
             </Typography>
-            <Typography variant="body2">{item.description}</Typography>
+            <Typography variant="body2" sx={{ mb: theme.spacing(2) }}>
+              {item.description}
+            </Typography>
             {item.technologies && (
               <Box mt={1}>
                 {item.technologies.map((tech, index) => (
