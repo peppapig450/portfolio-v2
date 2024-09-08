@@ -34,7 +34,10 @@ const CustomTabs: React.FC<CustomTabProps> = ({ items }) => {
   };
 
   return (
-    <Box sx={{ width: "100%", typography: "body1", margin: "auto" }}>
+    <Box
+      component="nav"
+      sx={{ width: "100%", typography: "body1", margin: "auto" }}
+    >
       <TabContext value={value}>
         <Box borderColor="divider" borderBottom="1">
           <TabList
