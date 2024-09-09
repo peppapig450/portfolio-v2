@@ -8,6 +8,7 @@ import {
   Chip,
   Button,
   styled,
+  useMediaQuery,
   useTheme,
 } from "@mui/material";
 import Image from "next/image";
@@ -55,6 +56,8 @@ const SideBarModal: React.FC<ISideBarModal> = ({
   data,
 }) => {
   const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
 
   const handleKeyPress = useCallback(
     (e: KeyboardEvent) => {
@@ -72,9 +75,9 @@ const SideBarModal: React.FC<ISideBarModal> = ({
     };
   }, [handleKeyPress]);
 
-  if (!data) return null; // TODO: make sure this is safe
+  const drawerWidth = isSmallScreen ? "100%" : isLargeScreen ? 600 : 500;
 
-  const drawerWidth = size === "lg" ? 600 : 500;
+  if (!data) return null; // TODO: make sure this is safe
 
   return (
     <Drawer
@@ -85,13 +88,10 @@ const SideBarModal: React.FC<ISideBarModal> = ({
       aria-describedby="product-modal-description"
       PaperProps={{
         style: {
-          width: drawerWidth,
-          [theme.breakpoints.down("sm")]: {
-            width: "100%",
-            height: "100%",
-          },
-
           padding: "1.5rem",
+        },
+        sx: {
+          width: drawerWidth,
         },
       }}
     >
