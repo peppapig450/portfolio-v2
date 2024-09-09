@@ -30,8 +30,8 @@ interface ISideBarModal {
 const MediaContainer = styled(Box)({
   position: "relative",
   width: "100%",
-  height: "300px",
   overflow: "hidden",
+  height: "300px",
   borderRadius: 11,
 });
 
@@ -48,12 +48,10 @@ const OpenProjectButton = styled(Button)(({ theme }) => ({
   padding: theme.spacing(2),
 }));
 
-// TODO: add animations for fading in from the left
 const SideBarModal: React.FC<ISideBarModal> = ({
   show = false,
   closeShow = () => {},
   size = "md",
-  overlayColor = "rgba(0, 0, 0, 0.8)",
   data,
 }) => {
   const theme = useTheme();
@@ -76,7 +74,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
 
   if (!data) return null; // TODO: make sure this is safe
 
-  const drawerWidth = size === "sm" ? 350 : size === "lg" ? 600 : 500;
+  const drawerWidth = size === "lg" ? 600 : 500;
 
   return (
     <Drawer
@@ -88,6 +86,11 @@ const SideBarModal: React.FC<ISideBarModal> = ({
       PaperProps={{
         style: {
           width: drawerWidth,
+          [theme.breakpoints.down("sm")]: {
+            width: "100%",
+            height: "100%",
+          },
+
           padding: "1.5rem",
         },
       }}
@@ -147,7 +150,13 @@ const SideBarModal: React.FC<ISideBarModal> = ({
           {data?.about}
         </Typography>
         <MediaContainer>
-          <video src={imgixURLBuilder(data?.imageUrl)} autoPlay muted loop />
+          <video
+            src={imgixURLBuilder(data?.imageUrl)}
+            autoPlay
+            muted
+            loop
+            style={{ objectFit: "cover", width: "100%", height: "100%" }}
+          />
         </MediaContainer>
 
         <Typography
