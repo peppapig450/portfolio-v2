@@ -75,7 +75,7 @@ const ContentSlate = styled(CardContent)(({ theme }) => ({
 
 const TechChip = styled(Chip)(({ theme }) => ({
   margin: theme.spacing(0.5),
-  backgroundColor: theme.palette.grey[800],
+  backgroundColor: theme.palette.grey[600],
   color: theme.palette.common.white,
 }));
 
@@ -122,7 +122,7 @@ const MasonryItem: React.FC<MasonryItemProps> = ({ item }) => {
               variant="h5"
               component="h3"
               gutterBottom
-              sx={{ fontWeight: "800", mb: theme.spacing(1) }}
+              sx={{ fontWeight: "900", mb: theme.spacing(1) }}
             >
               {item.title}
             </Typography>
