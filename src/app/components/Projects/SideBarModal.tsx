@@ -6,6 +6,7 @@ import {
   Typography,
   Box,
   Chip,
+  Stack,
   Button,
   styled,
   useMediaQuery,
@@ -36,7 +37,9 @@ const MediaContainer = styled(Box)({
 
 const TechnologyChip = styled(Chip)(({ theme }) => ({
   margin: theme.spacing(0.5),
-  backgroundColor: theme.palette.background.paper,
+  backgroundColor: theme.palette.grey.A400,
+  color: theme.palette.text.primary,
+  fontWeight: "bold",
 }));
 
 const OpenProjectButton = styled(Button)(({ theme }) => ({
@@ -137,7 +140,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
           {data?.title}
         </Typography>
         <Typography
-          variant="body1"
+          variant="body2"
           component="p"
           color="textSecondary"
           sx={{
@@ -159,6 +162,8 @@ const SideBarModal: React.FC<ISideBarModal> = ({
         <Typography
           variant="h6"
           component="h4"
+          color="textPrimary"
+          fontWeight="bold"
           sx={{ mb: theme.spacing(1.6), mt: theme.spacing(4) }}
         >
           About
@@ -176,34 +181,41 @@ const SideBarModal: React.FC<ISideBarModal> = ({
         <Typography
           variant="h6"
           component="h4"
+          color="textPrimary"
+          fontWeight="bold"
           sx={{ mb: theme.spacing(1.6), mt: theme.spacing(4) }}
         >
           Technologies
         </Typography>
-        <Box display="flex" flexWrap="wrap" sx={{ gap: 0.5 }}>
+        <Stack
+          direction="row"
+          spacing={0.5}
+          useFlexGap
+          sx={{ flexWrap: "wrap" }}
+        >
           {data?.technologies?.map((technology, index) => (
             <TechnologyChip key={index} label={technology} size="small" />
           ))}
-        </Box>
+        </Stack>
 
         <Typography
           variant="h6"
           component="h4"
+          color="textPrimary"
+          fontWeight="bold"
           sx={{ mb: theme.spacing(1.6), mt: theme.spacing(4) }}
         >
-          <LanguageIcon sx={{ mr: 1, verticalAlign: "bottom" }} />
+          <LanguageIcon sx={{ mr: 1 }} />
           Website
         </Typography>
-        <Typography
-          variant="body1"
-          component="p"
-          sx={{ mb: theme.spacing(2), fontWeight: 600 }}
-        >
+        <Typography variant="body2" component="p" sx={{ mb: theme.spacing(2) }}>
           <CustomLink
             href={data?.link}
             target="_blank"
             rel="noopener noreferrer"
             underline="hover"
+            color={theme.palette.text.primary}
+            fontWeight="bold"
           >
             {data?.link}
           </CustomLink>
@@ -214,21 +226,31 @@ const SideBarModal: React.FC<ISideBarModal> = ({
             <Typography
               variant="h6"
               component="h4"
-              sx={{ mb: theme.spacing(1.6), mt: theme.spacing(4) }}
+              color="textPrimary"
+              fontWeight="bold"
+              sx={{
+                mb: theme.spacing(1.6),
+                mt: theme.spacing(4),
+              }}
             >
-              <GitHubIcon sx={{ mr: 1, verticalAlign: "bottom" }} />
+              <GitHubIcon
+                fontSize="small"
+                sx={{ mr: 1, color: theme.palette.text.secondary }}
+              />
               Github
             </Typography>
             <Typography
-              variant="body1"
+              variant="body2"
               component="p"
-              sx={{ mb: theme.spacing(2), fontWeight: 600 }}
+              sx={{ mb: theme.spacing(2) }}
             >
               <CustomLink
                 href={data.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 underline="hover"
+                color={theme.palette.text.primary}
+                fontWeight="bold"
               >
                 {data.github}
               </CustomLink>
@@ -245,6 +267,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
           <OpenProjectButton
             variant="contained"
             color="primary"
+            fullWidth
             endIcon={<OpenInNewIcon />}
           >
             Open Project
