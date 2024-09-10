@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: "https://dev.nickbrady.dev/",
       lastModified: new Date(),
-      changeFrequency: "hourly", // set to hourly for now
+      changeFrequency: "daily", // set to hourly for now
       priority: 1,
     },
   ];
