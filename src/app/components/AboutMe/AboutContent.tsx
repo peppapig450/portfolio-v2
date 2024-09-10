@@ -28,7 +28,8 @@ const AboutContent = () => {
                 variant="h2"
                 component="h1"
                 gutterBottom
-                sx={{ fontWeight: "bold", pl: theme.spacing(2) }}
+                fontWeight="bold"
+                sx={{ pl: theme.spacing(2) }}
               >
                 About Me.
               </Typography>
