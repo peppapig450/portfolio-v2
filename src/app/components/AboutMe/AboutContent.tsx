@@ -12,7 +12,6 @@ const AboutContent = () => {
   const theme = useTheme();
   const { aboutMeData, myPlaylistData, myPhotographyData } = useAboutContext();
 
-  // TODO: Spaced container at the top level? or use stylize?
   return (
     <>
       <motion.div {...getTransitions(0.2)}>
