@@ -39,7 +39,7 @@ export const ProjectsProvider: React.FC<{ children: ReactNode }> = ({
     {
       title: "ProfPick",
       description:
-        "ProfPick uses AI to deliver personalized professor recommendations based on Rate My Professor data and user-submitted reviews.",
+        "AI powered personalized professor recommendations, based on real world data.",
       about:
         "ProfPick is a revolutionary tool designed to streamline the class selection process. Powered by advanced AI algorithms, we analyze vast amounts of data from Rate My Professor to provide accurate and relevant professor recommendations tailored to your specific needs. With ProfPick, you can effortlessly discover the best professors for your courses and make informed decisions about your academic journey. Easily upload your own professor reviews to contribute to the community and help other students.",
       link: "https://rate-my-professor-lac.vercel.app/",
@@ -59,7 +59,6 @@ export const ProjectsProvider: React.FC<{ children: ReactNode }> = ({
         "Pinecone",
         "LangChain",
         "RAG",
-        "Cheerio",
       ],
     },
     // ... (other projects)
