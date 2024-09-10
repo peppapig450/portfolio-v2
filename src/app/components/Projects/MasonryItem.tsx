@@ -143,7 +143,6 @@ const MasonryItem: React.FC<MasonryItemProps> = ({ item }) => {
         <SideBarModal
           show={showModal}
           closeShow={() => setShowModal(false)}
-          size="lg"
           data={item}
         />
       )}
