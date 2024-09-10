@@ -23,8 +23,6 @@ import { Project } from "@/contexts/ProjectsContext";
 interface ISideBarModal {
   show: boolean;
   closeShow: () => void;
-  size?: "sm" | "lg" | "md";
-  overlayColor?: string;
   data?: Project;
 }
 
@@ -52,7 +50,6 @@ const OpenProjectButton = styled(Button)(({ theme }) => ({
 const SideBarModal: React.FC<ISideBarModal> = ({
   show = false,
   closeShow = () => {},
-  size = "md",
   data,
 }) => {
   const theme = useTheme();
@@ -77,7 +74,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
 
   const drawerWidth = isSmallScreen ? "100%" : isLargeScreen ? 600 : 500;
 
-  if (!data) return null; // TODO: make sure this is safe
+  if (!data) return null;
 
   return (
     <Drawer
