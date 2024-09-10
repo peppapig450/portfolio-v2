@@ -1,16 +1,16 @@
 "use client";
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
-import { Quattrocento, Lora } from "next/font/google";
-
-const quattrocento = Quattrocento({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  display: "swap",
-});
+import { Lato, Lora } from "next/font/google";
 
 const lora = Lora({
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const lato = Lato({
+  subsets: ["latin"],
+  weight: ["400", "700", "100", "300", "900"],
   display: "swap",
 });
 
@@ -25,13 +25,13 @@ const mainTheme = responsiveFontSizes(
       },
     },
     typography: {
-      fontFamily: lora.style.fontFamily,
-      h1: { fontFamily: quattrocento.style.fontFamily },
-      h2: { fontFamily: quattrocento.style.fontFamily },
-      h3: { fontFamily: quattrocento.style.fontFamily },
-      h4: { fontFamily: quattrocento.style.fontFamily },
-      h5: { fontFamily: quattrocento.style.fontFamily },
-      h6: { fontFamily: quattrocento.style.fontFamily },
+      fontFamily: lato.style.fontFamily,
+      h1: { fontFamily: lora.style.fontFamily },
+      h2: { fontFamily: lora.style.fontFamily },
+      h3: { fontFamily: lora.style.fontFamily },
+      h4: { fontFamily: lora.style.fontFamily },
+      h5: { fontFamily: lora.style.fontFamily },
+      h6: { fontFamily: lora.style.fontFamily },
     },
   })
 );
