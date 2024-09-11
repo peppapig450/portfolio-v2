@@ -3,9 +3,9 @@ import React from "react";
 import { Box, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 import { getTransitions } from "@/utils/transitions";
-import AnimatedTitle from "../LandingPage/AnimatedTitle";
+import AnimatedTitle from "./AnimatedTitle";
 import FooterLink from "../FooterLink";
-import IntroductionText from "../LandingPage/IntroductionText";
+import IntroductionText from "./IntroductionText";
 
 const IntroPageContent: React.FC<{}> = ({}) => {
   const theme = useTheme();
