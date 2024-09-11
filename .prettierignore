@@ -1,1 +1,1 @@
-*.json
+!src/data/*.json
