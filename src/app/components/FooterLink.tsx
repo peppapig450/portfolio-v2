@@ -150,7 +150,6 @@ const FooterLink: React.FC<IFooterLink> = ({ children, goto = "/" }) => {
             key={index}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`Go to Nick Brady\'s ${social.label} Page`}
             title={`${social.label} Page`}
             sx={{
               mr: 0,
@@ -163,6 +162,7 @@ const FooterLink: React.FC<IFooterLink> = ({ children, goto = "/" }) => {
             }}
           >
             <IconButton
+              aria-label={`Go to Nick Brady\'s ${social.label} Page`}
               sx={{
                 cursor: "pointer",
                 height: 15,
