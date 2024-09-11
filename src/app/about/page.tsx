@@ -4,9 +4,12 @@ import AboutProvider from "@/contexts/AboutContext";
 import AboutContent from "../components/AboutMe/AboutContent";
 
 export const metadata: Metadata = {
-  title: "About Me | Nick Brady",
+  title: "About Me",
   openGraph: {
     title: "About Me | Nick Brady",
+  },
+  alternates: {
+    canonical: "https://dev.nickbrady.dev/about",
   },
 };
 

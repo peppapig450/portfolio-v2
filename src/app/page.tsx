@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Home | Nick Brady",
   },
+  alternates: {
+    canonical: "https://dev.nickbrady.dev",
+  },
 };
 
 export default function Home() {
