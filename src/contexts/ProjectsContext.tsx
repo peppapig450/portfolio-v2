@@ -1,5 +1,12 @@
 "use client";
-import React, { createContext, useContext, ReactNode } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
+import projectsData from "../data/projects.json";
 
 // Define types
 export enum ProjectType {
@@ -31,45 +38,43 @@ const ProjectsContext = createContext<ProjectsContextType | undefined>(
   undefined
 );
 
+// Helper function to convert string to ProjectType
+const stringToProjectType = (str: string): ProjectType => {
+  switch (str) {
+    case "project":
+      return ProjectType.Project;
+    case "open-source":
+      return ProjectType.OpenSource;
+    case "tools":
+      return ProjectType.Tools;
+    case "others":
+      return ProjectType.Others;
+    default:
+      throw new Error(`Invalid project type: ${str}`);
+  }
+};
+
 // Create the provider component
 export const ProjectsProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const projects_data: Project[] = [
-    {
-      title: "ProfPick",
-      description:
-        "AI powered personalized professor recommendations, based on real world data.",
-      about:
-        "ProfPick is a revolutionary tool designed to streamline the class selection process. Powered by advanced AI algorithms, we analyze vast amounts of data from Rate My Professor to provide accurate and relevant professor recommendations tailored to your specific needs. With ProfPick, you can effortlessly discover the best professors for your courses and make informed decisions about your academic journey. Easily upload your own professor reviews to contribute to the community and help other students.",
-      link: "https://rate-my-professor-lac.vercel.app/",
-      imageUrl: "profpick_demo.webm",
-      imageAlt:
-        "Animated demo showcasing ProfPick's AI-powered professor recommendations",
-      github: "https://github.com/HeadstarterVenomBytes/Rate-My-Professor",
-      type: [ProjectType.Project, ProjectType.OpenSource, ProjectType.Others],
-      technologies: [
-        "Python",
-        "Google Cloud",
-        "Docker",
-        "React",
-        "Next.js",
-        "TypeScript",
-        "OpenAI",
-        "Pinecone",
-        "LangChain",
-        "RAG",
-      ],
-    },
-    // ... (other projects)
-  ];
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    // convert and set projects from our imported JSON data
+    const parsedProjects: Project[] = projectsData.projects.map((project) => ({
+      ...project,
+      type: project.type.map(stringToProjectType),
+    }));
+    setProjects(parsedProjects);
+  }, []);
 
   const getProjectsByType = (type: ProjectType): Project[] => {
-    return projects_data.filter((project) => project.type.includes(type));
+    return projects.filter((project) => project.type.includes(type));
   };
 
   const value: ProjectsContextType = {
-    projects: projects_data,
+    projects,
     getProjectsByType,
   };
 
