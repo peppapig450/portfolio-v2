@@ -21,8 +21,8 @@ export interface Project {
   description: string;
   about: string;
   link: string;
-  imageUrl: string;
-  imageAlt: string;
+  mediaUrl: string;
+  mediaAlt: string;
   github?: string;
   type: ProjectType[];
   technologies: string[];
@@ -39,6 +39,7 @@ const ProjectsContext = createContext<ProjectsContextType | undefined>(
 );
 
 // Helper function to convert string to ProjectType
+// TODO: add other types here
 const stringToProjectType = (str: string): ProjectType => {
   switch (str) {
     case "project":
