@@ -57,9 +57,6 @@ export const metadata: Metadata = {
     type: "website",
   },
   metadataBase: new URL("https://dev.nickbrady.dev"),
-  alternates: {
-    canonical: "https://dev.nickbrady.dev",
-  },
   robots: {
     index: true,
     follow: true,
