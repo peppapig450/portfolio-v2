@@ -5,8 +5,8 @@
       "description": "Find the perfect professor with ProfPick's AI-powered recommendations.",
       "about": "ProfPick is a revolutionary tool designed to streamline the class selection process. Powered by advanced AI algorithms, we analyze vast amounts of data from Rate My Professor to provide accurate and relevant professor recommendations tailored to your specific needs. With ProfPick, you can effortlessly discover the best professors for your courses and make informed decisions about your academic journey. Easily upload your own professor reviews to contribute to the community and help other students.",
       "link": "https://rate-my-professor-lac.vercel.app/",
-      "imageUrl": "profpick_demo.webm",
-      "imageAlt": "Animated demo showcasing ProfPick's AI-powered recommendations",
+      "mediaUrl": "profpick_demo.webm",
+      "mediaAlt": "Animated demo showcasing ProfPick's AI-powered recommendations",
       "github": "https://github.com/HeadstarterVenomBytes/Rate-My-Professor",
       "type": ["project", "open-source", "others"],
       "technologies": [
@@ -14,12 +14,30 @@
         "Google Cloud",
         "Docker",
         "React",
+        "Material UI",
         "Next.js",
         "TypeScript",
         "OpenAI",
         "Pinecone",
         "LangChain",
         "RAG"
+      ]
+    },
+    {
+      "title": "WasteNotWantNot",
+      "description": "Master your pantry with WasteNotWantNot, the ultimate pantry management utility.",
+      "about": "WasteNotWantNot is an innovative pantry management tool designed to help you keep track of your food inventory effortlessly. With an intuitive interface and robust features, it allows you to log, categorize, and monitor the items in your pantry, ensuring you never waste food or run out of the essentials. Easily input expiration dates, set alerts for items that need to be used soon, and create shopping lists based on what's missing. WasteNotWantNot helps you save money, reduce food waste, and stay organized, making pantry management a breeze.",
+      "link": "https://pantry-tracker-delta-swart.vercel.app/",
+      "mediaUrl": "wastenotwantnot_demo.webm",
+      "mediaAlt": "Animated demo showcasing WasteNotWantNot's pantry management features",
+      "github": "https://github.com/peppapig450/pantry-tracker",
+      "type": ["open-source", "project", "others"],
+      "technologies": [
+        "React",
+        "Next.js",
+        "JavaScript",
+        "Material UI",
+        "FireBase"
       ]
     }
   ]
