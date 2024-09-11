@@ -103,7 +103,7 @@ const MasonryItem: React.FC<MasonryItemProps> = ({ item }) => {
           sx={{ height: height, width: "100%" }}
         >
           <CardMedia
-            src={imgixURLBuilder(item.imageUrl)}
+            src={imgixURLBuilder(item.mediaUrl)}
             component="video"
             autoPlay
             muted
