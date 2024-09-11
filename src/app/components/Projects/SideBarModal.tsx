@@ -151,7 +151,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
         </Typography>
         <MediaContainer>
           <video
-            src={imgixURLBuilder(data?.imageUrl)}
+            src={imgixURLBuilder(data?.mediaUrl)}
             autoPlay
             muted
             loop
