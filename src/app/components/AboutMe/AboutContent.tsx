@@ -72,7 +72,7 @@ const AboutContent = () => {
 
       <Container sx={{ mb: 5, px: theme.spacing(1.875), mx: "auto" }}>
         <Grid container alignItems="center" justifyContent="center">
-          <Grid size={{ xs: 12, md: 10 }}>
+          <Grid size={{ xs: 12, md: 10 }} sx={{ pl: theme.spacing(2) }}>
             <motion.div {...getTransitions(0.7)}>
               <FooterLink goto="/projects">
                 Lets Continue To Projects
