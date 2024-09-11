@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { _SectionWrapper } from "./components/Layout";
 import NavBar from "./components/Navbar";
-import IntroPageContent from "./components/Sections/IntroSection";
+import IntroPageContent from "./components/LandingPage/IntroContent";
 
 export const metadata: Metadata = {
   title: "Home | Nick Brady",
