@@ -20,10 +20,10 @@ export interface Project {
   title: string;
   description: string;
   about: string;
-  link: string;
+  link?: string;
   mediaUrl: string;
   mediaAlt: string;
-  github?: string;
+  github: string;
   type: ProjectType[];
   technologies: string[];
 }
