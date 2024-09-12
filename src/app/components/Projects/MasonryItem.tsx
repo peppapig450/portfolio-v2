@@ -107,6 +107,7 @@ const MasonryItem: React.FC<MasonryItemProps> = ({ item }) => {
             component="video"
             autoPlay
             muted
+            playsInline
             loop
             sx={{
               position: "absolute",
