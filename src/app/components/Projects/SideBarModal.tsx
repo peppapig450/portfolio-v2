@@ -198,28 +198,36 @@ const SideBarModal: React.FC<ISideBarModal> = ({
           ))}
         </Stack>
 
-        <Typography
-          variant="h6"
-          component="h4"
-          color="textPrimary"
-          fontWeight="bold"
-          sx={{ mb: theme.spacing(1.6), mt: theme.spacing(4) }}
-        >
-          <LanguageIcon sx={{ mr: 1 }} />
-          Website
-        </Typography>
-        <Typography variant="body2" component="p" sx={{ mb: theme.spacing(2) }}>
-          <CustomLink
-            href={data?.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            underline="hover"
-            color={theme.palette.text.primary}
-            fontWeight="bold"
-          >
-            {data?.link}
-          </CustomLink>
-        </Typography>
+        {data.link && (
+          <>
+            <Typography
+              variant="h6"
+              component="h4"
+              color="textPrimary"
+              fontWeight="bold"
+              sx={{ mb: theme.spacing(1.6), mt: theme.spacing(4) }}
+            >
+              <LanguageIcon sx={{ mr: 1 }} />
+              Website
+            </Typography>
+            <Typography
+              variant="body2"
+              component="p"
+              sx={{ mb: theme.spacing(2) }}
+            >
+              <CustomLink
+                href={data?.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                underline="hover"
+                color={theme.palette.text.primary}
+                fontWeight="bold"
+              >
+                {data?.link}
+              </CustomLink>
+            </Typography>
+          </>
+        )}
 
         {data.github && (
           <>
@@ -259,7 +267,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
         )}
 
         <CustomLink
-          href={data.link}
+          href={data.link ? data.link : data.github}
           target="_blank"
           rel="noopener noreferrer"
           underline="hover"

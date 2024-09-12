@@ -39,6 +39,16 @@
         "Material UI",
         "FireBase"
       ]
+    },
+    {
+      "title": "PyDictSummary",
+      "description": "A Rust library that efficiently analyzes and summarizes Python dictionaries.",
+      "about": "PyDictSummary is a powerful Rust library designed to provide insightful summaries of Python dictionaries. It leverages the strengths of Rust's performance and memory management to offer fast and efficient analysis capabilities. With PyDictSummary, you can easily extract key statistics like key-value counts, most frequent key-value pairs, and data type distributions for your Python dictionaries. This library empowers you to gain valuable insights into the structure and content of your dictionaries, aiding in data exploration, debugging, and optimization tasks.",
+      "mediaUrl": "pydictsummary_demo.avif",
+      "mediaAlt": "Screenshot of PyDictSummary usage",
+      "github": "https://github.com/peppapig450/data-summarizer/",
+      "type": ["open-source", "tools"],
+      "technologies": ["Rust", "Python FFI", "Python", "Python module"]
     }
   ]
 }
