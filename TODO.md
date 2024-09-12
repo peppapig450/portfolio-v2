@@ -10,6 +10,9 @@
 - [ ] Make the tab buttons have the growing bigger effect when clicked on and get rid of the underline thing
 - [ ] Make the width of the card better on larger screens when there's one column
 - [ ] Add other projects
+- [ ] Demos:
+  - [ ] WasteNotWantNot
+  - [ ] DictSummarizer
 
 #### SideBar
 
