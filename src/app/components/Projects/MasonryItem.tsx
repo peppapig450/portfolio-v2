@@ -95,6 +95,7 @@ const MasonryItem: React.FC<MasonryItemProps> = ({ item }) => {
     }
   };
 
+  // TODO: on safari use an image tag with an h264 mp4 video https://developer.apple.com/documentation/webkit/delivering_video_content_for_safari#3030250
   return (
     <>
       {item && (
