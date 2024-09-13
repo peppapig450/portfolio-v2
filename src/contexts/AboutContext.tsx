@@ -58,7 +58,7 @@ export default function AboutProvider({
         title: "Product",
         icon: <PublicIcon />,
         description:
-          "While I may not fit the traditional profile of a product manager, my unique perspective as an autistic individual, combined with  my quick learning ability and creativity, gives me a distinct advantage in driving product success from concept to launch. My diverse skill set in research, product design, and coordination allow me to approach challenges with fresh, innovative solutions while maintaining a clear, focused vision throughout the product&apos;s journey. With exceptional analytical thinking, attention to detail, and a talent for creatively bridging the gap between technical and product domains, I excel at navigating the path from 0 to 100, ensuring every stage is managed with precision and ingenuity.",
+          "While I may not fit the traditional profile of a product manager, my unique perspective as an autistic individual, combined with  my quick learning ability and creativity, gives me a distinct advantage in driving product success from concept to launch. My diverse skill set in research, product design, and coordination allow me to approach challenges with fresh, innovative solutions while maintaining a clear, focused vision throughout the product's journey. With exceptional analytical thinking, attention to detail, and a talent for creatively bridging the gap between technical and product domains, I excel at navigating the path from 0 to 100, ensuring every stage is managed with precision and ingenuity.",
         link: "/projects",
         linkText: "View Products",
         ariaLabel: "Open Products Page",
