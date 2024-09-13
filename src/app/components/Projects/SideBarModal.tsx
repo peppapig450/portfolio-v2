@@ -155,6 +155,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
             autoPlay
             muted
             loop
+            playsInline
             style={{ objectFit: "cover", width: "100%", height: "100%" }}
           />
         </MediaContainer>
