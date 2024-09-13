@@ -14,7 +14,7 @@ import {
 import { Project } from "@/contexts/ProjectsContext";
 import { arrayRandomItem } from "nicks-web-helpers";
 import SideBarModal from "./SideBarModal";
-import imgixURLBuilder from "@/utils/imageUrlBuilder";
+import MediaRenderer from "./MediaRenderer";
 
 interface MasonryItemProps {
   item?: Project;
@@ -101,21 +101,11 @@ const MasonryItem: React.FC<MasonryItemProps> = ({ item }) => {
           onClick={handleCardClick}
           sx={{ height: height, width: "100%" }}
         >
-          <CardMedia
-            src={imgixURLBuilder(item.mediaUrl)}
-            component="video"
-            autoPlay
-            muted
-            playsInline
-            loop
-            sx={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-            }}
+          <MediaRenderer
+            card
+            mediaUrl={item.mediaUrl}
+            mediaAlt={item.mediaAlt}
+            mediaType={item.mediaType}
           />
           <ContentSlate className="content-slate">
             <Typography
