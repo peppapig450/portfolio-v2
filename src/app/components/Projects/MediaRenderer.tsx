@@ -61,12 +61,6 @@ const MediaRenderer: React.FC<MediaRendererProps> = ({
                   })}
               sx={commonStyles}
             />
-          ) : isSafari ? (
-            <img
-              src={imgixURLBuilder(mediaUrl)}
-              alt={mediaAlt}
-              style={{ objectFit: "cover", width: "100%", height: "100%" }}
-            />
           ) : (
             <video
               {...videoProps}
