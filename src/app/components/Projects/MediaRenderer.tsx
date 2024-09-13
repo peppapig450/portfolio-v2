@@ -22,7 +22,6 @@ const MediaRenderer: React.FC<MediaRendererProps> = ({
 
   const getModifiedUrl = (url: string) => {
     const modifiedUrl = isSafari ? url.replace(".webm", ".mp4") : url;
-    console.log(url, modifiedUrl, isSafari);
     return imgixURLBuilder(modifiedUrl);
   };
 
