@@ -11,9 +11,7 @@ import {
   styled,
   useTheme,
 } from "@mui/material";
-import CustomCardMedia from "./CustomCardMedia";
 import { Project } from "@/contexts/ProjectsContext";
-import Image from "next/image";
 import { arrayRandomItem } from "nicks-web-helpers";
 import SideBarModal from "./SideBarModal";
 import imgixURLBuilder from "@/utils/imageUrlBuilder";
