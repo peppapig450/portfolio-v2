@@ -16,6 +16,8 @@ export enum ProjectType {
   Others = "others",
 }
 
+export type MediaType = "video" | "image";
+
 export interface Project {
   title: string;
   description: string;
@@ -23,6 +25,7 @@ export interface Project {
   link?: string;
   mediaUrl: string;
   mediaAlt: string;
+  mediaType: MediaType;
   github: string;
   type: ProjectType[];
   technologies: string[];
@@ -55,6 +58,14 @@ const stringToProjectType = (str: string): ProjectType => {
   }
 };
 
+// Helper function to parse mediaType
+const parseMediaType = (mediaType: string): MediaType => {
+  if (mediaType === "video" || mediaType === "image") {
+    return mediaType;
+  }
+  throw new Error(`Invalid media type: ${mediaType}`);
+};
+
 // Create the provider component
 export const ProjectsProvider: React.FC<{ children: ReactNode }> = ({
   children,
@@ -66,6 +77,7 @@ export const ProjectsProvider: React.FC<{ children: ReactNode }> = ({
     const parsedProjects: Project[] = projectsData.projects.map((project) => ({
       ...project,
       type: project.type.map(stringToProjectType),
+      mediaType: parseMediaType(project.mediaType),
     }));
     setProjects(parsedProjects);
   }, []);
