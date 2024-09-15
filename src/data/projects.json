@@ -6,6 +6,7 @@
       "about": "ProfPick is a revolutionary tool designed to streamline the class selection process. Powered by advanced AI algorithms, we analyze vast amounts of data from Rate My Professor to provide accurate and relevant professor recommendations tailored to your specific needs. With ProfPick, you can effortlessly discover the best professors for your courses and make informed decisions about your academic journey. Easily upload your own professor reviews to contribute to the community and help other students.",
       "link": "https://rate-my-professor-lac.vercel.app/",
       "mediaUrl": "profpick_demo.webm",
+      "mediaType": "video",
       "mediaAlt": "Animated demo showcasing ProfPick's AI-powered recommendations",
       "github": "https://github.com/HeadstarterVenomBytes/Rate-My-Professor",
       "type": ["project", "open-source", "others"],
@@ -29,6 +30,7 @@
       "about": "WasteNotWantNot is an innovative pantry management tool designed to help you keep track of your food inventory effortlessly. With an intuitive interface and robust features, it allows you to log, categorize, and monitor the items in your pantry, ensuring you never waste food or run out of the essentials. Easily input expiration dates, set alerts for items that need to be used soon, and create shopping lists based on what's missing. WasteNotWantNot helps you save money, reduce food waste, and stay organized, making pantry management a breeze.",
       "link": "https://pantry-tracker-delta-swart.vercel.app/",
       "mediaUrl": "wastenotwantnot_demo.webm",
+      "mediaType": "video",
       "mediaAlt": "Animated demo showcasing WasteNotWantNot's pantry management features",
       "github": "https://github.com/peppapig450/pantry-tracker",
       "type": ["open-source", "project", "others"],
@@ -46,6 +48,7 @@
       "about": "PyDictSummary is a powerful Rust library designed to provide insightful summaries of Python dictionaries. It leverages the strengths of Rust's performance and memory management to offer fast and efficient analysis capabilities. With PyDictSummary, you can easily extract key statistics like key-value counts, most frequent key-value pairs, and data type distributions for your Python dictionaries. This library empowers you to gain valuable insights into the structure and content of your dictionaries, aiding in data exploration, debugging, and optimization tasks.",
       "mediaUrl": "pydictsummary_demo.avif",
       "mediaAlt": "Screenshot of PyDictSummary usage",
+      "mediaType": "image",
       "github": "https://github.com/peppapig450/data-summarizer/",
       "type": ["open-source", "tools"],
       "technologies": ["Rust", "Python FFI", "Python", "Python module"]

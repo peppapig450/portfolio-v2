@@ -12,13 +12,12 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import Image from "next/image";
 import CloseIcon from "@mui/icons-material/Close";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LanguageIcon from "@mui/icons-material/Language";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import CustomLink from "../CustomLink";
-import imgixURLBuilder from "@/utils/imageUrlBuilder";
+import MediaRenderer from "./MediaRenderer";
 import { Project } from "@/contexts/ProjectsContext";
 
 interface ISideBarModal {
@@ -150,13 +149,10 @@ const SideBarModal: React.FC<ISideBarModal> = ({
           {data?.about}
         </Typography>
         <MediaContainer>
-          <video
-            src={imgixURLBuilder(data?.mediaUrl)}
-            autoPlay
-            muted
-            loop
-            playsInline
-            style={{ objectFit: "cover", width: "100%", height: "100%" }}
+          <MediaRenderer
+            mediaUrl={data.mediaUrl}
+            mediaAlt={data.mediaAlt}
+            mediaType={data.mediaType}
           />
         </MediaContainer>
 

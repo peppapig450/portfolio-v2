@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import NavBar from "../components/Navbar";
 import { ProjectsProvider } from "@/contexts/ProjectsContext";
+import { BrowserProvider } from "@/contexts/BrowserContext";
 import ProjectsContent from "../components/Projects/ProjectsContent";
 
 export const metadata: Metadata = {
@@ -18,7 +19,9 @@ export default function Projects() {
     <>
       <NavBar />
       <ProjectsProvider>
-        <ProjectsContent />
+        <BrowserProvider>
+          <ProjectsContent />
+        </BrowserProvider>
       </ProjectsProvider>
     </>
   );
