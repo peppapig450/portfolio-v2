@@ -187,7 +187,7 @@ const ContactContent: React.FC = () => {
                     </FormControl>
                   </Grid>
                   <Grid size={{ xs: 12, sm: 6 }}>
-                    <FormControl fullWidth error={!!errors.name}>
+                    <FormControl fullWidth error={!!errors.email}>
                       <TextField
                         name="email"
                         label="Email"
@@ -196,6 +196,7 @@ const ContactContent: React.FC = () => {
                         error={!!errors.email}
                         variant="standard"
                       />
+                      <FormHelperText>{errors.email}</FormHelperText>
                     </FormControl>
                   </Grid>
                   <Grid size={{ xs: 12, sm: 6 }}>
@@ -208,8 +209,9 @@ const ContactContent: React.FC = () => {
                         variant="standard"
                         value={formState.message}
                         onChange={handleChange}
-                        error={!!errors.email}
+                        error={!!errors.message}
                       />
+                      <FormHelperText>{errors.message}</FormHelperText>
                     </FormControl>
                   </Grid>
                   <Grid size={{ xs: 12, sm: 6 }}>
