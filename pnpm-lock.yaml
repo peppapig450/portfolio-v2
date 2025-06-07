@@ -27,8 +27,8 @@ importers:
         specifier: ^6.4.12
         version: 6.4.12(@emotion/react@11.14.0(@types/react@18.3.23)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.23)(react@18.3.1))(@types/react@18.3.23)(react@18.3.1))(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mui/material-nextjs':
-        specifier: ^6.4.12
-        version: 6.4.12(@emotion/cache@11.14.0)(@emotion/react@11.14.0(@types/react@18.3.23)(react@18.3.1))(@types/react@18.3.23)(next@15.3.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+        specifier: ^7.1.1
+        version: 7.1.1(@emotion/cache@11.14.0)(@emotion/react@11.14.0(@types/react@18.3.23)(react@18.3.1))(@types/react@18.3.23)(next@15.3.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       '@types/styled-components':
         specifier: ^5.1.34
         version: 5.1.34
@@ -412,8 +412,8 @@ packages:
       '@types/react':
         optional: true
 
-  '@mui/material-nextjs@6.4.12':
-    resolution: {integrity: sha512-fBOTr9YGonjjCYWp81eEHOxnbmx6n1aVZ6zbhQABBq3mFtEzkqSP/6/P36cO3Q24sPiCLAC5g3wt3BcdD4OVxg==}
+  '@mui/material-nextjs@7.1.1':
+    resolution: {integrity: sha512-6/tjmViYMI7XIqDTqK+n4t5B07YfVDq72emdBy/o8FLHsV7u477Ro0Aago2MQu8FrBQWDvzvvRkynIb02GjDBQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       '@emotion/cache': ^11.11.0
@@ -2445,7 +2445,7 @@ snapshots:
       '@emotion/styled': 11.14.0(@emotion/react@11.14.0(@types/react@18.3.23)(react@18.3.1))(@types/react@18.3.23)(react@18.3.1)
       '@types/react': 18.3.23
 
-  '@mui/material-nextjs@6.4.12(@emotion/cache@11.14.0)(@emotion/react@11.14.0(@types/react@18.3.23)(react@18.3.1))(@types/react@18.3.23)(next@15.3.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
+  '@mui/material-nextjs@7.1.1(@emotion/cache@11.14.0)(@emotion/react@11.14.0(@types/react@18.3.23)(react@18.3.1))(@types/react@18.3.23)(next@15.3.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.27.6
       '@emotion/react': 11.14.0(@types/react@18.3.23)(react@18.3.1)
