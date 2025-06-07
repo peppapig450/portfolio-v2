@@ -86,10 +86,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <AppRouterCacheProvider>
           <ThemeProvider theme={mainTheme}>
             <CssBaseline />
-            {children}
+            <main id="main-content">{children}</main>
             <Analytics />
           </ThemeProvider>
         </AppRouterCacheProvider>

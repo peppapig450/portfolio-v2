@@ -134,7 +134,6 @@ const ContactContent: React.FC = () => {
     <>
       <Container
         maxWidth="md"
-        id="main-content"
         sx={{ mb: 5, px: theme.spacing(1.785), mx: "auto" }}
       >
         <Grid container alignItems="center" justifyContent="center">
@@ -235,7 +234,6 @@ const ContactContent: React.FC = () => {
       </Container>
       <Container
         maxWidth="md"
-        id="main-content"
         sx={{ mb: 5, px: theme.spacing(1.785), mx: "auto" }}
       >
         <Grid container alignItems="center" justifyContent="center">
