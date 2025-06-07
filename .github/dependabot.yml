@@ -1,6 +1,39 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: /
+  - package-ecosystem: "pnpm"
+    directory: "/"
     schedule:
       interval: "weekly"
+      day: "sunday"
+      time: "04:00"
+    open-pull-requests-limit: 5
+    rebase-strategy: "auto"
+    versioning-strategy: "widen"
+    labels:
+      - "dependencies"
+      - "automerge"
+    assignees:
+      - "peppapig450"
+    commit-message:
+      prefix: "chore(deps)"
+      include: "scope"
+    allow:
+      - dependency-type: "direct"
+
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    security-updates-only: true
+    open-pull-requests-limit: 10
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "monday"
+      time: "06:00"
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "chore(ci)"
+      include: "scope"
