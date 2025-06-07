@@ -153,10 +153,10 @@ export const underlineAnimation = keyframes`
 `;
 
 export const subtleBounce = keyframes`
-  0%, 100% { 
-    transform: tranlateY(0);
+  0%, 100% {
+    transform: translateY(0);
   }
   50% {
-    transfomr: translateY(-10px);
+    transform: translateY(-10px);
   }
 `;
