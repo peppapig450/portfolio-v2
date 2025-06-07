@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { _SectionWrapper } from "./components/Layout";
+import { PageWrapper } from "./components/Layout";
 import NavBar from "./components/Navbar";
 import IntroPageContent from "./components/LandingPage/IntroContent";
 
@@ -17,9 +17,9 @@ export default function Home() {
   return (
     <>
       <NavBar />
-      <_SectionWrapper>
+      <PageWrapper>
         <IntroPageContent />
-      </_SectionWrapper>
+      </PageWrapper>
     </>
   );
 }
