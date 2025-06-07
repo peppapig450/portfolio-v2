@@ -99,7 +99,13 @@ const FooterLink: React.FC<IFooterLink> = ({ children, goto = "/" }) => {
           },
         }}
       >
-        <Link href={goto} underline="none" component={NextLink} passHref>
+        <Link
+          href={goto}
+          underline="none"
+          component={NextLink}
+          passHref
+          aria-label={`Navigate to ${goto} page`}
+        >
           <Box sx={{ display: "inline-flex", alignItems: "center" }}>
             <AnimatedTypography
               sx={{
