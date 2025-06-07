@@ -119,6 +119,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
               closeShow()
             }}
             underline="hover"
+            aria-label="Return to projects"
           >
             <Typography variant="body1" fontWeight="bold">
               Back To Projects.
@@ -207,22 +208,23 @@ const SideBarModal: React.FC<ISideBarModal> = ({
               <LanguageIcon sx={{ mr: 1 }} />
               Website
             </Typography>
-            <Typography
-              variant="body2"
-              component="p"
-              sx={{ mb: theme.spacing(2) }}
-            >
-              <CustomLink
-                href={data?.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                underline="hover"
-                color={theme.palette.text.primary}
-                fontWeight="bold"
-              >
-                {data?.link}
-              </CustomLink>
-            </Typography>
+      <Typography
+        variant="body2"
+        component="p"
+        sx={{ mb: theme.spacing(2) }}
+      >
+        <CustomLink
+          href={data?.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          underline="hover"
+          color={theme.palette.text.primary}
+          fontWeight="bold"
+          aria-label="Open project website in new tab"
+        >
+          {data?.link}
+        </CustomLink>
+      </Typography>
           </>
         )}
 
@@ -249,26 +251,28 @@ const SideBarModal: React.FC<ISideBarModal> = ({
               component="p"
               sx={{ mb: theme.spacing(2) }}
             >
-              <CustomLink
-                href={data.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                underline="hover"
-                color={theme.palette.text.primary}
-                fontWeight="bold"
-              >
-                {data.github}
-              </CustomLink>
-            </Typography>
-          </>
-        )}
-
         <CustomLink
-          href={data.link ? data.link : data.github}
+          href={data.github}
           target="_blank"
           rel="noopener noreferrer"
           underline="hover"
+          color={theme.palette.text.primary}
+          fontWeight="bold"
+          aria-label="Open project GitHub repository in new tab"
         >
+          {data.github}
+        </CustomLink>
+      </Typography>
+          </>
+        )}
+
+      <CustomLink
+        href={data.link ? data.link : data.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        underline="hover"
+        aria-label="Open the project in a new tab"
+      >
           <OpenProjectButton
             variant="contained"
             color="primary"
