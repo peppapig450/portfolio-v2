@@ -13,7 +13,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^6.4.12",
-    "@mui/lab": "6.0.0-beta.8",
+    "@mui/lab": "6.0.0-dev.240424162023-9968b4889d",
     "@mui/material": "^6.4.12",
     "@mui/material-nextjs": "^6.4.12",
     "@types/styled-components": "^5.1.34",
