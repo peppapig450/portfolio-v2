@@ -124,6 +124,10 @@ const FooterLink: React.FC<IFooterLink> = ({ children, goto = "/" }) => {
                 ml: theme.spacing(1),
                 color: theme.palette.secondary.main,
                 animation: `${arrowBounce} 0.5s infinite alternate`,
+                "@media (prefers-reduced-motion: reduce)": {
+                  animation: "none",
+                  transform: "translateX(1rem)",
+                },
               }}
             />
           </Box>
