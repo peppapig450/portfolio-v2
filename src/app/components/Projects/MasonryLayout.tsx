@@ -1,7 +1,7 @@
-import React, { PropsWithChildren } from "react";
-import { Masonry } from "@mui/lab";
-import { Box, useTheme } from "@mui/material";
-import { keyframes } from "@mui/material/styles";
+import { Masonry } from "@mui/lab"
+import { Box, useTheme } from "@mui/material"
+import { keyframes } from "@mui/material/styles"
+import React, { PropsWithChildren } from "react"
 
 const fadeInUp = keyframes`
   from {
@@ -12,10 +12,10 @@ const fadeInUp = keyframes`
     marginTop: '1.5em';
     opacity: 1;
   }
-`;
+`
 
 const MasonryLayout: React.FC<PropsWithChildren<any>> = ({ children }) => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <Box
@@ -32,7 +32,7 @@ const MasonryLayout: React.FC<PropsWithChildren<any>> = ({ children }) => {
         {children}
       </Masonry>
     </Box>
-  );
-};
+  )
+}
 
-export default MasonryLayout;
+export default MasonryLayout

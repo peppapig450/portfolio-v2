@@ -1,10 +1,10 @@
-import React from "react";
-import { Typography, Box } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import { noiseAnim, noiseAnim2 } from "@/styles/keyframes";
+import { noiseAnim, noiseAnim2 } from "@/styles/keyframes"
+import { Box, Typography } from "@mui/material"
+import { useTheme } from "@mui/material/styles"
+import React from "react"
 
 const AnimatedTitle: React.FC = () => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <Box
@@ -48,7 +48,7 @@ const AnimatedTitle: React.FC = () => {
         I&apos;m Nick Brady
       </Typography>
     </Box>
-  );
-};
+  )
+}
 
-export default AnimatedTitle;
+export default AnimatedTitle

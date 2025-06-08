@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
-import { useTheme, useMediaQuery } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material"
+import { useEffect, useState } from "react"
 
 const useIsMobile = () => {
-  const theme = useTheme();
-  const isMobileQuery = useMediaQuery(theme.breakpoints.down("md"));
-  const [isMobile, setIsMobile] = useState<boolean>(isMobileQuery);
+  const theme = useTheme()
+  const isMobileQuery = useMediaQuery(theme.breakpoints.down("md"))
+  const [isMobile, setIsMobile] = useState<boolean>(isMobileQuery)
 
   useEffect(() => {
-    setIsMobile(isMobileQuery);
-  }, [isMobileQuery]);
+    setIsMobile(isMobileQuery)
+  }, [isMobileQuery])
 
-  return isMobile;
-};
+  return isMobile
+}
 
-export default useIsMobile;
+export default useIsMobile

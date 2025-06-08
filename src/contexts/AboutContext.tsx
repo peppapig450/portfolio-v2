@@ -1,47 +1,45 @@
-"use client";
+"use client"
 
-import React, { createContext, useContext, ReactNode } from "react";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import PublicIcon from "@mui/icons-material/Public";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
-import PhotoCameraBackIcon from "@mui/icons-material/PhotoCameraBack";
-import CopyrightIcon from "@mui/icons-material/Copyright";
+import GitHubIcon from "@mui/icons-material/GitHub"
+import LibraryMusicIcon from "@mui/icons-material/LibraryMusic"
+import PhotoCameraBackIcon from "@mui/icons-material/PhotoCameraBack"
+import PublicIcon from "@mui/icons-material/Public"
+import React, { createContext, ReactNode, useContext } from "react"
 
 // Define the base timeline data interface with common properties
 export interface TimelineItemType {
-  title: string;
-  subtitle?: string;
-  icon?: ReactNode;
-  description: string;
-  link: string;
-  linkText: string;
-  ariaLabel: string;
+  title: string
+  subtitle?: string
+  icon?: ReactNode
+  description: string
+  link: string
+  linkText: string
+  ariaLabel: string
 }
 
 // Define the context data type that combines all items
 type AboutContextType = {
-  aboutMeData: TimelineItemType[];
-  myPlaylistData: TimelineItemType[];
-  myPhotographyData: TimelineItemType[];
-};
+  aboutMeData: TimelineItemType[]
+  myPlaylistData: TimelineItemType[]
+  myPhotographyData: TimelineItemType[]
+}
 
 export const AboutContext = createContext<AboutContextType | undefined>(
-  undefined
-);
+  undefined,
+)
 
 export const useAboutContext = () => {
-  const context = useContext(AboutContext);
+  const context = useContext(AboutContext)
   if (context === undefined) {
-    throw new Error("useAboutContext must be used within an AboutProvider");
+    throw new Error("useAboutContext must be used within an AboutProvider")
   }
-  return context;
-};
+  return context
+}
 
 export default function AboutProvider({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   const aboutData: AboutContextType = {
     aboutMeData: [
@@ -137,9 +135,9 @@ export default function AboutProvider({
         ariaLabel: "Go to Nick's photography collection page",
       },
     ],
-  };
+  }
 
   return (
     <AboutContext.Provider value={aboutData}>{children}</AboutContext.Provider>
-  );
+  )
 }

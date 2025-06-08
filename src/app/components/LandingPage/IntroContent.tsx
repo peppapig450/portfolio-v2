@@ -1,16 +1,16 @@
-"use client";
-import React from "react";
-import { Box, useTheme } from "@mui/material";
-import { motion } from "framer-motion";
-import { useTransitions } from "@/hooks/useTransitions";
-import AnimatedTitle from "./AnimatedTitle";
-import FooterLink from "../FooterLink";
-import IntroductionText from "./IntroductionText";
+"use client"
+import { useTransitions } from "@/hooks/useTransitions"
+import { Box, useTheme } from "@mui/material"
+import { motion } from "framer-motion"
+import React from "react"
+import FooterLink from "../FooterLink"
+import AnimatedTitle from "./AnimatedTitle"
+import IntroductionText from "./IntroductionText"
 
 const IntroPageContent: React.FC<{}> = ({}) => {
-  const theme = useTheme();
-  const motionPropsTitle = useTransitions(0.1);
-  const motionPropsFooter = useTransitions(0.7);
+  const theme = useTheme()
+  const motionPropsTitle = useTransitions(0.1)
+  const motionPropsFooter = useTransitions(0.7)
 
   return (
     <Box
@@ -37,7 +37,7 @@ const IntroPageContent: React.FC<{}> = ({}) => {
         <FooterLink goto="/about">See More About Me</FooterLink>
       </motion.div>
     </Box>
-  );
-};
+  )
+}
 
-export default IntroPageContent;
+export default IntroPageContent
