@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
-import NavBar from "../components/Navbar";
-import { ProjectsProvider } from "@/contexts/ProjectsContext";
-import { BrowserProvider } from "@/contexts/BrowserContext";
-import ProjectsContent from "../components/Projects/ProjectsContent";
+import { BrowserProvider } from "@/contexts/BrowserContext"
+import { ProjectsProvider } from "@/contexts/ProjectsContext"
+import type { Metadata } from "next"
+import NavBar from "../components/Navbar"
+import ProjectsContent from "../components/Projects/ProjectsContent"
 
 export const metadata: Metadata = {
   title: "Projects | Nick Brady",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://dev.nickbrady.dev/projects",
   },
-};
+}
 
 export default function Projects() {
   return (
@@ -24,5 +24,5 @@ export default function Projects() {
         </BrowserProvider>
       </ProjectsProvider>
     </>
-  );
+  )
 }

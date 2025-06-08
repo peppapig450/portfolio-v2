@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@emotion/cache": "^11.14.0",
@@ -31,8 +32,10 @@
     "@types/react-dom": "^18.3.7",
     "eslint": "^9.28.0",
     "eslint-config-next": "latest",
+    "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-perfectionist": "^4.14.0",
     "prettier": "^3.5.3",
+    "prettier-plugin-organize-imports": "^4.1.0",
     "typescript": "^5.8.3"
   },
   "packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c"

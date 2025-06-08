@@ -1,21 +1,20 @@
-"use client";
-import React from "react";
-import { Container, Typography, Grid2 as Grid } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import { ProjectType, useProjectsContext } from "@/contexts/ProjectsContext";
-import MasonryLayout from "./MasonryLayout";
-import MasonryItem from "./MasonryItem";
-import FooterLink from "../FooterLink";
-import { motion } from "framer-motion";
-import { useTransitions } from "@/hooks/useTransitions";
-import CustomTabs from "../CustomTabs";
+"use client"
+import { ProjectType, useProjectsContext } from "@/contexts/ProjectsContext"
+import { useTransitions } from "@/hooks/useTransitions"
+import { Container, Grid2 as Grid, Typography } from "@mui/material"
+import { useTheme } from "@mui/material/styles"
+import { motion } from "framer-motion"
+import CustomTabs from "../CustomTabs"
+import FooterLink from "../FooterLink"
+import MasonryItem from "./MasonryItem"
+import MasonryLayout from "./MasonryLayout"
 
 const ProjectsContent = () => {
-  const theme = useTheme();
-  const { projects } = useProjectsContext();
-  const motionPropsHeading = useTransitions(0.2);
-  const motionPropsTabs = useTransitions(0.4);
-  const motionPropsFooter = useTransitions(0.6);
+  const theme = useTheme()
+  const { projects } = useProjectsContext()
+  const motionPropsHeading = useTransitions(0.2)
+  const motionPropsTabs = useTransitions(0.4)
+  const motionPropsFooter = useTransitions(0.6)
 
   const tabItems = [
     {
@@ -64,7 +63,7 @@ const ProjectsContent = () => {
         </MasonryLayout>
       ),
     },
-  ];
+  ]
 
   return (
     <>
@@ -108,7 +107,7 @@ const ProjectsContent = () => {
         </Grid>
       </Container>
     </>
-  );
-};
+  )
+}
 
-export default ProjectsContent;
+export default ProjectsContent

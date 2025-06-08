@@ -1,4 +1,4 @@
-import { keyframes } from "@mui/material/styles";
+import { keyframes } from "@mui/material/styles"
 
 export const noiseAnim2 = keyframes`
       0% {
@@ -65,7 +65,7 @@ export const noiseAnim2 = keyframes`
         clip-path: inset(1% 0 81% 0);
       }
     }
-`;
+`
 
 export const noiseAnim = keyframes`
       0% {
@@ -132,7 +132,7 @@ export const noiseAnim = keyframes`
         clip-path: inset(95% 0 2% 0);
       }
     }
-`;
+`
 
 export const arrowBounce = keyframes`
       from {
@@ -141,7 +141,7 @@ export const arrowBounce = keyframes`
       to {
         transform: translateX(2rem);
       }
-`;
+`
 
 export const underlineAnimation = keyframes`
   0% {
@@ -150,7 +150,7 @@ export const underlineAnimation = keyframes`
   100% {
     transform: scaleX(1);
   }
-`;
+`
 
 export const subtleBounce = keyframes`
   0%, 100% {
@@ -159,4 +159,4 @@ export const subtleBounce = keyframes`
   50% {
     transform: translateY(-10px);
   }
-`;
+`

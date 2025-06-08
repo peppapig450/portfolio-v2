@@ -1,23 +1,22 @@
-"use client";
-import React, { useState } from "react";
-import { usePathname } from "next/navigation";
+"use client"
+import { Project } from "@/contexts/ProjectsContext"
 import {
   Box,
   Card,
-  CardMedia,
   CardContent,
   Chip,
   Typography,
   styled,
   useTheme,
-} from "@mui/material";
-import { Project } from "@/contexts/ProjectsContext";
-import { arrayRandomItem } from "nicks-web-helpers";
-import SideBarModal from "./SideBarModal";
-import MediaRenderer from "./MediaRenderer";
+} from "@mui/material"
+import { usePathname } from "next/navigation"
+import { arrayRandomItem } from "nicks-web-helpers"
+import React, { useState } from "react"
+import MediaRenderer from "./MediaRenderer"
+import SideBarModal from "./SideBarModal"
 
 interface MasonryItemProps {
-  item?: Project;
+  item?: Project
 }
 
 const StyledCard = styled(Card)(({ theme }) => ({
@@ -54,7 +53,7 @@ const StyledCard = styled(Card)(({ theme }) => ({
       transform: "none",
     },
   },
-}));
+}))
 
 const ContentSlate = styled(CardContent)(({ theme }) => ({
   position: "absolute",
@@ -69,29 +68,29 @@ const ContentSlate = styled(CardContent)(({ theme }) => ({
   transform: "translateY(100%)",
   transition: "opacity 300ms ease-in-out, transform 300ms ease-in-out",
   zIndex: 2,
-}));
+}))
 
 const TechChip = styled(Chip)(({ theme }) => ({
   margin: theme.spacing(0.5),
   backgroundColor: theme.palette.grey[600],
   color: theme.palette.common.white,
-}));
+}))
 
 const MasonryItem: React.FC<MasonryItemProps> = ({ item }) => {
-  const theme = useTheme();
-  const pathname = usePathname();
-  const [showModal, setShowModal] = useState<boolean>(false);
+  const theme = useTheme()
+  const pathname = usePathname()
+  const [showModal, setShowModal] = useState<boolean>(false)
   const [height] = useState<string>(
-    arrayRandomItem(["400px", "454px", "310px"])
-  );
+    arrayRandomItem(["400px", "454px", "310px"]),
+  )
 
   const handleCardClick = () => {
     if (pathname.includes("projects")) {
-      setShowModal(true);
+      setShowModal(true)
     } else if (item?.link) {
-      window.open(item.link, "_blank", "noopener,noreferrer");
+      window.open(item.link, "_blank", "noopener,noreferrer")
     }
-  };
+  }
 
   // TODO: on safari use an image tag with an h264 mp4 video https://developer.apple.com/documentation/webkit/delivering_video_content_for_safari#3030250
   return (
@@ -137,7 +136,7 @@ const MasonryItem: React.FC<MasonryItemProps> = ({ item }) => {
         />
       )}
     </>
-  );
-};
+  )
+}
 
-export default MasonryItem;
+export default MasonryItem

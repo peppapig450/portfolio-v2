@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
-import { PageWrapper } from "./components/Layout";
-import NavBar from "./components/Navbar";
-import IntroPageContent from "./components/LandingPage/IntroContent";
+import type { Metadata } from "next"
+import IntroPageContent from "./components/LandingPage/IntroContent"
+import { PageWrapper } from "./components/Layout"
+import NavBar from "./components/Navbar"
 
 export const metadata: Metadata = {
   title: "Home | Nick Brady",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://dev.nickbrady.dev",
   },
-};
+}
 
 export default function Home() {
   return (
@@ -21,5 +21,5 @@ export default function Home() {
         <IntroPageContent />
       </PageWrapper>
     </>
-  );
+  )
 }

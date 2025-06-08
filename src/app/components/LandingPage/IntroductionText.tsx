@@ -1,15 +1,15 @@
-import React from "react";
-import { Typography } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import CustomLink from "../CustomLink";
-import { motion } from "framer-motion";
+import { Typography } from "@mui/material"
+import { useTheme } from "@mui/material/styles"
+import { motion } from "framer-motion"
+import React from "react"
+import CustomLink from "../CustomLink"
 
-import { useTransitions } from "@/hooks/useTransitions";
+import { useTransitions } from "@/hooks/useTransitions"
 
 const IntroductionText: React.FC = () => {
-  const theme = useTheme();
-  const motionPropsFirst = useTransitions(0.2);
-  const motionPropsSecond = useTransitions(0.3);
+  const theme = useTheme()
+  const motionPropsFirst = useTransitions(0.2)
+  const motionPropsSecond = useTransitions(0.3)
 
   // TODO: make the link font black, underline and turn blue when hovered
   return (
@@ -94,7 +94,7 @@ const IntroductionText: React.FC = () => {
         </Typography>
       </motion.div>
     </>
-  );
-};
+  )
+}
 
-export default IntroductionText;
+export default IntroductionText

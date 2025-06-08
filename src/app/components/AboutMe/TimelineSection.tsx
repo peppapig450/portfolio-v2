@@ -1,29 +1,28 @@
-import React from "react";
+import { TimelineItemType } from "@/contexts/AboutContext"
 import {
   Timeline,
-  TimelineItem,
-  TimelineSeparator,
   TimelineConnector,
   TimelineContent,
-  timelineItemClasses,
   TimelineDot,
-  TimelineOppositeContent,
-} from "@mui/lab";
-import { Typography, Box, LinkProps } from "@mui/material";
-import CustomLink from "../CustomLink";
-import { useTheme } from "@mui/material/styles";
-import { TimelineItemType } from "@/contexts/AboutContext";
+  TimelineItem,
+  timelineItemClasses,
+  TimelineSeparator,
+} from "@mui/lab"
+import { Box, Typography } from "@mui/material"
+import { useTheme } from "@mui/material/styles"
+import React from "react"
+import CustomLink from "../CustomLink"
 
 type TimelineSectionProps = {
-  title?: string;
-  items: TimelineItemType[];
-};
+  title?: string
+  items: TimelineItemType[]
+}
 
 export const TimelineSection: React.FC<TimelineSectionProps> = ({
   title,
   items,
 }) => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   // TODO: add underline highlight to the item title's
   return (
@@ -120,5 +119,5 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({
         ))}
       </Timeline>
     </Box>
-  );
-};
+  )
+}

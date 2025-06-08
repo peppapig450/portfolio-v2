@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { Box, Tab } from "@mui/material";
-import { TabPanel, TabContext, TabList } from "@mui/lab";
-import { styled } from "@mui/material/styles";
+import { TabContext, TabList, TabPanel } from "@mui/lab"
+import { Box, Tab } from "@mui/material"
+import { styled } from "@mui/material/styles"
+import React, { useState } from "react"
 
 const StyledTab = styled(Tab)(({ theme }) => ({
   backgroundColor: "transparent",
@@ -14,24 +14,24 @@ const StyledTab = styled(Tab)(({ theme }) => ({
     color: theme.palette.common.white,
     backgroundColor: theme.palette.grey[800],
   },
-}));
+}))
 
 interface TabItem {
-  label: string;
-  content: React.ReactNode;
-  href?: string;
+  label: string
+  content: React.ReactNode
+  href?: string
 }
 
 interface CustomTabProps {
-  items: TabItem[];
+  items: TabItem[]
 }
 
 const CustomTabs: React.FC<CustomTabProps> = ({ items }) => {
-  const [value, setValue] = useState<string>("0");
+  const [value, setValue] = useState<string>("0")
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue);
-  };
+    setValue(newValue)
+  }
 
   return (
     <Box
@@ -64,7 +64,7 @@ const CustomTabs: React.FC<CustomTabProps> = ({ items }) => {
         ))}
       </TabContext>
     </Box>
-  );
-};
+  )
+}
 
-export default CustomTabs;
+export default CustomTabs
