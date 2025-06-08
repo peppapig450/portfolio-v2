@@ -7,12 +7,15 @@ import MasonryLayout from "./MasonryLayout";
 import MasonryItem from "./MasonryItem";
 import FooterLink from "../FooterLink";
 import { motion } from "framer-motion";
-import { getTransitions } from "@/utils/transitions";
+import { useTransitions } from "@/hooks/useTransitions";
 import CustomTabs from "../CustomTabs";
 
 const ProjectsContent = () => {
   const theme = useTheme();
   const { projects } = useProjectsContext();
+  const motionPropsHeading = useTransitions(0.2);
+  const motionPropsTabs = useTransitions(0.4);
+  const motionPropsFooter = useTransitions(0.6);
 
   const tabItems = [
     {
@@ -72,7 +75,7 @@ const ProjectsContent = () => {
       >
         <Grid container alignItems="center" justifyContent="center">
           <Grid size={{ xs: 12, md: 10 }}>
-            <motion.div {...getTransitions(0.2)}>
+            <motion.div {...motionPropsHeading}>
               <Typography
                 variant="h2"
                 component="h1"
@@ -87,7 +90,7 @@ const ProjectsContent = () => {
                 Projects.
               </Typography>
             </motion.div>
-            <motion.div {...getTransitions(0.4)}>
+            <motion.div {...motionPropsTabs}>
               <CustomTabs items={tabItems} />
             </motion.div>
           </Grid>
@@ -96,7 +99,7 @@ const ProjectsContent = () => {
       <Container sx={{ mb: 5, px: theme.spacing(1.875), mx: "auto" }}>
         <Grid container alignItems="center" justifyContent="center">
           <Grid size={{ xs: 12, md: 10 }} sx={{ pl: theme.spacing(2.5) }}>
-            <motion.div {...getTransitions(0.6)}>
+            <motion.div {...motionPropsFooter}>
               <FooterLink goto="/resume">
                 Let&apos;s Go To My Resume.
               </FooterLink>

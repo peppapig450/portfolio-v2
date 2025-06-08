@@ -16,7 +16,7 @@ import {
   styled,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import { getTransitions } from "@/utils/transitions";
+import { useTransitions } from "@/hooks/useTransitions";
 import FooterLink from "../FooterLink";
 
 interface FormData {
@@ -59,6 +59,10 @@ const ContactContent: React.FC = () => {
     severity: "success",
   });
   const theme = useTheme();
+  const motionPropsHeading = useTransitions(0.2);
+  const motionPropsIntro = useTransitions(0.4);
+  const motionPropsForm = useTransitions(0.6);
+  const motionPropsFooter = useTransitions(0.8);
 
   const handleChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -137,7 +141,7 @@ const ContactContent: React.FC = () => {
       >
         <Grid container alignItems="center" justifyContent="center">
           <Grid size={{ xs: 12, md: 10 }}>
-            <motion.div {...getTransitions(0.2)}>
+            <motion.div {...motionPropsHeading}>
               <Typography
                 variant="h2"
                 component="h1"
@@ -153,7 +157,7 @@ const ContactContent: React.FC = () => {
               </Typography>
             </motion.div>
             <article>
-              <motion.div {...getTransitions(0.4)}>
+              <motion.div {...motionPropsHeading}>
                 <Typography
                   variant="body2"
                   component="p"
@@ -166,7 +170,7 @@ const ContactContent: React.FC = () => {
                 </Typography>
               </motion.div>
             </article>
-            <motion.div {...getTransitions(0.6)}>
+            <motion.div {...motionPropsForm}>
               <StyledForm onSubmit={handleSubmit}>
                 <Grid
                   container
@@ -238,7 +242,7 @@ const ContactContent: React.FC = () => {
       >
         <Grid container alignItems="center" justifyContent="center">
           <Grid size={{ xs: 12, md: 10 }}>
-            <motion.div {...getTransitions(0.8)}>
+            <motion.div {...motionPropsFooter}>
               <Box sx={{ pl: theme.spacing(2) }}>
                 <FooterLink goto="/">Go Back Home</FooterLink>
               </Box>
