@@ -1,3 +1,7 @@
+/**
+ * @deprecated Use `useTransitions` hook instead.
+ * This utility remains for backward compatibility.
+ */
 export const getTransitions = (delay?: number) => ({
   transition: { duration: 0.5, delay },
   initial: { opacity: 0, y: 20, scale: 0.98 },
