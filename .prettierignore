@@ -1,1 +1,8 @@
-!src/data/*.json
+# Ignore artifacts
+.node_modules
+.next
+out
+build
+public
+*.yml
+*.yaml

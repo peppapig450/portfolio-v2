@@ -1,34 +1,34 @@
-import React from "react";
-import NextLink from "next/link";
+import { arrowBounce } from "@/styles/keyframes"
+import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt"
+import FacebookIcon from "@mui/icons-material/Facebook"
+import GitHubIcon from "@mui/icons-material/GitHub"
+import InstagramIcon from "@mui/icons-material/Instagram"
+import LinkedInIcon from "@mui/icons-material/LinkedIn"
+import TwitterIcon from "@mui/icons-material/Twitter"
 import {
   Box,
   BoxProps,
-  Typography,
-  Link,
-  TypographyProps,
   IconButton,
   IconProps,
+  Link,
+  Typography,
+  TypographyProps,
   useTheme,
-} from "@mui/material";
-import { styled } from "@mui/material/styles";
-import { arrowBounce, underlineAnimation } from "@/styles/keyframes";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import CustomLink from "./CustomLink";
+} from "@mui/material"
+import { styled } from "@mui/material/styles"
+import NextLink from "next/link"
+import React from "react"
+import CustomLink from "./CustomLink"
 
 interface IFooterLink {
-  children: string | React.ReactNode;
-  goto?: string;
+  children: string | React.ReactNode
+  goto?: string
 }
 
 interface SocialMediaItems {
-  icon: React.ReactElement<IconProps>;
-  url: string;
-  label: string;
+  icon: React.ReactElement<IconProps>
+  url: string
+  label: string
 }
 
 const AnimatedTypography = styled(Typography)<TypographyProps>(({ theme }) => ({
@@ -50,15 +50,15 @@ const AnimatedTypography = styled(Typography)<TypographyProps>(({ theme }) => ({
     transform: "scaleX(1)",
     transformOrigin: "bottom left",
   },
-}));
+}))
 
 const SocialMediaBox = styled(Box)<BoxProps>(({ theme }) => ({
   background: "transparent",
   padding: theme.spacing(2, 0),
-}));
+}))
 
 const FooterLink: React.FC<IFooterLink> = ({ children, goto = "/" }) => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   const SocialMedias: SocialMediaItems[] = [
     {
@@ -86,7 +86,7 @@ const FooterLink: React.FC<IFooterLink> = ({ children, goto = "/" }) => {
       url: "https://instagram.com/nickbrady41",
       label: "Instagram",
     },
-  ];
+  ]
 
   return (
     <>
@@ -181,7 +181,7 @@ const FooterLink: React.FC<IFooterLink> = ({ children, goto = "/" }) => {
         ))}
       </Box>
     </>
-  );
-};
+  )
+}
 
-export default FooterLink;
+export default FooterLink

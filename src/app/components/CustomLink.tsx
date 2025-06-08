@@ -1,10 +1,10 @@
-import React from "react";
-import NextLink from "next/link";
-import { Link, LinkProps } from "@mui/material";
+import { Link, LinkProps } from "@mui/material"
+import NextLink from "next/link"
+import React from "react"
 
 interface CustomLinkProps extends Omit<LinkProps, "component"> {
-  href: string;
-  children: React.ReactNode;
+  href: string
+  children: React.ReactNode
 }
 
 const CustomLink: React.FC<CustomLinkProps> = ({
@@ -16,7 +16,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({
     <Link component={NextLink} href={href} passHref {...props}>
       {children}
     </Link>
-  );
-};
+  )
+}
 
-export default CustomLink;
+export default CustomLink

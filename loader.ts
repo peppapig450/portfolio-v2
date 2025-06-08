@@ -1,7 +1,7 @@
 interface ImgixLoaderParams {
-  src: string;
-  width: number;
-  quality?: number;
+  src: string
+  width: number
+  quality?: number
 }
 
 export default function imgixLoader({
@@ -9,11 +9,11 @@ export default function imgixLoader({
   width,
   quality,
 }: ImgixLoaderParams): string {
-  const url = new URL(`https://personal-portfolio-products.imgix.net/${src}`);
-  const params = url.searchParams;
+  const url = new URL(`https://personal-portfolio-products.imgix.net/${src}`)
+  const params = url.searchParams
 
-  params.set("auto", params.getAll("auto").join(",") || "format");
-  params.set("fit", params.get("fit") || "max");
-  params.set("w", params.get("w") || width.toString());
-  return url.href;
+  params.set("auto", params.getAll("auto").join(",") || "format")
+  params.set("fit", params.get("fit") || "max")
+  params.set("w", params.get("w") || width.toString())
+  return url.href
 }

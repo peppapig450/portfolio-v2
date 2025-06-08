@@ -1,35 +1,35 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
+import useIsMobile from "@/hooks/useIsMobile"
+import CloseIcon from "@mui/icons-material/Close"
+import MenuIcon from "@mui/icons-material/Menu"
 import {
   AppBar,
   AppBarProps,
-  Toolbar,
-  Button,
   Box,
-  IconButton,
+  Button,
+  ButtonBaseProps,
   Drawer,
-  List,
+  IconButton,
   Link,
+  List,
   ListItemButton,
   ListItemText,
-  useTheme,
-  ButtonBaseProps,
+  Toolbar,
   ToolbarProps,
-} from "@mui/material";
-import { styled } from "@mui/material/styles";
-import NextLink from "next/link";
-import { usePathname } from "next/navigation";
-import Image from "next/image";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
-import useIsMobile from "@/hooks/useIsMobile";
+  useTheme,
+} from "@mui/material"
+import { styled } from "@mui/material/styles"
+import Image from "next/image"
+import NextLink from "next/link"
+import { usePathname } from "next/navigation"
+import React, { useState } from "react"
 
 const StyledAppBar = styled(AppBar)<AppBarProps>(({ theme }) => ({
   background: "transparent",
   boxShadow: "none",
   transition: "all 0.5s ease",
-}));
+}))
 
 const NavLinkButton = styled(Button)<ButtonBaseProps>(({ theme }) => ({
   color: theme.palette.text.primary,
@@ -52,7 +52,7 @@ const NavLinkButton = styled(Button)<ButtonBaseProps>(({ theme }) => ({
     left: 0,
     right: 0,
   },
-}));
+}))
 
 const LogoWrapper = styled(Box)({
   flexGrow: 1,
@@ -62,7 +62,7 @@ const LogoWrapper = styled(Box)({
   "&:hover": {
     cursor: "pointer",
   },
-});
+})
 
 const StyledToolbar = styled(Toolbar)<ToolbarProps>(({ theme }) => ({
   paddingLeft: theme.spacing(1.875),
@@ -82,31 +82,31 @@ const StyledToolbar = styled(Toolbar)<ToolbarProps>(({ theme }) => ({
   [theme.breakpoints.up("lg")]: {
     maxWidth: "1140px",
   },
-}));
+}))
 
 interface NavBarProps {}
 
 interface NavItem {
-  label: string;
-  path: string;
-  ariaLabel: string;
+  label: string
+  path: string
+  ariaLabel: string
 }
 
 interface ListItemButtonLinkProps {
-  href: string;
-  text: string;
-  ariaLabel: string;
+  href: string
+  text: string
+  ariaLabel: string
 }
 
 const NavBar: React.FC<NavBarProps> = () => {
-  const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
-  const pathname = usePathname();
-  const theme = useTheme();
-  const isMobile = useIsMobile();
+  const [drawerOpen, setDrawerOpen] = useState<boolean>(false)
+  const pathname = usePathname()
+  const theme = useTheme()
+  const isMobile = useIsMobile()
 
   const handleDrawerToggle = () => {
-    setDrawerOpen((prevState) => !prevState);
-  };
+    setDrawerOpen((prevState) => !prevState)
+  }
 
   const navItems: NavItem[] = [
     { label: "About", path: "/about", ariaLabel: "Navigate to the About Page" },
@@ -120,7 +120,7 @@ const NavBar: React.FC<NavBarProps> = () => {
       path: "/contact",
       ariaLabel: "Navigate to the Contacts Page",
     },
-  ];
+  ]
 
   const renderNavLinks = () => (
     <Box sx={{ display: { sm: "none", md: "block" } }}>
@@ -142,7 +142,7 @@ const NavBar: React.FC<NavBarProps> = () => {
           </Link>
         ))}
     </Box>
-  );
+  )
 
   const ListItemLinkButton: React.FC<ListItemButtonLinkProps> = ({
     href,
@@ -196,8 +196,8 @@ const NavBar: React.FC<NavBarProps> = () => {
           />
         </ListItemButton>
       </Link>
-    );
-  };
+    )
+  }
 
   const drawer = (
     <Box
@@ -238,7 +238,7 @@ const NavBar: React.FC<NavBarProps> = () => {
           ))}
       </List>
     </Box>
-  );
+  )
 
   return (
     <Box component="header" sx={{ py: theme.spacing(5) }}>
@@ -304,7 +304,7 @@ const NavBar: React.FC<NavBarProps> = () => {
         </Drawer>
       </nav>
     </Box>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar

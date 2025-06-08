@@ -1,15 +1,15 @@
-import React, { MediaHTMLAttributes } from "react";
-import { CardMedia, SxProps } from "@mui/material";
-import Image from "next/image";
-import { useBrowser } from "@/contexts/BrowserContext";
-import imgixURLBuilder from "@/utils/imageUrlBuilder";
-import { MediaType } from "@/contexts/ProjectsContext";
+import { useBrowser } from "@/contexts/BrowserContext"
+import { MediaType } from "@/contexts/ProjectsContext"
+import imgixURLBuilder from "@/utils/imageUrlBuilder"
+import { CardMedia, SxProps } from "@mui/material"
+import Image from "next/image"
+import React, { MediaHTMLAttributes } from "react"
 
 interface MediaRendererProps {
-  card?: boolean;
-  mediaUrl: string;
-  mediaAlt: string;
-  mediaType: MediaType;
+  card?: boolean
+  mediaUrl: string
+  mediaAlt: string
+  mediaType: MediaType
 }
 
 const MediaRenderer: React.FC<MediaRendererProps> = ({
@@ -18,12 +18,12 @@ const MediaRenderer: React.FC<MediaRendererProps> = ({
   mediaAlt,
   mediaType,
 }) => {
-  const { isSafari } = useBrowser();
+  const { isSafari } = useBrowser()
 
   const getModifiedUrl = (url: string) => {
-    const modifiedUrl = isSafari ? url.replace(".webm", ".mp4") : url;
-    return imgixURLBuilder(modifiedUrl);
-  };
+    const modifiedUrl = isSafari ? url.replace(".webm", ".mp4") : url
+    return imgixURLBuilder(modifiedUrl)
+  }
 
   const videoProps: MediaHTMLAttributes<HTMLVideoElement> = {
     src: getModifiedUrl(mediaUrl),
@@ -31,7 +31,7 @@ const MediaRenderer: React.FC<MediaRendererProps> = ({
     muted: true,
     playsInline: true,
     loop: true,
-  };
+  }
 
   const commonStyles: SxProps = {
     position: "absolute",
@@ -40,7 +40,7 @@ const MediaRenderer: React.FC<MediaRendererProps> = ({
     width: "100%",
     height: "100%",
     objectFit: "cover",
-  };
+  }
 
   return (
     <>
@@ -89,7 +89,7 @@ const MediaRenderer: React.FC<MediaRendererProps> = ({
         </>
       )}
     </>
-  );
-};
+  )
+}
 
-export default MediaRenderer;
+export default MediaRenderer

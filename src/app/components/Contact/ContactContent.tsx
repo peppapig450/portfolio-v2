@@ -1,40 +1,38 @@
-"use client";
-import React, { ChangeEvent, useState, FormEvent } from "react";
+"use client"
+import { useTransitions } from "@/hooks/useTransitions"
 import {
-  Typography,
-  Container,
-  TextField,
-  Button,
+  AlertColor,
   Box,
-  Grid2 as Grid,
+  Button,
+  Container,
   FormControl,
   FormHelperText,
-  Snackbar,
-  Alert,
-  AlertColor,
-  useTheme,
+  Grid2 as Grid,
   styled,
-} from "@mui/material";
-import { motion } from "framer-motion";
-import { useTransitions } from "@/hooks/useTransitions";
-import FooterLink from "../FooterLink";
+  TextField,
+  Typography,
+  useTheme,
+} from "@mui/material"
+import { motion } from "framer-motion"
+import React, { ChangeEvent, FormEvent, useState } from "react"
+import FooterLink from "../FooterLink"
 
 interface FormData {
-  name: string;
-  email: string;
-  message: string;
+  name: string
+  email: string
+  message: string
 }
 
 interface FormErrors {
-  name?: string;
-  email?: string;
-  message?: string;
+  name?: string
+  email?: string
+  message?: string
 }
 
 interface SnackbarState {
-  open: boolean;
-  message: string;
-  severity: AlertColor;
+  open: boolean
+  message: string
+  severity: AlertColor
 }
 
 const StyledForm = styled("form")(({ theme }) => ({
@@ -44,53 +42,53 @@ const StyledForm = styled("form")(({ theme }) => ({
   "&. MuiButton-root": {
     marginBottom: theme.spacing(4),
   },
-}));
+}))
 
 const ContactContent: React.FC = () => {
   const [formState, setFormState] = useState<FormData>({
     name: "",
     email: "",
     message: "",
-  });
-  const [errors, setErrors] = useState<FormErrors>({});
+  })
+  const [errors, setErrors] = useState<FormErrors>({})
   const [snackbar, setSnackbar] = useState<SnackbarState>({
     open: false,
     message: "",
     severity: "success",
-  });
-  const theme = useTheme();
-  const motionPropsHeading = useTransitions(0.2);
-  const motionPropsIntro = useTransitions(0.4);
-  const motionPropsForm = useTransitions(0.6);
-  const motionPropsFooter = useTransitions(0.8);
+  })
+  const theme = useTheme()
+  const motionPropsHeading = useTransitions(0.2)
+  const motionPropsIntro = useTransitions(0.4)
+  const motionPropsForm = useTransitions(0.6)
+  const motionPropsFooter = useTransitions(0.8)
 
   const handleChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    const { name, value } = event.target;
+    const { name, value } = event.target
     setFormState((prevState) => ({
       ...prevState,
       [name]: value,
-    }));
-  };
+    }))
+  }
 
   const validateForm = (): boolean => {
-    let tempErrors: FormErrors = {};
-    if (!formState.name) tempErrors.name = "Name is required";
+    let tempErrors: FormErrors = {}
+    if (!formState.name) tempErrors.name = "Name is required"
     if (!formState.email) {
-      tempErrors.email = "Email is required";
+      tempErrors.email = "Email is required"
     } else if (
       !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formState.email)
     ) {
-      tempErrors.email = "Invalid email address";
+      tempErrors.email = "Invalid email address"
     }
-    if (!formState.message) tempErrors.message = "Message is required";
-    setErrors(tempErrors);
-    return Object.keys(tempErrors).length === 0;
-  };
+    if (!formState.message) tempErrors.message = "Message is required"
+    setErrors(tempErrors)
+    return Object.keys(tempErrors).length === 0
+  }
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+    event.preventDefault()
 
     if (validateForm()) {
       try {
@@ -100,7 +98,7 @@ const ContactContent: React.FC = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(formState),
-        });
+        })
 
         if (response.ok) {
           setSnackbar({
@@ -108,29 +106,29 @@ const ContactContent: React.FC = () => {
             message: "Message sent successfully!",
             severity: "success",
           }),
-            setFormState({ name: "", email: "", message: "" });
+            setFormState({ name: "", email: "", message: "" })
         } else {
-          throw new Error("Form submission failed.");
+          throw new Error("Form submission failed.")
         }
       } catch (error) {
         setSnackbar({
           open: true,
           message: "Failed to send message. Please try again.",
           severity: "error",
-        });
+        })
       }
     }
-  };
+  }
 
   const handleCloseSnackbar = (
     _event: React.SyntheticEvent | Event,
-    reason?: string
+    reason?: string,
   ) => {
     if (reason === "clickway") {
-      return;
+      return
     }
-    setSnackbar((prevState) => ({ ...prevState, open: false }));
-  };
+    setSnackbar((prevState) => ({ ...prevState, open: false }))
+  }
 
   return (
     <>
@@ -251,7 +249,7 @@ const ContactContent: React.FC = () => {
         </Grid>
       </Container>
     </>
-  );
-};
+  )
+}
 
-export default ContactContent;
+export default ContactContent
