@@ -181,6 +181,7 @@ const ContactContent: React.FC = () => {
                       <TextField
                         name="name"
                         label="Name"
+                        required
                         value={formState.name}
                         onChange={handleChange}
                         error={!!errors.name}
@@ -194,6 +195,8 @@ const ContactContent: React.FC = () => {
                       <TextField
                         name="email"
                         label="Email"
+                        type="email"
+                        required
                         value={formState.email}
                         onChange={handleChange}
                         error={!!errors.email}
@@ -207,6 +210,7 @@ const ContactContent: React.FC = () => {
                       <TextField
                         name="message"
                         label="Message"
+                        required
                         multiline
                         maxRows={4}
                         variant="standard"
