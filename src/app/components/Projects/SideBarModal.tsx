@@ -110,7 +110,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
             size="small"
             aria-label="Close the SideBar project info modal"
           >
-            <CloseIcon />
+            <CloseIcon aria-hidden="true" />
           </IconButton>
           <CustomLink
             href="#"
@@ -119,6 +119,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
               closeShow()
             }}
             underline="hover"
+            aria-label="Return to projects"
           >
             <Typography variant="body1" fontWeight="bold">
               Back To Projects.
@@ -204,7 +205,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
               fontWeight="bold"
               sx={{ mb: theme.spacing(1.6), mt: theme.spacing(4) }}
             >
-              <LanguageIcon sx={{ mr: 1 }} />
+              <LanguageIcon aria-hidden="true" sx={{ mr: 1 }} />
               Website
             </Typography>
             <Typography
@@ -219,6 +220,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
                 underline="hover"
                 color={theme.palette.text.primary}
                 fontWeight="bold"
+                aria-label="Open project website in new tab"
               >
                 {data?.link}
               </CustomLink>
@@ -240,6 +242,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
             >
               <GitHubIcon
                 fontSize="small"
+                aria-hidden="true"
                 sx={{ mr: 1, color: theme.palette.text.secondary }}
               />
               Github
@@ -256,6 +259,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
                 underline="hover"
                 color={theme.palette.text.primary}
                 fontWeight="bold"
+                aria-label="Open project GitHub repository in new tab"
               >
                 {data.github}
               </CustomLink>
@@ -268,12 +272,13 @@ const SideBarModal: React.FC<ISideBarModal> = ({
           target="_blank"
           rel="noopener noreferrer"
           underline="hover"
+          aria-label="Open the project in a new tab"
         >
           <OpenProjectButton
             variant="contained"
             color="primary"
             fullWidth
-            endIcon={<OpenInNewIcon />}
+            endIcon={<OpenInNewIcon aria-hidden="true" />}
           >
             Open Project
           </OpenProjectButton>

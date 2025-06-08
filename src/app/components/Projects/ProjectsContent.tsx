@@ -69,7 +69,6 @@ const ProjectsContent = () => {
     <>
       <Container
         component="section"
-        id="main-content"
         sx={{ mb: 5, px: theme.spacing(1.785), mx: "auto" }}
       >
         <Grid container alignItems="center" justifyContent="center">

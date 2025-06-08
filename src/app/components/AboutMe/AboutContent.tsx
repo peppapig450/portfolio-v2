@@ -20,7 +20,6 @@ const AboutContent = () => {
       <motion.div {...motionPropsOne}>
         <Container
           component="section"
-          id="main-content"
           aria-label="You are now in my professional background section."
           sx={{ mb: 5, px: theme.spacing(1.785), mx: "auto" }}
         >
@@ -44,7 +43,6 @@ const AboutContent = () => {
       <motion.div {...motionPropsTwo}>
         <Container
           component="section"
-          id="main-content"
           aria-label="You are now in my musical  section."
           sx={{ mb: 5, px: theme.spacing(1.875), mx: "auto" }}
         >
@@ -59,7 +57,6 @@ const AboutContent = () => {
       <motion.div {...motionPropsThree}>
         <Container
           component="section"
-          id="main-content"
           aria-label="You are now in my Photography section."
         >
           <Grid container alignItems="center" justifyContent="center">

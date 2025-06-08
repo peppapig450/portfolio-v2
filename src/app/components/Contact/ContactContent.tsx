@@ -1,6 +1,7 @@
 "use client"
 import { useTransitions } from "@/hooks/useTransitions"
 import {
+  Alert,
   AlertColor,
   Box,
   Button,
@@ -8,6 +9,7 @@ import {
   FormControl,
   FormHelperText,
   Grid2 as Grid,
+  Snackbar,
   styled,
   TextField,
   Typography,
@@ -124,7 +126,7 @@ const ContactContent: React.FC = () => {
     _event: React.SyntheticEvent | Event,
     reason?: string,
   ) => {
-    if (reason === "clickway") {
+    if (reason === "clickaway") {
       return
     }
     setSnackbar((prevState) => ({ ...prevState, open: false }))
@@ -134,7 +136,6 @@ const ContactContent: React.FC = () => {
     <>
       <Container
         maxWidth="md"
-        id="main-content"
         sx={{ mb: 5, px: theme.spacing(1.785), mx: "auto" }}
       >
         <Grid container alignItems="center" justifyContent="center">
@@ -180,6 +181,7 @@ const ContactContent: React.FC = () => {
                       <TextField
                         name="name"
                         label="Name"
+                        required
                         value={formState.name}
                         onChange={handleChange}
                         error={!!errors.name}
@@ -193,6 +195,8 @@ const ContactContent: React.FC = () => {
                       <TextField
                         name="email"
                         label="Email"
+                        type="email"
+                        required
                         value={formState.email}
                         onChange={handleChange}
                         error={!!errors.email}
@@ -206,6 +210,7 @@ const ContactContent: React.FC = () => {
                       <TextField
                         name="message"
                         label="Message"
+                        required
                         multiline
                         maxRows={4}
                         variant="standard"
@@ -235,7 +240,6 @@ const ContactContent: React.FC = () => {
       </Container>
       <Container
         maxWidth="md"
-        id="main-content"
         sx={{ mb: 5, px: theme.spacing(1.785), mx: "auto" }}
       >
         <Grid container alignItems="center" justifyContent="center">
@@ -248,6 +252,21 @@ const ContactContent: React.FC = () => {
           </Grid>
         </Grid>
       </Container>
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        <Alert
+          onClose={handleCloseSnackbar}
+          severity={snackbar.severity}
+          sx={{ width: "100%" }}
+          role="alert"
+        >
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
     </>
   )
 }

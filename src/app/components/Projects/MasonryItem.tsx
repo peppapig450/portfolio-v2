@@ -3,6 +3,7 @@ import { Project } from "@/contexts/ProjectsContext"
 import {
   Box,
   Card,
+  CardActionArea,
   CardContent,
   Chip,
   Typography,
@@ -92,40 +93,46 @@ const MasonryItem: React.FC<MasonryItemProps> = ({ item }) => {
     }
   }
 
+  const cardAriaLabel = pathname.includes("projects")
+    ? `Open details for ${item?.title}`
+    : `Open external link for ${item?.title}`
   // TODO: on safari use an image tag with an h264 mp4 video https://developer.apple.com/documentation/webkit/delivering_video_content_for_safari#3030250
   return (
     <>
       {item && (
-        <StyledCard
-          onClick={handleCardClick}
-          sx={{ height: height, width: "100%" }}
-        >
-          <MediaRenderer
-            card
-            mediaUrl={item.mediaUrl}
-            mediaAlt={item.mediaAlt}
-            mediaType={item.mediaType}
-          />
-          <ContentSlate className="content-slate">
-            <Typography
-              variant="h5"
-              component="h3"
-              gutterBottom
-              sx={{ fontWeight: "900", mb: theme.spacing(1) }}
-            >
-              {item.title}
-            </Typography>
-            <Typography variant="body2" sx={{ mb: theme.spacing(2) }}>
-              {item.description}
-            </Typography>
-            {item.technologies && (
-              <Box mt={1}>
-                {item.technologies.map((tech, index) => (
-                  <TechChip key={index} label={tech} size="small" />
-                ))}
-              </Box>
-            )}
-          </ContentSlate>
+        <StyledCard sx={{ height: height, width: "100%" }}>
+          <CardActionArea
+            onClick={handleCardClick}
+            aria-label={cardAriaLabel}
+            sx={{ height: "100%", display: "block" }}
+          >
+            <MediaRenderer
+              card
+              mediaUrl={item.mediaUrl}
+              mediaAlt={item.mediaAlt}
+              mediaType={item.mediaType}
+            />
+            <ContentSlate className="content-slate">
+              <Typography
+                variant="h5"
+                component="h3"
+                gutterBottom
+                sx={{ fontWeight: "900", mb: theme.spacing(1) }}
+              >
+                {item.title}
+              </Typography>
+              <Typography variant="body2" sx={{ mb: theme.spacing(2) }}>
+                {item.description}
+              </Typography>
+              {item.technologies && (
+                <Box mt={1}>
+                  {item.technologies.map((tech, index) => (
+                    <TechChip key={index} label={tech} size="small" />
+                  ))}
+                </Box>
+              )}
+            </ContentSlate>
+          </CardActionArea>
         </StyledCard>
       )}
       {pathname.includes("/projects") && (

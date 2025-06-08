@@ -43,6 +43,16 @@ const AnimatedTitle: React.FC = () => {
             textShadow: `3px 0 ${theme.palette.secondary.main}`,
             animation: `${noiseAnim} 2s infinite linear alternate-reverse`,
           },
+          "@media (prefers-reduced-motion: reduce)": {
+            "&:before": {
+              animation: "none",
+              clipPath: "none",
+            },
+            "&:after": {
+              animation: "none",
+              clipPath: "none",
+            },
+          },
         }}
       >
         I&apos;m Nick Brady
