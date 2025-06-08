@@ -6,15 +6,19 @@ import { useAboutContext } from "@/contexts/AboutContext";
 import { TimelineSection } from "./TimelineSection";
 import FooterLink from "../FooterLink";
 import { motion } from "framer-motion";
-import { getTransitions } from "@/utils/transitions";
+import { useTransitions } from "@/hooks/useTransitions";
 
 const AboutContent = () => {
   const theme = useTheme();
   const { aboutMeData, myPlaylistData, myPhotographyData } = useAboutContext();
+  const motionPropsOne = useTransitions(0.2);
+  const motionPropsTwo = useTransitions(0.4);
+  const motionPropsThree = useTransitions(0.6);
+  const motionPropsFooter = useTransitions(0.7);
 
   return (
     <>
-      <motion.div {...getTransitions(0.2)}>
+      <motion.div {...motionPropsOne}>
         <Container
           component="section"
           id="main-content"
@@ -38,7 +42,7 @@ const AboutContent = () => {
         </Container>
       </motion.div>
 
-      <motion.div {...getTransitions(0.4)}>
+      <motion.div {...motionPropsTwo}>
         <Container
           component="section"
           id="main-content"
@@ -53,7 +57,7 @@ const AboutContent = () => {
         </Container>
       </motion.div>
 
-      <motion.div {...getTransitions(0.6)}>
+      <motion.div {...motionPropsThree}>
         <Container
           component="section"
           id="main-content"
@@ -73,7 +77,7 @@ const AboutContent = () => {
       <Container sx={{ mb: 5, px: theme.spacing(1.875), mx: "auto" }}>
         <Grid container alignItems="center" justifyContent="center">
           <Grid size={{ xs: 12, md: 10 }} sx={{ pl: theme.spacing(2) }}>
-            <motion.div {...getTransitions(0.7)}>
+            <motion.div {...motionPropsFooter}>
               <FooterLink goto="/projects">
                 Lets Continue To Projects
               </FooterLink>
