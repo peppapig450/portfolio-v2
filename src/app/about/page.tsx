@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
-import NavBar from "../components/Navbar";
-import AboutProvider from "@/contexts/AboutContext";
-import AboutContent from "../components/AboutMe/AboutContent";
+import AboutProvider from "@/contexts/AboutContext"
+import type { Metadata } from "next"
+import AboutContent from "../components/AboutMe/AboutContent"
+import NavBar from "../components/Navbar"
 
 export const metadata: Metadata = {
   title: "About Me",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://dev.nickbrady.dev/about",
   },
-};
+}
 
 export default function About() {
   return (
@@ -21,5 +21,5 @@ export default function About() {
         <AboutContent />
       </AboutProvider>
     </>
-  );
+  )
 }

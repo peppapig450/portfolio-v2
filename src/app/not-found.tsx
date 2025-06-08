@@ -1,5 +1,8 @@
-"use client";
-import React from "react";
+"use client"
+import { labrada } from "@/styles/additionalFonts"
+import { subtleBounce } from "@/styles/keyframes"
+import HomeIcon from "@mui/icons-material/Home"
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied"
 import {
   Box,
   Button,
@@ -7,16 +10,13 @@ import {
   Stack,
   Typography,
   useTheme,
-} from "@mui/material";
-import HomeIcon from "@mui/icons-material/Home";
-import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
-import Image from "next/image";
-import { subtleBounce } from "@/styles/keyframes";
-import { labrada } from "@/styles/additionalFonts";
-import CustomLink from "./components/CustomLink";
+} from "@mui/material"
+import Image from "next/image"
+import React from "react"
+import CustomLink from "./components/CustomLink"
 
 export default function NotFound(): React.JSX.Element {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <Container
@@ -98,5 +98,5 @@ export default function NotFound(): React.JSX.Element {
         </Button>
       </CustomLink>
     </Container>
-  );
+  )
 }

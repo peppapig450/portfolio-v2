@@ -1,29 +1,29 @@
-"use client";
-import React, { useCallback, useEffect } from "react";
+"use client"
+import { Project } from "@/contexts/ProjectsContext"
+import CloseIcon from "@mui/icons-material/Close"
+import GitHubIcon from "@mui/icons-material/GitHub"
+import LanguageIcon from "@mui/icons-material/Language"
+import OpenInNewIcon from "@mui/icons-material/OpenInNew"
 import {
+  Box,
+  Button,
+  Chip,
   Drawer,
   IconButton,
-  Typography,
-  Box,
-  Chip,
   Stack,
-  Button,
   styled,
+  Typography,
   useMediaQuery,
   useTheme,
-} from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LanguageIcon from "@mui/icons-material/Language";
-import OpenInNewIcon from "@mui/icons-material/OpenInNew";
-import CustomLink from "../CustomLink";
-import MediaRenderer from "./MediaRenderer";
-import { Project } from "@/contexts/ProjectsContext";
+} from "@mui/material"
+import React, { useCallback, useEffect } from "react"
+import CustomLink from "../CustomLink"
+import MediaRenderer from "./MediaRenderer"
 
 interface ISideBarModal {
-  show: boolean;
-  closeShow: () => void;
-  data?: Project;
+  show: boolean
+  closeShow: () => void
+  data?: Project
 }
 
 const MediaContainer = styled(Box)({
@@ -32,14 +32,14 @@ const MediaContainer = styled(Box)({
   overflow: "hidden",
   height: "300px",
   borderRadius: 11,
-});
+})
 
 const TechnologyChip = styled(Chip)(({ theme }) => ({
   margin: theme.spacing(0.5),
   backgroundColor: theme.palette.grey.A400,
   color: theme.palette.text.primary,
   fontWeight: "bold",
-}));
+}))
 
 const OpenProjectButton = styled(Button)(({ theme }) => ({
   position: "sticky",
@@ -47,36 +47,36 @@ const OpenProjectButton = styled(Button)(({ theme }) => ({
   width: "100%",
   marginTop: theme.spacing(2),
   padding: theme.spacing(2),
-}));
+}))
 
 const SideBarModal: React.FC<ISideBarModal> = ({
   show = false,
   closeShow = () => {},
   data,
 }) => {
-  const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
+  const theme = useTheme()
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"))
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"))
 
   const handleKeyPress = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        closeShow();
+        closeShow()
       }
     },
-    [closeShow]
-  );
+    [closeShow],
+  )
 
   useEffect(() => {
-    window.addEventListener("keydown", handleKeyPress);
+    window.addEventListener("keydown", handleKeyPress)
     return () => {
-      window.removeEventListener("keydown", handleKeyPress);
-    };
-  }, [handleKeyPress]);
+      window.removeEventListener("keydown", handleKeyPress)
+    }
+  }, [handleKeyPress])
 
-  const drawerWidth = isSmallScreen ? "100%" : isLargeScreen ? 600 : 500;
+  const drawerWidth = isSmallScreen ? "100%" : isLargeScreen ? 600 : 500
 
-  if (!data) return null;
+  if (!data) return null
 
   return (
     <Drawer
@@ -115,8 +115,8 @@ const SideBarModal: React.FC<ISideBarModal> = ({
           <CustomLink
             href="#"
             onClick={(e) => {
-              e.preventDefault();
-              closeShow();
+              e.preventDefault()
+              closeShow()
             }}
             underline="hover"
           >
@@ -280,7 +280,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
         </CustomLink>
       </Box>
     </Drawer>
-  );
-};
+  )
+}
 
-export default SideBarModal;
+export default SideBarModal

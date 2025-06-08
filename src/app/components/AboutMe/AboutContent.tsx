@@ -1,20 +1,19 @@
-"use client";
-import React from "react";
-import { Container, Typography, Grid2 as Grid } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import { useAboutContext } from "@/contexts/AboutContext";
-import { TimelineSection } from "./TimelineSection";
-import FooterLink from "../FooterLink";
-import { motion } from "framer-motion";
-import { useTransitions } from "@/hooks/useTransitions";
+"use client"
+import { useAboutContext } from "@/contexts/AboutContext"
+import { useTransitions } from "@/hooks/useTransitions"
+import { Container, Grid2 as Grid, Typography } from "@mui/material"
+import { useTheme } from "@mui/material/styles"
+import { motion } from "framer-motion"
+import FooterLink from "../FooterLink"
+import { TimelineSection } from "./TimelineSection"
 
 const AboutContent = () => {
-  const theme = useTheme();
-  const { aboutMeData, myPlaylistData, myPhotographyData } = useAboutContext();
-  const motionPropsOne = useTransitions(0.2);
-  const motionPropsTwo = useTransitions(0.4);
-  const motionPropsThree = useTransitions(0.6);
-  const motionPropsFooter = useTransitions(0.7);
+  const theme = useTheme()
+  const { aboutMeData, myPlaylistData, myPhotographyData } = useAboutContext()
+  const motionPropsOne = useTransitions(0.2)
+  const motionPropsTwo = useTransitions(0.4)
+  const motionPropsThree = useTransitions(0.6)
+  const motionPropsFooter = useTransitions(0.7)
 
   return (
     <>
@@ -86,7 +85,7 @@ const AboutContent = () => {
         </Grid>
       </Container>
     </>
-  );
-};
+  )
+}
 
-export default AboutContent;
+export default AboutContent

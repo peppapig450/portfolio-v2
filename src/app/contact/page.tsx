@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
-import NavBar from "../components/Navbar";
-import ContactContent from "../components/Contact/ContactContent";
+import type { Metadata } from "next"
+import ContactContent from "../components/Contact/ContactContent"
+import NavBar from "../components/Navbar"
 
 export const metadata: Metadata = {
   title: "Contact Me | Nick Brady",
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://dev.nickbrady.dev/contact",
   },
-};
+}
 
 export default function Contact() {
   return (
@@ -18,5 +18,5 @@ export default function Contact() {
       <NavBar />
       <ContactContent />
     </>
-  );
+  )
 }

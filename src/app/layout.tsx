@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
-import { ThemeProvider, CssBaseline } from "@mui/material";
-import { Analytics } from "@vercel/analytics/react";
-import mainTheme from "@/styles/theme";
+import mainTheme from "@/styles/theme"
+import { CssBaseline, ThemeProvider } from "@mui/material"
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter"
+import { Analytics } from "@vercel/analytics/react"
+import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: {
@@ -76,12 +76,12 @@ export const metadata: Metadata = {
     creatorId: "1829973002295132160",
   },
   category: "technology",
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
@@ -95,5 +95,5 @@ export default function RootLayout({
         </AppRouterCacheProvider>
       </body>
     </html>
-  );
+  )
 }

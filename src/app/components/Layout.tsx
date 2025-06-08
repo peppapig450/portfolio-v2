@@ -1,10 +1,10 @@
-"use client";
-import React, { PropsWithChildren } from "react";
-import { Box, useTheme, Grid2 as Grid, Container } from "@mui/material";
-import NavBar from "./Navbar";
+"use client"
+import { Box, Container, Grid2 as Grid, useTheme } from "@mui/material"
+import React, { PropsWithChildren } from "react"
+import NavBar from "./Navbar"
 
 interface LayoutProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 interface PageWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   // Additional props can be added here if needed
@@ -14,7 +14,7 @@ export const PageWrapper: React.FC<PropsWithChildren<PageWrapperProps>> = ({
   children,
   ...rest
 }) => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <Box component="section" sx={{ width: "100%" }} {...rest}>
@@ -38,8 +38,8 @@ export const PageWrapper: React.FC<PropsWithChildren<PageWrapperProps>> = ({
         {children}
       </Container>
     </Box>
-  );
-};
+  )
+}
 
 interface SectionWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   // Additional props can be added here if needed
@@ -48,7 +48,7 @@ interface SectionWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
 export const SectionWrapper: React.FC<
   PropsWithChildren<SectionWrapperProps>
 > = ({ children, ...rest }) => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <Container component="section" {...rest}>
@@ -56,11 +56,11 @@ export const SectionWrapper: React.FC<
         <Grid size={{ xs: 12, md: 10 }}>{children}</Grid>
       </Grid>
     </Container>
-  );
-};
+  )
+}
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <>
@@ -69,5 +69,5 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       </Box>
       <SectionWrapper>{children}</SectionWrapper>
     </>
-  );
-};
+  )
+}
