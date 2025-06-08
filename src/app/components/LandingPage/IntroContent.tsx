@@ -2,13 +2,15 @@
 import React from "react";
 import { Box, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
-import { getTransitions } from "@/utils/transitions";
+import { useTransitions } from "@/hooks/useTransitions";
 import AnimatedTitle from "./AnimatedTitle";
 import FooterLink from "../FooterLink";
 import IntroductionText from "./IntroductionText";
 
 const IntroPageContent: React.FC<{}> = ({}) => {
   const theme = useTheme();
+  const motionPropsTitle = useTransitions(0.1);
+  const motionPropsFooter = useTransitions(0.7);
 
   return (
     <Box
@@ -22,7 +24,7 @@ const IntroPageContent: React.FC<{}> = ({}) => {
       }}
     >
       <article>
-        <motion.div {...getTransitions(0.1)}>
+        <motion.div {...motionPropsTitle}>
           <AnimatedTitle />
         </motion.div>
 
@@ -31,7 +33,7 @@ const IntroPageContent: React.FC<{}> = ({}) => {
         </Box>
       </article>
 
-      <motion.div {...getTransitions(0.7)}>
+      <motion.div {...motionPropsFooter}>
         <FooterLink goto="/about">See More About Me</FooterLink>
       </motion.div>
     </Box>
