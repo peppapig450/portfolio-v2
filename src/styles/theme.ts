@@ -33,6 +33,30 @@ const mainTheme = responsiveFontSizes(
       h5: { fontFamily: lora.style.fontFamily },
       h6: { fontFamily: lora.style.fontFamily },
     },
+    components: {
+      MuiCssBaseline: {
+        styleOverrides: {
+          ".skip-link": {
+            position: "absolute",
+            top: 0,
+            left: "-999px",
+            background: "#ffffff",
+            color: "#000000",
+            padding: "1rem",
+            zIndex: 1000,
+            textDecoration: "none",
+            "&:focus": {
+              left: 0,
+            },
+          },
+          "a:focus-visible, button:focus-visible, [tabindex='0']:focus-visible":
+            {
+              outline: "2px solid #154d77",
+              outlineOffset: "2px",
+            },
+        },
+      },
+    },
   }),
 )
 

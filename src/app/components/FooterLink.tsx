@@ -62,27 +62,27 @@ const FooterLink: React.FC<IFooterLink> = ({ children, goto = "/" }) => {
 
   const SocialMedias: SocialMediaItems[] = [
     {
-      icon: <TwitterIcon />,
+      icon: <TwitterIcon aria-hidden="true" />,
       url: "https://twitter.com/nickdidthat22",
       label: "Twitter",
     },
     {
-      icon: <FacebookIcon />,
+      icon: <FacebookIcon aria-hidden="true" />,
       url: "https://www.facebook/nickdidthat22",
       label: "Facebook",
     },
     {
-      icon: <LinkedInIcon />,
+      icon: <LinkedInIcon aria-hidden="true" />,
       url: "https://www.linkedin.com/in/nick-brady-5715752b3",
       label: "LinkedIn",
     },
     {
-      icon: <GitHubIcon />,
+      icon: <GitHubIcon aria-hidden="true" />,
       url: "https://github.com/peppapig450",
       label: "GitHub",
     },
     {
-      icon: <InstagramIcon />,
+      icon: <InstagramIcon aria-hidden="true" />,
       url: "https://instagram.com/nickbrady41",
       label: "Instagram",
     },
@@ -99,7 +99,13 @@ const FooterLink: React.FC<IFooterLink> = ({ children, goto = "/" }) => {
           },
         }}
       >
-        <Link href={goto} underline="none" component={NextLink} passHref>
+        <Link
+          href={goto}
+          underline="none"
+          component={NextLink}
+          passHref
+          aria-label={`Navigate to ${goto} page`}
+        >
           <Box sx={{ display: "inline-flex", alignItems: "center" }}>
             <AnimatedTypography
               sx={{
@@ -113,11 +119,16 @@ const FooterLink: React.FC<IFooterLink> = ({ children, goto = "/" }) => {
               {children}
             </AnimatedTypography>
             <ArrowRightAltIcon
+              aria-hidden="true"
               sx={{
                 fontSize: "60px",
                 ml: theme.spacing(1),
                 color: theme.palette.secondary.main,
                 animation: `${arrowBounce} 0.5s infinite alternate`,
+                "@media (prefers-reduced-motion: reduce)": {
+                  animation: "none",
+                  transform: "translateX(1rem)",
+                },
               }}
             />
           </Box>
@@ -151,6 +162,7 @@ const FooterLink: React.FC<IFooterLink> = ({ children, goto = "/" }) => {
             target="_blank"
             rel="noopener noreferrer"
             title={`${social.label} Page`}
+            aria-label={`Visit Nick Brady's ${social.label} page`}
             sx={{
               mr: 0,
               transition: "all 1s ease",
@@ -162,7 +174,7 @@ const FooterLink: React.FC<IFooterLink> = ({ children, goto = "/" }) => {
             }}
           >
             <IconButton
-              aria-label={`Go to Nick Brady\'s ${social.label} Page`}
+              aria-label={`Go to Nick Brady's ${social.label} Page`}
               sx={{
                 cursor: "pointer",
                 height: 15,
