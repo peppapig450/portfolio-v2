@@ -221,7 +221,7 @@ const NavBar: React.FC<NavBarProps> = () => {
           aria-label="Close menu"
           sx={{ p: 1, zIndex: 9999 }}
         >
-          <CloseIcon fontSize="large" />
+          <CloseIcon fontSize="large" aria-hidden="true" />
         </IconButton>
       </Box>
 
@@ -276,7 +276,7 @@ const NavBar: React.FC<NavBarProps> = () => {
               aria-label="open menu"
               onClick={handleDrawerToggle}
             >
-              <MenuIcon />
+              <MenuIcon aria-hidden="true" />
             </IconButton>
           ) : (
             renderNavLinks()

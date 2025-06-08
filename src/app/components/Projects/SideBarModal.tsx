@@ -110,7 +110,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
             size="small"
             aria-label="Close the SideBar project info modal"
           >
-            <CloseIcon />
+            <CloseIcon aria-hidden="true" />
           </IconButton>
           <CustomLink
             href="#"
@@ -205,26 +205,26 @@ const SideBarModal: React.FC<ISideBarModal> = ({
               fontWeight="bold"
               sx={{ mb: theme.spacing(1.6), mt: theme.spacing(4) }}
             >
-              <LanguageIcon sx={{ mr: 1 }} />
+              <LanguageIcon aria-hidden="true" sx={{ mr: 1 }} />
               Website
             </Typography>
-      <Typography
-        variant="body2"
-        component="p"
-        sx={{ mb: theme.spacing(2) }}
-      >
-        <CustomLink
-          href={data?.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          underline="hover"
-          color={theme.palette.text.primary}
-          fontWeight="bold"
-          aria-label="Open project website in new tab"
-        >
-          {data?.link}
-        </CustomLink>
-      </Typography>
+            <Typography
+              variant="body2"
+              component="p"
+              sx={{ mb: theme.spacing(2) }}
+            >
+              <CustomLink
+                href={data?.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                underline="hover"
+                color={theme.palette.text.primary}
+                fontWeight="bold"
+                aria-label="Open project website in new tab"
+              >
+                {data?.link}
+              </CustomLink>
+            </Typography>
           </>
         )}
 
@@ -242,6 +242,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
             >
               <GitHubIcon
                 fontSize="small"
+                aria-hidden="true"
                 sx={{ mr: 1, color: theme.palette.text.secondary }}
               />
               Github
@@ -251,33 +252,33 @@ const SideBarModal: React.FC<ISideBarModal> = ({
               component="p"
               sx={{ mb: theme.spacing(2) }}
             >
-        <CustomLink
-          href={data.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          underline="hover"
-          color={theme.palette.text.primary}
-          fontWeight="bold"
-          aria-label="Open project GitHub repository in new tab"
-        >
-          {data.github}
-        </CustomLink>
-      </Typography>
+              <CustomLink
+                href={data.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                underline="hover"
+                color={theme.palette.text.primary}
+                fontWeight="bold"
+                aria-label="Open project GitHub repository in new tab"
+              >
+                {data.github}
+              </CustomLink>
+            </Typography>
           </>
         )}
 
-      <CustomLink
-        href={data.link ? data.link : data.github}
-        target="_blank"
-        rel="noopener noreferrer"
-        underline="hover"
-        aria-label="Open the project in a new tab"
-      >
+        <CustomLink
+          href={data.link ? data.link : data.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          underline="hover"
+          aria-label="Open the project in a new tab"
+        >
           <OpenProjectButton
             variant="contained"
             color="primary"
             fullWidth
-            endIcon={<OpenInNewIcon />}
+            endIcon={<OpenInNewIcon aria-hidden="true" />}
           >
             Open Project
           </OpenProjectButton>
