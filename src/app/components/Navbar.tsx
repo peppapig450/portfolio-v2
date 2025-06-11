@@ -193,12 +193,12 @@ const NavBar: React.FC<NavBarProps> = () => {
               primary: {
                 variant: "h6",
                 sx: { textAlign: "center" },
-              }
+              },
             }}
           />
         </ListItemButton>
       </Link>
-    );
+    )
   }
 
   const drawer = (
@@ -301,14 +301,14 @@ const NavBar: React.FC<NavBarProps> = () => {
           slotProps={{
             paper: {
               sx: { width: "100vw", height: "100vh" },
-            }
+            },
           }}
         >
           {drawer}
         </Drawer>
       </nav>
     </Box>
-  );
+  )
 }
 
 export default NavBar

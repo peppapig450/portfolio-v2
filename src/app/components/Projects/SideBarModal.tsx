@@ -93,7 +93,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
           sx: {
             width: drawerWidth,
           },
-        }
+        },
       }}
     >
       <Box sx={{ position: "relative", height: "100%" }}>
@@ -287,7 +287,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
         </CustomLink>
       </Box>
     </Drawer>
-  );
+  )
 }
 
 export default SideBarModal
