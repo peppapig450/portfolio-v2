@@ -156,7 +156,7 @@ const ContactContent: React.FC = () => {
               </Typography>
             </motion.div>
             <article>
-              <motion.div {...motionPropsHeading}>
+              <motion.div {...motionPropsIntro}>
                 <Typography
                   variant="body2"
                   component="p"
