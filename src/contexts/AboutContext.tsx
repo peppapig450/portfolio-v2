@@ -1,5 +1,6 @@
 "use client"
 
+import { TechnicalDomain, TechnicalDomainType } from "@/types/about"
 import GitHubIcon from "@mui/icons-material/GitHub"
 import LibraryMusicIcon from "@mui/icons-material/LibraryMusic"
 import PhotoCameraBackIcon from "@mui/icons-material/PhotoCameraBack"
@@ -19,9 +20,21 @@ export interface TimelineItemType {
 
 // Define the context data type that combines all items
 type AboutContextType = {
+  // Technical domains
+  fullStackData: TechnicalDomainType[]
+  dataScienceData: TechnicalDomainType[]
+  systemDevOpsData: TechnicalDomainType[]
+  cybersecurityData: TechnicalDomainType[]
+
+  // Personal sections
   aboutMeData: TimelineItemType[]
   myPlaylistData: TimelineItemType[]
   myPhotographyData: TimelineItemType[]
+
+  // New getters
+  getTechnicalDomains: () => TechnicalDomain[]
+  getDomainData: (domain: TechnicalDomain) => TechnicalDomainType[]
+  getAllTechnicalData: () => Record<TechnicalDomain, TechnicalDomainType[]>
 }
 
 export const AboutContext = createContext<AboutContextType | undefined>(
