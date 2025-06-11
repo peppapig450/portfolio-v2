@@ -1,7 +1,7 @@
 import { Masonry } from "@mui/lab"
 import { Box, useTheme } from "@mui/material"
 import { keyframes } from "@mui/material/styles"
-import React, { PropsWithChildren } from "react"
+import { PropsWithChildren } from "react"
 
 const fadeInUp = keyframes`
   from {

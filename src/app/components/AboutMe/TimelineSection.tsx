@@ -10,7 +10,6 @@ import {
 } from "@mui/lab"
 import { Box, Typography } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
-import React from "react"
 import CustomLink from "../CustomLink"
 
 type TimelineSectionProps = {

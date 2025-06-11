@@ -16,7 +16,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material"
-import React, { useCallback, useEffect } from "react"
+import { useCallback, useEffect } from "react"
 import CustomLink from "../CustomLink"
 import MediaRenderer from "./MediaRenderer"
 

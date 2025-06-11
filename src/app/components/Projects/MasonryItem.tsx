@@ -12,7 +12,7 @@ import {
 } from "@mui/material"
 import { usePathname } from "next/navigation"
 import { arrayRandomItem } from "nicks-web-helpers"
-import React, { useState } from "react"
+import { useState } from "react"
 import MediaRenderer from "./MediaRenderer"
 import SideBarModal from "./SideBarModal"
 

@@ -3,7 +3,7 @@ import { MediaType } from "@/contexts/ProjectsContext"
 import imgixURLBuilder from "@/utils/imageUrlBuilder"
 import { CardMedia, SxProps } from "@mui/material"
 import Image from "next/image"
-import React, { MediaHTMLAttributes } from "react"
+import { MediaHTMLAttributes } from "react"
 
 interface MediaRendererProps {
   card?: boolean
