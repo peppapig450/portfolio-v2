@@ -1,6 +1,5 @@
 import { Link, LinkProps } from "@mui/material"
 import NextLink from "next/link"
-import React from "react"
 
 interface CustomLinkProps extends Omit<LinkProps, "component"> {
   href: string

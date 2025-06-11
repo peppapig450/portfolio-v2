@@ -1,7 +1,7 @@
 import { TabContext, TabList, TabPanel } from "@mui/lab"
 import { Box, Tab } from "@mui/material"
 import { styled } from "@mui/material/styles"
-import React, { useState } from "react"
+import { useState } from "react"
 
 const StyledTab = styled(Tab)(({ theme }) => ({
   backgroundColor: "transparent",

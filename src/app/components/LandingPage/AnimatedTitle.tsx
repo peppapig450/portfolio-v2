@@ -1,7 +1,6 @@
 import { noiseAnim, noiseAnim2 } from "@/styles/keyframes"
 import { Box, Typography } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
-import React from "react"
 
 const AnimatedTitle: React.FC = () => {
   const theme = useTheme()

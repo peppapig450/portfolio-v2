@@ -23,7 +23,7 @@ import { styled } from "@mui/material/styles"
 import Image from "next/image"
 import NextLink from "next/link"
 import { usePathname } from "next/navigation"
-import React, { useState } from "react"
+import { useState } from "react"
 
 const StyledAppBar = styled(AppBar)<AppBarProps>(({ theme }) => ({
   background: "transparent",
