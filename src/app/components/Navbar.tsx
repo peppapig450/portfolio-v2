@@ -189,14 +189,16 @@ const NavBar: React.FC<NavBarProps> = () => {
         >
           <ListItemText
             primary={text}
-            primaryTypographyProps={{
-              variant: "h6",
-              sx: { textAlign: "center" },
+            slotProps={{
+              primary: {
+                variant: "h6",
+                sx: { textAlign: "center" },
+              }
             }}
           />
         </ListItemButton>
       </Link>
-    )
+    );
   }
 
   const drawer = (
@@ -291,20 +293,22 @@ const NavBar: React.FC<NavBarProps> = () => {
           ModalProps={{
             keepMounted: true,
           }}
-          PaperProps={{
-            sx: { width: "100vw", height: "100vh" },
-          }}
           sx={{
             sm: "block",
             md: "none",
             "& .MuiDrawer-paper": { boxSizing: "border-box" },
+          }}
+          slotProps={{
+            paper: {
+              sx: { width: "100vw", height: "100vh" },
+            }
           }}
         >
           {drawer}
         </Drawer>
       </nav>
     </Box>
-  )
+  );
 }
 
 export default NavBar

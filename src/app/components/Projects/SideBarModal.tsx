@@ -85,13 +85,15 @@ const SideBarModal: React.FC<ISideBarModal> = ({
       onClose={closeShow}
       aria-labelledby="product-modal-title"
       aria-describedby="product-modal-description"
-      PaperProps={{
-        style: {
-          padding: "1.5rem",
-        },
-        sx: {
-          width: drawerWidth,
-        },
+      slotProps={{
+        paper: {
+          style: {
+            padding: "1.5rem",
+          },
+          sx: {
+            width: drawerWidth,
+          },
+        }
       }}
     >
       <Box sx={{ position: "relative", height: "100%" }}>
@@ -285,7 +287,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
         </CustomLink>
       </Box>
     </Drawer>
-  )
+  );
 }
 
 export default SideBarModal
