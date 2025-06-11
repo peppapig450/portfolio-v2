@@ -2,7 +2,6 @@
 import { useTransitions } from "@/hooks/useTransitions"
 import { Box, useTheme } from "@mui/material"
 import { motion } from "framer-motion"
-import React from "react"
 import FooterLink from "../FooterLink"
 import AnimatedTitle from "./AnimatedTitle"
 import IntroductionText from "./IntroductionText"

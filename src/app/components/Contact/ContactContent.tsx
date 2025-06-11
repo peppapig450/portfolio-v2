@@ -16,7 +16,7 @@ import {
   useTheme,
 } from "@mui/material"
 import { motion } from "framer-motion"
-import React, { ChangeEvent, FormEvent, useState } from "react"
+import { ChangeEvent, FormEvent, useState } from "react"
 import FooterLink from "../FooterLink"
 
 interface FormData {

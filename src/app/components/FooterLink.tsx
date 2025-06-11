@@ -17,7 +17,6 @@ import {
 } from "@mui/material"
 import { styled } from "@mui/material/styles"
 import NextLink from "next/link"
-import React from "react"
 import CustomLink from "./CustomLink"
 
 interface IFooterLink {

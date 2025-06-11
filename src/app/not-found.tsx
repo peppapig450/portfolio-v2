@@ -12,7 +12,6 @@ import {
   useTheme,
 } from "@mui/material"
 import Image from "next/image"
-import React from "react"
 import CustomLink from "./components/CustomLink"
 
 export default function NotFound(): React.JSX.Element {
