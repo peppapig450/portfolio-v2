@@ -1,4 +1,5 @@
-import { MotionProps, useReducedMotion } from "framer-motion"
+import type { MotionProps} from "framer-motion";
+import { useReducedMotion } from "framer-motion"
 import { useMemo } from "react"
 
 // define the two variant sets once

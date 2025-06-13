@@ -5,14 +5,15 @@ import GitHubIcon from "@mui/icons-material/GitHub"
 import InstagramIcon from "@mui/icons-material/Instagram"
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
 import TwitterIcon from "@mui/icons-material/Twitter"
+import type {
+  BoxProps,
+  IconProps,
+  TypographyProps} from "@mui/material";
 import {
   Box,
-  BoxProps,
   IconButton,
-  IconProps,
   Link,
   Typography,
-  TypographyProps,
   useTheme,
 } from "@mui/material"
 import { styled } from "@mui/material/styles"

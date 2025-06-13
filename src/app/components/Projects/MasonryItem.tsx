@@ -1,5 +1,5 @@
 "use client"
-import { Project } from "@/contexts/ProjectsContext"
+import type { Project } from "@/contexts/ProjectsContext"
 import {
   Box,
   Card,

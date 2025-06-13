@@ -1,4 +1,4 @@
-import { TimelineItemType } from "@/contexts/AboutContext"
+import type { TimelineItemType } from "@/contexts/AboutContext"
 import {
   Timeline,
   TimelineConnector,

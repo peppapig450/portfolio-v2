@@ -1,4 +1,4 @@
-import { Theme, ThemeOptions } from "@mui/material/styles"
+import type { Theme, ThemeOptions } from "@mui/material/styles"
 
 interface CustomPalette {
   sidebar: {

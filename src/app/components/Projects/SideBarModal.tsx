@@ -1,5 +1,5 @@
 "use client"
-import { Project } from "@/contexts/ProjectsContext"
+import type { Project } from "@/contexts/ProjectsContext"
 import CloseIcon from "@mui/icons-material/Close"
 import GitHubIcon from "@mui/icons-material/GitHub"
 import LanguageIcon from "@mui/icons-material/Language"

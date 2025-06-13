@@ -1,8 +1,9 @@
 "use client"
 import { useTransitions } from "@/hooks/useTransitions"
+import type {
+  AlertColor} from "@mui/material";
 import {
   Alert,
-  AlertColor,
   Box,
   Button,
   Container,
@@ -16,7 +17,8 @@ import {
   useTheme,
 } from "@mui/material"
 import { motion } from "framer-motion"
-import { ChangeEvent, FormEvent, useState } from "react"
+import type { ChangeEvent, FormEvent} from "react";
+import { useState } from "react"
 import FooterLink from "../FooterLink"
 
 interface FormData {
@@ -75,7 +77,7 @@ const ContactContent: React.FC = () => {
   }
 
   const validateForm = (): boolean => {
-    let tempErrors: FormErrors = {}
+    const tempErrors: FormErrors = {}
     if (!formState.name) tempErrors.name = "Name is required"
     if (!formState.email) {
       tempErrors.email = "Email is required"

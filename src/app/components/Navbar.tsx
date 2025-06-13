@@ -3,12 +3,14 @@
 import useIsMobile from "@/hooks/useIsMobile"
 import CloseIcon from "@mui/icons-material/Close"
 import MenuIcon from "@mui/icons-material/Menu"
+import type {
+  AppBarProps,
+  ButtonBaseProps,
+  ToolbarProps} from "@mui/material";
 import {
   AppBar,
-  AppBarProps,
   Box,
   Button,
-  ButtonBaseProps,
   Drawer,
   IconButton,
   Link,
@@ -16,7 +18,6 @@ import {
   ListItemButton,
   ListItemText,
   Toolbar,
-  ToolbarProps,
   useTheme,
 } from "@mui/material"
 import { styled } from "@mui/material/styles"

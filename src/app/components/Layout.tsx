@@ -1,6 +1,6 @@
 "use client"
 import { Box, Container, Grid2 as Grid, useTheme } from "@mui/material"
-import { PropsWithChildren } from "react"
+import type { PropsWithChildren } from "react"
 import NavBar from "./Navbar"
 
 interface LayoutProps {
