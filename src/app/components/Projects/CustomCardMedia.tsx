@@ -1,4 +1,4 @@
-import type { CardMediaProps } from "@mui/material/CardMedia";
+import type { CardMediaProps } from "@mui/material/CardMedia"
 import CardMedia from "@mui/material/CardMedia"
 import { forwardRef, useEffect, useRef, useState } from "react"
 

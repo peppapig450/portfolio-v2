@@ -4,7 +4,7 @@ import GitHubIcon from "@mui/icons-material/GitHub"
 import LibraryMusicIcon from "@mui/icons-material/LibraryMusic"
 import PhotoCameraBackIcon from "@mui/icons-material/PhotoCameraBack"
 import PublicIcon from "@mui/icons-material/Public"
-import type { ReactNode} from "react";
+import type { ReactNode } from "react"
 import { createContext, useContext } from "react"
 
 // Define the base timeline data interface with common properties

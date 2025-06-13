@@ -1,7 +1,7 @@
 import { useBrowser } from "@/contexts/BrowserContext"
 import type { MediaType } from "@/contexts/ProjectsContext"
 import imgixURLBuilder from "@/utils/imageUrlBuilder"
-import type { SxProps } from "@mui/material";
+import type { SxProps } from "@mui/material"
 import { CardMedia } from "@mui/material"
 import Image from "next/image"
 import type { MediaHTMLAttributes } from "react"
