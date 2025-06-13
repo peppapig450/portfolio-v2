@@ -5,17 +5,8 @@ import GitHubIcon from "@mui/icons-material/GitHub"
 import InstagramIcon from "@mui/icons-material/Instagram"
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
 import TwitterIcon from "@mui/icons-material/Twitter"
-import type {
-  BoxProps,
-  IconProps,
-  TypographyProps} from "@mui/material";
-import {
-  Box,
-  IconButton,
-  Link,
-  Typography,
-  useTheme,
-} from "@mui/material"
+import type { BoxProps, IconProps, TypographyProps } from "@mui/material"
+import { Box, IconButton, Link, Typography, useTheme } from "@mui/material"
 import { styled } from "@mui/material/styles"
 import NextLink from "next/link"
 import CustomLink from "./CustomLink"
@@ -52,6 +43,7 @@ const AnimatedTypography = styled(Typography)<TypographyProps>(({ theme }) => ({
   },
 }))
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const SocialMediaBox = styled(Box)<BoxProps>(({ theme }) => ({
   background: "transparent",
   padding: theme.spacing(2, 0),
