@@ -3,10 +3,7 @@
 import useIsMobile from "@/hooks/useIsMobile"
 import CloseIcon from "@mui/icons-material/Close"
 import MenuIcon from "@mui/icons-material/Menu"
-import type {
-  AppBarProps,
-  ButtonBaseProps,
-  ToolbarProps} from "@mui/material";
+import type { AppBarProps, ButtonBaseProps, ToolbarProps } from "@mui/material"
 import {
   AppBar,
   Box,
@@ -26,7 +23,7 @@ import NextLink from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
 
-const StyledAppBar = styled(AppBar)<AppBarProps>(({ theme }) => ({
+const StyledAppBar = styled(AppBar)<AppBarProps>(() => ({
   background: "transparent",
   boxShadow: "none",
   transition: "all 0.5s ease",
@@ -85,8 +82,6 @@ const StyledToolbar = styled(Toolbar)<ToolbarProps>(({ theme }) => ({
   },
 }))
 
-interface NavBarProps {}
-
 interface NavItem {
   label: string
   path: string
@@ -99,7 +94,7 @@ interface ListItemButtonLinkProps {
   ariaLabel: string
 }
 
-const NavBar: React.FC<NavBarProps> = () => {
+const NavBar: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false)
   const pathname = usePathname()
   const theme = useTheme()
