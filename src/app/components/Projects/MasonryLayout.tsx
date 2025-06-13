@@ -1,7 +1,7 @@
 import { Masonry } from "@mui/lab"
 import { Box, useTheme } from "@mui/material"
 import { keyframes } from "@mui/material/styles"
-import { PropsWithChildren } from "react"
+import type { ReactNode } from "react"
 
 const fadeInUp = keyframes`
   from {
@@ -14,7 +14,11 @@ const fadeInUp = keyframes`
   }
 `
 
-const MasonryLayout: React.FC<PropsWithChildren<any>> = ({ children }) => {
+interface MasonryLayoutProps {
+  children: NonNullable<ReactNode>
+}
+
+const MasonryLayout = ({ children }: MasonryLayoutProps) => {
   const theme = useTheme()
 
   return (

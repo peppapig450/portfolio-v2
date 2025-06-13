@@ -1,4 +1,9 @@
-import { Theme, ThemeOptions } from "@mui/material/styles"
+/* eslint-disable @typescript-eslint/no-empty-object-type */
+/* Disable eslint error here as the empty interfaces are the recommended
+ * way to define a custom Palette.
+ */
+
+import type { Theme, ThemeOptions } from "@mui/material/styles"
 
 interface CustomPalette {
   sidebar: {

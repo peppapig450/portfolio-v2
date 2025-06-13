@@ -6,7 +6,7 @@ import FooterLink from "../FooterLink"
 import AnimatedTitle from "./AnimatedTitle"
 import IntroductionText from "./IntroductionText"
 
-const IntroPageContent: React.FC<{}> = ({}) => {
+const IntroPageContent = () => {
   const theme = useTheme()
   const motionPropsTitle = useTransitions(0.1)
   const motionPropsFooter = useTransitions(0.7)

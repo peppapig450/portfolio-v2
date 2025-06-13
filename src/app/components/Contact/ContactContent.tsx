@@ -1,8 +1,8 @@
 "use client"
 import { useTransitions } from "@/hooks/useTransitions"
+import type { AlertColor } from "@mui/material"
 import {
   Alert,
-  AlertColor,
   Box,
   Button,
   Container,
@@ -16,7 +16,8 @@ import {
   useTheme,
 } from "@mui/material"
 import { motion } from "framer-motion"
-import { ChangeEvent, FormEvent, useState } from "react"
+import type { ChangeEvent, FormEvent } from "react"
+import { useState } from "react"
 import FooterLink from "../FooterLink"
 
 interface FormData {
@@ -75,7 +76,7 @@ const ContactContent: React.FC = () => {
   }
 
   const validateForm = (): boolean => {
-    let tempErrors: FormErrors = {}
+    const tempErrors: FormErrors = {}
     if (!formState.name) tempErrors.name = "Name is required"
     if (!formState.email) {
       tempErrors.email = "Email is required"
@@ -107,12 +108,13 @@ const ContactContent: React.FC = () => {
             open: true,
             message: "Message sent successfully!",
             severity: "success",
-          }),
-            setFormState({ name: "", email: "", message: "" })
+          })
+          setFormState({ name: "", email: "", message: "" })
         } else {
           throw new Error("Form submission failed.")
         }
       } catch (error) {
+        console.log("Form submission error:", error)
         setSnackbar({
           open: true,
           message: "Failed to send message. Please try again.",
@@ -170,7 +172,12 @@ const ContactContent: React.FC = () => {
               </motion.div>
             </article>
             <motion.div {...motionPropsForm}>
-              <StyledForm onSubmit={handleSubmit}>
+              <StyledForm
+                onSubmit={(e) => {
+                  e.preventDefault()
+                  void handleSubmit(e)
+                }}
+              >
                 <Grid
                   container
                   direction="column"
