@@ -1,16 +1,13 @@
 "use client"
 import { Box, Container, Grid2 as Grid, useTheme } from "@mui/material"
-import type { PropsWithChildren } from "react"
+import type { HTMLAttributes } from "react"
 import NavBar from "./Navbar"
 
 interface LayoutProps {
   children: React.ReactNode
 }
-interface PageWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
-  // Additional props can be added here if needed
-}
 
-export const PageWrapper: React.FC<PropsWithChildren<PageWrapperProps>> = ({
+export const PageWrapper: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   children,
   ...rest
 }) => {
@@ -41,15 +38,10 @@ export const PageWrapper: React.FC<PropsWithChildren<PageWrapperProps>> = ({
   )
 }
 
-interface SectionWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
-  // Additional props can be added here if needed
-}
-
-export const SectionWrapper: React.FC<
-  PropsWithChildren<SectionWrapperProps>
-> = ({ children, ...rest }) => {
-  const theme = useTheme()
-
+export const SectionWrapper: React.FC<HTMLAttributes<HTMLDivElement>> = ({
+  children,
+  ...rest
+}) => {
   return (
     <Container component="section" {...rest}>
       <Grid container alignItems="center" justifyContent="center">
