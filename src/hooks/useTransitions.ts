@@ -1,3 +1,7 @@
+/**
+ * @deprecated Use the `StaggeredContainer` component for staggered animations.
+ * This hook will removed in the next major release.
+ */
 import type { MotionProps } from "framer-motion"
 import { useReducedMotion } from "framer-motion"
 import { useMemo } from "react"
@@ -18,10 +22,18 @@ const reducedVariants = {
 /**
  * A hook that returns { transition, initial, animate, exit }
  * automatically adjusting for prefers-reduced-motion.
+ *
+ * @deprecated Use the `StaggeredContainer component instead.
+ *             This hook will removed in the next major release.
  */
 export const useTransitions = (delay: number = 0): MotionProps => {
   const shouldReduceMotion = useReducedMotion()
 
+  if (process.env.NODE_ENV !== "production") {
+    console.warn(
+      "[deprecation] `useTransitions` is deprecated and will be removed in the next major release. Please migrate to `StaggeredContainer`.",
+    )
+  }
   // memoize the transition object
   const transition = useMemo(
     () => ({
