@@ -11,7 +11,7 @@ const IntroPageContent = () => {
   return (
     <StaggeredContainer
       as={Box}
-      staggerDelay={0.4}
+      staggerDelay={0.1}
       initialDelay={0.1}
       sx={{
         justifyContent: "flex-start",
