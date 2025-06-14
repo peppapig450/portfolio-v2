@@ -1,5 +1,4 @@
 "use client"
-import { useTransitions } from "@/hooks/useTransitions"
 import type { AlertColor } from "@mui/material"
 import {
   Alert,
@@ -15,10 +14,10 @@ import {
   Typography,
   useTheme,
 } from "@mui/material"
-import { motion } from "framer-motion"
 import type { ChangeEvent, FormEvent } from "react"
 import { useState } from "react"
 import FooterLink from "../FooterLink"
+import { StaggeredContainer } from "../StaggeredContainer"
 
 interface FormData {
   name: string
@@ -60,10 +59,6 @@ const ContactContent: React.FC = () => {
     severity: "success",
   })
   const theme = useTheme()
-  const motionPropsHeading = useTransitions(0.2)
-  const motionPropsIntro = useTransitions(0.4)
-  const motionPropsForm = useTransitions(0.6)
-  const motionPropsFooter = useTransitions(0.8)
 
   const handleChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -135,113 +130,107 @@ const ContactContent: React.FC = () => {
   }
 
   return (
-    <>
+    <StaggeredContainer as="div" staggerDelay={0.2} initialDelay={0.2}>
       <Container
         maxWidth="md"
         sx={{ mb: 5, px: theme.spacing(1.785), mx: "auto" }}
       >
         <Grid container alignItems="center" justifyContent="center">
           <Grid size={{ xs: 12, md: 10 }}>
-            <motion.div {...motionPropsHeading}>
-              <Typography
-                variant="h2"
-                component="h1"
-                gutterBottom
-                sx={{
-                  fontWeight: "bold",
-                  pl: theme.spacing(2),
-                  mt: theme.spacing(8),
-                  mb: theme.spacing(3),
-                }}
-              >
-                Contact.
-              </Typography>
-            </motion.div>
+            <Typography
+              variant="h2"
+              component="h1"
+              gutterBottom
+              sx={{
+                fontWeight: "bold",
+                pl: theme.spacing(2),
+                mt: theme.spacing(8),
+                mb: theme.spacing(3),
+              }}
+            >
+              Contact.
+            </Typography>
             <article>
-              <motion.div {...motionPropsIntro}>
-                <Typography
-                  variant="body2"
-                  component="p"
-                  sx={{ mb: theme.spacing(4), pl: theme.spacing(2) }}
-                >
-                  Get in touch or shoot me an email directly on{" "}
-                  <Typography component="span" fontWeight="bold">
-                    contact@nickbrady.dev
-                  </Typography>
-                </Typography>
-              </motion.div>
-            </article>
-            <motion.div {...motionPropsForm}>
-              <StyledForm
-                onSubmit={(e) => {
-                  e.preventDefault()
-                  void handleSubmit(e)
-                }}
+              <Typography
+                variant="body2"
+                component="p"
+                sx={{ mb: theme.spacing(4), pl: theme.spacing(2) }}
               >
-                <Grid
-                  container
-                  direction="column"
-                  sx={{ pl: theme.spacing(2), mt: theme.spacing(5) }}
-                >
-                  <Grid size={{ xs: 12, sm: 6 }}>
-                    <FormControl fullWidth error={!!errors.name}>
-                      <TextField
-                        name="name"
-                        label="Name"
-                        required
-                        value={formState.name}
-                        onChange={handleChange}
-                        error={!!errors.name}
-                        variant="standard"
-                      />
-                      <FormHelperText>{errors.name}</FormHelperText>
-                    </FormControl>
-                  </Grid>
-                  <Grid size={{ xs: 12, sm: 6 }}>
-                    <FormControl fullWidth error={!!errors.email}>
-                      <TextField
-                        name="email"
-                        label="Email"
-                        type="email"
-                        required
-                        value={formState.email}
-                        onChange={handleChange}
-                        error={!!errors.email}
-                        variant="standard"
-                      />
-                      <FormHelperText>{errors.email}</FormHelperText>
-                    </FormControl>
-                  </Grid>
-                  <Grid size={{ xs: 12, sm: 6 }}>
-                    <FormControl fullWidth error={!!errors.message}>
-                      <TextField
-                        name="message"
-                        label="Message"
-                        required
-                        multiline
-                        maxRows={4}
-                        variant="standard"
-                        value={formState.message}
-                        onChange={handleChange}
-                        error={!!errors.message}
-                      />
-                      <FormHelperText>{errors.message}</FormHelperText>
-                    </FormControl>
-                  </Grid>
-                  <Grid size={{ xs: 12, sm: 6 }}>
-                    <Button
-                      type="submit"
-                      variant="contained"
-                      color="primary"
-                      size="large"
-                      sx={{ mt: 2, pl: theme.spacing(2) }}
-                    >
-                      Send Message
-                    </Button>
-                  </Grid>
+                Get in touch or shoot me an email directly on{" "}
+                <Typography component="span" fontWeight="bold">
+                  contact@nickbrady.dev
+                </Typography>
+              </Typography>
+            </article>
+            <StyledForm
+              onSubmit={(e) => {
+                e.preventDefault()
+                void handleSubmit(e)
+              }}
+            >
+              <Grid
+                container
+                direction="column"
+                sx={{ pl: theme.spacing(2), mt: theme.spacing(5) }}
+              >
+                <Grid size={{ xs: 12, sm: 6 }}>
+                  <FormControl fullWidth error={!!errors.name}>
+                    <TextField
+                      name="name"
+                      label="Name"
+                      required
+                      value={formState.name}
+                      onChange={handleChange}
+                      error={!!errors.name}
+                      variant="standard"
+                    />
+                    <FormHelperText>{errors.name}</FormHelperText>
+                  </FormControl>
                 </Grid>
-              </StyledForm>
-            </motion.div>
+                <Grid size={{ xs: 12, sm: 6 }}>
+                  <FormControl fullWidth error={!!errors.email}>
+                    <TextField
+                      name="email"
+                      label="Email"
+                      type="email"
+                      required
+                      value={formState.email}
+                      onChange={handleChange}
+                      error={!!errors.email}
+                      variant="standard"
+                    />
+                    <FormHelperText>{errors.email}</FormHelperText>
+                  </FormControl>
+                </Grid>
+                <Grid size={{ xs: 12, sm: 6 }}>
+                  <FormControl fullWidth error={!!errors.message}>
+                    <TextField
+                      name="message"
+                      label="Message"
+                      required
+                      multiline
+                      maxRows={4}
+                      variant="standard"
+                      value={formState.message}
+                      onChange={handleChange}
+                      error={!!errors.message}
+                    />
+                    <FormHelperText>{errors.message}</FormHelperText>
+                  </FormControl>
+                </Grid>
+                <Grid size={{ xs: 12, sm: 6 }}>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                    sx={{ mt: 2, pl: theme.spacing(2) }}
+                  >
+                    Send Message
+                  </Button>
+                </Grid>
+              </Grid>
+            </StyledForm>
           </Grid>
         </Grid>
       </Container>
@@ -251,11 +240,9 @@ const ContactContent: React.FC = () => {
       >
         <Grid container alignItems="center" justifyContent="center">
           <Grid size={{ xs: 12, md: 10 }}>
-            <motion.div {...motionPropsFooter}>
-              <Box sx={{ pl: theme.spacing(2) }}>
-                <FooterLink goto="/">Go Back Home</FooterLink>
-              </Box>
-            </motion.div>
+            <Box sx={{ pl: theme.spacing(2) }}>
+              <FooterLink goto="/">Go Back Home</FooterLink>
+            </Box>
           </Grid>
         </Grid>
       </Container>
@@ -274,7 +261,7 @@ const ContactContent: React.FC = () => {
           {snackbar.message}
         </Alert>
       </Snackbar>
-    </>
+    </StaggeredContainer>
   )
 }
 

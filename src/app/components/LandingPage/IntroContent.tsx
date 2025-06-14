@@ -1,18 +1,18 @@
 "use client"
-import { useTransitions } from "@/hooks/useTransitions"
 import { Box, useTheme } from "@mui/material"
-import { motion } from "framer-motion"
 import FooterLink from "../FooterLink"
+import { StaggeredContainer } from "../StaggeredContainer"
 import AnimatedTitle from "./AnimatedTitle"
 import IntroductionText from "./IntroductionText"
 
 const IntroPageContent = () => {
   const theme = useTheme()
-  const motionPropsTitle = useTransitions(0.1)
-  const motionPropsFooter = useTransitions(0.7)
 
   return (
-    <Box
+    <StaggeredContainer
+      as={Box}
+      staggerDelay={0.1}
+      initialDelay={0.1}
       sx={{
         justifyContent: "flex-start",
         alignItems: "left",
@@ -23,19 +23,13 @@ const IntroPageContent = () => {
       }}
     >
       <article>
-        <motion.div {...motionPropsTitle}>
-          <AnimatedTitle />
-        </motion.div>
-
+        <AnimatedTitle />
         <Box>
           <IntroductionText />
         </Box>
       </article>
-
-      <motion.div {...motionPropsFooter}>
-        <FooterLink goto="/about">See More About Me</FooterLink>
-      </motion.div>
-    </Box>
+      <FooterLink goto="/about">See More About Me</FooterLink>
+    </StaggeredContainer>
   )
 }
 
