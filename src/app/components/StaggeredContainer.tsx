@@ -13,10 +13,11 @@ import {
 import type { MotionProps, Variants } from "framer-motion"
 import type {
   ComponentPropsWithoutRef,
+  ComponentPropsWithRef,
   ElementType,
-  ForwardedRef,
   PropsWithChildren,
   ReactElement,
+  ReactNode,
 } from "react"
 
 interface StaggeredContainerOwnProps extends PropsWithChildren {
@@ -37,6 +38,18 @@ type PolymorphicProps<T extends ElementType> = StaggeredContainerOwnProps & // o
   Omit<ComponentPropsWithoutRef<T>, keyof StaggeredContainerOwnProps> & {
     as?: T
   } // polymorphic "as"
+
+/** Helper to get the right `ref` for any element/component */
+type PolymorphicRef<T extends ElementType> = ComponentPropsWithRef<T>["ref"]
+
+/**
+ * What the *public* component should look like once all the casting is done.
+ */
+export type ForwardRefWithAs<DefaultAs extends ElementType> = <
+  As extends ElementType = DefaultAs,
+>(
+  props: PolymorphicProps<As> & { ref?: PolymorphicRef<As> },
+) => JSX.Element
 
 /**
  * A soft, spring-based entrance animation for staggered children.
@@ -71,15 +84,16 @@ const zeroMotionChildVariant: Variants = {
   visible: { transition: { duration: 0 } },
 }
 
-/**
- * Returns a motion-enhanced component regardless of whether the input is already
- * a motion component. Framer will detect and simply return the same component
- *  if it's already wrapped.
- */
+/** Guarantees we always deal with a motion‑enhanced component. */
 const toMotion = <T extends ElementType>(component: T) => {
   return motion.create(component)
 }
 
+/**
+ * Generic render function. **Note**: this is *only* used to implement the
+ * behavior; it will be wrapped and re‑typed before export so consumers get a
+ * proper polymorphic experience.
+ */
 const StaggeredContainerInner = <T extends ElementType = "div">(
   {
     as,
@@ -89,7 +103,7 @@ const StaggeredContainerInner = <T extends ElementType = "div">(
     variant = revealChildVariant,
     ...rest
   }: PolymorphicProps<T>,
-  ref: ForwardedRef<any>,
+  ref: PolymorphicRef<T>,
 ) => {
   const shouldReduceMotion = useReducedMotion()
 
@@ -141,9 +155,14 @@ const StaggeredContainerInner = <T extends ElementType = "div">(
     // Convert the child's underlying type to a motion component
     const MotionChild = toMotion(child.type as ElementType)
 
+    // Cast props to a known shape so that `.children` is not on `any`
+    const { children: nestedChildren, ...childRest } = child.props as {
+      children?: ReactNode
+    }
+
     return (
-      <MotionChild key={key} variants={childVariants} {...child.props}>
-        {child.props.children}
+      <MotionChild key={key} variants={childVariants} {...childRest}>
+        {nestedChildren}
       </MotionChild>
     )
   })
@@ -161,8 +180,16 @@ const StaggeredContainerInner = <T extends ElementType = "div">(
   )
 }
 
-// Give the inner component a fancy display name for debugging
-StaggeredContainerInner.displayName = "StaggeredContentInner"
+/**
+ * `forwardRef` doesn’t keep the generic, so we cast *after* creating the
+ * component to re‑expose the polymorphic signature.
+ */
+const Forwarded = forwardRef(
+  StaggeredContainerInner as unknown as (
+    props: PolymorphicProps<ElementType>,
+    ref: PolymorphicRef<ElementType>,
+  ) => JSX.Element,
+)
 
 /**
  * A container that staggers its children's animations on mount.
@@ -171,13 +198,5 @@ StaggeredContainerInner.displayName = "StaggeredContentInner"
  *
  * This component is memoized to prevent unnecessary re-renders.
  */
-export const StaggeredContainer = memo(
-  forwardRef(StaggeredContainerInner),
-  (prev, next) =>
-    prev.staggerDelay === next.staggerDelay &&
-    prev.initialDelay === next.initialDelay &&
-    prev.variant === next.variant &&
-    prev.as === next.as,
-) as unknown as <T extends ElementType = "div">(
-  props: PolymorphicProps<T> & { ref?: ForwardedRef<any> },
-) => JSX.Element
+export const StaggeredContainer = memo(Forwarded) as ForwardRefWithAs<"div">
+StaggeredContainerInner.displayName = "StaggeredContentInner"
