@@ -58,7 +58,7 @@ const revealChildVariant: Variants = {
     transition: {
       type: "spring",
       damping: 20,
-      stiffness: 300,
+      stiffness: 150,
     },
   },
 }
