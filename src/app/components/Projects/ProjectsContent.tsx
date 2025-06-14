@@ -1,20 +1,16 @@
 "use client"
 import { ProjectType, useProjectsContext } from "@/contexts/ProjectsContext"
-import { useTransitions } from "@/hooks/useTransitions"
 import { Container, Grid2 as Grid, Typography } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
-import { motion } from "framer-motion"
 import CustomTabs from "../CustomTabs"
 import FooterLink from "../FooterLink"
+import { StaggeredContainer } from "../StaggeredContainer"
 import MasonryItem from "./MasonryItem"
 import MasonryLayout from "./MasonryLayout"
 
 const ProjectsContent = () => {
   const theme = useTheme()
   const { projects } = useProjectsContext()
-  const motionPropsHeading = useTransitions(0.2)
-  const motionPropsTabs = useTransitions(0.4)
-  const motionPropsFooter = useTransitions(0.6)
 
   const tabItems = [
     {
@@ -66,46 +62,38 @@ const ProjectsContent = () => {
   ]
 
   return (
-    <>
+    <StaggeredContainer as="div" staggerDelay={0.2} initialDelay={0.2}>
       <Container
         component="section"
         sx={{ mb: 5, px: theme.spacing(1.785), mx: "auto" }}
       >
         <Grid container alignItems="center" justifyContent="center">
           <Grid size={{ xs: 12, md: 10 }}>
-            <motion.div {...motionPropsHeading}>
-              <Typography
-                variant="h2"
-                component="h1"
-                gutterBottom
-                sx={{
-                  fontWeight: "bold",
-                  pl: theme.spacing(2),
-                  mt: theme.spacing(8),
-                  mb: theme.spacing(3),
-                }}
-              >
-                Projects.
-              </Typography>
-            </motion.div>
-            <motion.div {...motionPropsTabs}>
-              <CustomTabs items={tabItems} />
-            </motion.div>
+            <Typography
+              variant="h2"
+              component="h1"
+              gutterBottom
+              sx={{
+                fontWeight: "bold",
+                pl: theme.spacing(2),
+                mt: theme.spacing(8),
+                mb: theme.spacing(3),
+              }}
+            >
+              Projects.
+            </Typography>
+            <CustomTabs items={tabItems} />
           </Grid>
         </Grid>
       </Container>
       <Container sx={{ mb: 5, px: theme.spacing(1.875), mx: "auto" }}>
         <Grid container alignItems="center" justifyContent="center">
           <Grid size={{ xs: 12, md: 10 }} sx={{ pl: theme.spacing(2.5) }}>
-            <motion.div {...motionPropsFooter}>
-              <FooterLink goto="/resume">
-                Let&apos;s Go To My Resume.
-              </FooterLink>
-            </motion.div>
+            <FooterLink goto="/resume">Let&apos;s Go To My Resume.</FooterLink>
           </Grid>
         </Grid>
       </Container>
-    </>
+    </StaggeredContainer>
   )
 }
 
