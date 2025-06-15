@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Nick's Portfolio
 
-## Getting Started
+[![Next.js](https://img.shields.io/badge/Next.js-15.3.3-000?logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-3178c6?logo=typescript)](https://www.typescriptlang.org/)
+[![MUI](https://img.shields.io/badge/MUI-6.4.12-007fff?logo=mui)](https://mui.com/)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-10.16.4-0055FF?logo=framer)](https://www.framer.com/motion/)
+[![Vercel](https://img.shields.io/badge/deployed-Vercel-000?logo=vercel)](https://nickbrady.dev/)
+[![Lint & Format](https://github.com/peppapig450/portfolio-v2/actions/workflows/lint.yml/badge.svg)](https://github.com/peppapig450/portfolio-v2/actions/workflows/lint.yml)
+[![Open PRs](https://img.shields.io/github/issues-pr/peppapig450/portfolio-v2?color=informational)](https://github.com/peppapig450/portfolio-v2/pulls)
+[![GitHub stars](https://img.shields.io/github/stars/peppapig450/portfolio-v2?style=social)](https://github.com/peppapig450/portfolio-v2)
 
-First, run the development server:
+## Overview
+
+Welcome! This repo powers my personal portfolio site built with **Next.js**, **Framer Motion**, and **MUI**. It's a snapshot of my work as a versatile developer. Potential collaborators and employers can explore projects, read my write-ups, view my development approach, and see what I'm currently tinkering with.
+
+## Running Locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+git clone https://github.com/peppapig450/portfolio-v2
+cd portfolio-v2
+
+pnpm install
+pnpm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:3000` in your browser, and you're good to go!
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Next.js** for the framework
+- **TypeScript** for static typing
+- **MUI** for the component library
+- **Framer Motion** for fluid, interactive animations
+- **Vercel** for hosting and analytics
 
-## Learn More
+## Contributing
 
-To learn more about Next.js, take a look at the following resources:
+Feel free to open issues or submit pull requests if you spot something that could be improved.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is open source under the MIT license.
