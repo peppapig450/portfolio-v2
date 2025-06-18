@@ -15,6 +15,7 @@ import type {
   ComponentPropsWithoutRef,
   ComponentPropsWithRef,
   ElementType,
+  JSX,
   PropsWithChildren,
   ReactElement,
   ReactNode,

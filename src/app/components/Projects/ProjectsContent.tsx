@@ -1,6 +1,6 @@
 "use client"
 import { ProjectType, useProjectsContext } from "@/contexts/ProjectsContext"
-import { Container, Grid2 as Grid, Typography } from "@mui/material"
+import { Container, Grid, Typography } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
 import CustomTabs from "../CustomTabs"
 import FooterLink from "../FooterLink"
