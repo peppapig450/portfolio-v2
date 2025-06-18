@@ -197,8 +197,7 @@ update_readme_badges() {
     fi
   done
 
-  cat "${tmp}"
-  # mv -f -- "${tmp}" "${readme}"
+  mv -f -- "${tmp}" "${readme}"
   logging::log_info "Badges updated in ${readme}"
 }
 
