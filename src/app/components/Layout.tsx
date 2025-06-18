@@ -1,5 +1,5 @@
 "use client"
-import { Box, Container, Grid2 as Grid, useTheme } from "@mui/material"
+import { Box, Container, Grid, useTheme } from "@mui/material"
 import type { HTMLAttributes } from "react"
 import NavBar from "./Navbar"
 
