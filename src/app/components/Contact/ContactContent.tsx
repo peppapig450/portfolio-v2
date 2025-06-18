@@ -7,7 +7,7 @@ import {
   Container,
   FormControl,
   FormHelperText,
-  Grid2 as Grid,
+  Grid,
   Snackbar,
   styled,
   TextField,

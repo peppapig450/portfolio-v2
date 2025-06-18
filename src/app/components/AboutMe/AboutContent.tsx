@@ -1,6 +1,6 @@
 "use client"
 import { useAboutContext } from "@/contexts/AboutContext"
-import { Container, Grid2 as Grid, Typography } from "@mui/material"
+import { Container, Grid, Typography } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
 import FooterLink from "../FooterLink"
 import { StaggeredContainer } from "../StaggeredContainer"
