@@ -49,14 +49,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Nick Brady's Portfolio",
-    url: "https://dev.nickbrady.dev",
+    url: "https://nickbrady.dev",
     siteName: "Nick Brady's Portfolio",
     description:
       "Hi, I'm Nick Brady, full-stack developer, software engineer, and problem-solver proficient in React, Typescript, Java, AI applications, Python, and more.",
     locale: "en_US",
     type: "website",
   },
-  metadataBase: new URL("https://dev.nickbrady.dev"),
+  metadataBase: new URL("https://nickbrady.dev"),
   robots: {
     index: true,
     follow: true,

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "Projects | Nick Brady",
   },
   alternates: {
-    canonical: "https://dev.nickbrady.dev/projects",
+    canonical: "https://nickbrady.dev/projects",
   },
 }
 
