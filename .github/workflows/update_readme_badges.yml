@@ -1,0 +1,41 @@
+name: Update README badges
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pnpm-lock.yaml'
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  pull_requests: write
+  contents: write
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update README badges
+        run: |
+          ./ci/scripts/update_readme_badges.sh \
+            --lockfile pnpm-lock.yaml \
+            --readme README.md \
+            --summary ${{ github.workspace }}/summary.txt
+
+      - name: Create or update pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: update/readme-badges
+          commit_message: 'ci: update README badges'
+          title: '[Automated] Update README badges'
+          body-path: ${{ github.workspace }}/summary.txt
+          add-paths: README.md
+          labels: |
+            dependencies
+            automated
+          sign-commits: true
+
