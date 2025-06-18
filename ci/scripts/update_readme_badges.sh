@@ -36,6 +36,27 @@ else
   exit 1
 fi
 
+# check_dependencies
+#   Ensure required commands are available before proceeding.
+check_dependencies() {
+  local -a miss=()
+
+  for cmd in yq perl grep; do
+    if ! command -v "${cmd}" &> /dev/null; then
+      miss+=("$cmd")
+    fi
+  done
+
+  # Ensure system's grep supports PCRE regex
+  if ! grep -P '\d+' <<< "test123" &> /dev/null; then
+    logging::log_fatal "System's grep does not support PCRE regex. Make sure GNU grep is installed."
+  fi
+
+  if ((${#miss[@]} > 0)); then
+    logging::log_fatal "Missing required tools: ${miss[@]}. Please install them and retry."
+  fi
+}
+
 # usage
 #   Prints help/usage information and exits
 usage() {
@@ -215,6 +236,7 @@ main() {
   local -A kv_map
   local -a kv_keys=()
 
+  check_dependencies
   parse_args lock_file readme_file "$@"
   load_pnpm_lock "${lock_file}" kv_map kv_keys
   update_readme_badges "${readme_file}" badge_pkg_map kv_map
