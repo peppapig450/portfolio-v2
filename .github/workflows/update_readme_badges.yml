@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  pull_requests: write
+  pull-requests: write
   contents: write
 
 jobs:
@@ -27,10 +27,11 @@ jobs:
             --summary ${{ github.workspace }}/summary.txt
 
       - name: Create or update pull request
+        id: cpr
         uses: peter-evans/create-pull-request@v7
         with:
           branch: update/readme-badges
-          commit_message: 'ci: update README badges'
+          commit-message: 'ci(readme): update badge versions'
           title: '[Automated] Update README badges'
           body-path: ${{ github.workspace }}/summary.txt
           add-paths: README.md
@@ -39,3 +40,15 @@ jobs:
             automated
           sign-commits: true
 
+      - name: Show PR info
+        if: steps.cpr.outputs.pull-request-number
+        shell: bash
+        run: |
+          printf "## 🚀 Pull Request Created\n" >> "${GITHUB_STEP_SUMMARY}"
+
+          printf -- "- **PR #%s**: [View Pull Request](%s)\n" \
+            "${{ steps.cpr.outputs.pull-request-number }}" \
+            "${{ steps.cpr.outputs.pull-request-url }}" >> "${GITHUB_STEP_SUMMARY}"
+
+          printf -- "- **Operation**: %s\n" \
+            "${{ steps.cpr.outputs.pull-request-operation }}" >> "${GITHUB_STEP_SUMMARY}"
