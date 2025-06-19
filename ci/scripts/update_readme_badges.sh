@@ -268,7 +268,7 @@ INIT_PR_BODY
       perl -pi -e 's{(https?://img\.shields\.io/badge/'"$esc_label"'-)([^-?]+)((?:-[a-fA-F0-9]+)?)}{${1}'"$ver"'${3}}g' "$tmp"
 
       # Update for summary
-      printf "- Updated %s: %s -> %s\n" "${label}" "${current_ver}" "${ver}" >&"${fd}"
+      printf -- "- Updated %s: %s -> %s\n" "${label}" "${current_ver}" "${ver}" >&"${fd}"
     else
       logging::log_warn "Could not find badge for '${label}' in README"
     fi
