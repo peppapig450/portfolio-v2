@@ -2,9 +2,12 @@ import { noiseAnim, noiseAnim2 } from "@/styles/keyframes"
 import type { BoxProps } from "@mui/material"
 import { Box, Typography } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
-import { forwardRef } from "react"
+import type { Ref } from "react"
 
-const AnimatedTitle = forwardRef<HTMLDivElement, BoxProps>((props, ref) => {
+const AnimatedTitle = ({
+  ref,
+  ...props
+}: BoxProps & { ref?: Ref<HTMLDivElement> }) => {
   const theme = useTheme()
 
   return (
@@ -62,7 +65,7 @@ const AnimatedTitle = forwardRef<HTMLDivElement, BoxProps>((props, ref) => {
       </Typography>
     </Box>
   )
-})
+}
 
 AnimatedTitle.displayName = "AnimatedTitle"
 

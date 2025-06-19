@@ -1,10 +1,12 @@
 import type { BoxProps } from "@mui/material"
 import { Box, Typography } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
-import { forwardRef } from "react"
+import type { Ref } from "react"
 import CustomLink from "../CustomLink"
 
-const IntroductionText = forwardRef<HTMLDivElement, BoxProps>((props, ref) => {
+type IntroductionTextProps = BoxProps & { ref?: Ref<HTMLDivElement> }
+
+const IntroductionText = ({ ref, ...props }: IntroductionTextProps) => {
   const theme = useTheme()
 
   return (
@@ -86,7 +88,7 @@ const IntroductionText = forwardRef<HTMLDivElement, BoxProps>((props, ref) => {
       </Typography>
     </Box>
   )
-})
+}
 
 IntroductionText.displayName = "IntroductionText"
 
