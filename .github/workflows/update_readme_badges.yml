@@ -30,7 +30,7 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           branch: update/readme-badges
-          commit_message: 'ci: update README badges'
+          commit-message: 'ci: update README badges'
           title: '[Automated] Update README badges'
           body-path: ${{ github.workspace }}/summary.txt
           add-paths: README.md
