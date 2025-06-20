@@ -19,6 +19,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Generate token
+        id: generate_token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
       - name: Update README badges
         run: |
           ./ci/scripts/update_readme_badges.sh \
@@ -30,6 +37,7 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v7
         with:
+          token: ${{ steps.generate_token.outputs.token }}
           branch: update/readme-badges
           commit-message: 'ci(readme): update badge versions'
           title: '[Automated] Update README badges'
@@ -38,6 +46,7 @@ jobs:
           labels: |
             dependencies
             automated
+            auto-badges
           sign-commits: true
 
       - name: Show PR info
