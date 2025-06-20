@@ -2,6 +2,16 @@ name: Lint & Format
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened]
+    paths-ignore:
+      - 'README.md'
+      - 'docs/**'
+      - '**.md'
+      - 'LICENSE'
+      - '.gitignore'
+      - 'images/**'
+      - '**.png'
+      - '**.jpg'
 
 jobs:
   lint:
