@@ -138,7 +138,5 @@ export default function AboutProvider({
     ],
   }
 
-  return (
-    <AboutContext.Provider value={aboutData}>{children}</AboutContext.Provider>
-  )
+  return <AboutContext value={aboutData}>{children}</AboutContext>
 }
