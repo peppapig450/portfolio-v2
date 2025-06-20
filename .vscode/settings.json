@@ -3,5 +3,8 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "cSpell.words": ["Lato", "labrada"],
-  "iridium.npm.packageManager": "pnpm"
+  "iridium.npm.packageManager": "pnpm",
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  }
 }
