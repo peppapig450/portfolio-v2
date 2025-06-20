@@ -86,11 +86,7 @@ export const ProjectsProvider: React.FC<{ children: ReactNode }> = ({
     getProjectsByType,
   }
 
-  return (
-    <ProjectsContext.Provider value={value}>
-      {children}
-    </ProjectsContext.Provider>
-  )
+  return <ProjectsContext value={value}>{children}</ProjectsContext>
 }
 
 // Custom hook to use the projects context
