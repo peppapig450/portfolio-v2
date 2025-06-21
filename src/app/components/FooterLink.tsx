@@ -48,7 +48,6 @@ const AnimatedTypography = styled(Typography)<TypographyProps>(({ theme }) => ({
   },
 }))
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const SocialMediaBox = styled(Box)<BoxProps>(({ theme }) => ({
   background: "transparent",
   padding: theme.spacing(2, 0),
