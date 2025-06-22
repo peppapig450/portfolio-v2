@@ -35,17 +35,21 @@ const MediaRenderer: React.FC<MediaRendererProps> = ({
   }
 
   if (mediaType === "video") {
+    // Resolve the final video URL before constructing sources
+    const videoConfig = resolveImageSource(mediaUrl, preferredSource)
+    const videoUrl = getImageUrl(videoConfig)
+
     // decide if this is a WebM file
-    const ext = mediaUrl.split(".").pop()?.toLowerCase() ?? ""
+    const ext = videoUrl.split(".").pop()?.toLowerCase() ?? ""
     const isWebm = ext === "webm"
 
     // If it's WebM, offer two sources; otherwise just the native type
     const sources = isWebm
       ? [
-          { src: mediaUrl, type: "video/webm" },
-          { src: mediaUrl.replace(/\.webm$/, ".mp4"), type: "video/mp4" },
+          { src: videoUrl, type: "video/webm" },
+          { src: videoUrl.replace(/\.webm$/, ".mp4"), type: "video/mp4" },
         ]
-      : [{ src: mediaUrl, type: `video/${ext}` }]
+      : [{ src: videoUrl, type: `video/${ext}` }]
 
     // Card‐style video
     if (card) {
