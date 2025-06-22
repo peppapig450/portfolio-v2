@@ -14,7 +14,7 @@ import type {
 import { Box, IconButton, Link, Typography, useTheme } from "@mui/material"
 import { styled } from "@mui/material/styles"
 import NextLink from "next/link"
-import { forwardRef } from "react"
+import type { Ref } from "react"
 import CustomLink from "./CustomLink"
 
 interface FooterLinkProps extends Omit<LinkProps, "component"> {
@@ -52,127 +52,130 @@ const SocialMediaBox = styled(Box)<BoxProps>(({ theme }) => ({
   background: "transparent",
   padding: theme.spacing(2, 0),
 }))
+const FooterLinkComponent = ({
+  children,
+  goto = "/",
+  sx: userSx = {},
+  ref,
+  ...otherProps
+}: FooterLinkProps & { ref?: Ref<HTMLElement> }) => {
+  const theme = useTheme()
 
-const FooterLinkComponent = forwardRef<HTMLElement, FooterLinkProps>(
-  ({ children, goto = "/", sx: userSx = {}, ...otherProps }, ref) => {
-    const theme = useTheme()
+  const SocialMedias: SocialMediaItems[] = [
+    {
+      icon: <TwitterIcon aria-hidden="true" />,
+      url: "https://twitter.com/nickdidthat22",
+      label: "Twitter",
+    },
+    {
+      icon: <FacebookIcon aria-hidden="true" />,
+      url: "https://www.facebook/nickdidthat22",
+      label: "Facebook",
+    },
+    {
+      icon: <LinkedInIcon aria-hidden="true" />,
+      url: "https://www.linkedin.com/in/nick-brady-5715752b3",
+      label: "LinkedIn",
+    },
+    {
+      icon: <GitHubIcon aria-hidden="true" />,
+      url: "https://github.com/peppapig450",
+      label: "GitHub",
+    },
+    {
+      icon: <InstagramIcon aria-hidden="true" />,
+      url: "https://instagram.com/nickbrady41",
+      label: "Instagram",
+    },
+  ]
 
-    const SocialMedias: SocialMediaItems[] = [
-      {
-        icon: <TwitterIcon aria-hidden="true" />,
-        url: "https://twitter.com/nickdidthat22",
-        label: "Twitter",
-      },
-      {
-        icon: <FacebookIcon aria-hidden="true" />,
-        url: "https://www.facebook/nickdidthat22",
-        label: "Facebook",
-      },
-      {
-        icon: <LinkedInIcon aria-hidden="true" />,
-        url: "https://www.linkedin.com/in/nick-brady-5715752b3",
-        label: "LinkedIn",
-      },
-      {
-        icon: <GitHubIcon aria-hidden="true" />,
-        url: "https://github.com/peppapig450",
-        label: "GitHub",
-      },
-      {
-        icon: <InstagramIcon aria-hidden="true" />,
-        url: "https://instagram.com/nickbrady41",
-        label: "Instagram",
-      },
-    ]
-
-    return (
-      <Box
-        component="footer"
-        ref={ref}
-        {...otherProps} // everything except sx
-        sx={{
-          mt: 4,
-          [theme.breakpoints.down("md")]: {
-            paddingBottom: 5,
-          },
-          // merge in user overrides
-          ...userSx,
-        }}
+  return (
+    <Box
+      component="footer"
+      ref={ref}
+      {...otherProps} // everything except sx
+      sx={{
+        mt: 4,
+        [theme.breakpoints.down("md")]: {
+          paddingBottom: 5,
+        },
+        // merge in user overrides
+        ...userSx,
+      }}
+    >
+      <Link
+        href={goto}
+        underline="none"
+        component={NextLink}
+        passHref
+        aria-label={`Navigate to ${goto} page`}
       >
-        <Link
-          href={goto}
-          underline="none"
-          component={NextLink}
-          passHref
-          aria-label={`Navigate to ${goto} page`}
-        >
-          <Box sx={{ display: "inline-flex", alignItems: "center" }}>
-            <AnimatedTypography
+        <Box sx={{ display: "inline-flex", alignItems: "center" }}>
+          <AnimatedTypography
+            sx={{
+              fontSize: theme.typography.body1.fontSize,
+              fontWeight: theme.typography.fontWeightMedium,
+              color: theme.palette.grey[800],
+              display: "inline-flex",
+              alignItems: "center",
+            }}
+          >
+            {children}
+          </AnimatedTypography>
+          <ArrowRightAltIcon
+            aria-hidden="true"
+            sx={{
+              fontSize: "60px",
+              ml: theme.spacing(1),
+              color: theme.palette.secondary.main,
+              animation: `${arrowBounce} 0.5s infinite alternate`,
+              "@media (prefers-reduced-motion: reduce)": {
+                animation: "none",
+                transform: "translateX(1rem)",
+              },
+            }}
+          />
+        </Box>
+      </Link>
+      <SocialMediaBox sx={{ mr: -3 }}>
+        {SocialMedias.map((social, index) => (
+          <CustomLink
+            href={social.url}
+            key={index}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={`${social.label} Page`}
+            aria-label={`Visit Nick Brady's ${social.label} page`}
+            sx={{
+              mr: 0,
+              transition: "all 1s ease",
+              cursor: "pointer",
+              p: theme.spacing(1, 1.5),
+              "&:first-of-type": { pl: 0 },
+            }}
+          >
+            <IconButton
+              aria-label={`Go to Nick Brady's ${social.label} Page`}
               sx={{
-                fontSize: theme.typography.body1.fontSize,
-                fontWeight: theme.typography.fontWeightMedium,
-                color: theme.palette.grey[800],
-                display: "inline-flex",
-                alignItems: "center",
-              }}
-            >
-              {children}
-            </AnimatedTypography>
-            <ArrowRightAltIcon
-              aria-hidden="true"
-              sx={{
-                fontSize: "60px",
-                ml: theme.spacing(1),
-                color: theme.palette.secondary.main,
-                animation: `${arrowBounce} 0.5s infinite alternate`,
-                "@media (prefers-reduced-motion: reduce)": {
-                  animation: "none",
-                  transform: "translateX(1rem)",
+                cursor: "pointer",
+                height: 15,
+                fill: theme.palette.text.secondary,
+                transition: "all 1s ease",
+                "&:hover": {
+                  stroke: theme.palette.text.secondary,
+                  strokeWidth: 1,
+                  strokeOpacity: 0.8,
                 },
               }}
-            />
-          </Box>
-        </Link>
-        <SocialMediaBox sx={{ mr: -3 }}>
-          {SocialMedias.map((social, index) => (
-            <CustomLink
-              href={social.url}
-              key={index}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={`${social.label} Page`}
-              aria-label={`Visit Nick Brady's ${social.label} page`}
-              sx={{
-                mr: 0,
-                transition: "all 1s ease",
-                cursor: "pointer",
-                p: theme.spacing(1, 1.5),
-                "&:first-of-type": { pl: 0 },
-              }}
             >
-              <IconButton
-                aria-label={`Go to Nick Brady's ${social.label} Page`}
-                sx={{
-                  cursor: "pointer",
-                  height: 15,
-                  fill: theme.palette.text.secondary,
-                  transition: "all 1s ease",
-                  "&:hover": {
-                    stroke: theme.palette.text.secondary,
-                    strokeWidth: 1,
-                    strokeOpacity: 0.8,
-                  },
-                }}
-              >
-                {social.icon}
-              </IconButton>
-            </CustomLink>
-          ))}
-        </SocialMediaBox>
-      </Box>
-    )
-  },
-)
+              {social.icon}
+            </IconButton>
+          </CustomLink>
+        ))}
+      </SocialMediaBox>
+    </Box>
+  )
+}
 
 FooterLinkComponent.displayName = "FooterLink"
 export default FooterLinkComponent

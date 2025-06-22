@@ -1,14 +1,7 @@
 "use client"
 
 import { isMotionComponent, motion, useReducedMotion } from "framer-motion"
-import {
-  Children,
-  cloneElement,
-  forwardRef,
-  isValidElement,
-  memo,
-  useMemo,
-} from "react"
+import { Children, cloneElement, isValidElement, memo, useMemo } from "react"
 
 import type { MotionProps, Variants } from "framer-motion"
 import type {
@@ -19,6 +12,7 @@ import type {
   PropsWithChildren,
   ReactElement,
   ReactNode,
+  Ref,
 } from "react"
 
 interface StaggeredContainerOwnProps extends PropsWithChildren {
@@ -30,18 +24,26 @@ interface StaggeredContainerOwnProps extends PropsWithChildren {
   variant?: Variants
 }
 
+type PolymorphicRef<T extends ElementType> = Ref<
+  // Extract the *instance* we’ll actually receive in the ref:
+  //   – DOM nodes for intrinsic tags (e.g. "div" → HTMLDivElement)
+  //   – the class instance for class components
+  //   – never for plain function components (they have no instance)
+  //
+  // ComponentPropsWithRef already does this dance for us, so we can reuse it:>
+  ComponentPropsWithRef<T> extends { ref?: Ref<infer R> } ? R : never
+>
+
 /**
  * Merges the container's own props, Framer Motion's MotionProps,
  * and the props of the wrapped component T (omitting any conflicts).
  */
 type PolymorphicProps<T extends ElementType> = StaggeredContainerOwnProps & // own props
-  MotionProps & // Framer Motion base props
+  MotionProps &
   Omit<ComponentPropsWithoutRef<T>, keyof StaggeredContainerOwnProps> & {
     as?: T
-  } // polymorphic "as"
-
-/** Helper to get the right `ref` for any element/component */
-type PolymorphicRef<T extends ElementType> = ComponentPropsWithRef<T>["ref"]
+    ref?: PolymorphicRef<T>
+  }
 
 /**
  * What the *public* component should look like once all the casting is done.
@@ -49,7 +51,7 @@ type PolymorphicRef<T extends ElementType> = ComponentPropsWithRef<T>["ref"]
 export type ForwardRefWithAs<DefaultAs extends ElementType> = <
   As extends ElementType = DefaultAs,
 >(
-  props: PolymorphicProps<As> & { ref?: PolymorphicRef<As> },
+  props: PolymorphicProps<As>,
 ) => JSX.Element
 
 /**
@@ -95,17 +97,15 @@ const toMotion = <T extends ElementType>(component: T) => {
  * behavior; it will be wrapped and re‑typed before export so consumers get a
  * proper polymorphic experience.
  */
-const StaggeredContainerInner = <T extends ElementType = "div">(
-  {
-    as,
-    children,
-    staggerDelay = 0.2,
-    initialDelay = 0.1,
-    variant = revealChildVariant,
-    ...rest
-  }: PolymorphicProps<T>,
-  ref: PolymorphicRef<T>,
-) => {
+const StaggeredContainerInner = <T extends ElementType = "div">({
+  as,
+  children,
+  staggerDelay = 0.2,
+  initialDelay = 0.1,
+  variant = revealChildVariant,
+  ref,
+  ...rest
+}: PolymorphicProps<T>) => {
   const shouldReduceMotion = useReducedMotion()
 
   /**
@@ -182,22 +182,13 @@ const StaggeredContainerInner = <T extends ElementType = "div">(
 }
 
 /**
- * `forwardRef` doesn’t keep the generic, so we cast *after* creating the
- * component to re‑expose the polymorphic signature.
- */
-const Forwarded = forwardRef(
-  StaggeredContainerInner as unknown as (
-    props: PolymorphicProps<ElementType>,
-    ref: PolymorphicRef<ElementType>,
-  ) => JSX.Element,
-)
-
-/**
  * A container that staggers its children's animations on mount.
  * Supports polymorphic "as" to render any HTML or custom component,
  * with full props and ref forwarding.
  *
  * This component is memoized to prevent unnecessary re-renders.
  */
-export const StaggeredContainer = memo(Forwarded) as ForwardRefWithAs<"div">
+export const StaggeredContainer = memo(
+  StaggeredContainerInner,
+) as ForwardRefWithAs<"div">
 StaggeredContainerInner.displayName = "StaggeredContentInner"
