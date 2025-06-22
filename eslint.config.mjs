@@ -1,45 +1,53 @@
-import { FlatCompat } from "@eslint/eslintrc"
-import js from "@eslint/js"
-import typescriptEslint from "@typescript-eslint/eslint-plugin"
-import tsParser from "@typescript-eslint/parser"
-import { defineConfig } from "eslint/config"
-import path from "node:path"
-import { fileURLToPath } from "node:url"
+// @ts-check
+import eslint from "@eslint/js"
+// @ts-ignore
+import { flatConfig } from "@next/eslint-plugin-next"
+import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended"
+import reactCompiler from "eslint-plugin-react-compiler"
+import eslintPluginReactHooks from "eslint-plugin-react-hooks"
+import tseslint from "typescript-eslint"
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-})
-
-export default defineConfig([
+export default tseslint.config(
+  // @ts-ignore
+  flatConfig.recommended,
+  flatConfig.coreWebVitals,
   {
-    extends: compat.extends(
-      "next/core-web-vitals",
-      "next/typescript",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:@typescript-eslint/recommended-requiring-type-checking",
-      "prettier",
-    ),
-
+    ignores: [
+      "**/node_modules/**",
+      "**/dist/**",
+      "**/.next/**",
+      "**/build/**",
+      "eslint.config.mjs",
+    ],
+    files: ["**/*.ts", "**/*.tsx"],
+    extends: [
+      eslint.configs.recommended,
+      reactCompiler.configs.recommended,
+      tseslint.configs.recommendedTypeChecked,
+      tseslint.configs.stylisticTypeChecked,
+      eslintPluginPrettierRecommended,
+    ],
     plugins: {
-      "@typescript-eslint": typescriptEslint,
+      "react-hooks": eslintPluginReactHooks,
     },
-
     languageOptions: {
-      parser: tsParser,
-      ecmaVersion: 2022,
-      sourceType: "module",
-
+      parser: tseslint.parser,
       parserOptions: {
         project: "./tsconfig.json",
-        tsconfigRootDir: ".",
+        ecmaVersion: "latest",
+        sourceType: "module",
+        ecmaFeatures: {
+          jsx: true,
+        },
       },
     },
-
     rules: {
+      // React & hooks
+      "react-compiler/react-compiler": "error",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+
+      // TypeScript
       "@typescript-eslint/consistent-type-imports": [
         "error",
         {
@@ -47,6 +55,19 @@ export default defineConfig([
           disallowTypeAnnotations: false,
         },
       ],
+      "@typescript-eslint/no-floating-promises": "error",
+      "@typescript-eslint/switch-exhaustiveness-check": "warn",
+      "@typescript-eslint/no-unnecessary-type-assertion": "warn",
+      "@typescript-eslint/prefer-optional-chain": "warn",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { argsIgnorePattern: "^_" },
+      ],
+
+      // Code quality
+      eqeqeq: ["error", "always"],
+      "prefer-const": "error",
+      "no-implicit-coercion": "error",
     },
   },
-])
+)
