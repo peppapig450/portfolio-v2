@@ -1,4 +1,3 @@
-import { BrowserProvider } from "@/contexts/BrowserContext"
 import { ProjectsProvider } from "@/contexts/ProjectsContext"
 import type { Metadata } from "next"
 import NavBar from "../components/Navbar"
@@ -19,9 +18,7 @@ export default function Projects() {
     <>
       <NavBar />
       <ProjectsProvider>
-        <BrowserProvider>
-          <ProjectsContent />
-        </BrowserProvider>
+        <ProjectsContent />
       </ProjectsProvider>
     </>
   )
