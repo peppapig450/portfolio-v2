@@ -111,6 +111,7 @@ const MasonryItem: React.FC<MasonryItemProps> = ({ item }) => {
               mediaUrl={item.mediaUrl}
               mediaAlt={item.mediaAlt}
               mediaType={item.mediaType}
+              preferredSource="blob"
             />
             <ContentSlate className="content-slate">
               <Typography

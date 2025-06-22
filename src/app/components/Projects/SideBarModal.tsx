@@ -156,6 +156,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
             mediaUrl={data.mediaUrl}
             mediaAlt={data.mediaAlt}
             mediaType={data.mediaType}
+            preferredSource="blob"
           />
         </MediaContainer>
 

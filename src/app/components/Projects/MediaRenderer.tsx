@@ -1,16 +1,20 @@
-import { useBrowser } from "@/contexts/BrowserContext"
 import type { MediaType } from "@/contexts/ProjectsContext"
-import imgixURLBuilder from "@/utils/imageUrlBuilder"
+import {
+  getImageUrl,
+  resolveImageSource,
+  type ImageSource,
+} from "@/utils/imageUtils"
 import type { SxProps } from "@mui/material"
 import { CardMedia } from "@mui/material"
-import Image from "next/image"
-import type { MediaHTMLAttributes } from "react"
+import { SmartImage } from "../SmartImage"
 
 interface MediaRendererProps {
   card?: boolean
   mediaUrl: string
   mediaAlt: string
   mediaType: MediaType
+  preferredSource?: ImageSource
+  fallbackSrc?: string
 }
 
 const MediaRenderer: React.FC<MediaRendererProps> = ({
@@ -18,23 +22,10 @@ const MediaRenderer: React.FC<MediaRendererProps> = ({
   mediaUrl,
   mediaAlt,
   mediaType,
+  preferredSource = "public",
+  fallbackSrc,
 }) => {
-  const { isSafari } = useBrowser()
-
-  const getModifiedUrl = (url: string) => {
-    const modifiedUrl = isSafari ? url.replace(".webm", ".mp4") : url
-    return imgixURLBuilder(modifiedUrl)
-  }
-
-  const videoProps: MediaHTMLAttributes<HTMLVideoElement> = {
-    src: getModifiedUrl(mediaUrl),
-    autoPlay: true,
-    muted: true,
-    playsInline: true,
-    loop: true,
-  }
-
-  const commonStyles: SxProps = {
+  const commonSx: SxProps = {
     position: "absolute",
     top: 0,
     left: 0,
@@ -43,53 +34,91 @@ const MediaRenderer: React.FC<MediaRendererProps> = ({
     objectFit: "cover",
   }
 
+  if (mediaType === "video") {
+    // Resolve the final video URL before constructing sources
+    const videoConfig = resolveImageSource(mediaUrl, preferredSource)
+    const videoUrl = getImageUrl(videoConfig)
+
+    // decide if this is a WebM file
+    const ext = videoUrl.split(".").pop()?.toLowerCase() ?? ""
+    const isWebm = ext === "webm"
+
+    // If it's WebM, offer two sources; otherwise just the native type
+    const sources = isWebm
+      ? [
+          { src: videoUrl, type: "video/webm" },
+          { src: videoUrl.replace(/\.webm$/, ".mp4"), type: "video/mp4" },
+        ]
+      : [{ src: videoUrl, type: `video/${ext}` }]
+
+    // Card‐style video
+    if (card) {
+      return (
+        <CardMedia
+          component="video"
+          autoPlay
+          muted
+          playsInline
+          loop
+          sx={commonSx}
+        >
+          {sources.map((s) => (
+            <source key={s.type} src={s.src} type={s.type} />
+          ))}
+          {/* Fallback text for very old browsers */}
+          Your browser does not support the video tag.
+        </CardMedia>
+      )
+    }
+
+    // Inline video
+    return (
+      <video
+        autoPlay
+        muted
+        playsInline
+        loop
+        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+      >
+        {sources.map((s) => (
+          <source key={s.type} src={s.src} type={s.type} />
+        ))}
+        Your browser does not support the video tag.
+      </video>
+    )
+  }
+
+  const imgConfig = resolveImageSource(mediaUrl, preferredSource)
+  const imgSrc = getImageUrl(imgConfig)
+
+  // Look into using Next.js image here
+  if (card) {
+    return (
+      <CardMedia
+        component="img"
+        image={imgSrc}
+        alt={mediaAlt}
+        sx={commonSx}
+        onError={(e) => {
+          const el = e.currentTarget as HTMLImageElement
+          if (fallbackSrc && el.src !== fallbackSrc) {
+            el.src = fallbackSrc
+          }
+        }}
+      />
+    )
+  }
+
   return (
-    <>
-      {mediaType === "video" ? (
-        <>
-          {card ? (
-            <CardMedia
-              component={isSafari ? "img" : "video"}
-              src={getModifiedUrl(mediaUrl)}
-              alt={mediaAlt}
-              {...(isSafari
-                ? {}
-                : {
-                    autoPlay: true,
-                    muted: true,
-                    playsInline: true,
-                    loop: true,
-                  })}
-              sx={commonStyles}
-            />
-          ) : (
-            <video
-              {...videoProps}
-              style={{ objectFit: "cover", width: "100%", height: "100%" }}
-            />
-          )}
-        </>
-      ) : (
-        <>
-          {card ? (
-            <CardMedia
-              component="img"
-              src={imgixURLBuilder(mediaUrl)}
-              alt={mediaAlt}
-              sx={commonStyles}
-            />
-          ) : (
-            <Image
-              src={mediaUrl}
-              alt={mediaAlt}
-              fill
-              sizes="100vw"
-              style={{ objectFit: "cover" }}
-            />
-          )}
-        </>
-      )}
-    </>
+    <SmartImage
+      src={mediaUrl}
+      preferredSource={preferredSource}
+      fallbackSrc={fallbackSrc}
+      alt={mediaAlt}
+      fill
+      sizes="100vw"
+      style={{ objectFit: "cover" }}
+    />
   )
 }
 
