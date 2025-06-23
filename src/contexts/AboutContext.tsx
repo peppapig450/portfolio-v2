@@ -19,7 +19,7 @@ export interface TimelineItemType {
 }
 
 // Define the context data type that combines all items
-type AboutContextType = {
+interface AboutContextType {
   aboutMeData: TimelineItemType[]
   myPlaylistData: TimelineItemType[]
   myPhotographyData: TimelineItemType[]
