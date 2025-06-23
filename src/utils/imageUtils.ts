@@ -11,7 +11,7 @@ export function getImageUrl(config: ImageConfig): string {
     case "public":
       return `/images/${config.path}`
     case "blob":
-      return config.blobUrl || config.path
+      return config.blobUrl ?? config.path
     case "external":
       return config.path
     default:

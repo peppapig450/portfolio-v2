@@ -12,7 +12,7 @@ import { Box, Typography } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
 import CustomLink from "../CustomLink"
 
-type TimelineSectionProps = {
+interface TimelineSectionProps {
   title?: string
   items: TimelineItemType[]
 }

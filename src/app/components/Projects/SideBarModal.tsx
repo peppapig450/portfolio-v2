@@ -51,7 +51,7 @@ const OpenProjectButton = styled(Button)(({ theme }) => ({
 
 const SideBarModal: React.FC<ISideBarModal> = ({
   show = false,
-  closeShow = () => {},
+  closeShow = () => undefined,
   data,
 }) => {
   const theme = useTheme()
@@ -271,7 +271,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
         )}
 
         <CustomLink
-          href={data.link ? data.link : data.github}
+          href={data.link ?? data.github}
           target="_blank"
           rel="noopener noreferrer"
           underline="hover"
