@@ -16,7 +16,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material"
-import { useCallback, useEffect } from "react"
+import { useEffect } from "react"
 import CustomLink from "../CustomLink"
 import MediaRenderer from "./MediaRenderer"
 
@@ -58,21 +58,18 @@ const SideBarModal: React.FC<ISideBarModal> = ({
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"))
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"))
 
-  const handleKeyPress = useCallback(
-    (e: KeyboardEvent) => {
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         closeShow()
       }
-    },
-    [closeShow],
-  )
+    }
 
-  useEffect(() => {
     window.addEventListener("keydown", handleKeyPress)
     return () => {
       window.removeEventListener("keydown", handleKeyPress)
     }
-  }, [handleKeyPress])
+  }, [closeShow])
 
   const drawerWidth = isSmallScreen ? "100%" : isLargeScreen ? 600 : 500
 
