@@ -1,7 +1,7 @@
 "use client"
 
 import { isMotionComponent, motion, useReducedMotion } from "framer-motion"
-import { Children, cloneElement, isValidElement, memo, useMemo } from "react"
+import { Children, cloneElement, isValidElement } from "react"
 
 import type { MotionProps, Variants } from "framer-motion"
 import type {
@@ -112,31 +112,24 @@ const StaggeredContainerInner = <T extends ElementType = "div">({
    * Parent variants – either instant for reduced‑motion users or a staggered
    * sequence for everyone else.
    */
-  const parentVariants: Variants = useMemo(() => {
-    if (shouldReduceMotion) {
-      return {
-        hidden: {},
-        visible: { transition: { duration: 0 } },
-      }
-    }
-    return {
-      hidden: { opacity: 1 },
-      visible: {
-        opacity: 1,
-        transition: {
-          staggerChildren: staggerDelay,
-          delayChildren: initialDelay,
+  const parentVariants: Variants = shouldReduceMotion
+    ? { hidden: {}, visible: { transition: { duration: 0 } } }
+    : {
+        hidden: { opacity: 1 },
+        visible: {
+          opacity: 1,
+          transition: {
+            staggerChildren: staggerDelay,
+            delayChildren: initialDelay,
+          },
         },
-      },
-    }
-  }, [shouldReduceMotion, staggerDelay, initialDelay])
+      }
 
-  const childVariants: Variants = useMemo(
-    () => (shouldReduceMotion ? zeroMotionChildVariant : variant),
-    [shouldReduceMotion, variant],
-  )
+  const childVariants: Variants = shouldReduceMotion
+    ? zeroMotionChildVariant
+    : variant
 
-  const MotionContainer = useMemo(() => toMotion(as ?? "div"), [as])
+  const MotionContainer = toMotion(as ?? "div")
 
   // Avoid an extra wrapper where the child is already a motion component.
   const renderedChildren = Children.map(children, (child, index) => {
@@ -186,9 +179,7 @@ const StaggeredContainerInner = <T extends ElementType = "div">({
  * Supports polymorphic "as" to render any HTML or custom component,
  * with full props and ref forwarding.
  *
- * This component is memoized to prevent unnecessary re-renders.
  */
-export const StaggeredContainer = memo(
-  StaggeredContainerInner,
-) as ForwardRefWithAs<"div">
+export const StaggeredContainer =
+  StaggeredContainerInner as ForwardRefWithAs<"div">
 StaggeredContainerInner.displayName = "StaggeredContentInner"
