@@ -16,6 +16,9 @@ const lato = Lato({
 
 const mainTheme = responsiveFontSizes(
   createTheme({
+    cssVariables: {
+      colorSchemeSelector: "data",
+    },
     palette: {
       primary: {
         main: "#154d77",
