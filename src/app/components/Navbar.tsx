@@ -30,7 +30,7 @@ const StyledAppBar = styled(AppBar)<AppBarProps>(() => ({
 }))
 
 const NavLinkButton = styled(Button)<ButtonBaseProps>(({ theme }) => ({
-  color: theme.palette.text.primary,
+  color: theme.vars.palette.text.primary,
   marginLeft: theme.spacing(2),
   textTransform: "none",
   position: "relative",
@@ -42,7 +42,7 @@ const NavLinkButton = styled(Button)<ButtonBaseProps>(({ theme }) => ({
     left: "51%",
     right: "51%",
     bottom: "1.5px",
-    background: theme.palette.primary.main,
+    background: theme.vars.palette.primary.main,
     height: "1px",
     transition: "left 0.3s ease-out, right 0.3s ease-out",
   },
@@ -173,7 +173,7 @@ const NavBar: React.FC = () => {
               left: "51%",
               right: "51%",
               bottom: "1.5px",
-              backgroundColor: theme.palette.primary.main,
+              backgroundColor: theme.vars.palette.primary.main,
               height: "1px",
               transition: "left 0.3s ease-out, right 0.3s ease-out",
             },

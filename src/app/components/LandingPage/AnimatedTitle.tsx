@@ -16,13 +16,13 @@ const AnimatedTitle = ({
       display="flex"
       position="relative"
       overflow="hidden"
-      color={theme.palette.primary.main}
+      color={theme.vars.palette.primary.main}
       {...props}
     >
       <Typography
         variant="h3"
         component="h1"
-        color={theme.palette.text.primary}
+        color={theme.vars.palette.text.primary}
         letterSpacing="9.9px"
         position="relative"
         display="inline-block"
@@ -36,7 +36,7 @@ const AnimatedTitle = ({
             left: 2,
             height: "100%",
             width: "100%",
-            textShadow: `-1px 0 ${theme.palette.text.primary}`,
+            textShadow: `-1px 0 ${theme.vars.palette.text.primary}`,
             animation: `${noiseAnim2} 15s infinite linear alternate-reverse`,
           },
           "&:after": {
@@ -46,7 +46,7 @@ const AnimatedTitle = ({
             left: 2,
             height: "100%",
             width: "100%",
-            textShadow: `3px 0 ${theme.palette.secondary.main}`,
+            textShadow: `3px 0 ${theme.vars.palette.secondary.main}`,
             animation: `${noiseAnim} 2s infinite linear alternate-reverse`,
           },
           "@media (prefers-reduced-motion: reduce)": {

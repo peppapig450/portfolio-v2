@@ -26,7 +26,7 @@ export default function NotFound(): React.JSX.Element {
         justifyContent: "center",
         height: "100vh",
         textAlign: "center",
-        bgcolor: theme.palette.background.default,
+        bgcolor: theme.vars.palette.background.default,
         overflow: "hidden",
       }}
     >
@@ -65,7 +65,7 @@ export default function NotFound(): React.JSX.Element {
           variant="contained"
           startIcon={<HomeIcon />}
           sx={{
-            text: theme.palette.primary.contrastText,
+            text: theme.vars.palette.primary.contrastText,
             textTransform: "none",
             position: "relative",
             overflow: "hidden",
@@ -76,7 +76,7 @@ export default function NotFound(): React.JSX.Element {
               left: "51%",
               right: "51%",
               bottom: "1.5px",
-              background: theme.palette.primary.main,
+              background: theme.vars.palette.primary.main,
               height: "1px",
               transition: "left 0.3s ease-out, right 0.3s ease-out",
             },

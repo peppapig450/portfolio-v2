@@ -36,8 +36,8 @@ const MediaContainer = styled(Box)({
 
 const TechnologyChip = styled(Chip)(({ theme }) => ({
   margin: theme.spacing(0.5),
-  backgroundColor: theme.palette.grey.A400,
-  color: theme.palette.text.primary,
+  backgroundColor: theme.vars.palette.grey.A400,
+  color: theme.vars.palette.text.primary,
   fontWeight: "bold",
 }))
 
@@ -218,7 +218,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 underline="hover"
-                color={theme.palette.text.primary}
+                color={theme.vars.palette.text.primary}
                 fontWeight="bold"
                 aria-label="Open project website in new tab"
               >
@@ -243,7 +243,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
               <GitHubIcon
                 fontSize="small"
                 aria-hidden="true"
-                sx={{ mr: 1, color: theme.palette.text.secondary }}
+                sx={{ mr: 1, color: theme.vars.palette.text.secondary }}
               />
               Github
             </Typography>
@@ -257,7 +257,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 underline="hover"
-                color={theme.palette.text.primary}
+                color={theme.vars.palette.text.primary}
                 fontWeight="bold"
                 aria-label="Open project GitHub repository in new tab"
               >

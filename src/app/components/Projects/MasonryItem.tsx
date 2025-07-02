@@ -63,7 +63,7 @@ const ContentSlate = styled(CardContent)(({ theme }) => ({
   right: 0,
   margin: "0 0 1.5em",
   padding: "1.4rem 2rem",
-  color: theme.palette.common.white,
+  color: theme.vars.palette.common.white,
   width: "100%",
   opacity: 0,
   transform: "translateY(100%)",
@@ -73,8 +73,8 @@ const ContentSlate = styled(CardContent)(({ theme }) => ({
 
 const TechChip = styled(Chip)(({ theme }) => ({
   margin: theme.spacing(0.5),
-  backgroundColor: theme.palette.grey[600],
-  color: theme.palette.common.white,
+  backgroundColor: theme.vars.palette.grey[600],
+  color: theme.vars.palette.common.white,
 }))
 
 const MasonryItem: React.FC<MasonryItemProps> = ({ item }) => {
