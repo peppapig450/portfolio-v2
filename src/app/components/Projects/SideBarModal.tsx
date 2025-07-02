@@ -16,7 +16,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material"
-import { useCallback, useEffect } from "react"
+import { useEffect } from "react"
 import CustomLink from "../CustomLink"
 import MediaRenderer from "./MediaRenderer"
 
@@ -51,28 +51,25 @@ const OpenProjectButton = styled(Button)(({ theme }) => ({
 
 const SideBarModal: React.FC<ISideBarModal> = ({
   show = false,
-  closeShow = () => {},
+  closeShow = () => undefined,
   data,
 }) => {
   const theme = useTheme()
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"))
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"))
 
-  const handleKeyPress = useCallback(
-    (e: KeyboardEvent) => {
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         closeShow()
       }
-    },
-    [closeShow],
-  )
+    }
 
-  useEffect(() => {
     window.addEventListener("keydown", handleKeyPress)
     return () => {
       window.removeEventListener("keydown", handleKeyPress)
     }
-  }, [handleKeyPress])
+  }, [closeShow])
 
   const drawerWidth = isSmallScreen ? "100%" : isLargeScreen ? 600 : 500
 
@@ -271,7 +268,7 @@ const SideBarModal: React.FC<ISideBarModal> = ({
         )}
 
         <CustomLink
-          href={data.link ? data.link : data.github}
+          href={data.link ?? data.github}
           target="_blank"
           rel="noopener noreferrer"
           underline="hover"

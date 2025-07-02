@@ -174,21 +174,21 @@ const ContactContent: React.FC = () => {
                 sx={{ pl: theme.spacing(2), mt: theme.spacing(5) }}
               >
                 <Grid size={{ xs: 12, sm: 6 }}>
-                  <FormControl fullWidth error={!!errors.name}>
+                  <FormControl fullWidth error={Boolean(errors.name)}>
                     <TextField
                       name="name"
                       label="Name"
                       required
                       value={formState.name}
                       onChange={handleChange}
-                      error={!!errors.name}
+                      error={Boolean(errors.name)}
                       variant="standard"
                     />
                     <FormHelperText>{errors.name}</FormHelperText>
                   </FormControl>
                 </Grid>
                 <Grid size={{ xs: 12, sm: 6 }}>
-                  <FormControl fullWidth error={!!errors.email}>
+                  <FormControl fullWidth error={Boolean(errors.email)}>
                     <TextField
                       name="email"
                       label="Email"
@@ -196,14 +196,14 @@ const ContactContent: React.FC = () => {
                       required
                       value={formState.email}
                       onChange={handleChange}
-                      error={!!errors.email}
+                      error={Boolean(errors.email)}
                       variant="standard"
                     />
                     <FormHelperText>{errors.email}</FormHelperText>
                   </FormControl>
                 </Grid>
                 <Grid size={{ xs: 12, sm: 6 }}>
-                  <FormControl fullWidth error={!!errors.message}>
+                  <FormControl fullWidth error={Boolean(errors.message)}>
                     <TextField
                       name="message"
                       label="Message"
@@ -213,7 +213,7 @@ const ContactContent: React.FC = () => {
                       variant="standard"
                       value={formState.message}
                       onChange={handleChange}
-                      error={!!errors.message}
+                      error={Boolean(errors.message)}
                     />
                     <FormHelperText>{errors.message}</FormHelperText>
                   </FormControl>
