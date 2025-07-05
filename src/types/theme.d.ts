@@ -2,8 +2,8 @@
 /* Disable eslint error here as the empty interfaces are the recommended
  * way to define a custom Palette.
  */
-
 import type { Theme, ThemeOptions } from "@mui/material/styles"
+import type {} from "@mui/material/themeCssVarsAugmentation"
 
 interface CustomPalette {
   sidebar: {

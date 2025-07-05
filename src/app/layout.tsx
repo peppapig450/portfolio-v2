@@ -1,8 +1,13 @@
 import mainTheme from "@/styles/theme"
-import { CssBaseline, ThemeProvider } from "@mui/material"
+import {
+  CssBaseline,
+  InitColorSchemeScript,
+  ThemeProvider,
+} from "@mui/material"
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter"
 import { Analytics } from "@vercel/analytics/react"
 import type { Metadata } from "next"
+import type { ReactNode } from "react"
 
 export const metadata: Metadata = {
   title: {
@@ -81,11 +86,12 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
+        <InitColorSchemeScript attribute="data" />
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>

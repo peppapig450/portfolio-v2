@@ -30,7 +30,7 @@ const IntroductionText = ({ ref, ...props }: IntroductionTextProps) => {
             fontWeight: "bold",
             border: "medium",
             textTransform: "uppercase",
-            color: theme.palette.primary.main,
+            color: theme.vars.palette.primary.main,
           }}
         >
           project
@@ -51,7 +51,7 @@ const IntroductionText = ({ ref, ...props }: IntroductionTextProps) => {
             fontWeight: "bold",
             border: "medium",
             textTransform: "uppercase",
-            color: theme.palette.primary.main,
+            color: theme.vars.palette.primary.main,
           }}
         >
           articles
@@ -65,7 +65,7 @@ const IntroductionText = ({ ref, ...props }: IntroductionTextProps) => {
             fontWeight: "bold",
             border: "medium",
             textTransform: "uppercase",
-            color: theme.palette.primary.main,
+            color: theme.vars.palette.primary.main,
           }}
         >
           photography
@@ -79,7 +79,7 @@ const IntroductionText = ({ ref, ...props }: IntroductionTextProps) => {
             fontWeight: "bold",
             border: "medium",
             textTransform: "uppercase",
-            color: theme.palette.primary.main,
+            color: theme.vars.palette.primary.main,
           }}
         >
           contact me

@@ -12,8 +12,8 @@ const StyledTab = styled(Tab)(({ theme }) => ({
   textTransform: "capitalize",
   "&.Mui-selected": {
     fontWeight: 900,
-    color: theme.palette.common.white,
-    backgroundColor: theme.palette.grey[800],
+    color: theme.vars.palette.common.white,
+    backgroundColor: theme.vars.palette.grey[800],
   },
 }))
 

@@ -37,7 +37,7 @@ const AnimatedTypography = styled(Typography)<TypographyProps>(({ theme }) => ({
     bottom: 0,
     width: "100%",
     height: "2px",
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.vars.palette.primary.main,
     transform: "scaleX(0)",
     transformOrigin: "bottom right",
     transition: "transform 0.3s ease",
@@ -115,7 +115,7 @@ const FooterLinkComponent = ({
             sx={{
               fontSize: theme.typography.body1.fontSize,
               fontWeight: theme.typography.fontWeightMedium,
-              color: theme.palette.grey[800],
+              color: theme.vars.palette.grey[800],
               display: "inline-flex",
               alignItems: "center",
             }}
@@ -127,7 +127,7 @@ const FooterLinkComponent = ({
             sx={{
               fontSize: "60px",
               ml: theme.spacing(1),
-              color: theme.palette.secondary.main,
+              color: theme.vars.palette.secondary.main,
               animation: `${arrowBounce} 0.5s infinite alternate`,
               "@media (prefers-reduced-motion: reduce)": {
                 animation: "none",
@@ -159,10 +159,10 @@ const FooterLinkComponent = ({
               sx={{
                 cursor: "pointer",
                 height: 15,
-                fill: theme.palette.text.secondary,
+                fill: theme.vars.palette.text.secondary,
                 transition: "all 1s ease",
                 "&:hover": {
-                  stroke: theme.palette.text.secondary,
+                  stroke: theme.vars.palette.text.secondary,
                   strokeWidth: 1,
                   strokeOpacity: 0.8,
                 },
