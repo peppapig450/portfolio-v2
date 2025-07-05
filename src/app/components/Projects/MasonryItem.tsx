@@ -40,8 +40,7 @@ const StyledCard = styled(Card)(({ theme }) => ({
     right: 0,
     bottom: 0,
     left: 0,
-    background:
-      "linear-gradient(180deg, rgba(0, 0, 0, 0.1) 10%, rgba(0, 0, 0, 0.78) 80%)",
+    background: `linear-gradient(180deg, rgba(${theme.vars.palette.common.backgroundChannel} / 0.1) 10%, rgba(${theme.vars.palette.common.backgroundChannel} / 0.78) 80%)`,
     opacity: 0.3,
     transition: "opacity 300ms ease-in-out",
   },
@@ -73,7 +72,7 @@ const ContentSlate = styled(CardContent)(({ theme }) => ({
 
 const TechChip = styled(Chip)(({ theme }) => ({
   margin: theme.spacing(0.5),
-  backgroundColor: theme.vars.palette.grey[600],
+  backgroundColor: `rgba(${theme.vars.palette.text.primaryChannel} / 0.15)`,
   color: theme.vars.palette.common.white,
 }))
 

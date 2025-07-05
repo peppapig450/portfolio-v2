@@ -36,7 +36,7 @@ const MediaContainer = styled(Box)({
 
 const TechnologyChip = styled(Chip)(({ theme }) => ({
   margin: theme.spacing(0.5),
-  backgroundColor: theme.vars.palette.grey.A400,
+  backgroundColor: theme.vars.palette.grey.A400, // Maybe use rgba here?
   color: theme.vars.palette.text.primary,
   fontWeight: "bold",
 }))
