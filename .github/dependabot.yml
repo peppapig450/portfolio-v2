@@ -19,6 +19,12 @@ updates:
       include: "scope"
     allow:
       - dependency-type: "direct"
+    groups:
+      react-dependencies:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "react*"
 
   - package-ecosystem: "github-actions"
     directory: "/"
