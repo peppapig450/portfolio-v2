@@ -35,7 +35,7 @@ export default defineConfig([
 
       parserOptions: {
         project: "./tsconfig.json",
-        tsconfigRootDir: ".",
+        tsconfigRootDir: path.dirname(fileURLToPath(import.meta.url)),
       },
     },
 
