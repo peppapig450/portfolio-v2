@@ -2,7 +2,7 @@
 
 [![Next.js](https://img.shields.io/badge/Next.js-15.5.2-000?logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-3178c6?logo=typescript)](https://www.typescriptlang.org/)
-[![MUI](https://img.shields.io/badge/MUI-7.3.1-007fff?logo=mui)](https://mui.com/)
+[![MUI](https://img.shields.io/badge/MUI-7.3.2-007fff?logo=mui)](https://mui.com/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-12.23.12-0055FF?logo=framer)](https://www.framer.com/motion/)
 [![Vercel](https://img.shields.io/badge/deployed-Vercel-000?logo=vercel)](https://nickbrady.dev/)
 [![Lint & Format](https://github.com/peppapig450/portfolio-v2/actions/workflows/lint.yml/badge.svg)](https://github.com/peppapig450/portfolio-v2/actions/workflows/lint.yml)
