@@ -158,7 +158,7 @@ const ContactContent: React.FC = () => {
               >
                 Get in touch or shoot me an email directly on{" "}
                 <Typography component="span" fontWeight="bold">
-                  contact@nickbrady.dev
+                  contact@nicked.dev
                 </Typography>
               </Typography>
             </article>
