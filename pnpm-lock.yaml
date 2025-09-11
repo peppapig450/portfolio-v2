@@ -95,7 +95,7 @@ importers:
         version: 5.8.3
       vercel:
         specifier: ^47.0.1
-        version: 47.0.7
+        version: 47.1.3
 
 packages:
 
@@ -434,8 +434,8 @@ packages:
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
 
-  '@jridgewell/trace-mapping@0.3.30':
-    resolution: {integrity: sha512-GQ7Nw5G2lTu/BtHTKfXhKHok2WGetd4XYcVKGx00SjAk8GMwgJM3zr6zORiPGuOE+/vkc90KtTosSSvaCjKb2Q==}
+  '@jridgewell/trace-mapping@0.3.31':
+    resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
@@ -968,8 +968,8 @@ packages:
   '@vercel/error-utils@2.0.3':
     resolution: {integrity: sha512-CqC01WZxbLUxoiVdh9B/poPbNpY9U+tO1N9oWHwTl5YAZxcqXmmWJ8KNMFItJCUUWdY3J3xv8LvAuQv2KZ5YdQ==}
 
-  '@vercel/express@0.0.14':
-    resolution: {integrity: sha512-c6fraOj88YyooN9Ne4AcpcyaboqHSAC0NDC4jMATMgntONPsUfjYrQCFhmvuLuiKepmEOdWMk5kmsOp6OcYKzg==}
+  '@vercel/express@0.0.15':
+    resolution: {integrity: sha512-eyyeUvrQMSSRx71MK/VdsKbi+i0y/BwK6G5dUNSIT6HNGp9PytUnSUCEE2wHzS7IqECKDfadYZVIUPS4Syxk/A==}
 
   '@vercel/fun@1.1.6':
     resolution: {integrity: sha512-xDiM+bD0fSZyzcjsAua3D+guXclvHOSTzr03UcZEQwYzIjwWjLduT7bl2gAaeNIe7fASAIZd0P00clcj0On4rQ==}
@@ -984,8 +984,8 @@ packages:
   '@vercel/go@3.2.3':
     resolution: {integrity: sha512-PErgHlV7cf8hyPq31aRsL4xm5t4rCSO6vN5AQLlAGSy3ctdgqG7sI6hq/CAKo3CfgIhVHUwNYapFJgGJB/s4OA==}
 
-  '@vercel/hono@0.0.22':
-    resolution: {integrity: sha512-+pzgCBBnNyoH6Ez3G8r3Y9dIPizYHQFwLUlulB1ecjKy6IxAbN+DenPZs8oxvyVzufY8zmtseU9UsrrpPt2w7w==}
+  '@vercel/hono@0.0.23':
+    resolution: {integrity: sha512-PycZVeYdk1eMEzBUIh/Bbpl8Stl9myDX08Jwe5BF6IN9UorkQLv7N7wozwaujicFp28UNOZyCLm6eqwZ3gZlVw==}
 
   '@vercel/hydrogen@1.2.4':
     resolution: {integrity: sha512-eb16oesfgHuBlXxe+WqI+rMdP4QpeHXLJh9ropFy+StkWC2F0ZFKegutEpvJCRg0FHttRnn9uMzMmzJ2F4xKkg==}
@@ -998,11 +998,11 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  '@vercel/node@5.3.21':
-    resolution: {integrity: sha512-rtyylPomqpMFQu5DcAqXYf+J3gvboakpBewpjWUgSrkSwtu0mqgpYFjys6VaXb55qePhH9K6HYARaYLEuo9OLw==}
+  '@vercel/node@5.3.22':
+    resolution: {integrity: sha512-z3v0IlS5fqIEwPKpH9Epyam5DE+wadyKCk+MOaDZYVsriDp3ffJWT0neofHnNfOmnkZztMS194gwbV73v4QTBA==}
 
-  '@vercel/python@5.0.0':
-    resolution: {integrity: sha512-JHpYKQ8d478REzmF7NcJTJcncFziJhVOwzan8wW4F1RJOHGDBTPkATAgi4CPQIijToRamPCkgeECzNOvLUDR+w==}
+  '@vercel/python@5.0.2':
+    resolution: {integrity: sha512-r0AambeWu7DcPukIZZnBRIC5SSCkTKWfiAQESgfqdbCYVAVbYjjpCmZ83qBIlNAQbCMV4TRHgOLaVAUHhKppdQ==}
 
   '@vercel/redwood@2.3.6':
     resolution: {integrity: sha512-Rm9xECWNIJOwtPsZ1/XcgyJj95KM7cWwNHYPMw8dzFAnLQGyapGe/YHEjxV6POI2RF8R0nFmU1t+45XBweYJJA==}
@@ -2832,8 +2832,8 @@ packages:
   v8-compile-cache-lib@3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
 
-  vercel@47.0.7:
-    resolution: {integrity: sha512-+lmU4xptuIkSXDh3iQutPcb4dDh2olr6nKD7924g203IA1/nZaeRBYyqC61+QeVdB4w6jtmZFyfJIePRsl91mg==}
+  vercel@47.1.3:
+    resolution: {integrity: sha512-jeMYWaSfwWrGB94YxptYyaCyjGveHe1gIcWc14U7VPQ10Olh/WvtwhpA8FkM6sCjSgpf2HusHWUIjFm4syyM6w==}
     engines: {node: '>= 18'}
     hasBin: true
 
@@ -2933,7 +2933,7 @@ snapshots:
       '@babel/parser': 7.27.7
       '@babel/types': 7.27.7
       '@jridgewell/gen-mapping': 0.3.8
-      '@jridgewell/trace-mapping': 0.3.30
+      '@jridgewell/trace-mapping': 0.3.31
       jsesc: 3.1.0
 
   '@babel/helper-module-imports@7.27.1':
@@ -3253,7 +3253,7 @@ snapshots:
     dependencies:
       '@jridgewell/set-array': 1.2.1
       '@jridgewell/sourcemap-codec': 1.5.5
-      '@jridgewell/trace-mapping': 0.3.30
+      '@jridgewell/trace-mapping': 0.3.31
 
   '@jridgewell/resolve-uri@3.1.2': {}
 
@@ -3261,7 +3261,7 @@ snapshots:
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
 
-  '@jridgewell/trace-mapping@0.3.30':
+  '@jridgewell/trace-mapping@0.3.31':
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
@@ -3753,9 +3753,9 @@ snapshots:
 
   '@vercel/error-utils@2.0.3': {}
 
-  '@vercel/express@0.0.14':
+  '@vercel/express@0.0.15':
     dependencies:
-      '@vercel/node': 5.3.21
+      '@vercel/node': 5.3.22
       '@vercel/static-config': 3.1.2
       ts-morph: 12.0.0
     transitivePeerDependencies:
@@ -3803,9 +3803,9 @@ snapshots:
 
   '@vercel/go@3.2.3': {}
 
-  '@vercel/hono@0.0.22':
+  '@vercel/hono@0.0.23':
     dependencies:
-      '@vercel/node': 5.3.21
+      '@vercel/node': 5.3.22
       '@vercel/static-config': 3.1.2
       ts-morph: 12.0.0
     transitivePeerDependencies:
@@ -3847,7 +3847,7 @@ snapshots:
       - rollup
       - supports-color
 
-  '@vercel/node@5.3.21':
+  '@vercel/node@5.3.22':
     dependencies:
       '@edge-runtime/node-utils': 2.3.0
       '@edge-runtime/primitives': 4.1.0
@@ -3878,7 +3878,7 @@ snapshots:
       - rollup
       - supports-color
 
-  '@vercel/python@5.0.0': {}
+  '@vercel/python@5.0.2': {}
 
   '@vercel/redwood@2.3.6':
     dependencies:
@@ -5894,19 +5894,19 @@ snapshots:
 
   v8-compile-cache-lib@3.0.1: {}
 
-  vercel@47.0.7:
+  vercel@47.1.3:
     dependencies:
       '@vercel/blob': 1.0.2
       '@vercel/build-utils': 12.1.0
       '@vercel/detect-agent': 0.2.0
-      '@vercel/express': 0.0.14
+      '@vercel/express': 0.0.15
       '@vercel/fun': 1.1.6
       '@vercel/go': 3.2.3
-      '@vercel/hono': 0.0.22
+      '@vercel/hono': 0.0.23
       '@vercel/hydrogen': 1.2.4
       '@vercel/next': 4.12.4
-      '@vercel/node': 5.3.21
-      '@vercel/python': 5.0.0
+      '@vercel/node': 5.3.22
+      '@vercel/python': 5.0.2
       '@vercel/redwood': 2.3.6
       '@vercel/remix-builder': 5.4.12
       '@vercel/ruby': 2.2.1
