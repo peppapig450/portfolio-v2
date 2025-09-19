@@ -95,7 +95,7 @@ importers:
         version: 5.8.3
       vercel:
         specifier: ^48.0.0
-        version: 48.0.2
+        version: 48.0.3
 
 packages:
 
@@ -984,8 +984,11 @@ packages:
   '@vercel/go@3.2.3':
     resolution: {integrity: sha512-PErgHlV7cf8hyPq31aRsL4xm5t4rCSO6vN5AQLlAGSy3ctdgqG7sI6hq/CAKo3CfgIhVHUwNYapFJgGJB/s4OA==}
 
-  '@vercel/hono@0.0.25':
-    resolution: {integrity: sha512-5jL697pw1Gf6NXHLnAfAZ+ySqK8CiLcsk22aw1c5Zprx+IaqOFkMrTdOfHhZ4lIn1Cj4tABs/WvG86WJT2XmVQ==}
+  '@vercel/h3@0.1.0':
+    resolution: {integrity: sha512-S+OWmovSRncCJEMV6Zh7z1OiC8scR/VMvLKClEtvmZg+qAPDMpdQLBvL3X91qrQAkqJEq5+dVypI0qE4GpQwEw==}
+
+  '@vercel/hono@0.1.0':
+    resolution: {integrity: sha512-jn2WMBLKV7lfjVOYSMtWNI0fGO8GWuQu3BM5vDL0go3uU4me63GbRqZSA2qnTMiE+pVhCrWalwXGxrCVvQiGpg==}
 
   '@vercel/hydrogen@1.2.4':
     resolution: {integrity: sha512-eb16oesfgHuBlXxe+WqI+rMdP4QpeHXLJh9ropFy+StkWC2F0ZFKegutEpvJCRg0FHttRnn9uMzMmzJ2F4xKkg==}
@@ -2845,8 +2848,8 @@ packages:
   v8-compile-cache-lib@3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
 
-  vercel@48.0.2:
-    resolution: {integrity: sha512-saQWQuu2nXI8I8yxrHXDNeyV/A1v2fGri/B8XS/hMtZqzpiXeMw2edzlZPoLiinRAtNJsCaXf6Y5kEgstXhoIg==}
+  vercel@48.0.3:
+    resolution: {integrity: sha512-RCBpx4pSg9C0G5cloj0IfI40n6tLSt7N8CkaIfJWqBMMVcZvS2fRcUKxQ+cytkAquwyze27+vISILaFNIP/0QA==}
     engines: {node: '>= 18'}
     hasBin: true
 
@@ -3816,7 +3819,18 @@ snapshots:
 
   '@vercel/go@3.2.3': {}
 
-  '@vercel/hono@0.0.25':
+  '@vercel/h3@0.1.0':
+    dependencies:
+      '@vercel/node': 5.3.22
+      '@vercel/static-config': 3.1.2
+    transitivePeerDependencies:
+      - '@swc/core'
+      - '@swc/wasm'
+      - encoding
+      - rollup
+      - supports-color
+
+  '@vercel/hono@0.1.0':
     dependencies:
       '@vercel/node': 5.3.22
       '@vercel/static-config': 3.1.2
@@ -5914,7 +5928,7 @@ snapshots:
 
   v8-compile-cache-lib@3.0.1: {}
 
-  vercel@48.0.2:
+  vercel@48.0.3:
     dependencies:
       '@vercel/blob': 1.0.2
       '@vercel/build-utils': 12.1.0
@@ -5922,7 +5936,8 @@ snapshots:
       '@vercel/express': 0.0.16
       '@vercel/fun': 1.1.6
       '@vercel/go': 3.2.3
-      '@vercel/hono': 0.0.25
+      '@vercel/h3': 0.1.0
+      '@vercel/hono': 0.1.0
       '@vercel/hydrogen': 1.2.4
       '@vercel/next': 4.12.5
       '@vercel/node': 5.3.22
