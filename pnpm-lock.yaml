@@ -28,7 +28,7 @@ importers:
         version: 7.3.3(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(@types/react@19.2.0)(react@19.2.0))(@types/react@19.2.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@mui/material-nextjs':
         specifier: ^7.1.1
-        version: 7.3.2(@emotion/cache@11.14.0)(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(@types/react@19.2.0)(next@15.5.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)
+        version: 7.3.3(@emotion/cache@11.14.0)(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(@types/react@19.2.0)(next@15.5.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)
       '@types/styled-components':
         specifier: ^5.1.34
         version: 5.1.34
@@ -490,8 +490,8 @@ packages:
       '@types/react':
         optional: true
 
-  '@mui/material-nextjs@7.3.2':
-    resolution: {integrity: sha512-PYRGXf32vNOdKOrTOkoNmWipFKpMODQzrfSPaQQb0SsuTRWRyPxP1WR9A7JccJvsmvbBhdQ9bcBqrCD8oJub4w==}
+  '@mui/material-nextjs@7.3.3':
+    resolution: {integrity: sha512-SHqEh/GIa/HkHzBMMGvTRCVSLvXYTATZ7QN7/QxngimW5kBDI+pWzjieS8HmLDgo36rxD8g+GcLY6Bu+pilciw==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       '@emotion/cache': ^11.11.0
@@ -3502,9 +3502,9 @@ snapshots:
       '@emotion/styled': 11.14.1(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(@types/react@19.2.0)(react@19.2.0)
       '@types/react': 19.2.0
 
-  '@mui/material-nextjs@7.3.2(@emotion/cache@11.14.0)(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(@types/react@19.2.0)(next@15.5.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)':
+  '@mui/material-nextjs@7.3.3(@emotion/cache@11.14.0)(@emotion/react@11.14.0(@types/react@19.2.0)(react@19.2.0))(@types/react@19.2.0)(next@15.5.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)':
     dependencies:
-      '@babel/runtime': 7.28.3
+      '@babel/runtime': 7.28.4
       '@emotion/react': 11.14.0(@types/react@19.2.0)(react@19.2.0)
       next: 15.5.4(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react: 19.2.0
