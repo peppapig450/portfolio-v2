@@ -1,44 +1,35 @@
-import { FlatCompat } from "@eslint/eslintrc"
 import js from "@eslint/js"
-import typescriptEslint from "@typescript-eslint/eslint-plugin"
-import tsParser from "@typescript-eslint/parser"
-import { defineConfig } from "eslint/config"
+import nextPlugin from "@next/eslint-plugin-next"
+import eslintConfigPrettier from "eslint-config-prettier"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
+import tseslint from "typescript-eslint"
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-})
 
-export default defineConfig([
+export default tseslint.config(
+  js.configs.recommended,
+  ...tseslint.configs.recommendedTypeChecked,
+
   {
-    extends: compat.extends(
-      "next/core-web-vitals",
-      "next/typescript",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:@typescript-eslint/recommended-requiring-type-checking",
-      "prettier",
-    ),
-
     plugins: {
-      "@typescript-eslint": typescriptEslint,
+      "@next/next": nextPlugin,
     },
+    rules: {
+      ...nextPlugin.configs.recommended.rules,
+      ...nextPlugin.configs["core-web-vitals"].rules,
+    },
+  },
 
+  // Project-specific settings
+  {
     languageOptions: {
-      parser: tsParser,
-      ecmaVersion: 2022,
-      sourceType: "module",
-
       parserOptions: {
-        project: "./tsconfig.json",
-        tsconfigRootDir: path.dirname(fileURLToPath(import.meta.url)),
+        projectService: true,
+        tsconfigRootDir: __dirname,
       },
     },
-
     rules: {
       "@typescript-eslint/consistent-type-imports": [
         "error",
@@ -47,6 +38,14 @@ export default defineConfig([
           disallowTypeAnnotations: false,
         },
       ],
+      "@next/next/no-html-link-for-pages": "error",
     },
   },
-])
+
+  // Global ignores
+  {
+    ignores: [".next/*", "node_modules/*", "dist/*"],
+  },
+
+  eslintConfigPrettier,
+)
