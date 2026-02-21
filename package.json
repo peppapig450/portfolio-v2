@@ -16,26 +16,26 @@
     "@mui/icons-material": "^7.1.1",
     "@mui/lab": "7.0.0-beta.17",
     "@mui/material": "^7.1.1",
-    "@mui/material-nextjs": "^7.1.1",
+    "@mui/material-nextjs": "^7.3.8",
     "@types/styled-components": "^5.1.34",
     "@vercel/analytics": "^1.5.0",
     "framer-motion": "^12.18.1",
-    "next": "15.5.10",
+    "next": "16.1.6",
     "nicks-web-helpers": "^1.1.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.3",
     "@eslint/js": "^9.29.0",
-    "@next/eslint-plugin-next": "^16.1.6",
+    "@next/eslint-plugin-next": "16.1.6",
     "@types/node": "^24.0.3",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
     "@typescript-eslint/eslint-plugin": "^8.34.1",
     "@typescript-eslint/parser": "^8.34.1",
     "eslint": "^9.29.0",
-    "eslint-config-next": "latest",
+    "eslint-config-next": "16.1.6",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-perfectionist": "^4.15.0",
     "prettier": "^3.5.3",
@@ -44,5 +44,11 @@
     "typescript-eslint": "^8.56.0",
     "vercel": "^50.22.1"
   },
-  "packageManager": "pnpm@10.30.1+sha256.bc8bb877378eab6a8a83114eeb6a31ef88528db4ab5570299baba8fa54da2375"
+  "packageManager": "pnpm@10.30.1+sha256.bc8bb877378eab6a8a83114eeb6a31ef88528db4ab5570299baba8fa54da2375",
+  "pnpm": {
+    "overrides": {
+      "@types/react": "19.2.14",
+      "@types/react-dom": "19.2.3"
+    }
+  }
 }
