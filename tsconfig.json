@@ -28,7 +28,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "@/types/theme.d.ts"
+    "@/types/theme.d.ts",
+    "eslint.config.mjs"
   ],
   "exclude": ["node_modules"]
 }
