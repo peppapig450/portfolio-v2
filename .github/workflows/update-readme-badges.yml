@@ -35,7 +35,7 @@ jobs:
 
       - name: Create or update pull request
         id: cpr
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ steps.generate_token.outputs.token }}
           branch: update/readme-badges
