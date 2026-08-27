@@ -6,7 +6,7 @@ settings:
 
 overrides:
   '@types/react': 19.2.17
-  '@types/react-dom': 19.2.4
+  '@types/react-dom': 19.2.5
   undici@>=4.5.0 <5.28.5: '>=5.28.5'
   undici@<6.23.0: '>=6.23.0'
   undici@<5.29.0: '>=5.29.0'
@@ -80,8 +80,8 @@ importers:
         specifier: 19.2.17
         version: 19.2.17
       '@types/react-dom':
-        specifier: 19.2.4
-        version: 19.2.4(@types/react@19.2.17)
+        specifier: 19.2.5
+        version: 19.2.5(@types/react@19.2.17)
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.34.1
         version: 8.67.0(@typescript-eslint/parser@8.67.0(eslint@9.34.0(jiti@2.7.0))(typescript@6.0.3))(eslint@9.34.0(jiti@2.7.0))(typescript@6.0.3)
@@ -295,8 +295,8 @@ packages:
     resolution: {integrity: sha512-SIOD2DxrRRwQ+jgzlXCqoEFiKOFqaPjhnNTGKXSRLvp1HiOvapLaFG2kEr9dYQTYe8rKrd9uvDUzmAITeNyaHQ==}
     engines: {node: '>=18.0.0'}
 
-  '@colordx/core@5.5.0':
-    resolution: {integrity: sha512-3PxTH8itZzltK0U9jTwVVnjLXvnDYuq3m+QXsHkENxWiPRh4WaoLcs1SQjqgZ55kS+QyirpH5BVwzP2gMVG6EQ==}
+  '@colordx/core@5.6.0':
+    resolution: {integrity: sha512-EDlcg/Hmlj1WuFh/Os9YhA+A2aasB2XlgwFfGePUDuW7fVHC07HBi5AFIMx0Ct1eM8kHM9NRyOtZ0MuVYa8xvg==}
 
   '@dxup/nuxt@0.3.2':
     resolution: {integrity: sha512-2f2usP4oLNsIGjPprvABe3f3GWuIhIDp0169pGLFxTDRI5A4d4sBbGpR+tD9bGZCT+1Btb6Q2GKlyv3LkDCW5g==}
@@ -1251,17 +1251,17 @@ packages:
   '@nuxt/devalue@2.0.2':
     resolution: {integrity: sha512-GBzP8zOc7CGWyFQS6dv1lQz8VVpz5C2yRszbXufwG/9zhStTIH50EtD87NmWbTMwXDvZLNg8GIpb1UFdH93JCA==}
 
-  '@nuxt/devtools-kit@3.4.1':
-    resolution: {integrity: sha512-6ltPm2yUW8GvDdf3VJna7+flLi+ej7xRfSr+S4ovevKt/CuPf9EqYOn1jW7Kw/U1MXt/71zkn+/O2vu3G6O9Hg==}
+  '@nuxt/devtools-kit@3.4.2':
+    resolution: {integrity: sha512-TPPbmH9xrExagYxfCe6JgtbHmgchfgDdA656Yws18rn8I/oCvB+gcw3kTWBBp2sC9ipZPXsgbsW/yZnVnGNBiA==}
     peerDependencies:
       vite: '>=6.0'
 
-  '@nuxt/devtools-wizard@3.4.1':
-    resolution: {integrity: sha512-taGeuTnkHsZVjgD9r6NXvvHaBzB2j4mCgOmlmkz3ntsqgh1SJfmsD11Tmtl7FVAxJS8Wuvuzgt0GyTlADBW9Wg==}
+  '@nuxt/devtools-wizard@3.4.2':
+    resolution: {integrity: sha512-U2G8fw7KW1rdECyJDho5N14z8hSllpTk430KG1QPLjrv5w3pDksZ+YcpITd0u762Vw3gq3Arpg65Bk6U4ua6aQ==}
     hasBin: true
 
-  '@nuxt/devtools@3.4.1':
-    resolution: {integrity: sha512-20zZs6k/zAdi+PM7s1BwxE3hanZ+R1OGi5DWCKPyzSnhUUeeNebvWNgec7Rwnx6iKLkJfK4WFIZ+FL2QurG/ZQ==}
+  '@nuxt/devtools@3.4.2':
+    resolution: {integrity: sha512-Nidg0/zB710cyK89ltTkv66hMfPlIPlKA+Yb67bIrAkNm5PoTwQ1goHdFWHIAGZ9nTadcVTzATwMwa56nvl/Wg==}
     hasBin: true
     peerDependencies:
       '@vitejs/devtools': '*'
@@ -2068,8 +2068,8 @@ packages:
   '@types/prop-types@15.7.15':
     resolution: {integrity: sha512-F6bEyamV9jKGAFBEmlQnesRPGOQqS2+Uwi0Em15xenOxHaf2hv6L8YCVn3rPdPJOiJfPiCnLIRyvwVaqMY3MIw==}
 
-  '@types/react-dom@19.2.4':
-    resolution: {integrity: sha512-Bsc+QHgp+P/F02XDzNCY9jnZNCUuLki36KT7VKrTXXLdHf+vHMNZnW1rVu5DNW/rCK+fya3DATySbLM4yhtKUw==}
+  '@types/react-dom@19.2.5':
+    resolution: {integrity: sha512-fMPwH9v7r/pp43yUd2/Mbiex5KouJwwR3dzHkhLREUC6764VyDsqxhAxv6OFEYR1RhjOyD1naqba8ECDBe7ZQg==}
     peerDependencies:
       '@types/react': 19.2.17
 
@@ -4864,8 +4864,8 @@ packages:
     resolution: {integrity: sha512-RNEqWOyhhUQYN9V1GfHwu9AR/g+NTciH6Z5u3/no6X3/w+04J2lVDL+svFQVXgXrEGBMG2puMVN3gq2SNGuTGw==}
     engines: {node: '>=20.0.0'}
 
-  seroval@1.6.2:
-    resolution: {integrity: sha512-mPT+SD2TrlB6wvte1KkYOYUkubaTbd6pZ/6Kk3C9nxzrHmCZyhxOO7XGAeL7f+yLKZglzGtM9odUVvg/EhO+vQ==}
+  seroval@1.6.3:
+    resolution: {integrity: sha512-5PwLbVPpT4DEki1hYVSSsoxWY6xCNMVucAVLK/CH0mXSDfp/I4KaAex72q80GNt5hpn7CCMGdSpIg4YGqH/wXQ==}
     engines: {node: '>=10'}
 
   serve-placeholder@2.0.2:
@@ -5922,18 +5922,22 @@ snapshots:
   '@cloudflare/kv-asset-handler@0.4.2':
     optional: true
 
-  '@colordx/core@5.5.0':
+  '@colordx/core@5.6.0':
     optional: true
 
-  '@dxup/nuxt@0.3.2(magicast@0.5.4)':
+  '@dxup/nuxt@0.3.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.62.5)(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0)))':
     dependencies:
       '@dxup/unimport': 0.1.2
-      '@nuxt/kit': 4.3.1(magicast@0.5.4)
+      '@nuxt/kit': 4.5.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.62.5)(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0)))
       chokidar: 5.0.0
       pathe: 2.0.3
       tinyglobby: 0.2.17
     transitivePeerDependencies:
+      - magic-string
       - magicast
+      - oxc-parser
+      - rolldown
+      - unplugin
     optional: true
 
   '@dxup/unimport@0.1.2':
@@ -6713,7 +6717,7 @@ snapshots:
   '@nuxt/devalue@2.0.2':
     optional: true
 
-  '@nuxt/devtools-kit@3.4.1(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.62.5)(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0)))(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0))':
+  '@nuxt/devtools-kit@3.4.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.62.5)(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0)))(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0))':
     dependencies:
       '@nuxt/kit': 4.5.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.62.5)(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0)))
       execa: 8.0.1
@@ -6726,7 +6730,7 @@ snapshots:
       - unplugin
     optional: true
 
-  '@nuxt/devtools-wizard@3.4.1':
+  '@nuxt/devtools-wizard@3.4.2':
     dependencies:
       '@clack/prompts': 1.7.0
       consola: 3.4.2
@@ -6738,10 +6742,10 @@ snapshots:
       semver: 7.8.5
     optional: true
 
-  '@nuxt/devtools@3.4.1(db0@0.3.4)(ioredis@5.11.1)(magic-string@0.30.21)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.62.5)(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0)))(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0))(vue@3.5.30(typescript@6.0.3))':
+  '@nuxt/devtools@3.4.2(db0@0.3.4)(ioredis@5.11.1)(magic-string@0.30.21)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.62.5)(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0)))(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0))(vue@3.5.30(typescript@6.0.3))':
     dependencies:
-      '@nuxt/devtools-kit': 3.4.1(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.62.5)(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0)))(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0))
-      '@nuxt/devtools-wizard': 3.4.1
+      '@nuxt/devtools-kit': 3.4.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.62.5)(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0)))(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0))
+      '@nuxt/devtools-wizard': 3.4.2
       '@nuxt/kit': 4.5.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.62.5)(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0)))
       '@vue/devtools-core': 8.2.1(vue@3.5.30(typescript@6.0.3))
       '@vue/devtools-kit': 8.2.1
@@ -6982,7 +6986,7 @@ snapshots:
       pkg-types: 2.3.1
       postcss: 8.5.26
       rollup-plugin-visualizer: 6.0.11(rollup@4.62.5)
-      seroval: 1.6.2
+      seroval: 1.6.3
       std-env: 3.10.0
       ufo: 1.6.4
       unenv: 2.0.0-rc.24
@@ -7504,7 +7508,7 @@ snapshots:
 
   '@types/prop-types@15.7.15': {}
 
-  '@types/react-dom@19.2.4(@types/react@19.2.17)':
+  '@types/react-dom@19.2.5(@types/react@19.2.17)':
     dependencies:
       '@types/react': 19.2.17
 
@@ -10312,9 +10316,9 @@ snapshots:
 
   nuxt@4.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@parcel/watcher@2.5.6)(@types/node@26.2.0)(@vue/compiler-sfc@3.5.41)(cac@6.7.14)(db0@0.3.4)(esbuild@0.28.2)(eslint@9.34.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.4)(optionator@0.9.4)(rollup@4.62.5)(srvx@0.11.22)(terser@5.50.0)(typescript@6.0.3)(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0))(yaml@2.9.0):
     dependencies:
-      '@dxup/nuxt': 0.3.2(magicast@0.5.4)
+      '@dxup/nuxt': 0.3.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.62.5)(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0)))
       '@nuxt/cli': 3.37.0(@nuxt/schema@4.3.1)(@parcel/watcher@2.5.6)(cac@6.7.14)(magicast@0.5.4)
-      '@nuxt/devtools': 3.4.1(db0@0.3.4)(ioredis@5.11.1)(magic-string@0.30.21)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.62.5)(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0)))(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0))(vue@3.5.30(typescript@6.0.3))
+      '@nuxt/devtools': 3.4.2(db0@0.3.4)(ioredis@5.11.1)(magic-string@0.30.21)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.62.5)(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0)))(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0))(vue@3.5.30(typescript@6.0.3))
       '@nuxt/kit': 4.3.1(magicast@0.5.4)
       '@nuxt/nitro-server': 4.3.1(@parcel/watcher@2.5.6)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1)(magicast@0.5.4)(nuxt@4.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@parcel/watcher@2.5.6)(@types/node@26.2.0)(@vue/compiler-sfc@3.5.41)(cac@6.7.14)(db0@0.3.4)(esbuild@0.28.2)(eslint@9.34.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.4)(optionator@0.9.4)(rollup@4.62.5)(srvx@0.11.22)(terser@5.50.0)(typescript@6.0.3)(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0))(yaml@2.9.0))(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(rollup@4.62.5)(srvx@0.11.22)(typescript@6.0.3)(vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0))
       '@nuxt/schema': 4.3.1
@@ -10732,7 +10736,7 @@ snapshots:
 
   postcss-colormin@7.0.10(postcss@8.5.26):
     dependencies:
-      '@colordx/core': 5.5.0
+      '@colordx/core': 5.6.0
       browserslist: 4.28.8
       caniuse-api: 3.0.0
       postcss: 8.5.26
@@ -10791,7 +10795,7 @@ snapshots:
 
   postcss-minify-gradients@7.0.5(postcss@8.5.26):
     dependencies:
-      '@colordx/core': 5.5.0
+      '@colordx/core': 5.6.0
       cssnano-utils: 5.0.3(postcss@8.5.26)
       postcss: 8.5.26
       postcss-value-parser: 4.2.0
@@ -11204,7 +11208,7 @@ snapshots:
   serialize-javascript@7.1.0:
     optional: true
 
-  seroval@1.6.2:
+  seroval@1.6.3:
     optional: true
 
   serve-placeholder@2.0.2:
@@ -12007,7 +12011,7 @@ snapshots:
 
   vite@7.3.6(@types/node@26.2.0)(jiti@2.7.0)(terser@5.50.0)(yaml@2.9.0):
     dependencies:
-      esbuild: 0.27.7
+      esbuild: 0.28.2
       fdir: 6.5.0(picomatch@4.0.5)
       picomatch: 4.0.5
       postcss: 8.5.26
