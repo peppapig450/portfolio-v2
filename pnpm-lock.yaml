@@ -41,19 +41,19 @@ importers:
         version: 7.3.9(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.2.8))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.2.8))(@types/react@19.2.17)(react@19.2.8))(@types/react@19.2.17)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@mui/material-nextjs':
         specifier: ^9.0.0
-        version: 9.3.0(@emotion/cache@11.14.0)(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.2.8))(@types/react@19.2.17)(next@16.3.2(@babel/core@7.29.7)(@types/node@26.3.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)
+        version: 9.3.0(@emotion/cache@11.14.0)(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.2.8))(@types/react@19.2.17)(next@16.3.2(@babel/core@7.29.7)(@types/node@26.4.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)
       '@types/styled-components':
         specifier: ^5.1.34
         version: 5.1.36
       '@vercel/analytics':
         specifier: ^2.0.0
-        version: 2.0.1(next@16.3.2(@babel/core@7.29.7)(@types/node@26.3.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(nuxt@4.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@parcel/watcher@2.5.6)(@types/node@26.3.0)(@vue/compiler-sfc@3.5.42)(cac@6.7.14)(db0@0.3.4)(esbuild@0.28.2)(eslint@9.34.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.4)(optionator@0.9.4)(rollup@4.63.1)(srvx@0.11.22)(terser@5.51.2)(typescript@6.0.3)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(yaml@2.9.0))(react@19.2.8)(vue-router@4.6.4(vue@3.5.30(typescript@6.0.3)))(vue@3.5.30(typescript@6.0.3))
+        version: 2.0.1(next@16.3.2(@babel/core@7.29.7)(@types/node@26.4.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(nuxt@4.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@parcel/watcher@2.5.6)(@types/node@26.4.0)(@vue/compiler-sfc@3.5.42)(cac@6.7.14)(db0@0.3.4)(esbuild@0.28.2)(eslint@9.34.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.4)(optionator@0.9.4)(rollup@4.63.1)(srvx@0.11.22)(terser@5.51.2)(typescript@6.0.3)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(yaml@2.9.0))(react@19.2.8)(vue-router@4.6.4(vue@3.5.30(typescript@6.0.3)))(vue@3.5.30(typescript@6.0.3))
       framer-motion:
         specifier: ^13.0.0
         version: 13.1.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       next:
         specifier: 16.3.2
-        version: 16.3.2(@babel/core@7.29.7)(@types/node@26.3.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+        version: 16.3.2(@babel/core@7.29.7)(@types/node@26.4.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       nicks-web-helpers:
         specifier: ^1.1.0
         version: 1.1.0
@@ -75,7 +75,7 @@ importers:
         version: 16.3.2(eslint@9.34.0(jiti@2.7.0))
       '@types/node':
         specifier: ^26.0.0
-        version: 26.3.0
+        version: 26.4.0
       '@types/react':
         specifier: 19.2.17
         version: 19.2.17
@@ -2062,8 +2062,8 @@ packages:
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
 
-  '@types/node@26.3.0':
-    resolution: {integrity: sha512-L3fgrnchriRC2ExBflb8j4uZZURHZfQsmQeyVzhjcHW4kkwVyo8/0h1B2MVzMTrYUJYu6G7EWs14hW/L9putqw==}
+  '@types/node@26.4.0':
+    resolution: {integrity: sha512-faiGnoIrLH/V8cibOMEAZ8pMw6oXqSukl29ra4mN8GdaB2ZewzeaLj+INpV5N+Z1eKWzY+IzaIZH2EIR6YZRNQ==}
 
   '@types/parse-json@4.0.2':
     resolution: {integrity: sha512-dISoDXWWQwUquiKsyZ4Ng+HX2KsPL7LyHKHQwgGFEA3IaKac4Obd+h2a/a6waisAoepJlBcx9paWqjA8/HVjCw==}
@@ -5966,19 +5966,15 @@ snapshots:
   '@colordx/core@5.6.0':
     optional: true
 
-  '@dxup/nuxt@0.3.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))':
+  '@dxup/nuxt@0.3.2(magicast@0.5.4)':
     dependencies:
       '@dxup/unimport': 0.1.2
-      '@nuxt/kit': 4.5.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))
+      '@nuxt/kit': 4.3.1(magicast@0.5.4)
       chokidar: 5.0.0
       pathe: 2.0.3
       tinyglobby: 0.2.17
     transitivePeerDependencies:
-      - magic-string
       - magicast
-      - oxc-parser
-      - rolldown
-      - unplugin
     optional: true
 
   '@dxup/unimport@0.1.2':
@@ -6515,11 +6511,11 @@ snapshots:
       '@emotion/styled': 11.14.1(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.2.8))(@types/react@19.2.17)(react@19.2.8)
       '@types/react': 19.2.17
 
-  '@mui/material-nextjs@9.3.0(@emotion/cache@11.14.0)(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.2.8))(@types/react@19.2.17)(next@16.3.2(@babel/core@7.29.7)(@types/node@26.3.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)':
+  '@mui/material-nextjs@9.3.0(@emotion/cache@11.14.0)(@emotion/react@11.14.0(@types/react@19.2.17)(react@19.2.8))(@types/react@19.2.17)(next@16.3.2(@babel/core@7.29.7)(@types/node@26.4.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)':
     dependencies:
       '@babel/runtime': 7.29.7
       '@emotion/react': 11.14.0(@types/react@19.2.17)(react@19.2.8)
-      next: 16.3.2(@babel/core@7.29.7)(@types/node@26.3.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      next: 16.3.2(@babel/core@7.29.7)(@types/node@26.4.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     optionalDependencies:
       '@emotion/cache': 11.14.0
@@ -6765,11 +6761,11 @@ snapshots:
   '@nuxt/devalue@2.0.2':
     optional: true
 
-  '@nuxt/devtools-kit@3.4.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))':
+  '@nuxt/devtools-kit@3.4.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))':
     dependencies:
-      '@nuxt/kit': 4.5.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))
+      '@nuxt/kit': 4.5.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))
       execa: 8.0.1
-      vite: 7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
+      vite: 7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
     transitivePeerDependencies:
       - magic-string
       - magicast
@@ -6790,11 +6786,11 @@ snapshots:
       semver: 7.8.5
     optional: true
 
-  '@nuxt/devtools@3.4.2(db0@0.3.4)(ioredis@5.11.1)(magic-string@0.30.21)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(vue@3.5.30(typescript@6.0.3))':
+  '@nuxt/devtools@3.4.2(db0@0.3.4)(ioredis@5.11.1)(magic-string@0.30.21)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(vue@3.5.30(typescript@6.0.3))':
     dependencies:
-      '@nuxt/devtools-kit': 3.4.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
+      '@nuxt/devtools-kit': 3.4.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
       '@nuxt/devtools-wizard': 3.4.2
-      '@nuxt/kit': 4.5.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))
+      '@nuxt/kit': 4.5.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))
       '@vue/devtools-core': 8.2.1(vue@3.5.30(typescript@6.0.3))
       '@vue/devtools-kit': 8.2.1
       birpc: 4.2.0
@@ -6821,9 +6817,9 @@ snapshots:
       structured-clone-es: 2.0.1
       tinyglobby: 0.2.17
       unstorage: 1.17.5(db0@0.3.4)(ioredis@5.11.1)
-      vite: 7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
-      vite-plugin-inspect: 11.4.1(@nuxt/kit@4.5.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))))(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
-      vite-plugin-vue-tracer: 1.5.0(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(vue@3.5.30(typescript@6.0.3))
+      vite: 7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
+      vite-plugin-inspect: 11.4.1(@nuxt/kit@4.5.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))))(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
+      vite-plugin-vue-tracer: 1.5.0(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(vue@3.5.30(typescript@6.0.3))
       which: 6.0.1
       ws: 8.21.3
     transitivePeerDependencies:
@@ -6882,7 +6878,7 @@ snapshots:
       - magicast
     optional: true
 
-  '@nuxt/kit@4.5.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))':
+  '@nuxt/kit@4.5.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))':
     dependencies:
       c12: 3.3.4(magicast@0.5.4)
       consola: 3.4.2
@@ -6902,7 +6898,7 @@ snapshots:
       scule: 1.3.0
       tinyglobby: 0.2.17
       ufo: 1.6.4
-      unctx: 3.0.1(magic-string@0.30.21)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))
+      unctx: 3.0.1(magic-string@0.30.21)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))
       untyped: 2.0.0
       verkit: 0.3.2
     transitivePeerDependencies:
@@ -6913,7 +6909,7 @@ snapshots:
       - unplugin
     optional: true
 
-  '@nuxt/nitro-server@4.3.1(@parcel/watcher@2.5.6)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1)(magicast@0.5.4)(nuxt@4.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@parcel/watcher@2.5.6)(@types/node@26.3.0)(@vue/compiler-sfc@3.5.42)(cac@6.7.14)(db0@0.3.4)(esbuild@0.28.2)(eslint@9.34.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.4)(optionator@0.9.4)(rollup@4.63.1)(srvx@0.11.22)(terser@5.51.2)(typescript@6.0.3)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(yaml@2.9.0))(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(rollup@4.63.1)(srvx@0.11.22)(typescript@6.0.3)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))':
+  '@nuxt/nitro-server@4.3.1(@parcel/watcher@2.5.6)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1)(magicast@0.5.4)(nuxt@4.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@parcel/watcher@2.5.6)(@types/node@26.4.0)(@vue/compiler-sfc@3.5.42)(cac@6.7.14)(db0@0.3.4)(esbuild@0.28.2)(eslint@9.34.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.4)(optionator@0.9.4)(rollup@4.63.1)(srvx@0.11.22)(terser@5.51.2)(typescript@6.0.3)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(yaml@2.9.0))(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(rollup@4.63.1)(srvx@0.11.22)(typescript@6.0.3)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))':
     dependencies:
       '@nuxt/devalue': 2.0.2
       '@nuxt/kit': 4.3.1(magicast@0.5.4)
@@ -6927,11 +6923,11 @@ snapshots:
       escape-string-regexp: 5.0.0
       exsolve: 1.1.1
       h3: 1.15.11
-      impound: 1.2.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
+      impound: 1.2.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
       klona: 2.0.6
       mocked-exports: 0.1.1
-      nitropack: 2.13.4(@parcel/watcher@2.5.6)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(srvx@0.11.22)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
-      nuxt: 4.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@parcel/watcher@2.5.6)(@types/node@26.3.0)(@vue/compiler-sfc@3.5.42)(cac@6.7.14)(db0@0.3.4)(esbuild@0.28.2)(eslint@9.34.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.4)(optionator@0.9.4)(rollup@4.63.1)(srvx@0.11.22)(terser@5.51.2)(typescript@6.0.3)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(yaml@2.9.0)
+      nitropack: 2.13.4(@parcel/watcher@2.5.6)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(srvx@0.11.22)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
+      nuxt: 4.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@parcel/watcher@2.5.6)(@types/node@26.4.0)(@vue/compiler-sfc@3.5.42)(cac@6.7.14)(db0@0.3.4)(esbuild@0.28.2)(eslint@9.34.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.4)(optionator@0.9.4)(rollup@4.63.1)(srvx@0.11.22)(terser@5.51.2)(typescript@6.0.3)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(yaml@2.9.0)
       ohash: 2.0.12
       pathe: 2.0.3
       pkg-types: 2.3.1
@@ -7010,12 +7006,12 @@ snapshots:
       std-env: 4.2.0
     optional: true
 
-  '@nuxt/vite-builder@4.3.1(@types/node@26.3.0)(eslint@9.34.0(jiti@2.7.0))(magicast@0.5.4)(nuxt@4.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@parcel/watcher@2.5.6)(@types/node@26.3.0)(@vue/compiler-sfc@3.5.42)(cac@6.7.14)(db0@0.3.4)(esbuild@0.28.2)(eslint@9.34.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.4)(optionator@0.9.4)(rollup@4.63.1)(srvx@0.11.22)(terser@5.51.2)(typescript@6.0.3)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(yaml@2.9.0))(optionator@0.9.4)(rollup@4.63.1)(terser@5.51.2)(typescript@6.0.3)(vue@3.5.30(typescript@6.0.3))(yaml@2.9.0)':
+  '@nuxt/vite-builder@4.3.1(@types/node@26.4.0)(eslint@9.34.0(jiti@2.7.0))(magicast@0.5.4)(nuxt@4.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@parcel/watcher@2.5.6)(@types/node@26.4.0)(@vue/compiler-sfc@3.5.42)(cac@6.7.14)(db0@0.3.4)(esbuild@0.28.2)(eslint@9.34.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.4)(optionator@0.9.4)(rollup@4.63.1)(srvx@0.11.22)(terser@5.51.2)(typescript@6.0.3)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(yaml@2.9.0))(optionator@0.9.4)(rollup@4.63.1)(terser@5.51.2)(typescript@6.0.3)(vue@3.5.30(typescript@6.0.3))(yaml@2.9.0)':
     dependencies:
       '@nuxt/kit': 4.3.1(magicast@0.5.4)
       '@rollup/plugin-replace': 6.0.3(rollup@4.63.1)
-      '@vitejs/plugin-vue': 6.0.8(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(vue@3.5.30(typescript@6.0.3))
-      '@vitejs/plugin-vue-jsx': 5.1.6(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(vue@3.5.30(typescript@6.0.3))
+      '@vitejs/plugin-vue': 6.0.8(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(vue@3.5.30(typescript@6.0.3))
+      '@vitejs/plugin-vue-jsx': 5.1.6(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(vue@3.5.30(typescript@6.0.3))
       autoprefixer: 10.5.4(postcss@8.5.26)
       consola: 3.4.2
       cssnano: 7.1.9(postcss@8.5.26)
@@ -7029,7 +7025,7 @@ snapshots:
       magic-string: 0.30.21
       mlly: 1.8.2
       mocked-exports: 0.1.1
-      nuxt: 4.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@parcel/watcher@2.5.6)(@types/node@26.3.0)(@vue/compiler-sfc@3.5.42)(cac@6.7.14)(db0@0.3.4)(esbuild@0.28.2)(eslint@9.34.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.4)(optionator@0.9.4)(rollup@4.63.1)(srvx@0.11.22)(terser@5.51.2)(typescript@6.0.3)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(yaml@2.9.0)
+      nuxt: 4.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@parcel/watcher@2.5.6)(@types/node@26.4.0)(@vue/compiler-sfc@3.5.42)(cac@6.7.14)(db0@0.3.4)(esbuild@0.28.2)(eslint@9.34.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.4)(optionator@0.9.4)(rollup@4.63.1)(srvx@0.11.22)(terser@5.51.2)(typescript@6.0.3)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(yaml@2.9.0)
       pathe: 2.0.3
       pkg-types: 2.3.1
       postcss: 8.5.26
@@ -7038,9 +7034,9 @@ snapshots:
       std-env: 3.10.0
       ufo: 1.6.4
       unenv: 2.0.0-rc.24
-      vite: 7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
-      vite-node: 5.3.0(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
-      vite-plugin-checker: 0.12.0(eslint@9.34.0(jiti@2.7.0))(optionator@0.9.4)(typescript@6.0.3)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
+      vite: 7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
+      vite-node: 5.3.0(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
+      vite-plugin-checker: 0.12.0(eslint@9.34.0(jiti@2.7.0))(optionator@0.9.4)(typescript@6.0.3)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
       vue: 3.5.30(typescript@6.0.3)
       vue-bundle-renderer: 2.3.2
     transitivePeerDependencies:
@@ -7548,7 +7544,7 @@ snapshots:
 
   '@types/json5@0.0.29': {}
 
-  '@types/node@26.3.0':
+  '@types/node@26.4.0':
     dependencies:
       undici-types: 8.3.0
 
@@ -7927,10 +7923,10 @@ snapshots:
   '@unrs/resolver-binding-win32-x64-msvc@1.12.2':
     optional: true
 
-  '@vercel/analytics@2.0.1(next@16.3.2(@babel/core@7.29.7)(@types/node@26.3.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(nuxt@4.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@parcel/watcher@2.5.6)(@types/node@26.3.0)(@vue/compiler-sfc@3.5.42)(cac@6.7.14)(db0@0.3.4)(esbuild@0.28.2)(eslint@9.34.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.4)(optionator@0.9.4)(rollup@4.63.1)(srvx@0.11.22)(terser@5.51.2)(typescript@6.0.3)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(yaml@2.9.0))(react@19.2.8)(vue-router@4.6.4(vue@3.5.30(typescript@6.0.3)))(vue@3.5.30(typescript@6.0.3))':
+  '@vercel/analytics@2.0.1(next@16.3.2(@babel/core@7.29.7)(@types/node@26.4.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(nuxt@4.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@parcel/watcher@2.5.6)(@types/node@26.4.0)(@vue/compiler-sfc@3.5.42)(cac@6.7.14)(db0@0.3.4)(esbuild@0.28.2)(eslint@9.34.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.4)(optionator@0.9.4)(rollup@4.63.1)(srvx@0.11.22)(terser@5.51.2)(typescript@6.0.3)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(yaml@2.9.0))(react@19.2.8)(vue-router@4.6.4(vue@3.5.30(typescript@6.0.3)))(vue@3.5.30(typescript@6.0.3))':
     optionalDependencies:
-      next: 16.3.2(@babel/core@7.29.7)(@types/node@26.3.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      nuxt: 4.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@parcel/watcher@2.5.6)(@types/node@26.3.0)(@vue/compiler-sfc@3.5.42)(cac@6.7.14)(db0@0.3.4)(esbuild@0.28.2)(eslint@9.34.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.4)(optionator@0.9.4)(rollup@4.63.1)(srvx@0.11.22)(terser@5.51.2)(typescript@6.0.3)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(yaml@2.9.0)
+      next: 16.3.2(@babel/core@7.29.7)(@types/node@26.4.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      nuxt: 4.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@parcel/watcher@2.5.6)(@types/node@26.4.0)(@vue/compiler-sfc@3.5.42)(cac@6.7.14)(db0@0.3.4)(esbuild@0.28.2)(eslint@9.34.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.4)(optionator@0.9.4)(rollup@4.63.1)(srvx@0.11.22)(terser@5.51.2)(typescript@6.0.3)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(yaml@2.9.0)
       react: 19.2.8
       vue: 3.5.30(typescript@6.0.3)
       vue-router: 4.6.4(vue@3.5.30(typescript@6.0.3))
@@ -7955,23 +7951,23 @@ snapshots:
       - supports-color
     optional: true
 
-  '@vitejs/plugin-vue-jsx@5.1.6(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(vue@3.5.30(typescript@6.0.3))':
+  '@vitejs/plugin-vue-jsx@5.1.6(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(vue@3.5.30(typescript@6.0.3))':
     dependencies:
       '@babel/core': 7.29.7
       '@babel/plugin-syntax-typescript': 7.29.7(@babel/core@7.29.7)
       '@babel/plugin-transform-typescript': 7.29.7(@babel/core@7.29.7)
       '@rolldown/pluginutils': 1.0.1
       '@vue/babel-plugin-jsx': 2.0.1(@babel/core@7.29.7)
-      vite: 7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
+      vite: 7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
       vue: 3.5.30(typescript@6.0.3)
     transitivePeerDependencies:
       - supports-color
     optional: true
 
-  '@vitejs/plugin-vue@6.0.8(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(vue@3.5.30(typescript@6.0.3))':
+  '@vitejs/plugin-vue@6.0.8(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(vue@3.5.30(typescript@6.0.3))':
     dependencies:
       '@rolldown/pluginutils': 1.0.1
-      vite: 7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
+      vite: 7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
       vue: 3.5.30(typescript@6.0.3)
     optional: true
 
@@ -9697,12 +9693,12 @@ snapshots:
       parent-module: 1.0.1
       resolve-from: 4.0.0
 
-  impound@1.2.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)):
+  impound@1.2.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       es-module-lexer: 2.3.2
       pathe: 2.0.3
-      unplugin: 3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
+      unplugin: 3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
       unplugin-utils: 0.3.2
     transitivePeerDependencies:
       - '@farmfe/core'
@@ -10210,7 +10206,7 @@ snapshots:
 
   natural-orderby@5.0.0: {}
 
-  next@16.3.2(@babel/core@7.29.7)(@types/node@26.3.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
+  next@16.3.2(@babel/core@7.29.7)(@types/node@26.4.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
     dependencies:
       '@next/env': 16.3.2
       '@swc/helpers': 0.5.23
@@ -10229,7 +10225,7 @@ snapshots:
       '@next/swc-linux-x64-musl': 16.3.2
       '@next/swc-win32-arm64-msvc': 16.3.2
       '@next/swc-win32-x64-msvc': 16.3.2
-      sharp: 0.35.3(@types/node@26.3.0)
+      sharp: 0.35.3(@types/node@26.4.0)
     transitivePeerDependencies:
       - '@babel/core'
       - '@types/node'
@@ -10237,7 +10233,7 @@ snapshots:
 
   nicks-web-helpers@1.1.0: {}
 
-  nitropack@2.13.4(@parcel/watcher@2.5.6)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(srvx@0.11.22)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)):
+  nitropack@2.13.4(@parcel/watcher@2.5.6)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(srvx@0.11.22)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.4.2
       '@rollup/plugin-alias': 6.0.0(rollup@4.63.1)
@@ -10302,7 +10298,7 @@ snapshots:
       uncrypto: 0.1.3
       unctx: 2.5.0
       unenv: 2.0.0-rc.24
-      unimport: 6.4.0(esbuild@0.28.2)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
+      unimport: 6.4.0(esbuild@0.28.2)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(rollup@4.63.1)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
       unplugin-utils: 0.3.2
       unstorage: 1.17.5(db0@0.3.4)(ioredis@5.11.1)
       untyped: 2.0.0
@@ -10406,16 +10402,16 @@ snapshots:
       boolbase: 1.0.0
     optional: true
 
-  nuxt@4.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@parcel/watcher@2.5.6)(@types/node@26.3.0)(@vue/compiler-sfc@3.5.42)(cac@6.7.14)(db0@0.3.4)(esbuild@0.28.2)(eslint@9.34.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.4)(optionator@0.9.4)(rollup@4.63.1)(srvx@0.11.22)(terser@5.51.2)(typescript@6.0.3)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(yaml@2.9.0):
+  nuxt@4.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@parcel/watcher@2.5.6)(@types/node@26.4.0)(@vue/compiler-sfc@3.5.42)(cac@6.7.14)(db0@0.3.4)(esbuild@0.28.2)(eslint@9.34.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.4)(optionator@0.9.4)(rollup@4.63.1)(srvx@0.11.22)(terser@5.51.2)(typescript@6.0.3)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(yaml@2.9.0):
     dependencies:
-      '@dxup/nuxt': 0.3.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))
+      '@dxup/nuxt': 0.3.2(magicast@0.5.4)
       '@nuxt/cli': 3.37.0(@nuxt/schema@4.3.1)(@parcel/watcher@2.5.6)(cac@6.7.14)(magicast@0.5.4)
-      '@nuxt/devtools': 3.4.2(db0@0.3.4)(ioredis@5.11.1)(magic-string@0.30.21)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(vue@3.5.30(typescript@6.0.3))
+      '@nuxt/devtools': 3.4.2(db0@0.3.4)(ioredis@5.11.1)(magic-string@0.30.21)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(vue@3.5.30(typescript@6.0.3))
       '@nuxt/kit': 4.3.1(magicast@0.5.4)
-      '@nuxt/nitro-server': 4.3.1(@parcel/watcher@2.5.6)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1)(magicast@0.5.4)(nuxt@4.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@parcel/watcher@2.5.6)(@types/node@26.3.0)(@vue/compiler-sfc@3.5.42)(cac@6.7.14)(db0@0.3.4)(esbuild@0.28.2)(eslint@9.34.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.4)(optionator@0.9.4)(rollup@4.63.1)(srvx@0.11.22)(terser@5.51.2)(typescript@6.0.3)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(yaml@2.9.0))(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(rollup@4.63.1)(srvx@0.11.22)(typescript@6.0.3)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
+      '@nuxt/nitro-server': 4.3.1(@parcel/watcher@2.5.6)(db0@0.3.4)(esbuild@0.28.2)(ioredis@5.11.1)(magicast@0.5.4)(nuxt@4.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@parcel/watcher@2.5.6)(@types/node@26.4.0)(@vue/compiler-sfc@3.5.42)(cac@6.7.14)(db0@0.3.4)(esbuild@0.28.2)(eslint@9.34.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.4)(optionator@0.9.4)(rollup@4.63.1)(srvx@0.11.22)(terser@5.51.2)(typescript@6.0.3)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(yaml@2.9.0))(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(rollup@4.63.1)(srvx@0.11.22)(typescript@6.0.3)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
       '@nuxt/schema': 4.3.1
       '@nuxt/telemetry': 2.8.0(@nuxt/kit@4.3.1(magicast@0.5.4))
-      '@nuxt/vite-builder': 4.3.1(@types/node@26.3.0)(eslint@9.34.0(jiti@2.7.0))(magicast@0.5.4)(nuxt@4.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@parcel/watcher@2.5.6)(@types/node@26.3.0)(@vue/compiler-sfc@3.5.42)(cac@6.7.14)(db0@0.3.4)(esbuild@0.28.2)(eslint@9.34.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.4)(optionator@0.9.4)(rollup@4.63.1)(srvx@0.11.22)(terser@5.51.2)(typescript@6.0.3)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(yaml@2.9.0))(optionator@0.9.4)(rollup@4.63.1)(terser@5.51.2)(typescript@6.0.3)(vue@3.5.30(typescript@6.0.3))(yaml@2.9.0)
+      '@nuxt/vite-builder': 4.3.1(@types/node@26.4.0)(eslint@9.34.0(jiti@2.7.0))(magicast@0.5.4)(nuxt@4.3.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@parcel/watcher@2.5.6)(@types/node@26.4.0)(@vue/compiler-sfc@3.5.42)(cac@6.7.14)(db0@0.3.4)(esbuild@0.28.2)(eslint@9.34.0(jiti@2.7.0))(ioredis@5.11.1)(magicast@0.5.4)(optionator@0.9.4)(rollup@4.63.1)(srvx@0.11.22)(terser@5.51.2)(typescript@6.0.3)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(yaml@2.9.0))(optionator@0.9.4)(rollup@4.63.1)(terser@5.51.2)(typescript@6.0.3)(vue@3.5.30(typescript@6.0.3))(yaml@2.9.0)
       '@unhead/vue': 2.1.17(vue@3.5.30(typescript@6.0.3))
       '@vue/shared': 3.5.42
       c12: 3.3.4(magicast@0.5.4)
@@ -10432,7 +10428,7 @@ snapshots:
       h3: 1.15.11
       hookable: 5.5.3
       ignore: 7.0.6
-      impound: 1.2.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
+      impound: 1.2.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
       jiti: 2.7.0
       klona: 2.0.6
       knitwork: 1.3.0
@@ -10460,14 +10456,14 @@ snapshots:
       uncrypto: 0.1.3
       unctx: 2.5.0
       unimport: 5.7.0
-      unplugin: 3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
+      unplugin: 3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
       unplugin-vue-router: 0.19.2(@vue/compiler-sfc@3.5.42)(vue-router@4.6.4(vue@3.5.30(typescript@6.0.3)))(vue@3.5.30(typescript@6.0.3))
       untyped: 2.0.0
       vue: 3.5.30(typescript@6.0.3)
       vue-router: 4.6.4(vue@3.5.30(typescript@6.0.3))
     optionalDependencies:
       '@parcel/watcher': 2.5.6
-      '@types/node': 26.3.0
+      '@types/node': 26.4.0
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -11343,7 +11339,7 @@ snapshots:
   setprototypeof@1.2.0:
     optional: true
 
-  sharp@0.35.3(@types/node@26.3.0):
+  sharp@0.35.3(@types/node@26.4.0):
     dependencies:
       '@img/colour': 1.1.0
       detect-libc: 2.1.2
@@ -11374,7 +11370,7 @@ snapshots:
       '@img/sharp-win32-arm64': 0.35.3
       '@img/sharp-win32-ia32': 0.35.3
       '@img/sharp-win32-x64': 0.35.3
-      '@types/node': 26.3.0
+      '@types/node': 26.4.0
     optional: true
 
   shebang-command@2.0.0:
@@ -11818,11 +11814,11 @@ snapshots:
       unplugin: 2.3.11
     optional: true
 
-  unctx@3.0.1(magic-string@0.30.21)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))):
+  unctx@3.0.1(magic-string@0.30.21)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))):
     optionalDependencies:
       magic-string: 0.30.21
       oxc-parser: 0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)
-      unplugin: 3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
+      unplugin: 3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
     optional: true
 
   undici-types@8.3.0: {}
@@ -11861,7 +11857,7 @@ snapshots:
       unplugin-utils: 0.3.2
     optional: true
 
-  unimport@6.4.0(esbuild@0.28.2)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)):
+  unimport@6.4.0(esbuild@0.28.2)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(rollup@4.63.1)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)):
     dependencies:
       acorn: 8.18.0
       escape-string-regexp: 5.0.0
@@ -11875,7 +11871,7 @@ snapshots:
       scule: 1.3.0
       strip-literal: 4.0.0
       tinyglobby: 0.2.17
-      unplugin: 3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
+      unplugin: 3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
       unplugin-utils: 0.3.2
     optionalDependencies:
       oxc-parser: 0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)
@@ -11930,7 +11926,7 @@ snapshots:
       webpack-virtual-modules: 0.6.2
     optional: true
 
-  unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)):
+  unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)):
     dependencies:
       '@jridgewell/remapping': 2.3.5
       picomatch: 4.0.7
@@ -11938,7 +11934,7 @@ snapshots:
     optionalDependencies:
       esbuild: 0.28.2
       rollup: 4.63.1
-      vite: 7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
+      vite: 7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
     optional: true
 
   unrs-resolver@1.12.2:
@@ -12024,25 +12020,25 @@ snapshots:
   verkit@0.3.2:
     optional: true
 
-  vite-dev-rpc@2.0.0(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)):
+  vite-dev-rpc@2.0.0(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)):
     dependencies:
       birpc: 4.2.0
-      vite: 7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
-      vite-hot-client: 2.2.0(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
+      vite: 7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
+      vite-hot-client: 2.2.0(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
     optional: true
 
-  vite-hot-client@2.2.0(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)):
+  vite-hot-client@2.2.0(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)):
     dependencies:
-      vite: 7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
+      vite: 7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
     optional: true
 
-  vite-node@5.3.0(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0):
+  vite-node@5.3.0(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0):
     dependencies:
       cac: 6.7.14
       es-module-lexer: 2.3.2
       obug: 2.1.4
       pathe: 2.0.3
-      vite: 7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
+      vite: 7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -12057,7 +12053,7 @@ snapshots:
       - yaml
     optional: true
 
-  vite-plugin-checker@0.12.0(eslint@9.34.0(jiti@2.7.0))(optionator@0.9.4)(typescript@6.0.3)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)):
+  vite-plugin-checker@0.12.0(eslint@9.34.0(jiti@2.7.0))(optionator@0.9.4)(typescript@6.0.3)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)):
     dependencies:
       '@babel/code-frame': 7.29.7
       chokidar: 4.0.3
@@ -12066,7 +12062,7 @@ snapshots:
       picomatch: 4.0.7
       tiny-invariant: 1.3.3
       tinyglobby: 0.2.17
-      vite: 7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
+      vite: 7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
       vscode-uri: 3.2.0
     optionalDependencies:
       eslint: 9.34.0(jiti@2.7.0)
@@ -12074,7 +12070,7 @@ snapshots:
       typescript: 6.0.3
     optional: true
 
-  vite-plugin-inspect@11.4.1(@nuxt/kit@4.5.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))))(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)):
+  vite-plugin-inspect@11.4.1(@nuxt/kit@4.5.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))))(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)):
     dependencies:
       ansis: 4.3.1
       error-stack-parser-es: 1.0.5
@@ -12084,33 +12080,33 @@ snapshots:
       perfect-debounce: 2.1.0
       sirv: 3.0.2
       unplugin-utils: 0.3.2
-      vite: 7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
-      vite-dev-rpc: 2.0.0(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
+      vite: 7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
+      vite-dev-rpc: 2.0.0(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))
     optionalDependencies:
-      '@nuxt/kit': 4.5.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))
+      '@nuxt/kit': 4.5.2(magic-string@0.30.21)(magicast@0.5.4)(oxc-parser@0.112.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0))(unplugin@3.3.0(esbuild@0.28.2)(rollup@4.63.1)(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)))
     optional: true
 
-  vite-plugin-vue-tracer@1.5.0(vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(vue@3.5.30(typescript@6.0.3)):
+  vite-plugin-vue-tracer@1.5.0(vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0))(vue@3.5.30(typescript@6.0.3)):
     dependencies:
       estree-walker: 3.0.3
       exsolve: 1.1.1
       magic-string: 1.2.3
       pathe: 2.0.3
       source-map-js: 1.2.1
-      vite: 7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
+      vite: 7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0)
       vue: 3.5.30(typescript@6.0.3)
     optional: true
 
-  vite@7.3.6(@types/node@26.3.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0):
+  vite@7.3.6(@types/node@26.4.0)(jiti@2.7.0)(terser@5.51.2)(yaml@2.9.0):
     dependencies:
-      esbuild: 0.28.2
+      esbuild: 0.27.7
       fdir: 6.5.0(picomatch@4.0.7)
       picomatch: 4.0.7
       postcss: 8.5.26
       rollup: 4.63.1
       tinyglobby: 0.2.17
     optionalDependencies:
-      '@types/node': 26.3.0
+      '@types/node': 26.4.0
       fsevents: 2.3.3
       jiti: 2.7.0
       terser: 5.51.2
