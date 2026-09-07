@@ -6,7 +6,7 @@ settings:
 
 overrides:
   '@types/react': 19.2.17
-  '@types/react-dom': 19.2.5
+  '@types/react-dom': 19.2.7
   undici@>=4.5.0 <5.28.5: '>=5.28.5'
   undici@<6.23.0: '>=6.23.0'
   undici@<5.29.0: '>=5.29.0'
@@ -80,8 +80,8 @@ importers:
         specifier: 19.2.17
         version: 19.2.17
       '@types/react-dom':
-        specifier: 19.2.5
-        version: 19.2.5(@types/react@19.2.17)
+        specifier: 19.2.7
+        version: 19.2.7(@types/react@19.2.17)
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.34.1
         version: 8.68.0(@typescript-eslint/parser@8.69.0(eslint@9.34.0(jiti@2.7.0))(typescript@6.0.3))(eslint@9.34.0(jiti@2.7.0))(typescript@6.0.3)
@@ -2068,8 +2068,8 @@ packages:
   '@types/prop-types@15.7.15':
     resolution: {integrity: sha512-F6bEyamV9jKGAFBEmlQnesRPGOQqS2+Uwi0Em15xenOxHaf2hv6L8YCVn3rPdPJOiJfPiCnLIRyvwVaqMY3MIw==}
 
-  '@types/react-dom@19.2.5':
-    resolution: {integrity: sha512-fMPwH9v7r/pp43yUd2/Mbiex5KouJwwR3dzHkhLREUC6764VyDsqxhAxv6OFEYR1RhjOyD1naqba8ECDBe7ZQg==}
+  '@types/react-dom@19.2.7':
+    resolution: {integrity: sha512-I8bPpDLcHBv1qiIiXDCy71Rt8eQDKJP0sMSWJphDdAcdqiJ1sGpZamavoEIRZmYzjia9LuEb2HlYdDpmoENpvQ==}
     peerDependencies:
       '@types/react': 19.2.17
 
@@ -7500,7 +7500,7 @@ snapshots:
 
   '@types/prop-types@15.7.15': {}
 
-  '@types/react-dom@19.2.5(@types/react@19.2.17)':
+  '@types/react-dom@19.2.7(@types/react@19.2.17)':
     dependencies:
       '@types/react': 19.2.17
 
