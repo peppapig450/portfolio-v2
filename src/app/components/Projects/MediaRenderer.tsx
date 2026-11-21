@@ -100,7 +100,7 @@ const MediaRenderer: React.FC<MediaRendererProps> = ({
         alt={mediaAlt}
         sx={commonSx}
         onError={(e) => {
-          const el = e.currentTarget as HTMLImageElement
+          const el = e.currentTarget
           if (fallbackSrc && el.src !== fallbackSrc) {
             el.src = fallbackSrc
           }
