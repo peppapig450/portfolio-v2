@@ -87,7 +87,7 @@ usage() {
 Usage: $(basename "${BASH_SOURCE[0]}") [OPTIONS]
     -l, --lockfile  FILE    Path to pnpm-lock.yaml
     -r, --readme    FILE    Path to README.md
-    -s, --summary   FILE    Path to write summary of updates 
+    -s, --summary   FILE    Path to write summary of updates
     -h, --help             Show help
 _DONT_READ_THIS_
   exit 0
@@ -184,6 +184,8 @@ load_pnpm_lock() {
 
     # Split on the first tab
     IFS=$'\t' read -r pkg ver <<< "$record"
+    [[ -n ${pkg} && -n ${ver} ]] || return 0
+
     # Strip out the parenthetical peer dependency versions
     ver="${ver%%(*}"
     __keys[idx]="${pkg}"
@@ -192,7 +194,7 @@ load_pnpm_lock() {
 
   # yq: merge deps+devDeps under the "." importer, emit TSV "key<TAB>value.version"
   mapfile -tc1 -C _parse_cb < <(
-    yq eval '
+    yq eval -N '
         ( .importers["."].dependencies   // {} ) +
         ( .importers["."].devDependencies // {} )
         | to_entries[]
