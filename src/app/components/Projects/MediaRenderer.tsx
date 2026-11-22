@@ -1,20 +1,25 @@
 import type { MediaType } from "@/contexts/ProjectsContext"
-import {
-  getImageUrl,
-  resolveImageSource,
-  type ImageSource,
-} from "@/utils/imageUtils"
 import type { SxProps } from "@mui/material"
 import { CardMedia } from "@mui/material"
-import { SmartImage } from "../SmartImage"
+import Image from "next/image"
 
 interface MediaRendererProps {
   card?: boolean
   mediaUrl: string
   mediaAlt: string
   mediaType: MediaType
-  preferredSource?: ImageSource
-  fallbackSrc?: string
+}
+
+function resolveProjectMediaUrl(url: string): string {
+  if (url.startsWith("http")) return url
+
+  const base = process.env.NEXT_PUBLIC_BLOB_STORAGE_URL
+  if (!base) {
+    console.warn("Missing BLOB_STORAGE_URL; falling back to public")
+    return `/images/${url}`
+  }
+
+  return `${base.replace(/\/$/, "")}/${url}`
 }
 
 const MediaRenderer: React.FC<MediaRendererProps> = ({
@@ -22,9 +27,8 @@ const MediaRenderer: React.FC<MediaRendererProps> = ({
   mediaUrl,
   mediaAlt,
   mediaType,
-  preferredSource = "public",
-  fallbackSrc,
 }) => {
+  const src = resolveProjectMediaUrl(mediaUrl)
   const commonSx: SxProps = {
     position: "absolute",
     top: 0,
@@ -35,21 +39,17 @@ const MediaRenderer: React.FC<MediaRendererProps> = ({
   }
 
   if (mediaType === "video") {
-    // Resolve the final video URL before constructing sources
-    const videoConfig = resolveImageSource(mediaUrl, preferredSource)
-    const videoUrl = getImageUrl(videoConfig)
-
     // decide if this is a WebM file
-    const ext = videoUrl.split(".").pop()?.toLowerCase() ?? ""
+    const ext = src.split(".").pop()?.toLowerCase() ?? ""
     const isWebm = ext === "webm"
 
     // If it's WebM, offer two sources; otherwise just the native type
     const sources = isWebm
       ? [
-          { src: videoUrl, type: "video/webm" },
-          { src: videoUrl.replace(/\.webm$/, ".mp4"), type: "video/mp4" },
+          { src, type: "video/webm" },
+          { src: src.replace(/\.webm$/, ".mp4"), type: "video/mp4" },
         ]
-      : [{ src: videoUrl, type: `video/${ext}` }]
+      : [{ src, type: `video/${ext}` }]
 
     // Card‐style video
     if (card) {
@@ -88,32 +88,15 @@ const MediaRenderer: React.FC<MediaRendererProps> = ({
     )
   }
 
-  const imgConfig = resolveImageSource(mediaUrl, preferredSource)
-  const imgSrc = getImageUrl(imgConfig)
-
-  // Look into using Next.js image here
   if (card) {
     return (
-      <CardMedia
-        component="img"
-        image={imgSrc}
-        alt={mediaAlt}
-        sx={commonSx}
-        onError={(e) => {
-          const el = e.currentTarget
-          if (fallbackSrc && el.src !== fallbackSrc) {
-            el.src = fallbackSrc
-          }
-        }}
-      />
+      <CardMedia component="img" image={src} alt={mediaAlt} sx={commonSx} />
     )
   }
 
   return (
-    <SmartImage
-      src={mediaUrl}
-      preferredSource={preferredSource}
-      fallbackSrc={fallbackSrc}
+    <Image
+      src={src}
       alt={mediaAlt}
       fill
       sizes="100vw"
