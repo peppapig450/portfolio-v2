@@ -3,29 +3,48 @@ name: Lint & Format
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-    paths-ignore:
-      - 'README.md'
-      - 'docs/**'
-      - '**.md'
-      - 'LICENSE'
-      - '.gitignore'
-      - 'images/**'
-      - '**.png'
-      - '**.jpg'
+
+permissions:
+  contents: read
+  pull-requests: read
 
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
+      - uses: dorny/paths-filter@v4.0.3
+        id: filter
+        with:
+          predicate-quantifier: some-with-excludes
+          filters: |
+            code:
+              - '**'
+              - '!docs/**'
+              - '!**/*.md'
+              - '!LICENSE'
+              - '!.gitignore'
+              - '!images/**'
+              - '!**/*.png'
+              - '!**/*.jpg'
+
       - uses: actions/checkout@v7
+        if: steps.filter.outputs.code == 'true'
 
       - uses: pnpm/setup@v3
+        if: steps.filter.outputs.code == 'true'
         with:
           cache: true
           node-version-file: false
           require-lockfile: true
+
       - name: Run Prettier
+        if: steps.filter.outputs.code == 'true'
         run: pnpm exec prettier --check .
 
       - name: Run ESLint
+        if: steps.filter.outputs.code == 'true'
         run: pnpm run lint
+
+      - name: Report skipped lint
+        if: steps.filter.outputs.code == 'false'
+        run: echo "No lint-relevant files changed."
