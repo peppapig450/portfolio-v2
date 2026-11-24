@@ -1,4 +1,4 @@
-import { ProjectsProvider } from "@/contexts/ProjectsContext"
+import { projects } from "@/data/projects"
 import { canonicalUrl, publicRoutes } from "@/publicRoutes"
 import type { Metadata } from "next"
 import NavBar from "../components/Navbar"
@@ -18,9 +18,7 @@ export default function Projects() {
   return (
     <>
       <NavBar />
-      <ProjectsProvider>
-        <ProjectsContent />
-      </ProjectsProvider>
+      <ProjectsContent projects={projects} />
     </>
   )
 }
