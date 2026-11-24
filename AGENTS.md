@@ -40,3 +40,17 @@
   `MediaRenderer` derives an MP4 fallback by replacing the `.webm` suffix.
 - `/contact` posts directly to Formspree even from localhost. Stub the
   request when testing successful submission to avoid sending real messages.
+
+## Agent skills
+
+### Issue tracker
+
+Issues and specs are tracked in GitHub Issues. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Triage uses the five default role names as labels. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+This repo uses a single-context layout. See `docs/agents/domain.md`.
