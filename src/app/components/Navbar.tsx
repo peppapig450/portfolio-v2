@@ -1,6 +1,7 @@
 "use client"
 
 import useIsMobile from "@/hooks/useIsMobile"
+import { publicRoutes } from "@/publicRoutes"
 import CloseIcon from "@mui/icons-material/Close"
 import MenuIcon from "@mui/icons-material/Menu"
 import type { AppBarProps, ButtonBaseProps, ToolbarProps } from "@mui/material"
@@ -105,15 +106,19 @@ const NavBar: React.FC = () => {
   }
 
   const navItems: NavItem[] = [
-    { label: "About", path: "/about", ariaLabel: "Navigate to the About Page" },
+    {
+      label: "About",
+      path: publicRoutes.about,
+      ariaLabel: "Navigate to the About Page",
+    },
     {
       label: "Projects",
-      path: "/projects",
+      path: publicRoutes.projects,
       ariaLabel: "Navigate to the Projects Page",
     },
     {
       label: "Contact",
-      path: "/contact",
+      path: publicRoutes.contact,
       ariaLabel: "Navigate to the Contacts Page",
     },
   ]
@@ -255,7 +260,12 @@ const NavBar: React.FC = () => {
         }}
       >
         <StyledToolbar disableGutters>
-          <Link href="/" component={NextLink} underline="none" passHref>
+          <Link
+            href={publicRoutes.home}
+            component={NextLink}
+            underline="none"
+            passHref
+          >
             <LogoWrapper sx={{ display: "block" }}>
               <Image
                 src="/logo.svg"

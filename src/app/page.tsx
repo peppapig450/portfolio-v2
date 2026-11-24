@@ -1,3 +1,4 @@
+import { canonicalUrl, publicRoutes } from "@/publicRoutes"
 import type { Metadata } from "next"
 import IntroPageContent from "./components/LandingPage/IntroContent"
 import { PageWrapper } from "./components/Layout"
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
     title: "Home | Nick Brady",
   },
   alternates: {
-    canonical: "https://nicked.dev",
+    canonical: canonicalUrl(publicRoutes.home),
   },
 }
 

@@ -1,27 +1,28 @@
+import { canonicalUrl, publicRoutes } from "@/publicRoutes"
 import type { MetadataRoute } from "next"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://nicked.dev/",
+      url: canonicalUrl(publicRoutes.home),
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
     },
     {
-      url: "https://nicked.dev/about",
+      url: canonicalUrl(publicRoutes.about),
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: "https://nicked.dev/projects",
+      url: canonicalUrl(publicRoutes.projects),
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.7,
     },
     {
-      url: "https://nicked.dev/contact",
+      url: canonicalUrl(publicRoutes.contact),
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.6,

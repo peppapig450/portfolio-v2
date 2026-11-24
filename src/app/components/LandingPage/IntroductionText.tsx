@@ -1,3 +1,4 @@
+import { publicRoutes } from "@/publicRoutes"
 import type { BoxProps } from "@mui/material"
 import { Box, Typography } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
@@ -21,7 +22,7 @@ const IntroductionText = forwardRef<HTMLDivElement, BoxProps>((props, ref) => {
         tech stack. My diverse toolkit spans Java, Python, React, and more,
         allowing me to tackle any{" "}
         <CustomLink
-          href="/projects"
+          href={publicRoutes.projects}
           underline="none"
           aria-label="Go to projects page"
           sx={{
@@ -70,7 +71,7 @@ const IntroductionText = forwardRef<HTMLDivElement, BoxProps>((props, ref) => {
         </CustomLink>
         . Ready to bring a unique perspective to your next project?{" "}
         <CustomLink
-          href="/contact"
+          href={publicRoutes.contact}
           underline="none"
           aria-label="Go to Contact Page"
           sx={{
