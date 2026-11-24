@@ -1,100 +1,63 @@
 "use client"
-import { ProjectType, useProjectsContext } from "@/contexts/ProjectsContext"
+
+import type { Project, ProjectType } from "@/types/project"
 import { Container, Grid, Typography } from "@mui/material"
-import { useTheme } from "@mui/material/styles"
+import { useState } from "react"
 import CustomTabs from "../CustomTabs"
 import FooterLink from "../FooterLink"
-import { StaggeredContainer } from "../StaggeredContainer"
-import MasonryItem from "./MasonryItem"
-import MasonryLayout from "./MasonryLayout"
+import ProjectDrawer from "./ProjectDrawer"
+import ProjectGrid from "./ProjectGrid"
+import styles from "./projects.module.css"
 
-const ProjectsContent = () => {
-  const theme = useTheme()
-  const { projects } = useProjectsContext()
+const filters: readonly { label: string; type?: ProjectType }[] = [
+  { label: "All" },
+  { label: "Projects", type: "project" },
+  { label: "Dev Tools", type: "tools" },
+  { label: "Open Source", type: "open-source" },
+]
 
-  const tabItems = [
-    {
-      label: "All",
-      content: (
-        <MasonryLayout>
-          {projects.map((item, index) => (
-            <MasonryItem key={index} item={item} />
-          ))}
-        </MasonryLayout>
-      ),
-    },
-    {
-      label: "Projects",
-      content: (
-        <MasonryLayout>
-          {projects
-            .filter((item) => item.type.includes(ProjectType.Project))
-            .map((item, index) => (
-              <MasonryItem key={index} item={item} />
-            ))}
-        </MasonryLayout>
-      ),
-    },
-    {
-      label: "Dev Tools",
-      content: (
-        <MasonryLayout>
-          {projects
-            .filter((item) => item.type.includes(ProjectType.Tools))
-            .map((item, index) => (
-              <MasonryItem key={index} item={item} />
-            ))}
-        </MasonryLayout>
-      ),
-    },
-    {
-      label: "Open Source",
-      content: (
-        <MasonryLayout>
-          {projects
-            .filter((item) => item.type.includes(ProjectType.OpenSource))
-            .map((item, index) => (
-              <MasonryItem key={index} item={item} />
-            ))}
-        </MasonryLayout>
-      ),
-    },
-  ]
-
+export default function ProjectsContent({
+  projects,
+}: {
+  projects: readonly Project[]
+}) {
+  const [selected, setSelected] = useState<Project | null>(null)
   return (
-    <StaggeredContainer as="div" staggerDelay={0.2} initialDelay={0.2}>
-      <Container
-        component="section"
-        sx={{ mb: 5, px: theme.spacing(1.785), mx: "auto" }}
-      >
-        <Grid container alignItems="center" justifyContent="center">
-          <Grid size={{ xs: 12, md: 10 }}>
+    <Container sx={{ mb: 5, px: { xs: 2, sm: 3 } }}>
+      <Grid container justifyContent="center">
+        <Grid size={{ xs: 12, md: 10 }} className={styles.panel}>
+          <div className={styles.collection}>
             <Typography
               variant="h2"
               component="h1"
-              gutterBottom
-              sx={{
-                fontWeight: "bold",
-                pl: theme.spacing(2),
-                mt: theme.spacing(8),
-                mb: theme.spacing(3),
-              }}
+              sx={{ fontWeight: 700, mt: 8, mb: 3 }}
             >
               Projects.
             </Typography>
-            <CustomTabs items={tabItems} />
-          </Grid>
+            <CustomTabs
+              items={filters.map(({ label, type }) => ({
+                label,
+                content: (
+                  <ProjectGrid
+                    projects={
+                      type
+                        ? projects.filter((project) =>
+                            project.type.includes(type),
+                          )
+                        : projects
+                    }
+                    onOpen={setSelected}
+                  />
+                ),
+              }))}
+            />
+            <FooterLink goto="/resume" sx={{ "& > div": { mr: 0 } }}>
+              Let&apos;s Go To My Resume.
+            </FooterLink>
+          </div>
         </Grid>
-      </Container>
-      <Container sx={{ mb: 5, px: theme.spacing(1.875), mx: "auto" }}>
-        <Grid container alignItems="center" justifyContent="center">
-          <Grid size={{ xs: 12, md: 10 }} sx={{ pl: theme.spacing(2.5) }}>
-            <FooterLink goto="/resume">Let&apos;s Go To My Resume.</FooterLink>
-          </Grid>
-        </Grid>
-      </Container>
-    </StaggeredContainer>
+      </Grid>
+      <ProjectDrawer project={selected} onClose={() => setSelected(null)} />
+    </Container>
   )
 }
-
-export default ProjectsContent

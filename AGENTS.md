@@ -31,13 +31,14 @@
   Keep route metadata in the server `page.tsx` files and interactive UI in
   their client components. Public routes are listed manually in
   `src/app/sitemap.ts`.
-- Project cards and details use `src/data/projects.json`. The client
-  `ProjectsContext` parses it on mount and throws for unsupported `type` or
-  `mediaType` values, so smoke-test `/projects` after changing either.
-- Project media filenames resolve against `NEXT_PUBLIC_BLOB_STORAGE_URL`;
-  without it they fall back to `/images/`, which has no tracked assets.
-  New remote hosts for `next/image` must be allowed in `next.config.ts`.
-  `MediaRenderer` derives an MP4 fallback by replacing the `.webm` suffix.
+- Edit `src/data/projects.ts` to add or reorder projects. The server page
+  passes the catalog to `ProjectsContent`, which owns the detail selection.
+  The first example leads the card; the drawer shows every example in order.
+  Omit examples for a description-led card and put the primary link first.
+- `ExampleRenderer` uses native media from trusted catalog sources. Bare
+  filenames resolve against `NEXT_PUBLIC_BLOB_STORAGE_URL` or `/images/`
+  when unset; use `/images/...` for tracked local stills. WebM demos also
+  try the matching MP4. Check both card and drawer when changing media.
 - `/contact` posts directly to Formspree even from localhost. Stub the
   request when testing successful submission to avoid sending real messages.
 

@@ -1,82 +1,51 @@
 import { TabContext, TabList, TabPanel } from "@mui/lab"
-import type { BoxProps } from "@mui/material"
-import { Box, Tab } from "@mui/material"
-import { styled } from "@mui/material/styles"
-import { forwardRef, useState } from "react"
+import { Tab } from "@mui/material"
+import { useState, type ReactNode } from "react"
 
-const StyledTab = styled(Tab)(({ theme }) => ({
-  backgroundColor: "transparent",
-  transition: "all 0.3s ease",
-  borderRadius: "5px",
-  overflow: "visible",
-  textTransform: "capitalize",
-  "&.Mui-selected": {
-    fontWeight: 900,
-    color: theme.palette.common.white,
-    backgroundColor: theme.palette.grey[800],
-  },
-}))
-
-interface TabItem {
-  label: string
-  content: React.ReactNode
-  href?: string
-}
-
-interface CustomTabProps {
-  items: TabItem[]
-}
-
-const CustomTabs = forwardRef<HTMLDivElement, CustomTabProps & BoxProps>(
-  ({ items, sx: userSx = {}, ...otherProps }, ref) => {
-    const [value, setValue] = useState<string>("0")
-
-    const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-      setValue(newValue)
-    }
-
-    return (
-      <Box
-        ref={ref}
-        component="nav"
-        {...otherProps}
-        sx={{
-          width: "100%",
-          typography: "body1",
-          margin: "auto",
-          ...userSx,
-        }}
+export default function CustomTabs({
+  items,
+}: {
+  items: readonly { label: string; content: ReactNode }[]
+}) {
+  const [value, setValue] = useState(items[0].label)
+  return (
+    <TabContext value={value}>
+      <TabList
+        aria-label="Filter projects"
+        variant="scrollable"
+        scrollButtons={false}
+        onChange={(_, next: string) => setValue(next)}
+        sx={{ minHeight: 44, "& .MuiTabs-indicator": { display: "none" } }}
       >
-        <TabContext value={value}>
-          <Box borderColor="divider" borderBottom="1">
-            <TabList
-              onChange={handleChange}
-              aria-label="Project navigation tabs"
-              centered
-              sx={{
-                padding: "10px",
-              }}
-            >
-              {items.map((item, index) => (
-                <StyledTab
-                  key={index}
-                  label={item.label}
-                  value={index.toString()}
-                />
-              ))}
-            </TabList>
-          </Box>
-          {items.map((item, index) => (
-            <TabPanel key={index} value={index.toString()}>
-              {item.content}
-            </TabPanel>
-          ))}
-        </TabContext>
-      </Box>
-    )
-  },
-)
-
-CustomTabs.displayName = "CustomTabs"
-
-export default CustomTabs
+        {items.map(({ label }) => (
+          <Tab
+            key={label}
+            label={label}
+            value={label}
+            disableRipple
+            sx={{
+              minHeight: 44,
+              minWidth: 0,
+              px: { xs: 1.4, sm: 2 },
+              borderRadius: 1,
+              textTransform: "none",
+              fontSize: "1rem",
+              fontWeight: 700,
+              color: "#46535C",
+              "&.Mui-selected": { bgcolor: "primary.main", color: "white" },
+              "&.Mui-focusVisible": {
+                outline: "2px solid currentColor",
+                outlineOffset: "-4px",
+              },
+            }}
+          />
+        ))}
+      </TabList>
+      {items.map(({ label, content }) => (
+        <TabPanel key={label} value={label} sx={{ p: 0, pt: 3 }}>
+          {content}
+        </TabPanel>
+      ))}
+    </TabContext>
+  )
+}

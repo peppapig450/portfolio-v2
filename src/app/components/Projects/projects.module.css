@@ -1,0 +1,91 @@
+.panel {
+  container-type: inline-size;
+  min-width: 0;
+}
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 32rem;
+  margin-inline: auto;
+}
+.collection {
+  max-width: 32rem;
+  margin-inline: auto;
+}
+@container (min-width: 43rem) {
+  .collection {
+    max-width: 64rem;
+  }
+  .grid:not(:has(> :only-child)) {
+    max-width: 64rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.card {
+  container-type: inline-size;
+  --stage-inset: clamp(1.2rem, 5cqi, 1.6rem);
+  --stage-height: clamp(11.5rem, 54cqi, 15rem);
+  position: relative;
+  border: 1px solid #cbd6de;
+  border-radius: 0.5rem;
+  color: #202124;
+  background: white;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.card:hover {
+  border-color: #7992a4;
+}
+.stage {
+  position: relative;
+  display: grid;
+  min-height: var(--stage-height);
+  border-radius: 0.44rem 0.44rem 0 0;
+  overflow: hidden;
+  border-bottom: 1px solid #cbd6de;
+}
+.plate {
+  padding: var(--stage-inset);
+  display: grid;
+  align-items: center;
+  background: #edf4f8;
+}
+.description {
+  margin: 0;
+  line-height: 1.5;
+  color: #46535c;
+}
+.plate .description {
+  font-size: 1.2rem;
+  line-height: 1.45;
+  color: #263f50;
+}
+.cardBody {
+  padding: 1.1rem var(--stage-inset) 1.35rem;
+}
+.cardBody p {
+  margin-top: 0.45rem;
+}
+.action {
+  padding: 0;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  overflow-wrap: anywhere;
+  text-align: left;
+  cursor: pointer;
+}
+.action::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.5rem;
+}
+.card .action:focus-visible {
+  outline: none;
+}
+.action:focus-visible::after {
+  outline: 3px solid #154d77;
+  outline-offset: 3px;
+}
