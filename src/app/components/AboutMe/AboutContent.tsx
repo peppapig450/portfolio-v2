@@ -1,5 +1,6 @@
 "use client"
 import { useAboutContext } from "@/contexts/AboutContext"
+import { publicRoutes } from "@/publicRoutes"
 import { Container, Grid, Typography } from "@mui/material"
 import { useTheme } from "@mui/material/styles"
 import FooterLink from "../FooterLink"
@@ -62,7 +63,9 @@ const AboutContent = () => {
       <Container sx={{ mb: 5, px: theme.spacing(1.875), mx: "auto" }}>
         <Grid container alignItems="center" justifyContent="center">
           <Grid size={{ xs: 12, md: 10 }} sx={{ pl: theme.spacing(2) }}>
-            <FooterLink goto="/projects">Lets Continue To Projects</FooterLink>
+            <FooterLink goto={publicRoutes.projects}>
+              Lets Continue To Projects
+            </FooterLink>
           </Grid>
         </Grid>
       </Container>

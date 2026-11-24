@@ -1,4 +1,5 @@
 import { ProjectsProvider } from "@/contexts/ProjectsContext"
+import { canonicalUrl, publicRoutes } from "@/publicRoutes"
 import type { Metadata } from "next"
 import NavBar from "../components/Navbar"
 import ProjectsContent from "../components/Projects/ProjectsContent"
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
     title: "Projects | Nick Brady",
   },
   alternates: {
-    canonical: "https://nicked.dev/projects",
+    canonical: canonicalUrl(publicRoutes.projects),
   },
 }
 

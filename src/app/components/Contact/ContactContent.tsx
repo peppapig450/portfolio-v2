@@ -1,4 +1,5 @@
 "use client"
+import { publicRoutes } from "@/publicRoutes"
 import type { AlertColor } from "@mui/material"
 import {
   Alert,
@@ -241,7 +242,7 @@ const ContactContent: React.FC = () => {
         <Grid container alignItems="center" justifyContent="center">
           <Grid size={{ xs: 12, md: 10 }}>
             <Box sx={{ pl: theme.spacing(2) }}>
-              <FooterLink goto="/">Go Back Home</FooterLink>
+              <FooterLink goto={publicRoutes.home}>Go Back Home</FooterLink>
             </Box>
           </Grid>
         </Grid>

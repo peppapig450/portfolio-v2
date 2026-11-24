@@ -1,4 +1,5 @@
 "use client"
+import { publicRoutes } from "@/publicRoutes"
 import { labrada } from "@/styles/additionalFonts"
 import { subtleBounce } from "@/styles/keyframes"
 import HomeIcon from "@mui/icons-material/Home"
@@ -58,7 +59,10 @@ export default function NotFound(): React.JSX.Element {
           Oops! The page you&#x27;re looking for doesn&#x27;t exist.
         </Typography>
       </Stack>
-      <CustomLink href="/" aria-label="Go back to the Home page.">
+      <CustomLink
+        href={publicRoutes.home}
+        aria-label="Go back to the Home page."
+      >
         <Button
           color="primary"
           size="large"

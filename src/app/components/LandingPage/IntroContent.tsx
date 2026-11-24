@@ -1,4 +1,5 @@
 "use client"
+import { publicRoutes } from "@/publicRoutes"
 import { Box, useTheme } from "@mui/material"
 import FooterLink from "../FooterLink"
 import { StaggeredContainer } from "../StaggeredContainer"
@@ -28,7 +29,7 @@ const IntroPageContent = () => {
           <IntroductionText />
         </Box>
       </article>
-      <FooterLink goto="/about">See More About Me</FooterLink>
+      <FooterLink goto={publicRoutes.about}>See More About Me</FooterLink>
     </StaggeredContainer>
   )
 }

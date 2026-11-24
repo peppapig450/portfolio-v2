@@ -1,3 +1,4 @@
+import { siteOrigin } from "@/publicRoutes"
 import mainTheme from "@/styles/theme"
 import { CssBaseline, ThemeProvider } from "@mui/material"
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter"
@@ -49,14 +50,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Nick Brady's Portfolio",
-    url: "https://nicked.dev",
+    url: siteOrigin,
     siteName: "Nick Brady's Portfolio",
     description:
       "Hi, I'm Nick Brady, full-stack developer, software engineer, and problem-solver proficient in React, Typescript, Java, AI applications, Python, and more.",
     locale: "en_US",
     type: "website",
   },
-  metadataBase: new URL("https://nicked.dev"),
+  metadataBase: new URL(siteOrigin),
   robots: {
     index: true,
     follow: true,

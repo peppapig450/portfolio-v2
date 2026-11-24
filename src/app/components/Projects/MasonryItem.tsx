@@ -1,5 +1,6 @@
 "use client"
 import type { Project } from "@/contexts/ProjectsContext"
+import { publicRoutes } from "@/publicRoutes"
 import {
   Box,
   Card,
@@ -135,7 +136,7 @@ const MasonryItem: React.FC<MasonryItemProps> = ({ item }) => {
           </CardActionArea>
         </StyledCard>
       )}
-      {pathname.includes("/projects") && (
+      {pathname.includes(publicRoutes.projects) && (
         <SideBarModal
           show={showModal}
           closeShow={() => setShowModal(false)}

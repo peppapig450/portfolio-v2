@@ -1,3 +1,4 @@
+import { publicRoutes } from "@/publicRoutes"
 import { arrowBounce } from "@/styles/keyframes"
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt"
 import FacebookIcon from "@mui/icons-material/Facebook"
@@ -54,7 +55,10 @@ const SocialMediaBox = styled(Box)<BoxProps>(({ theme }) => ({
 }))
 
 const FooterLinkComponent = forwardRef<HTMLElement, FooterLinkProps>(
-  ({ children, goto = "/", sx: userSx = {}, ...otherProps }, ref) => {
+  (
+    { children, goto = publicRoutes.home, sx: userSx = {}, ...otherProps },
+    ref,
+  ) => {
     const theme = useTheme()
 
     const SocialMedias: SocialMediaItems[] = [
