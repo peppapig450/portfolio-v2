@@ -12,63 +12,87 @@ import ExampleRenderer from "./ExampleRenderer"
 
 export default function ProjectDrawer({
   project,
+  open,
   onClose,
+  onExited,
 }: {
   project: Project | null
+  open: boolean
   onClose: () => void
+  onExited: () => void
 }) {
   const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)")
   const [lead, ...remaining] = project?.examples ?? []
   return (
     <Drawer
       anchor="right"
-      open={project !== null}
+      open={open}
       onClose={onClose}
       transitionDuration={reducedMotion ? 0 : undefined}
       slotProps={{
+        transition: {
+          onExit: (paper: HTMLElement) => {
+            for (const player of paper.querySelectorAll<HTMLMediaElement>(
+              "video, audio",
+            )) {
+              player.pause()
+            }
+          },
+          onExited,
+        },
         paper: {
           role: "dialog",
           "aria-modal": true,
           "aria-labelledby": "project-title",
           "aria-describedby": "project-summary",
+          inert: !open,
           sx: {
             width: "min(100%, 37.5rem)",
             color: "#202124",
-            overscrollBehavior: "contain",
-            overflowWrap: "anywhere",
+            overflow: "hidden",
           },
         },
       }}
     >
+      <Box
+        sx={{
+          display: "flex",
+          flexShrink: 0,
+          justifyContent: "flex-end",
+          px: { xs: 2.5, sm: 4 },
+          pt: 1,
+        }}
+      >
+        <IconButton
+          aria-label="Close project details"
+          onClick={onClose}
+          sx={{ color: "primary.main", minWidth: 44, minHeight: 44 }}
+        >
+          <CloseIcon />
+        </IconButton>
+      </Box>
       {project && (
-        <Box key={project.id} sx={{ px: { xs: 2.5, sm: 4 }, pb: 4 }}>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "start",
-              justifyContent: "space-between",
-              gap: 2,
-              pt: 3,
-              pb: 1,
-              bgcolor: "white",
-            }}
+        <Box
+          key={project.id}
+          sx={{
+            flex: 1,
+            minHeight: 0,
+            overflowY: "auto",
+            overscrollBehavior: "contain",
+            overflowWrap: "anywhere",
+            px: { xs: 2.5, sm: 4 },
+            pt: 0.5,
+            pb: 4,
+          }}
+        >
+          <Typography
+            id="project-title"
+            component="h2"
+            variant="h4"
+            sx={{ fontWeight: 600, mb: 1 }}
           >
-            <Typography
-              id="project-title"
-              component="h2"
-              variant="h4"
-              sx={{ fontWeight: 600 }}
-            >
-              {project.title}
-            </Typography>
-            <IconButton
-              aria-label="Close project details"
-              onClick={onClose}
-              sx={{ color: "primary.main", flexShrink: 0 }}
-            >
-              <CloseIcon />
-            </IconButton>
-          </Box>
+            {project.title}
+          </Typography>
           <Typography
             id="project-summary"
             sx={{ color: "#46535C", fontSize: "1.1rem", mb: 3 }}

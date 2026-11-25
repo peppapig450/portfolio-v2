@@ -44,7 +44,11 @@ export default function ProjectCard({
             type="button"
             aria-describedby={id}
             aria-haspopup="dialog"
-            onClick={() => onOpen(project)}
+            onClick={(event) => {
+              // WebKit may not focus a clicked button for MUI to restore later.
+              event.currentTarget.focus({ preventScroll: true })
+              onOpen(project)
+            }}
             className={styles.action}
           >
             {project.title}

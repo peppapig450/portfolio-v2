@@ -1,7 +1,7 @@
 "use client"
 
 import type { Example } from "@/types/project"
-import { useRef, useState } from "react"
+import { useId, useState } from "react"
 import styles from "./ExampleRenderer.module.css"
 
 const webmPath = /^([^?#]*)\.webm([?#].*)?$/i
@@ -78,7 +78,6 @@ function ExampleVideo({
   poster?: string
 }) {
   const [failed, setFailed] = useState(false)
-  const failedSources = useRef(new Set<string>())
   const sources = webmPath.test(src)
     ? [
         { src, type: "video/webm" },
@@ -106,15 +105,15 @@ function ExampleVideo({
         if (event.target === event.currentTarget) setFailed(true)
       }}
     >
-      {sources.map((source) => (
+      {sources.map((source, index) => (
         <source
           key={source.src}
           src={source.src}
           type={source.type}
-          onError={() => {
-            failedSources.current.add(source.src)
-            if (failedSources.current.size === sources.length) setFailed(true)
-          }}
+          // The browser tries sources in order; earlier failures can still recover.
+          onError={
+            index === sources.length - 1 ? () => setFailed(true) : undefined
+          }
         />
       ))}
       Your browser does not support video playback.
@@ -128,6 +127,8 @@ export default function ExampleRenderer({
   onPreviewUnavailable,
 }: ExampleRendererProps) {
   const preview = surface === "preview"
+  const captionId = useId()
+  const hasCaption = !!example.caption?.trim()
 
   function renderImage(src: string | undefined, alt: string) {
     const resolved = src ? resolveProjectMediaUrl(src) : undefined
@@ -173,8 +174,8 @@ export default function ExampleRenderer({
           <pre
             className={styles.detailExcerpt}
             tabIndex={0}
-            role="region"
-            aria-label="Project excerpt"
+            role={hasCaption ? "region" : undefined}
+            aria-labelledby={hasCaption ? captionId : undefined}
           >
             <code>{example.text}</code>
           </pre>
@@ -190,7 +191,12 @@ export default function ExampleRenderer({
     <figure className={styles.figure}>
       {content}
       {example.caption ? (
-        <figcaption className={styles.caption}>{example.caption}</figcaption>
+        <figcaption
+          id={example.kind === "excerpt" ? captionId : undefined}
+          className={styles.caption}
+        >
+          {example.caption}
+        </figcaption>
       ) : null}
     </figure>
   )

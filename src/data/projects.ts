@@ -36,7 +36,7 @@ export const projects = [
       {
         kind: "video",
         src: "profpick_demo.webm",
-        alt: "Animated demo showcasing ProfPick's AI-powered recommendations",
+        alt: "Three professor recommendation cards with star ratings, review tags, and student review excerpts",
         poster: "/images/profpick-poster.webp",
         caption:
           'A search for "easy classes" returns professor recommendations with ratings and review excerpts.',
@@ -66,7 +66,7 @@ export const projects = [
       {
         kind: "video",
         src: "wastenotwantnot_demo.webm",
-        alt: "Animated demo showcasing WasteNotWantNot's pantry management features",
+        alt: "Add Item form for carrots with quantity and expiration date filled in",
         poster: "/images/wastenotwantnot-poster.webp",
         caption:
           "Add carrots with a quantity and expiration date, then see the new row in the pantry table.",
