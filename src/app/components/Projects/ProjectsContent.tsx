@@ -21,7 +21,10 @@ export default function ProjectsContent({
 }: {
   projects: readonly Project[]
 }) {
-  const [selected, setSelected] = useState<Project | null>(null)
+  const [drawer, setDrawer] = useState<{
+    project: Project
+    open: boolean
+  } | null>(null)
   return (
     <Container sx={{ mb: 5, px: { xs: 2, sm: 3 } }}>
       <Grid container justifyContent="center">
@@ -46,7 +49,7 @@ export default function ProjectsContent({
                           )
                         : projects
                     }
-                    onOpen={setSelected}
+                    onOpen={(project) => setDrawer({ project, open: true })}
                   />
                 ),
               }))}
@@ -57,7 +60,19 @@ export default function ProjectsContent({
           </div>
         </Grid>
       </Grid>
-      <ProjectDrawer project={selected} onClose={() => setSelected(null)} />
+      <ProjectDrawer
+        project={drawer?.project ?? null}
+        open={drawer?.open ?? false}
+        onClose={() =>
+          setDrawer((current) =>
+            current?.open ? { ...current, open: false } : current,
+          )
+        }
+        // Keep the project visible during Slide's exit, unless it has reopened.
+        onExited={() =>
+          setDrawer((current) => (current?.open ? current : null))
+        }
+      />
     </Container>
   )
 }

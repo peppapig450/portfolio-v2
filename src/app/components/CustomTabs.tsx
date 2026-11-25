@@ -7,7 +7,7 @@ export default function CustomTabs({
 }: {
   items: readonly { label: string; content: ReactNode }[]
 }) {
-  const [value, setValue] = useState(items[0].label)
+  const [value, setValue] = useState(items[0]?.label ?? "")
   return (
     <TabContext value={value}>
       <TabList
@@ -26,10 +26,10 @@ export default function CustomTabs({
             sx={{
               minHeight: 44,
               minWidth: 0,
-              px: { xs: 1.4, sm: 2 },
+              px: { xs: 0.875, sm: 2 },
               borderRadius: 1,
               textTransform: "none",
-              fontSize: "1rem",
+              fontSize: { xs: "0.9375rem", sm: "1rem" },
               fontWeight: 700,
               color: "#46535C",
               "&.Mui-selected": { bgcolor: "primary.main", color: "white" },

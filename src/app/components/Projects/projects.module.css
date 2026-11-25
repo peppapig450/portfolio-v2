@@ -22,6 +22,8 @@
   }
 }
 .card {
+  display: grid;
+  grid-template-rows: 1fr auto;
   container-type: inline-size;
   --stage-inset: clamp(1.2rem, 5cqi, 1.6rem);
   --stage-height: clamp(11.5rem, 54cqi, 15rem);
