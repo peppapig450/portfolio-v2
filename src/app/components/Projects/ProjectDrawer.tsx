@@ -48,25 +48,40 @@ export default function ProjectDrawer({
           inert: !open,
           sx: {
             width: "min(100%, 37.5rem)",
-            color: "#202124",
+            color: "#0f1922",
             overflow: "hidden",
+            borderLeft: "2px solid #0f1922",
+            boxShadow: "-6px 0 0 rgba(21, 77, 119, 0.14)",
           },
         },
       }}
     >
       <Box
         sx={{
+          height: "3px",
+          flexShrink: 0,
+          background:
+            "linear-gradient(90deg, #154d77 0%, #154d77 72%, #f50057 72%, #f50057 100%)",
+        }}
+      />
+      <Box
+        sx={{
           display: "flex",
           flexShrink: 0,
           justifyContent: "flex-end",
           px: { xs: 2.5, sm: 4 },
-          pt: 1,
+          pt: 1.25,
         }}
       >
         <IconButton
           aria-label="Close project details"
           onClick={onClose}
-          sx={{ color: "primary.main", minWidth: 44, minHeight: 44 }}
+          sx={{
+            color: "#0f1922",
+            minWidth: 44,
+            minHeight: 44,
+            "&:hover": { color: "#f50057" },
+          }}
         >
           <CloseIcon />
         </IconButton>
@@ -95,7 +110,7 @@ export default function ProjectDrawer({
           </Typography>
           <Typography
             id="project-summary"
-            sx={{ color: "#46535C", fontSize: "1.1rem", mb: 3 }}
+            sx={{ color: "#46535c", fontSize: "1.1rem", mb: 3 }}
           >
             {project.description}
           </Typography>
@@ -111,7 +126,7 @@ export default function ProjectDrawer({
             </Box>
           ))}
           {project.technologies?.length ? (
-            <Box sx={{ borderTop: "1px solid #CBD6DE", pt: 2, mt: 3 }}>
+            <Box sx={{ borderTop: "1px solid #cbd6de", pt: 2, mt: 3 }}>
               <Typography component="h3" sx={{ fontWeight: 700 }}>
                 Technologies
               </Typography>
@@ -123,8 +138,8 @@ export default function ProjectDrawer({
                   listStyle: "none",
                   p: 0,
                   m: 0,
-                  mt: 0.5,
-                  color: "#46535C",
+                  mt: 0.75,
+                  color: "#46535c",
                   columnGap: "0.4em",
                   "& li:not(:last-child)::after": { content: "','" },
                 }}
@@ -156,12 +171,22 @@ export default function ProjectDrawer({
                     ...(index === 0
                       ? {
                           color: "white",
-                          bgcolor: "primary.main",
-                          px: 2,
+                          bgcolor: "#0f1922",
+                          px: 2.25,
                           py: 1,
-                          borderRadius: 1,
+                          borderRadius: "2px",
                           textDecoration: "none",
-                          "&:hover": { textDecoration: "underline" },
+                          boxShadow: "3px 3px 0 #154d77",
+                          transition:
+                            "transform 180ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 180ms ease",
+                          "&:hover": {
+                            transform: "translate(-1px, -1px)",
+                            boxShadow: "4px 4px 0 #f50057",
+                          },
+                          "@media (prefers-reduced-motion: reduce)": {
+                            transition: "none",
+                            "&:hover": { transform: "none" },
+                          },
                         }
                       : {}),
                   }}

@@ -4,15 +4,39 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:global([data-project-card]):hover .previewImage,
+:global([data-project-card]):focus-within .previewImage {
+  transform: scale(1.025);
+}
+
+.mediaBadge {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.55rem;
+  background: rgba(15, 25, 34, 0.88);
+  color: #f3f7fa;
+  font:
+    600 0.72rem / 1 ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    monospace;
+  letter-spacing: 0.04em;
+  border-left: 2px solid #f50057;
 }
 
 .previewExcerpt,
 .detailExcerpt {
   min-width: 0;
-  color: #202124;
-  background: #fff;
   font:
-    0.875rem / 1.6 ui-monospace,
+    0.84rem / 1.65 ui-monospace,
     SFMono-Regular,
     Consolas,
     monospace;
@@ -20,16 +44,42 @@
 }
 
 .previewExcerpt {
+  position: relative;
   display: grid;
   align-items: center;
-  padding: var(--stage-inset, 1rem);
+  justify-items: start;
+  width: 100%;
+  height: 100%;
+  padding: var(--stage-inset, 1.25rem);
+  background:
+    linear-gradient(135deg, rgba(21, 77, 119, 0.28) 0%, transparent 55%),
+    #0f1922;
+  color: #e6eff6;
+  text-align: left;
+  overflow: hidden;
+}
+
+.previewExcerpt::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: #154d77;
+  transition: background-color 220ms ease;
+}
+
+:global([data-project-card]):hover .previewExcerpt::before,
+:global([data-project-card]):focus-within .previewExcerpt::before {
+  background: #f50057;
 }
 
 .previewExcerpt pre {
   display: -webkit-box;
   overflow: hidden;
+  width: 100%;
   margin: 0;
   font: inherit;
+  text-align: left;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   -webkit-box-orient: vertical;
@@ -60,8 +110,10 @@
 .detailExcerpt {
   overflow: auto;
   margin: 0;
-  padding: 1rem;
-  border: 1px solid #cbd6de;
+  padding: 1.1rem 1.25rem;
+  color: #e6eff6;
+  background: #0f1922;
+  border-left: 3px solid #154d77;
 }
 
 .detailExcerpt:focus-visible {
@@ -82,4 +134,20 @@
 
 .unavailable {
   margin: 0;
+  padding: 1rem 1.15rem;
+  background: #f3f7fa;
+  border-left: 3px solid #cbd6de;
+  font-size: 0.92rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .previewImage,
+  .previewExcerpt::before {
+    transition: none;
+  }
+
+  :global([data-project-card]):hover .previewImage,
+  :global([data-project-card]):focus-within .previewImage {
+    transform: none;
+  }
 }

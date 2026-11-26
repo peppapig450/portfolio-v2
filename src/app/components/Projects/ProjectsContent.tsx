@@ -25,30 +25,35 @@ export default function ProjectsContent({
     project: Project
     open: boolean
   } | null>(null)
+  const filteredByTab = filters.map(({ label, type }) => {
+    const items = type
+      ? projects.filter((project) => project.type.includes(type))
+      : projects
+    return { label, items }
+  })
+
   return (
     <Container sx={{ mb: 5, px: { xs: 2, sm: 3 } }}>
       <Grid container justifyContent="center">
         <Grid size={{ xs: 12, md: 10 }} className={styles.panel}>
           <div className={styles.collection}>
-            <Typography
-              variant="h2"
-              component="h1"
-              sx={{ fontWeight: 700, mt: 8, mb: 3 }}
-            >
-              Projects.
-            </Typography>
+            <div className={styles.headerRow}>
+              <Typography
+                variant="h2"
+                component="h1"
+                className={styles.heading}
+                sx={{ fontWeight: 700 }}
+              >
+                Projects<span className={styles.headingAccent}>.</span>
+              </Typography>
+            </div>
             <CustomTabs
-              items={filters.map(({ label, type }) => ({
+              items={filteredByTab.map(({ label, items }) => ({
                 label,
+                count: items.length,
                 content: (
                   <ProjectGrid
-                    projects={
-                      type
-                        ? projects.filter((project) =>
-                            project.type.includes(type),
-                          )
-                        : projects
-                    }
+                    projects={items}
                     onOpen={(project) => setDrawer({ project, open: true })}
                   />
                 ),

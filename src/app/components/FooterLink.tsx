@@ -1,5 +1,4 @@
 import { publicRoutes } from "@/publicRoutes"
-import { arrowBounce } from "@/styles/keyframes"
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt"
 import FacebookIcon from "@mui/icons-material/Facebook"
 import GitHubIcon from "@mui/icons-material/GitHub"
@@ -110,7 +109,15 @@ const FooterLinkComponent = forwardRef<HTMLElement, FooterLinkProps>(
           passHref
           aria-label={`Navigate to ${goto} page`}
         >
-          <Box sx={{ display: "inline-flex", alignItems: "center" }}>
+          <Box
+            sx={{
+              display: "inline-flex",
+              alignItems: "center",
+              "&:hover .footer-arrow, &:focus-within .footer-arrow": {
+                transform: "translateX(1.35rem)",
+              },
+            }}
+          >
             <AnimatedTypography
               sx={{
                 fontSize: theme.typography.body1.fontSize,
@@ -123,15 +130,16 @@ const FooterLinkComponent = forwardRef<HTMLElement, FooterLinkProps>(
               {children}
             </AnimatedTypography>
             <ArrowRightAltIcon
+              className="footer-arrow"
               aria-hidden="true"
               sx={{
                 fontSize: "60px",
                 ml: theme.spacing(1),
                 color: theme.palette.secondary.main,
-                animation: `${arrowBounce} 0.5s infinite alternate`,
+                transform: "translateX(0.65rem)",
+                transition: "transform 240ms cubic-bezier(0.22, 1, 0.36, 1)",
                 "@media (prefers-reduced-motion: reduce)": {
-                  animation: "none",
-                  transform: "translateX(1rem)",
+                  transition: "none",
                 },
               }}
             />
