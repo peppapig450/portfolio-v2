@@ -1,0 +1,278 @@
+.specimen {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(
+        circle at 1px 1px,
+        rgba(21, 77, 119, 0.12) 1px,
+        transparent 0
+      )
+      0 0 / 16px 16px,
+    #f3f7fa;
+  padding: 0.75rem var(--stage-inset, 1.25rem);
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+  max-height: 11.25rem;
+  overflow: visible;
+}
+
+.gridLine {
+  stroke: #cbd6de;
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+}
+
+.connector {
+  stroke: #7992a4;
+  stroke-width: 1.5;
+}
+
+.connectorPulse {
+  stroke: #f50057;
+  stroke-width: 2;
+  stroke-dasharray: 12 48;
+  stroke-dashoffset: 60;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.nodeBox {
+  fill: #ffffff;
+  stroke: #154d77;
+  stroke-width: 1.5;
+}
+
+.nodeBoxPrimary {
+  fill: #154d77;
+  stroke: #0f1922;
+  stroke-width: 1.5;
+  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.nodeTitle {
+  fill: #0f1922;
+  font:
+    700 10.5px / 1 ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    monospace;
+  letter-spacing: 0.04em;
+}
+
+.nodeTitleLight {
+  fill: #ffffff;
+  font:
+    700 10.5px / 1 ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    monospace;
+  letter-spacing: 0.04em;
+}
+
+.nodeMeta {
+  fill: #46535c;
+  font:
+    500 9.5px / 1 ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    monospace;
+}
+
+.nodeMetaLight {
+  fill: #c9dfee;
+  font:
+    500 9.5px / 1 ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    monospace;
+}
+
+.bpmTag {
+  fill: #f50057;
+  font:
+    700 10px / 1 ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    monospace;
+  letter-spacing: 0.06em;
+}
+
+.barMuted {
+  fill: #cbd6de;
+}
+
+.barInk {
+  fill: #154d77;
+}
+
+.barAccent {
+  fill: #f50057;
+}
+
+/* Bipartite graph */
+.graphEdge {
+  stroke: #b5c6d3;
+  stroke-width: 1.25;
+  transition: stroke 220ms ease;
+}
+
+.graphEdgeActive {
+  stroke: #154d77;
+  stroke-width: 1.75;
+  transition:
+    stroke 220ms ease,
+    stroke-width 220ms ease;
+}
+
+.nodePrimary {
+  fill: #154d77;
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.nodeAccent {
+  fill: #f50057;
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* USAspending strata */
+.strataBar {
+  fill: #154d77;
+  opacity: 0.85;
+  transition:
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 200ms ease;
+  transform-box: fill-box;
+  transform-origin: left center;
+}
+
+.strataBarAccent {
+  fill: #f50057;
+  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform-box: fill-box;
+  transform-origin: left center;
+}
+
+/* Beat detector bars */
+.beatBar {
+  fill: #154d77;
+  opacity: 0.72;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.beatBarAccent {
+  fill: #f50057;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Hover activation driven by parent project card */
+:global([data-project-card]):hover .connectorPulse,
+:global([data-project-card]):focus-within .connectorPulse {
+  opacity: 1;
+  animation: syncSweep 1.1s linear infinite;
+}
+
+:global([data-project-card]):hover .graphEdgeActive,
+:global([data-project-card]):focus-within .graphEdgeActive {
+  stroke: #f50057;
+  stroke-width: 2;
+}
+
+:global([data-project-card]):hover .nodeAccent,
+:global([data-project-card]):focus-within .nodeAccent {
+  transform: scale(1.25);
+}
+
+:global([data-project-card]):hover .strataBar,
+:global([data-project-card]):focus-within .strataBar {
+  opacity: 1;
+  transform: scaleX(1.04);
+}
+
+:global([data-project-card]):hover .strataBarAccent,
+:global([data-project-card]):focus-within .strataBarAccent {
+  transform: scaleX(1.1);
+}
+
+:global([data-project-card]):hover .beatBarAccent,
+:global([data-project-card]):focus-within .beatBarAccent {
+  animation: beatPulse 0.48s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+:global([data-project-card]):hover .beatBar,
+:global([data-project-card]):focus-within .beatBar {
+  animation: barRipple 0.96s ease-in-out infinite;
+}
+
+@keyframes syncSweep {
+  from {
+    stroke-dashoffset: 60;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes beatPulse {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  35% {
+    transform: scaleY(1.22);
+  }
+}
+
+@keyframes barRipple {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.84);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .connectorPulse,
+  .nodeBoxPrimary,
+  .graphEdge,
+  .graphEdgeActive,
+  .nodePrimary,
+  .nodeAccent,
+  .strataBar,
+  .strataBarAccent {
+    transition: none;
+  }
+
+  :global([data-project-card]):hover .connectorPulse,
+  :global([data-project-card]):focus-within .connectorPulse,
+  :global([data-project-card]):hover .beatBarAccent,
+  :global([data-project-card]):focus-within .beatBarAccent,
+  :global([data-project-card]):hover .beatBar,
+  :global([data-project-card]):focus-within .beatBar {
+    animation: none;
+  }
+
+  :global([data-project-card]):hover .nodeAccent,
+  :global([data-project-card]):focus-within .nodeAccent,
+  :global([data-project-card]):hover .strataBar,
+  :global([data-project-card]):focus-within .strataBar,
+  :global([data-project-card]):hover .strataBarAccent,
+  :global([data-project-card]):focus-within .strataBarAccent {
+    transform: none;
+  }
+}

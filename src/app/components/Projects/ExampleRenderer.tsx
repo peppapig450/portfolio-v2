@@ -86,6 +86,12 @@ function ExampleVideo({
     : [{ src, type: undefined }]
 
   if (failed) {
+    if (poster) {
+      return (
+        // eslint-disable-next-line @next/next/no-img-element -- Fallback still when demo video is unavailable.
+        <img className={styles.detailImage} src={poster} alt={alt} />
+      )
+    }
     return (
       <p role="status" className={styles.unavailable}>
         Video unavailable. {alt}
@@ -148,7 +154,16 @@ export default function ExampleRenderer({
       case "image":
         return renderImage(example.src, example.alt)
       case "video": {
-        if (preview) return renderImage(example.poster, example.alt)
+        if (preview) {
+          return (
+            <>
+              {renderImage(example.poster, example.alt)}
+              <span className={styles.mediaBadge} aria-hidden="true">
+                video demo
+              </span>
+            </>
+          )
+        }
         const src = resolveProjectMediaUrl(example.src)
         return (
           <ExampleVideo

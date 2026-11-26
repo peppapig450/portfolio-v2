@@ -40,16 +40,22 @@ const NavLinkButton = styled(Button)<ButtonBaseProps>(({ theme }) => ({
     content: '""',
     position: "absolute",
     zIndex: -1,
-    left: "51%",
-    right: "51%",
-    bottom: "1.5px",
-    background: theme.palette.primary.main,
-    height: "1px",
-    transition: "left 0.3s ease-out, right 0.3s ease-out",
-  },
-  "&:hover::before, &:focus::before, &:active::before": {
     left: 0,
     right: 0,
+    bottom: "1.5px",
+    background: theme.palette.primary.main,
+    height: "1.5px",
+    transform: "scaleX(0)",
+    transformOrigin: "center",
+    transition: "transform 220ms cubic-bezier(0.22, 1, 0.36, 1)",
+  },
+  "&:hover::before, &:focus::before, &:active::before": {
+    transform: "scaleX(1)",
+  },
+  "@media (prefers-reduced-motion: reduce)": {
+    "&::before": {
+      transition: "none",
+    },
   },
 }))
 
