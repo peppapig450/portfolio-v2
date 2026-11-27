@@ -21,6 +21,7 @@
   max-height: 11.25rem;
   overflow: visible;
   font-family: var(--font-mono);
+  font-variation-settings: "MONO" 0.35;
 }
 
 .gridLine {
@@ -61,8 +62,8 @@
 .nodeTitle,
 .nodeTitleLight {
   font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-weight: 640;
+  letter-spacing: 0.02em;
 }
 
 .nodeTitle {
@@ -76,7 +77,8 @@
 .nodeMeta,
 .nodeMetaLight {
   font-size: 9.5px;
-  font-weight: 500;
+  font-weight: 480;
+  letter-spacing: 0.01em;
 }
 
 .nodeMeta {
@@ -90,8 +92,9 @@
 .bpmTag {
   fill: var(--color-secondary);
   font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-weight: 660;
+  font-variation-settings: "MONO" 0.8;
+  letter-spacing: 0.04em;
 }
 
 .barMuted {
