@@ -36,6 +36,8 @@
   min-width: 0;
   font-family: var(--font-mono);
   font-size: 0.84rem;
+  font-weight: 420;
+  font-variation-settings: "MONO" 1;
   line-height: 1.65;
   tab-size: 4;
 }
