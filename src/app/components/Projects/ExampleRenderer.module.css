@@ -24,11 +24,10 @@
   padding: 0.25rem 0.55rem;
   background: color-mix(in srgb, var(--color-ink) 88%, transparent);
   color: var(--color-surface-subtle);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 700;
   line-height: 1;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   border-left: 2px solid var(--color-secondary);
 }
 

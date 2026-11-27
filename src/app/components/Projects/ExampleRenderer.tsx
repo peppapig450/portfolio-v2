@@ -48,7 +48,7 @@ function ExampleImage({
 
   function handleFailure() {
     setFailed(true)
-    if (preview) onUnavailable?.()
+    onUnavailable?.()
   }
 
   return (
@@ -78,6 +78,7 @@ function ExampleVideo({
   poster?: string
 }) {
   const [failed, setFailed] = useState(false)
+  const [posterFailed, setPosterFailed] = useState(false)
   const sources = webmPath.test(src)
     ? [
         { src, type: "video/webm" },
@@ -86,11 +87,15 @@ function ExampleVideo({
     : [{ src, type: undefined }]
 
   if (failed) {
-    if (poster) {
+    if (poster && !posterFailed) {
       return (
         <>
-          {/* eslint-disable-next-line @next/next/no-img-element -- Fallback still when demo video is unavailable. */}
-          <img className={styles.detailImage} src={poster} alt={alt} />
+          <ExampleImage
+            src={poster}
+            alt={alt}
+            preview={false}
+            onUnavailable={() => setPosterFailed(true)}
+          />
           <p role="status" className={styles.unavailable}>
             Video playback unavailable. Showing preview image.
           </p>
