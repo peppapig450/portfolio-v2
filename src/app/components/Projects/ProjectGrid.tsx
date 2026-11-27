@@ -1,5 +1,6 @@
 "use client"
 
+import { designTokens } from "@/styles/theme"
 import type { Project } from "@/types/project"
 import { motion, useReducedMotion } from "framer-motion"
 import ProjectCard from "./ProjectCard"
@@ -24,7 +25,7 @@ const cardVariants = {
     y: 0,
     transition: {
       duration: 0.32,
-      ease: [0.22, 1, 0.36, 1] as const,
+      ease: designTokens.motion.easeOut,
     },
   },
 }
@@ -32,13 +33,15 @@ const cardVariants = {
 export default function ProjectGrid({
   projects,
   onOpen,
+  animateEntrance = false,
 }: {
   projects: readonly Project[]
   onOpen: (project: Project) => void
+  animateEntrance?: boolean
 }) {
   const reducedMotion = useReducedMotion()
 
-  if (reducedMotion) {
+  if (!animateEntrance || reducedMotion) {
     return (
       <div className={styles.grid}>
         {projects.map((project) => (

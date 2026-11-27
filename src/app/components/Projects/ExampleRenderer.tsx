@@ -88,8 +88,13 @@ function ExampleVideo({
   if (failed) {
     if (poster) {
       return (
-        // eslint-disable-next-line @next/next/no-img-element -- Fallback still when demo video is unavailable.
-        <img className={styles.detailImage} src={poster} alt={alt} />
+        <>
+          {/* eslint-disable-next-line @next/next/no-img-element -- Fallback still when demo video is unavailable. */}
+          <img className={styles.detailImage} src={poster} alt={alt} />
+          <p role="status" className={styles.unavailable}>
+            Video playback unavailable. Showing preview image.
+          </p>
+        </>
       )
     }
     return (

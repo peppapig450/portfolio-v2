@@ -7,11 +7,11 @@
   background:
     radial-gradient(
         circle at 1px 1px,
-        rgba(21, 77, 119, 0.12) 1px,
+        color-mix(in srgb, var(--color-primary) 12%, transparent) 1px,
         transparent 0
       )
       0 0 / 16px 16px,
-    #f3f7fa;
+    var(--color-surface-subtle);
   padding: 0.75rem var(--stage-inset, 1.25rem);
 }
 
@@ -20,10 +20,11 @@
   height: 100%;
   max-height: 11.25rem;
   overflow: visible;
+  font-family: var(--font-mono);
 }
 
 .gridLine {
-  stroke: #cbd6de;
+  stroke: var(--color-border);
   stroke-width: 1;
   stroke-dasharray: 3 4;
 }
@@ -34,7 +35,7 @@
 }
 
 .connectorPulse {
-  stroke: #f50057;
+  stroke: var(--color-secondary);
   stroke-width: 2;
   stroke-dasharray: 12 48;
   stroke-dashoffset: 60;
@@ -44,77 +45,65 @@
 
 .nodeBox {
   fill: #ffffff;
-  stroke: #154d77;
+  stroke: var(--color-primary);
   stroke-width: 1.5;
 }
 
 .nodeBoxPrimary {
-  fill: #154d77;
-  stroke: #0f1922;
+  fill: var(--color-primary);
+  stroke: var(--color-ink);
   stroke-width: 1.5;
-  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 240ms var(--ease-out);
   transform-box: fill-box;
   transform-origin: center;
 }
 
-.nodeTitle {
-  fill: #0f1922;
-  font:
-    700 10.5px / 1 ui-monospace,
-    SFMono-Regular,
-    Consolas,
-    monospace;
+.nodeTitle,
+.nodeTitleLight {
+  font-size: 10.5px;
+  font-weight: 700;
   letter-spacing: 0.04em;
+}
+
+.nodeTitle {
+  fill: var(--color-ink);
 }
 
 .nodeTitleLight {
   fill: #ffffff;
-  font:
-    700 10.5px / 1 ui-monospace,
-    SFMono-Regular,
-    Consolas,
-    monospace;
-  letter-spacing: 0.04em;
+}
+
+.nodeMeta,
+.nodeMetaLight {
+  font-size: 9.5px;
+  font-weight: 500;
 }
 
 .nodeMeta {
-  fill: #46535c;
-  font:
-    500 9.5px / 1 ui-monospace,
-    SFMono-Regular,
-    Consolas,
-    monospace;
+  fill: var(--color-muted);
 }
 
 .nodeMetaLight {
   fill: #c9dfee;
-  font:
-    500 9.5px / 1 ui-monospace,
-    SFMono-Regular,
-    Consolas,
-    monospace;
 }
 
 .bpmTag {
-  fill: #f50057;
-  font:
-    700 10px / 1 ui-monospace,
-    SFMono-Regular,
-    Consolas,
-    monospace;
+  fill: var(--color-secondary);
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: 0.06em;
 }
 
 .barMuted {
-  fill: #cbd6de;
+  fill: var(--color-border);
 }
 
 .barInk {
-  fill: #154d77;
+  fill: var(--color-primary);
 }
 
 .barAccent {
-  fill: #f50057;
+  fill: var(--color-secondary);
 }
 
 /* Bipartite graph */
@@ -125,55 +114,56 @@
 }
 
 .graphEdgeActive {
-  stroke: #154d77;
+  stroke: var(--color-primary);
   stroke-width: 1.75;
   transition:
     stroke 220ms ease,
     stroke-width 220ms ease;
 }
 
-.nodePrimary {
-  fill: #154d77;
-  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+.nodePrimary,
+.nodeAccent {
+  transition: transform 220ms var(--ease-out);
   transform-box: fill-box;
   transform-origin: center;
 }
 
+.nodePrimary {
+  fill: var(--color-primary);
+}
+
 .nodeAccent {
-  fill: #f50057;
-  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
-  transform-box: fill-box;
-  transform-origin: center;
+  fill: var(--color-secondary);
 }
 
 /* USAspending strata */
 .strataBar {
-  fill: #154d77;
+  fill: var(--color-primary);
   opacity: 0.85;
   transition:
-    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 280ms var(--ease-out),
     opacity 200ms ease;
   transform-box: fill-box;
   transform-origin: left center;
 }
 
 .strataBarAccent {
-  fill: #f50057;
-  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+  fill: var(--color-secondary);
+  transition: transform 280ms var(--ease-out);
   transform-box: fill-box;
   transform-origin: left center;
 }
 
 /* Beat detector bars */
 .beatBar {
-  fill: #154d77;
+  fill: var(--color-primary);
   opacity: 0.72;
   transform-box: fill-box;
   transform-origin: center;
 }
 
 .beatBarAccent {
-  fill: #f50057;
+  fill: var(--color-secondary);
   transform-box: fill-box;
   transform-origin: center;
 }
@@ -187,7 +177,7 @@
 
 :global([data-project-card]):hover .graphEdgeActive,
 :global([data-project-card]):focus-within .graphEdgeActive {
-  stroke: #f50057;
+  stroke: var(--color-secondary);
   stroke-width: 2;
 }
 
@@ -209,7 +199,7 @@
 
 :global([data-project-card]):hover .beatBarAccent,
 :global([data-project-card]):focus-within .beatBarAccent {
-  animation: beatPulse 0.48s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  animation: beatPulse 0.48s var(--ease-out) infinite;
 }
 
 :global([data-project-card]):hover .beatBar,

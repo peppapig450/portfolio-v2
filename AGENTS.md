@@ -34,7 +34,10 @@
 - Edit `src/data/projects.ts` to add or reorder projects. The server page
   passes the catalog to `ProjectsContent`, which owns the detail selection.
   The first example leads the card; the drawer shows every example in order.
-  Omit examples for a description-led card and put the primary link first.
+  When a project omits examples (or its lead preview is unavailable),
+  `ProjectCard` checks `getProjectSpecimen` in `ProjectSpecimen.tsx` for a
+  bespoke stage illustration before falling back to a description-led card.
+  Put the primary link first.
 - `ExampleRenderer` uses native media from trusted catalog sources. Bare
   filenames resolve against `NEXT_PUBLIC_BLOB_STORAGE_URL` or `/images/`
   when unset; use `/images/...` for tracked local stills. WebM demos also

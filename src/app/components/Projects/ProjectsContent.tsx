@@ -25,6 +25,8 @@ export default function ProjectsContent({
     project: Project
     open: boolean
   } | null>(null)
+  const [hasFiltered, setHasFiltered] = useState(false)
+
   const filteredByTab = filters.map(({ label, type }) => {
     const items = type
       ? projects.filter((project) => project.type.includes(type))
@@ -48,12 +50,13 @@ export default function ProjectsContent({
               </Typography>
             </div>
             <CustomTabs
+              onChange={() => setHasFiltered(true)}
               items={filteredByTab.map(({ label, items }) => ({
                 label,
-                count: items.length,
                 content: (
                   <ProjectGrid
                     projects={items}
+                    animateEntrance={hasFiltered}
                     onOpen={(project) => setDrawer({ project, open: true })}
                   />
                 ),
