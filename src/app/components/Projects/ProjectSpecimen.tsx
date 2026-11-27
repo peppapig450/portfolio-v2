@@ -1,17 +1,7 @@
 "use client"
 
+import type { ComponentType } from "react"
 import styles from "./ProjectSpecimen.module.css"
-
-const SPECIMEN_IDS = new Set([
-  "gentoo-overlay-vendoring",
-  "instagram-message-analyzer",
-  "usaspending-data-pipeline",
-  "beat-detector",
-])
-
-export function hasProjectSpecimen(projectId: string): boolean {
-  return SPECIMEN_IDS.has(projectId)
-}
 
 function GentooSpecimen() {
   return (
@@ -301,17 +291,17 @@ function BeatDetectorSpecimen() {
   )
 }
 
-export default function ProjectSpecimen({ projectId }: { projectId: string }) {
-  switch (projectId) {
-    case "gentoo-overlay-vendoring":
-      return <GentooSpecimen />
-    case "instagram-message-analyzer":
-      return <InstagramGraphSpecimen />
-    case "usaspending-data-pipeline":
-      return <UsaSpendingSpecimen />
-    case "beat-detector":
-      return <BeatDetectorSpecimen />
-    default:
-      return null
-  }
+const projectSpecimens: Readonly<Record<string, ComponentType>> = {
+  "gentoo-overlay-vendoring": GentooSpecimen,
+  "instagram-message-analyzer": InstagramGraphSpecimen,
+  "usaspending-data-pipeline": UsaSpendingSpecimen,
+  "beat-detector": BeatDetectorSpecimen,
+}
+
+export function getProjectSpecimen(
+  projectId: string,
+): ComponentType | undefined {
+  return Object.hasOwn(projectSpecimens, projectId)
+    ? projectSpecimens[projectId]
+    : undefined
 }

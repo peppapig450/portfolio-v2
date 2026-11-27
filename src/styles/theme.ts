@@ -14,14 +14,32 @@ const lato = Lato({
   display: "swap",
 })
 
+export const designTokens = {
+  color: {
+    primary: "#154d77",
+    secondary: "#f50057",
+    ink: "#0f1922",
+    muted: "#46535c",
+    border: "#cbd6de",
+    surfaceSubtle: "#f3f7fa",
+  },
+  font: {
+    mono: "ui-monospace, SFMono-Regular, Consolas, monospace",
+  },
+  motion: {
+    easeOut: [0.22, 1, 0.36, 1] as const,
+    easeOutCss: "cubic-bezier(0.22, 1, 0.36, 1)",
+  },
+} as const
+
 const mainTheme = responsiveFontSizes(
   createTheme({
     palette: {
       primary: {
-        main: "#154d77",
+        main: designTokens.color.primary,
       },
       secondary: {
-        main: "#f50057",
+        main: designTokens.color.secondary,
       },
     },
     typography: {
@@ -36,6 +54,16 @@ const mainTheme = responsiveFontSizes(
     components: {
       MuiCssBaseline: {
         styleOverrides: {
+          ":root": {
+            "--color-primary": designTokens.color.primary,
+            "--color-secondary": designTokens.color.secondary,
+            "--color-ink": designTokens.color.ink,
+            "--color-muted": designTokens.color.muted,
+            "--color-border": designTokens.color.border,
+            "--color-surface-subtle": designTokens.color.surfaceSubtle,
+            "--font-mono": designTokens.font.mono,
+            "--ease-out": designTokens.motion.easeOutCss,
+          },
           ".skip-link": {
             position: "absolute",
             top: 0,
@@ -51,7 +79,7 @@ const mainTheme = responsiveFontSizes(
           },
           "a:focus-visible, button:focus-visible, [tabindex='0']:focus-visible":
             {
-              outline: "2px solid #154d77",
+              outline: `2px solid ${designTokens.color.primary}`,
               outlineOffset: "2px",
             },
         },

@@ -4,7 +4,7 @@ import type { Project } from "@/types/project"
 import { Typography } from "@mui/material"
 import { useId, useState } from "react"
 import ExampleRenderer, { hasCardPreview } from "./ExampleRenderer"
-import ProjectSpecimen, { hasProjectSpecimen } from "./ProjectSpecimen"
+import { getProjectSpecimen } from "./ProjectSpecimen"
 import styles from "./projects.module.css"
 
 export default function ProjectCard({
@@ -15,11 +15,13 @@ export default function ProjectCard({
   onOpen: (project: Project) => void
 }) {
   const id = useId()
+  const mediaHintId = useId()
   const [unavailable, setUnavailable] = useState(false)
   const lead = project.examples?.[0]
   const hasPreview = !unavailable && hasCardPreview(lead)
-  const hasSpecimen = !hasPreview && hasProjectSpecimen(project.id)
-  const hasVisualStage = hasPreview || hasSpecimen
+  const Specimen = hasPreview ? undefined : getProjectSpecimen(project.id)
+  const hasVisualStage = hasPreview || !!Specimen
+  const isVideoPreview = hasPreview && lead.kind === "video"
   const description = (
     <p id={id} className={styles.description}>
       {project.description}
@@ -36,8 +38,8 @@ export default function ProjectCard({
             surface="preview"
             onPreviewUnavailable={() => setUnavailable(true)}
           />
-        ) : hasSpecimen ? (
-          <ProjectSpecimen projectId={project.id} />
+        ) : Specimen ? (
+          <Specimen />
         ) : (
           <div className={styles.plate}>{description}</div>
         )}
@@ -51,7 +53,7 @@ export default function ProjectCard({
           >
             <button
               type="button"
-              aria-describedby={id}
+              aria-describedby={isVideoPreview ? `${id} ${mediaHintId}` : id}
               aria-haspopup="dialog"
               onClick={(event) => {
                 // WebKit may not focus a clicked button for MUI to restore later.
@@ -67,6 +69,11 @@ export default function ProjectCard({
             ↗
           </span>
         </div>
+        {isVideoPreview ? (
+          <span id={mediaHintId} className={styles.srOnly}>
+            Video demo.
+          </span>
+        ) : null}
         {hasVisualStage ? description : null}
         {featuredTech.length > 0 ? (
           <ul className={styles.techLine} aria-label="Primary technologies">

@@ -47,7 +47,7 @@ const NavLinkButton = styled(Button)<ButtonBaseProps>(({ theme }) => ({
     height: "1.5px",
     transform: "scaleX(0)",
     transformOrigin: "center",
-    transition: "transform 220ms cubic-bezier(0.22, 1, 0.36, 1)",
+    transition: "transform 220ms var(--ease-out)",
   },
   "&:hover::before, &:focus::before, &:active::before": {
     transform: "scaleX(1)",

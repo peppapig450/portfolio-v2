@@ -137,7 +137,7 @@ const FooterLinkComponent = forwardRef<HTMLElement, FooterLinkProps>(
                 ml: theme.spacing(1),
                 color: theme.palette.secondary.main,
                 transform: "translateX(0.65rem)",
-                transition: "transform 240ms cubic-bezier(0.22, 1, 0.36, 1)",
+                transition: "transform 240ms var(--ease-out)",
                 "@media (prefers-reduced-motion: reduce)": {
                   transition: "none",
                 },

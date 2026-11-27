@@ -48,10 +48,11 @@ export default function ProjectDrawer({
           inert: !open,
           sx: {
             width: "min(100%, 37.5rem)",
-            color: "#0f1922",
+            color: "var(--color-ink)",
             overflow: "hidden",
-            borderLeft: "2px solid #0f1922",
-            boxShadow: "-6px 0 0 rgba(21, 77, 119, 0.14)",
+            borderLeft: "2px solid var(--color-ink)",
+            boxShadow:
+              "-6px 0 0 color-mix(in srgb, var(--color-primary) 14%, transparent)",
           },
         },
       }}
@@ -61,7 +62,7 @@ export default function ProjectDrawer({
           height: "3px",
           flexShrink: 0,
           background:
-            "linear-gradient(90deg, #154d77 0%, #154d77 72%, #f50057 72%, #f50057 100%)",
+            "linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary) 72%, var(--color-secondary) 72%, var(--color-secondary) 100%)",
         }}
       />
       <Box
@@ -77,10 +78,10 @@ export default function ProjectDrawer({
           aria-label="Close project details"
           onClick={onClose}
           sx={{
-            color: "#0f1922",
+            color: "var(--color-ink)",
             minWidth: 44,
             minHeight: 44,
-            "&:hover": { color: "#f50057" },
+            "&:hover": { color: "secondary.main" },
           }}
         >
           <CloseIcon />
@@ -110,7 +111,7 @@ export default function ProjectDrawer({
           </Typography>
           <Typography
             id="project-summary"
-            sx={{ color: "#46535c", fontSize: "1.1rem", mb: 3 }}
+            sx={{ color: "var(--color-muted)", fontSize: "1.1rem", mb: 3 }}
           >
             {project.description}
           </Typography>
@@ -126,7 +127,13 @@ export default function ProjectDrawer({
             </Box>
           ))}
           {project.technologies?.length ? (
-            <Box sx={{ borderTop: "1px solid #cbd6de", pt: 2, mt: 3 }}>
+            <Box
+              sx={{
+                borderTop: "1px solid var(--color-border)",
+                pt: 2,
+                mt: 3,
+              }}
+            >
               <Typography component="h3" sx={{ fontWeight: 700 }}>
                 Technologies
               </Typography>
@@ -139,7 +146,7 @@ export default function ProjectDrawer({
                   p: 0,
                   m: 0,
                   mt: 0.75,
-                  color: "#46535c",
+                  color: "var(--color-muted)",
                   columnGap: "0.4em",
                   "& li:not(:last-child)::after": { content: "','" },
                 }}
@@ -171,17 +178,17 @@ export default function ProjectDrawer({
                     ...(index === 0
                       ? {
                           color: "white",
-                          bgcolor: "#0f1922",
+                          bgcolor: "var(--color-ink)",
                           px: 2.25,
                           py: 1,
                           borderRadius: "2px",
                           textDecoration: "none",
-                          boxShadow: "3px 3px 0 #154d77",
+                          boxShadow: "3px 3px 0 var(--color-primary)",
                           transition:
-                            "transform 180ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 180ms ease",
+                            "transform 180ms var(--ease-out), box-shadow 180ms ease",
                           "&:hover": {
                             transform: "translate(-1px, -1px)",
-                            boxShadow: "4px 4px 0 #f50057",
+                            boxShadow: "4px 4px 0 var(--color-secondary)",
                           },
                           "@media (prefers-reduced-motion: reduce)": {
                             transition: "none",

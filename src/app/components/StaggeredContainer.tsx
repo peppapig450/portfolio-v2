@@ -1,5 +1,6 @@
 "use client"
 
+import { designTokens } from "@/styles/theme"
 import { isMotionComponent, motion, useReducedMotion } from "framer-motion"
 import {
   Children,
@@ -68,7 +69,10 @@ export const signalRevealVariant: Variants = {
     clipPath: "inset(0 0 0% 0)",
     transition: {
       duration: 0.36,
-      ease: [0.22, 1, 0.36, 1],
+      ease: designTokens.motion.easeOut,
+    },
+    transitionEnd: {
+      clipPath: "none",
     },
   },
 }
