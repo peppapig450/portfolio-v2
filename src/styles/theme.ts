@@ -14,6 +14,8 @@ const lato = Lato({
   display: "swap",
 })
 
+const easeOut = [0.22, 1, 0.36, 1] as const
+
 export const designTokens = {
   color: {
     primary: "#154d77",
@@ -27,8 +29,8 @@ export const designTokens = {
     mono: "ui-monospace, SFMono-Regular, Consolas, monospace",
   },
   motion: {
-    easeOut: [0.22, 1, 0.36, 1] as const,
-    easeOutCss: "cubic-bezier(0.22, 1, 0.36, 1)",
+    easeOut,
+    easeOutCss: `cubic-bezier(${easeOut.join(", ")})`,
   },
 } as const
 
