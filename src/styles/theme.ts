@@ -1,6 +1,6 @@
 "use client"
 import { createTheme, responsiveFontSizes } from "@mui/material/styles"
-import { Lato, Lora } from "next/font/google"
+import { Lato, Lora, Sono } from "next/font/google"
 
 const lora = Lora({
   subsets: ["latin"],
@@ -12,6 +12,13 @@ const lato = Lato({
   subsets: ["latin"],
   weight: ["400", "700", "100", "300", "900"],
   display: "swap",
+})
+
+const sono = Sono({
+  subsets: ["latin"],
+  axes: ["MONO"],
+  display: "swap",
+  fallback: ["ui-monospace", "SFMono-Regular", "Consolas", "monospace"],
 })
 
 const easeOut = [0.22, 1, 0.36, 1] as const
@@ -26,7 +33,7 @@ export const designTokens = {
     surfaceSubtle: "#f3f7fa",
   },
   font: {
-    mono: "ui-monospace, SFMono-Regular, Consolas, monospace",
+    mono: sono.style.fontFamily,
   },
   motion: {
     easeOut,
